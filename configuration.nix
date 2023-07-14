@@ -29,6 +29,8 @@
 
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
 
+  hardware.opengl.enable = true;
+
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Berlin";
