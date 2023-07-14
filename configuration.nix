@@ -82,6 +82,11 @@
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "docker" "power" ];
   };
+  
+  # TODO: add custom PATH stuff
+  #environment.profileRelativeEnvVars
+
+  environment.localBinInPath = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -94,9 +99,39 @@
     xwayland.enable = true;
     zsh = {
       enable = true;
-      # TODO: Move zsh configs?
+      histFile = "$HOME/.histfile";
+      histSize = 1000;
+      setOptions = [
+        "HYPHEN_INSENSITIVE"
+        "COMPLETION_WAITING_DOTS"
+      ];
+      shellAliases = {
+        "v" = "nvim";
+        "untar" = "tar -xavf";
+        "l." = "ls -d .* --color=auto";
+        "sv" = "sudo nvim";
+        "root" = "sudo -i";
+        "su" = "sudo -i";
+        "r" = "ranger";
+        "sr" = "sudo ranger";
+        "c" = "clear";
+        "cryptopen" = "sudo cryptsetup open";
+        "cryptclose" = "sudo cryptsetup close";
+        "py" = "python3";
+        "cdo" = "cd $OLDPWD";
+        "grep" = "grep --color=auto";
+        "pullall" = "for i in *; do if [[ -d $i/.git ]]; then cd $i; git pull; cd ..; fi; done";
+
+        "cleanup" ="sudo nix-collect-garbage --delete-older-than 7d && sudo nixos-rebuild switch";
+        "upall" = "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
+        "rebuild" = "sudo nixos-rebuild switch";
+      };
       ohMyZsh = {
         enable = true;
+        theme = "robbyrussell";
+        #plugins = [
+        #  "git"
+        #];
       };
     };
     neovim = {
@@ -140,9 +175,6 @@
     discord
     jetbrains-toolbox
     python3
-
-    sof-firmware
-    alsa-ucm-conf
   ];
 
   fonts.fonts = with pkgs; [
