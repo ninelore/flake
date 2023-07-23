@@ -60,8 +60,7 @@
     xkbVariant = "";
   };
 
-  console.keyMap = "de";
-  services.input-remapper.enable = true;
+  console.keyMap = "de-latin1";
 
   services.printing.enable = true;
 
@@ -95,18 +94,17 @@
   programs = {
     htop.enable = true;
     less.enable = true;
-    npm.enable = true;
     git.enable = true;
-    #waybar.enable = true;
+    waybar.enable = false;
     xwayland.enable = true;
     zsh = {
       enable = true;
       histFile = "$HOME/.histfile";
       histSize = 1000;
-      setOptions = [
-        "HYPHEN_INSENSITIVE"
-        "COMPLETION_WAITING_DOTS"
-      ];
+      #setOptions = [
+      #  "HYPHEN_INSENSITIVE"
+      #  "COMPLETION_WAITING_DOTS"
+      #];
       shellAliases = {
         "v" = "nvim";
         "untar" = "tar -xavf";
@@ -141,20 +139,22 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
-      # TODO: move and redo config?
+      # TODO: move and redo config
     };
     java = {
       enable = true;
       package = pkgs.jdk17;
     };
-    #hyprland = {
-    #  enable = true;
-    #  xwayland.enable = true;
-    #};
+    hyprland = {
+      enable = false;
+      xwayland.enable = false;
+    };
   };
 
   environment.systemPackages = with pkgs; [
     google-chrome
+    firefox
+    microsoft-edge
     gh
     gimp
     hugo
@@ -177,12 +177,14 @@
     discord
     jetbrains-toolbox
     python3
+    tree
   ];
 
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    liberation_ttf
     jetbrains-mono
   ];
 
