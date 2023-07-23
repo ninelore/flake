@@ -178,6 +178,7 @@
     jetbrains-toolbox
     python3
     tree
+    sddm-kcm
   ];
 
   fonts.fonts = with pkgs; [
