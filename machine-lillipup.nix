@@ -18,6 +18,7 @@
     intel-media-driver
     intel-vaapi-driver
     libvdpau-va-gl
+    vaapiVdpau
   ];
 
   services.keyd = {
@@ -118,8 +119,8 @@
           hash = "sha256-N09oM7/XfQpGdeSqK/t53v6FDlpGpdRUKkWWL0ueJyo=";
         })
         (fetchurl {
-          url = "https://github.com/WeirdTreeThing/chromebook-ucm-conf/archive/refs/heads/main.tar.gz";
-          hash = "sha256-vXFixh2HZD5zs0wARxAHmwtvk1R8/7gBs2y+delCnGc=";
+          url = "https://github.com/WeirdTreeThing/chromebook-ucm-conf/archive/792a6d5ef0d70ac1f0b4861f3d29da4fe9acaed1.tar.gz";
+          hash = "sha256-Ae/k9vA5lWiomSa6WCfp+ROqEij11FPwlHAIG6L19JI=";
         })
       ];
       unpackPhase = ''
@@ -128,6 +129,8 @@
         for _src in $srcs; do
           tar xf "$_src"
         done
+
+        ls
 
         runHook postUnpack
       '';
@@ -138,7 +141,10 @@
         cp -r alsa-ucm-conf-1.2.9/ucm alsa-ucm-conf-1.2.9/ucm2 $out/share/alsa
 
         mkdir -p $out/share/alsa/ucm2/conf.d
-        cp -r chromebook-ucm-conf-main/hdmi-common chromebook-ucm-conf-main/dmic-common chromebook-ucm-conf-main/tgl/* $out/share/alsa/ucm2/conf.d
+        cp -r chromebook-ucm-conf-792a6d5ef0d70ac1f0b4861f3d29da4fe9acaed1/hdmi-common \
+        chromebook-ucm-conf-792a6d5ef0d70ac1f0b4861f3d29da4fe9acaed1/dmic-common \
+        chromebook-ucm-conf-792a6d5ef0d70ac1f0b4861f3d29da4fe9acaed1/tgl/* \
+        $out/share/alsa/ucm2/conf.d
 
         runHook postInstall
       '';

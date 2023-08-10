@@ -156,22 +156,26 @@
     firefox
     microsoft-edge
     gh
+    git
     gimp
     hugo
+    flyctl
     neofetch
     gnumake
     pavucontrol
     w3m
     ranger
     freetype
+    gcc
     dotnet-sdk_7
     rustup
+    ruby
     powershell
     trash-cli
     unzip
     go
     nodejs_18
-    keyd
+    krita
     vscode
     libreoffice-qt
     discord
@@ -181,7 +185,7 @@
     sddm-kcm
   ];
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
