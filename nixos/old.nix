@@ -1,53 +1,10 @@
-################################
-##                            ##
-##    ninelore's nix config   ##
-##                            ##
-################################
-
-# Docs: ‘nixos-help’, configuration.nix(5) man page
-
-# Symlink the right machine config to machine.nix!
-
-
-{ config, pkgs, ... }:
+  ### OLD #############################
+{ pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./machine.nix
-    ];
-
-  boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.editor = false;
-
-    timeout = 1;
-
-    efi.canTouchEfiVariables = true;
-  };
-
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
 
   hardware.opengl.enable = true;
-
-  networking.networkmanager.enable = true;
-
-  time.timeZone = "Europe/Berlin";
-
-  i18n.defaultLocale = "de_DE.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
-    LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
-  };
 
   services.xserver.enable = true;
 
@@ -83,13 +40,11 @@
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "docker" "power" ];
   };
-  
+
   # TODO: add custom PATH stuff
   #environment.profileRelativeEnvVars
 
   environment.localBinInPath = true;
-
-  nixpkgs.config.allowUnfree = true;
 
   programs = {
     htop.enable = true;
@@ -122,7 +77,7 @@
         "grep" = "grep --color=auto";
         "pullall" = "for i in *; do if [[ -d $i/.git ]]; then cd $i; git pull; cd ..; fi; done";
 
-        "cleanup" ="sudo nix-collect-garbage --delete-older-than 7d && sudo nixos-rebuild switch";
+        "cleanup" = "sudo nix-collect-garbage --delete-older-than 7d && sudo nixos-rebuild switch";
         "upall" = "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
         "rebuild" = "sudo nixos-rebuild switch";
       };
@@ -189,16 +144,9 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    liberation_ttf
     jetbrains-mono
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
-
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = true;
-  };
-
-  system.autoUpgrade.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -208,7 +156,5 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  system.stateVersion = "23.05"; # Be careful here
 
 }
