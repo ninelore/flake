@@ -20,47 +20,38 @@
     polkit.enable = true;
   };
 
-  environment.systemPackages = with pkgs; # TODO
+  environment.systemPackages = with pkgs;
   with gnome; [
     adwaita-icon-theme
     adw-gtk3
     anyrun
     blueberry
     cliphist
-    gnome.file-roller
+    evince
+    file-roller
+    gnome-boxes
+    gnome-calculator
+    gnome-connections
+    gnome-software # for flatpak
     grimblast
     hypridle
     hyprlock
     kitty
-    mako
-    qadwaitadecorations
-    qadwaitadecorations-qt6    
-    #
-    themechanger
-    #
     loupe
+    mako
+    microsoft-edge
     nautilus
-    baobab
-    gnome-text-editor
-    gnome-calendar
-    gnome-boxes
-    gnome-system-monitor
-    gnome-control-center
-    gnome-weather
-    gnome-calculator
-    gnome-clocks
-    gnome-software # for flatpak
-    wl-gammactl
-    wl-clipboard
-    wayshot
     pavucontrol
-    brightnessctl
+    sushi
     swww
+    wev
+    wl-clipboard
   ];
 
-  programs.[
-    light
-  ].enable
+  programs = {
+    light.enable = true;
+    waybar.enable = true;
+  };
 
   services = {
     gvfs.enable = true;

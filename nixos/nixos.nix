@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
     [
       /etc/nixos/hardware-configuration.nix
+      ./audio.nix
       ./locale.nix
       ./ga402r.nix
     ];
@@ -50,6 +51,8 @@
     powerOnBoot = false;
   };
 
+  hardware.openrazer.enable = true;
+
   boot = {
     tmp.cleanOnBoot = true;
     supportedFilesystems = [ "ntfs" ];
@@ -67,14 +70,8 @@
     git
     gh
     home-manager
-    htop
-    less
     neovim
     nushellFull
-    ranger
-    ueberzug
-    unar
-    w3m
   ];
 
   system.stateVersion = "23.05";

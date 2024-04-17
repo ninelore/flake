@@ -35,7 +35,7 @@
     # nixos config
     nixosConfigurations = {
       "nixos" = let
-        username = "ninel";
+        username = "9l";
       in
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -56,6 +56,7 @@
                   "docker"
                   "adbusers"
                   "plugdev"
+                  "openrazer"
                 ];
               };
               home-manager = {
