@@ -22,6 +22,7 @@
     gimp
     webcord
     thunderbird
+    microsoft-edge
 
     # langs
     nodejs_20

@@ -71,7 +71,6 @@
     gh
     home-manager
     neovim
-    nushellFull
   ];
 
   system.stateVersion = "23.05";

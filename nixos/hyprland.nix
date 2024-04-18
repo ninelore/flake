@@ -1,8 +1,23 @@
-{
-  pkgs,
-  inputs,
-  config
+{ pkgs
+, inputs
+, config
 }: {
+  systemd = {
+    user.services.polkit-gnome-authentication-agent-1 = {
+      description = "polkit-gnome-authentication-agent-1";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
+
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -21,35 +36,34 @@
   };
 
   environment.systemPackages = with pkgs;
-  with gnome; [
-    adwaita-icon-theme
-    adw-gtk3
-    anyrun
-    blueberry
-    cliphist
-    evince
-    file-roller
-    gnome-boxes
-    gnome-calculator
-    gnome-connections
-    gnome-software # for flatpak
-    grimblast
-    hypridle
-    hyprlock
-    kitty
-    loupe
-    mako
-    microsoft-edge
-    nautilus
-    pavucontrol
-    sushi
-    swww
-    wev
-    wl-clipboard
-  ];
+    with gnome; [
+      adwaita-icon-theme
+      adw-gtk3
+      anyrun
+      blueberry
+      brightnessctl
+      cliphist
+      evince
+      file-roller
+      gnome-boxes
+      gnome-calculator
+      gnome-connections
+      gnome-software # for flatpak
+      grimblast
+      hypridle
+      hyprlock
+      kitty
+      loupe
+      mako
+      nautilus
+      pavucontrol
+      sushi
+      swww
+      wev
+      wl-clipboard
+    ];
 
   programs = {
-    light.enable = true;
     waybar.enable = true;
   };
 

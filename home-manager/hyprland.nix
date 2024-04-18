@@ -1,65 +1,114 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{ inputs
+, pkgs
+, ...
+}:
+let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
-  yt = pkgs.writeShellScript "yt" ''
-    notify-send "Opening video" "$(wl-paste)"
-    mpv "$(wl-paste)"
+  hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
+    handle() {
+      case $1 in
+        monitoradded*) swww restore ;;
+      esac
+    }
+    socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
+  '';
+
+  hyprpowermenu = pkgs.writeShellScript "hyprpowermenu" ''
+    op=$(echo -e " Poweroff\n Reboot\n Suspend\n Lock\n Logout" | anyrun --hide-icons true --hide-plugin-info true --show-results-immediately true --plugins libstdin.so | awk '{print tolower($2)}')
+    case $op in
+    poweroff) ;&
+    reboot) ;&
+    suspend)
+        systemctl "$op"
+        ;;
+    lock)
+        hyprlock
+        ;;
+    logout)
+        hyprctl dispatch exit
+        ;;
+    esac
+  '';
+
+  hyprprodmode = pkgs.writeShellScript "hyprprodmode" = ''
+    HYPRPRODMODE=$(hyprctl getoption general:gaps_in | awk 'NR==1{print $3}')
+    if [ ! "$HYPRPRODMODE" = 0 ] ; then
+      hyprctl --batch "\
+        keyword general:gaps_in 0;\
+        keyword general:gaps_out 0;\
+        keyword decoration:rounding 0;"
+      exit
+    fi
+    hyprctl reload
   '';
 
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  pactl = "${pkgs.pulseaudio}/bin/pactl";
-in {
-  wayland.windowManager.hyprland = { # TODO: Not my config yet
+  wpctl = "${pkgs.wireplumber}/bin/wpctl";
+in
+{
+  wayland.windowManager.hyprland = {
+    # TODO: Not my config yet
     enable = true;
     package = hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     plugins = with plugins; [
-      #hyprexpo
-      # hyprbars
+      hyprexpo
       # borderspp
     ];
 
     settings = {
       exec-once = [
-        "ags -b hypr"
+        "swww-daemon"
         "hyprctl setcursor Qogir 24"
         "transmission-gtk"
+        "${hypreventhandler}"
+        "protonmail-bridge --no-window"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
+        "hypridle"
       ];
 
       monitor = [
-        # "eDP-1, 1920x1080, 0x0, 1"
-        # "HDMI-A-1, 2560x1440, 1920x0, 1"
-        ",preferred,auto,1"
+        "eDP-2,preferred,0x0,1.666667"
+        "desc:HP Inc. HP X34 6CM25210CS,preferred,-1536x-250,1"
+        "desc:GWD ARZOPA 000000000000,preferred,1536x0,1.25"
+        ",preferred,auto,auto"
       ];
 
       general = {
         layout = "dwindle";
-        resize_on_border = true;
         no_cursor_warps = true;
+        gaps_in = 5;
+        gaps_out = 7,10,10,10;
+        border_size = 2;
+        col.active_border = "rgba(4444ddee) rgba(44dd44ee) rgba(dd4444ee) 30deg";
+        col.inactive_border = "rgba(595959aa)";
       };
 
       misc = {
         disable_splash_rendering = true;
-        force_default_wallpaper = 1;
+        vfr = true;
       };
 
       input = {
-        kb_layout = "hu";
+        kb_layout = "de";
+        numlock_by_default = 1;
+
         follow_mouse = 1;
+        accel_profile = "flat";
+        sensitivity = 0.8;
+
         touchpad = {
-          natural_scroll = "yes";
-          disable_while_typing = true;
+          natural_scroll = true;
+          clickfinger_behavior = true;
           drag_lock = true;
+          scroll_factor = 0.5;
+          tap-and-drag = true;
         };
-        sensitivity = 0;
-        float_switch_override_focus = 2;
       };
 
       binds = {
@@ -78,75 +127,87 @@ in {
         workspace_swipe_numbered = true;
       };
 
-      windowrule = let
-        f = regex: "float, ^(${regex})$";
-      in [
-        (f "org.gnome.Calculator")
-        (f "org.gnome.Nautilus")
-        (f "pavucontrol")
-        (f "nm-connection-editor")
-        (f "blueberry.py")
-        (f "org.gnome.Settings")
-        (f "org.gnome.design.Palette")
-        (f "Color Picker")
-        (f "xdg-desktop-portal")
-        (f "xdg-desktop-portal-gnome")
-        (f "transmission-gtk")
-        (f "com.github.Aylur.ags")
-        "workspace 7, title:Spotify"
-      ];
-
-      bind = let
-        binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
-        mvfocus = binding "SUPER" "movefocus";
-        ws = binding "SUPER" "workspace";
-        resizeactive = binding "SUPER CTRL" "resizeactive";
-        mvactive = binding "SUPER ALT" "moveactive";
-        mvtows = binding "SUPER SHIFT" "movetoworkspace";
-        e = "exec, ags -b hypr";
-        arr = [1 2 3 4 5 6 7 8 9];
-      in
+      windowrule =
+        let
+          f = regex: "float, ^(${regex})$";
+        in
         [
-          "CTRL SHIFT, R,  ${e} quit; ags -b hypr"
-          "SUPER, R,       ${e} -t launcher"
-          "SUPER, Tab,     ${e} -t overview"
-          ",XF86PowerOff,  ${e} -r 'powermenu.shutdown()'"
-          ",XF86Launch4,   ${e} -r 'recorder.start()'"
-          ",Print,         ${e} -r 'recorder.screenshot()'"
-          "SHIFT,Print,    ${e} -r 'recorder.screenshot(true)'"
-          "SUPER, Return, exec, xterm" # xterm is a symlink, not actually xterm
-          "SUPER, W, exec, firefox"
-          "SUPER, E, exec, wezterm -e lf"
+          (f "org.gnome.Calculator")
+          (f "pavucontrol")
+          (f "nm-connection-editor")
+          (f "blueberry")
+          (f "Color Picker")
+          (f "xdg-desktop-portal")
+          (f "xdg-desktop-portal-gnome")
+        ];
 
-          # youtube
-          ", XF86Launch1,  exec, ${yt}"
+      bind =
+        let
+          binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
+          mvfocus = binding "SUPER" "movefocus";
+          resizeactive = binding "SUPER CTRL" "resizeactive";
+          mvactive = binding "SUPER ALT" "moveactive";
+          mvwindow = binding "SUPER SHIFT" "movewindow";
+          ws = binding "SUPER" "workspace";
+          mvtows = binding "SUPER SHIFT" "movetoworkspace";
+          arr = [ 1 2 3 4 5 6 7 8 9 0 ];
+        in
+        [
+          "SUPER, return, exec, kitty"
+          "SUPER, E, exec, nautilus"
+          "SUPER, D, exec, anyrun"
+          "SUPER, L, exec, hyprlock"
+          "SUPER, M, exec, ${hyprpowermenu}"
+          "SUPER, V, exec, cliphist list | anyrun --hide-icons true --hide-plugin"
+          "SUPER CTRL, V, exec, cliphist wipe"
+          "SUPER SHIFT, S, exec, grimblast copy area"
 
-          "ALT, Tab, focuscurrentorlast"
-          "CTRL ALT, Delete, exit"
-          "ALT, Q, killactive"
-          "SUPER, F, togglefloating"
-          "SUPER, G, fullscreen"
-          "SUPER, O, fakefullscreen"
-          "SUPER, P, togglesplit"
+          "SUPER SHIFT, Q, killactive, "
+          "SUPER, space, togglefloating, "
+          "SUPER, P, pseudo, "
+          "SUPER, O, togglesplit, "
+          "SUPER, F, fullscreen,"
+          "SUPER, G, exec, ${hyprprodmode}"
 
-          "SUPER, space, hyprexpo:expo, toggle"
+          "SUPER, TAB, hyprexpo:expo, toggle"
 
           (mvfocus "k" "u")
           (mvfocus "j" "d")
           (mvfocus "l" "r")
           (mvfocus "h" "l")
-          (ws "left" "e-1")
-          (ws "right" "e+1")
-          (mvtows "left" "e-1")
-          (mvtows "right" "e+1")
-          (resizeactive "k" "0 -20")
-          (resizeactive "j" "0 20")
-          (resizeactive "l" "20 0")
-          (resizeactive "h" "-20 0")
-          (mvactive "k" "0 -20")
-          (mvactive "j" "0 20")
-          (mvactive "l" "20 0")
-          (mvactive "h" "-20 0")
+          (mvfocus "up" "u")
+          (mvfocus "down" "d")
+          (mvfocus "right" "r")
+          (mvfocus "left" "l")
+          (mvwindow "k" "u")
+          (mvwindow "j" "d")
+          (mvwindow "l" "r")
+          (mvwindow "h" "l")
+          (mvwindow "up" "u")
+          (mvwindow "down" "d")
+          (mvwindow "right" "r")
+          (mvwindow "left" "l")
+          (resizeactive "k" "0 -%5")
+          (resizeactive "j" "0 5%")
+          (resizeactive "l" "5% 0")
+          (resizeactive "h" "-5% 0")
+          (resizeactive "up" "0 -%5")
+          (resizeactive "down" "0 5%")
+          (resizeactive "right" "5% 0")
+          (resizeactive "left" "-5% 0")
+          (mvactive "k" "0 -5%")
+          (mvactive "j" "0 5%")
+          (mvactive "l" "5% 0")
+          (mvactive "h" "-5% 0")
+          (mvactive "up" "0 -%5")
+          (mvactive "down" "0 5%")
+          (mvactive "right" "5% 0")
+          (mvactive "left" "-5% 0")
+          # WS 11 and 12
+          (ws "code:20" "11")
+          (ws "code:21" "12")
+          (mvtows "code:20" "11")
+          (mvtows "code:21" "12")
         ]
         ++ (map (i: ws (toString i) (toString i)) arr)
         ++ (map (i: mvtows (toString i) (toString i)) arr);
@@ -156,8 +217,8 @@ in {
         ",XF86MonBrightnessDown, exec, ${brightnessctl} set  5%-"
         ",XF86KbdBrightnessUp,   exec, ${brightnessctl} -d asus::kbd_backlight set +1"
         ",XF86KbdBrightnessDown, exec, ${brightnessctl} -d asus::kbd_backlight set  1-"
-        ",XF86AudioRaiseVolume,  exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
-        ",XF86AudioLowerVolume,  exec, ${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
+        ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ +5%"
+        ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ -5%"
       ];
 
       bindl = [
@@ -166,19 +227,19 @@ in {
         ",XF86AudioPause,   exec, ${playerctl} pause"
         ",XF86AudioPrev,    exec, ${playerctl} previous"
         ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMicMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
+        ",XF86AudioMicMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle toggle"
       ];
 
       bindm = [
         "SUPER, mouse:273, resizewindow"
         "SUPER, mouse:272, movewindow"
+        "SUPER, mouse_down, workspace, e+1"
+        "SUPER, mouse_up, workspace, e-1"
       ];
 
       decoration = {
-        drop_shadow = "yes";
-        shadow_range = 8;
-        shadow_render_power = 2;
-        "col.shadow" = "rgba(00000044)";
+        rounding = 10;
+        drop_shadow = false;
 
         dim_inactive = false;
 
@@ -208,26 +269,13 @@ in {
 
       plugin = {
         hyprexpo = {
-          columns = 3;
+          columns = 4;
           gap_size = 5;
           bg_col = "rgb(232323)";
           workspace_method = "center current";
           enable_gesture = true;
           gesture_distance = 300;
           gesture_positive = false;
-        };
-        hyprbars = {
-          bar_color = "rgb(2a2a2a)";
-          bar_height = 28;
-          col_text = "rgba(ffffffdd)";
-          bar_text_size = 11;
-          bar_text_font = "Ubuntu Nerd Font";
-
-          buttons = {
-            button_size = 0;
-            "col.maximize" = "rgba(ffffff11)";
-            "col.close" = "rgba(ff111133)";
-          };
         };
       };
     };

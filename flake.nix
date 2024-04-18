@@ -1,8 +1,8 @@
-################################
-##                            ##
-##    ninelore's nix config   ##
-##                            ##
-################################
+##################################
+##                              ##
+##    ninelore's nixos config   ##
+##                              ##
+##################################
 
 {
   description = "9l.nix";
@@ -44,6 +44,7 @@
             home-manager.nixosModules.home-manager
             {
               users.users.${username} = {
+                shell = pkgs.nushell;
                 isNormalUser = true;
                 initialPassword = username;
                 extraGroups = [
