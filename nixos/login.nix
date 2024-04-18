@@ -43,6 +43,7 @@ in
     enable = true;
     wayland.enable = true;
     theme = "breeze";
+    package = pkgs.kdePackages.sddm;
     #extraPackages = [ chiliCustom ];
     enableHidpi = true;
     autoNumlock = true;
