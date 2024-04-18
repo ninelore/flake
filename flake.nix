@@ -33,6 +33,7 @@
     # nixos config
     nixosConfigurations = {
       "nixos" = let
+        hostname = "nixos";
         username = "9l";
       in
         nixpkgs.lib.nixosSystem {
@@ -42,7 +43,7 @@
             home-manager.nixosModules.home-manager
             {
               users.users.${username} = {
-                shell = nixpkgs.nushell;
+                shell = nixpkgs.legacyPackages.${system}.pkgs.nushell;
                 isNormalUser = true;
                 initialPassword = username;
                 extraGroups = [
@@ -58,6 +59,7 @@
                   "openrazer"
                 ];
               };
+              networking.hostName = hostname;
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
