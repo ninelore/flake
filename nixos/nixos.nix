@@ -6,6 +6,7 @@
     ./login.nix
     ./hyprland.nix
     #./ga402r.nix
+    #./cros-sof-std.nix
   ];
 
   documentation.nixos.enable = false;
