@@ -49,13 +49,13 @@
   programs.gpg.enable = true;
 
   services = {
-    gpg-agent.enable = true
-      #  kdeconnect = {
-      #    enable = true;
-      #    indicator = true;
-      #  };
-      };
+    gpg-agent.enable = true;
+    #  kdeconnect = {
+    #    enable = true;
+    #    indicator = true;
+    #  };
+  };
 
-    programs.home-manager.enable = true;
-    home.stateVersion = "21.11";
-  }
+  programs.home-manager.enable = true;
+  home.stateVersion = "21.11";
+}
