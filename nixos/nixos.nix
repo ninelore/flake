@@ -6,6 +6,7 @@
       /etc/nixos/hardware-configuration.nix
       ./audio.nix
       ./locale.nix
+      ./login.nix
       ./ga402r.nix
     ];
 
