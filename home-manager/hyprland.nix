@@ -48,7 +48,7 @@ let
 
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  #wpctl = "${pkgs.wireplumber}/bin/wpctl";
+  wpctl = "${pkgs.wireplumber}/bin/wpctl";
 in
 {
   imports = [
@@ -179,7 +179,9 @@ in
           "SUPER, F, fullscreen,"
           "SUPER, G, exec, ${hyprprodmode}"
 
-          "SUPER, TAB, hyprexpo:expo, toggle"
+          #"SUPER, TAB, hyprexpo:expo, toggle"
+
+          ", XF86ScreenSaver, exec, hyprlock"
 
           (mvfocus "k" "u")
           (mvfocus "j" "d")
@@ -227,8 +229,8 @@ in
         ",XF86MonBrightnessDown, exec, ${brightnessctl} set  5%-"
         ",XF86KbdBrightnessUp,   exec, ${brightnessctl} -d asus::kbd_backlight set +1"
         ",XF86KbdBrightnessDown, exec, ${brightnessctl} -d asus::kbd_backlight set  1-"
-        ",XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ +5%"
-        ",XF86AudioLowerVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ -5%"
+        ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ +5%"
+        ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ -5%"
       ];
 
       bindl = [
@@ -237,7 +239,7 @@ in
         ",XF86AudioPause,   exec, ${playerctl} pause"
         ",XF86AudioPrev,    exec, ${playerctl} previous"
         ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle toggle"
+        ",XF86AudioMicMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle toggle"
       ];
 
       bindm = [
@@ -278,9 +280,9 @@ in
       plugin = {
         hyprexpo = {
           columns = 4;
-          gap_size = 5;
+          gap_size = 10;
           bg_col = "rgb(232323)";
-          workspace_method = "center current";
+          workspace_method = "first 1";
           enable_gesture = true;
           gesture_distance = 300;
           gesture_positive = false;
