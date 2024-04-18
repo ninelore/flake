@@ -115,23 +115,24 @@ in
   environment = {
     systemPackages = [ pkgs.sof-firmware ];
     sessionVariables.ALSA_CONFIG_UCM2 = "${cb-ucm-conf}/share/alsa/ucm2";
-    etc = {
-      "wireplumber/main.lua.d/51-increase-headroom.lua".text = ''
-          rule = {
-            matches = {
-              {
-                { "node.name", "matches", "alsa_output.*" },
-              },
-            },
-            apply_properties = {
-              ["api.alsa.headroom"] = 4096,
-            },
-          }
-
-        table.insert(alsa_monitor.rules,rule)
-      '';
-    };
   };
+
+  services.pipewire.wireplumber.configPackages = [
+    (pkgs.writeTextDir "share/wireplumber/main.lua.d/51-increase-headroom.lua" ''
+      rule = {
+        matches = {
+          {
+            { "node.name", "matches", "alsa_output.*" },
+          },
+        },
+        apply_properties = {
+          ["api.alsa.headroom"] = 4096,
+        },
+      }
+
+      table.insert(alsa_monitor.rules,rule)
+    '')
+  ];
 
   system.replaceRuntimeDependencies = [
     ({
