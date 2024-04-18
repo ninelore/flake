@@ -54,7 +54,6 @@
         ]
     },
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{icon}",
         "tooltip-format": "{percent}%",
         "format-icons": [
@@ -122,8 +121,6 @@
             "portable": "",
             "car": "",
             "default": [
-                //"",
-                //"",
                 ""
             ]
         },
