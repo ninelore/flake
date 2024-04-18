@@ -10,6 +10,6 @@
     systemd = {
       enable = true;
       target = "hyprland-session.target"
-    }
+    };
   }
 }
