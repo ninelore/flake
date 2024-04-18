@@ -32,8 +32,8 @@
   }: {
     # nixos config
     nixosConfigurations = {
-      "nixos" = let
-        hostname = "nixos";
+      "replaceme" = let
+        hostname = "replaceme";
         username = "9l";
         system = "x86_64-linux";
       in
