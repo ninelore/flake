@@ -1,6 +1,12 @@
 {config, ...}: {
   imports = [
-    ../home-manager/hyprland.nix
+    ../home-manager/configcopy.nix
+    ../home-manager/git.nix
+    ../home-manager/hyprland.nix    
+    ../home-manager/mako.nix
+    ../home-manager/packages.nix
+    ../home-manager/sh.nix
+    ../home-manager/theme.nix
   ];
 
   news.display = "show";
@@ -38,12 +44,15 @@
     "file://${home} Home"
   ];
 
-  #services = {
+  programs.gpg.enable = true;
+
+  services = {
+    gpg-agent.enable = true
   #  kdeconnect = {
   #    enable = true;
   #    indicator = true;
   #  };
-  #};
+  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "21.11";

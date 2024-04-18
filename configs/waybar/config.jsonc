@@ -1,0 +1,143 @@
+{
+    "layer": "top",
+    "spacing": 16,
+    "modules-left": [
+        "clock",
+        "wireplumber",
+        "temperature"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "bluetooth",
+        "network",
+        "backlight",
+        "power-profiles-daemon",
+        "battery"
+    ],
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "on-click": "activate",
+        "format": "{name}"
+    },
+    "hyprland/window": {
+        "format": "{class}"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "spacing": 14
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y-%m-%d}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "tooltip-format": "{temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}",
+        "tooltip-format": "{percent}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-charging": "{icon}󱐋",
+        "format-plugged": "{icon}",
+        "tooltip-format": "{capacity}% | {timeTo}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "tooltip-format": "{signalStrength}% {essid}\n{ifname}: {ipaddr}/{cidr}\nvia {gwaddr}",
+        "format-linked": "!󰅛!",
+        "format-disconnected": "󰲛"
+    },
+    "bluetooth": {
+        "format": "",
+        "format-off": "󰂲",
+        "format-connected": "󰂱",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueberry"
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}",
+        "format-bluetooth-muted": "",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                //"",
+                //"",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+          "default": "",
+          "performance": "",
+          "balanced": "",
+          "power-saver": ""
+        }
+      }
+}

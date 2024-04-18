@@ -63,10 +63,6 @@
       wl-clipboard
     ];
 
-  programs = {
-    waybar.enable = true;
-  };
-
   services = {
     gvfs.enable = true;
     #devmon.enable = true;

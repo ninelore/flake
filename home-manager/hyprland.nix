@@ -49,6 +49,12 @@ let
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 in
 {
+  imports = [
+    ./waybar.nix
+  ];
+
+  services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
+
   wayland.windowManager.hyprland = {
     # TODO: Not my config yet
     enable = true;
