@@ -1,9 +1,7 @@
 {
   pkgs,
   ...
-}: let
-
-in {
+}: {
   services.mako = {
     font = "NotoSansNerdFont-Regular 11";
     border-radius = 7;
@@ -11,5 +9,5 @@ in {
     border-color = "#FAFAFADD";
     height = 400;
     width = 550;
-  }
+  };
 }
