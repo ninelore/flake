@@ -1,8 +1,8 @@
-{config, ...}: {
+{ config, ... }: {
   imports = [
     ../home-manager/configcopy.nix
     ../home-manager/git.nix
-    ../home-manager/hyprland.nix    
+    ../home-manager/hyprland.nix
     ../home-manager/mako.nix
     ../home-manager/packages.nix
     ../home-manager/sh.nix
@@ -12,7 +12,7 @@
   news.display = "show";
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
     warn-dirty = false;
   };
 
@@ -38,22 +38,24 @@
     ];
   };
 
-  gtk.gtk3.bookmarks = let
-    home = config.home.homeDirectory;
-  in [
-    "file://${home} Home"
-  ];
+  gtk.gtk3.bookmarks =
+    let
+      home = config.home.homeDirectory;
+    in
+    [
+      "file://${home} Home"
+    ];
 
   programs.gpg.enable = true;
 
   services = {
     gpg-agent.enable = true
-  #  kdeconnect = {
-  #    enable = true;
-  #    indicator = true;
-  #  };
-  };
+      #  kdeconnect = {
+      #    enable = true;
+      #    indicator = true;
+      #  };
+      };
 
-  programs.home-manager.enable = true;
-  home.stateVersion = "21.11";
-}
+    programs.home-manager.enable = true;
+    home.stateVersion = "21.11";
+  }
