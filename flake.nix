@@ -35,9 +35,10 @@
       "nixos" = let
         hostname = "nixos";
         username = "9l";
+        system = "x86_64-linux";
       in
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          system = system;
           modules = [
             ./nixos/nixos.nix
             home-manager.nixosModules.home-manager
