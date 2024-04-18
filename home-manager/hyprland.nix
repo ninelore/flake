@@ -79,7 +79,7 @@ in
       ];
 
       monitor = [
-        "eDP-2,preferred,0x0,1.666667"
+        "desc:Thermotrex Corporation TL140ADXP01,preferred,0x0,1.666667"
         "desc:HP Inc. HP X34 6CM25210CS,preferred,-1536x-250,1"
         "desc:GWD ARZOPA 000000000000,preferred,1536x0,1.25"
         ",preferred,auto,auto"
@@ -91,8 +91,8 @@ in
         gaps_in = 5;
         gaps_out = "7,10,10,10";
         border_size = 2;
-        col.active_border = "rgba(4444ddee) rgba(44dd44ee) rgba(dd4444ee) 30deg";
-        col.inactive_border = "rgba(595959aa)";
+        "col.active_border" = "rgba(4444ddee) rgba(44dd44ee) rgba(dd4444ee) 30deg";
+        "col.inactive_border" = "rgba(595959aa)";
       };
 
       misc = {
@@ -130,7 +130,6 @@ in
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = true;
-        workspace_swipe_numbered = true;
       };
 
       windowrule =
@@ -239,8 +238,6 @@ in
       bindm = [
         "SUPER, mouse:273, resizewindow"
         "SUPER, mouse:272, movewindow"
-        "SUPER, mouse_down, workspace, e+1"
-        "SUPER, mouse_up, workspace, e-1"
       ];
 
       decoration = {
