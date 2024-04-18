@@ -56,15 +56,19 @@
   hardware.openrazer.enable = true;
 
   boot = {
+    consoleLogLevel = 2;
+    initrd.verbose = false;
+    plymouth.enable = true;
+    kernelParams = [ "quiet" "splash" ];
+
     tmp.cleanOnBoot = true;
-    supportedFilesystems = [ "ntfs" ];
+    #supportedFilesystems = [ "ntfs" ];
     loader = {
       timeout = 0;
       systemd-boot.enable = true;
       systemd-boot.editor = false;
       efi.canTouchEfiVariables = true;
     };
-    plymouth.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
