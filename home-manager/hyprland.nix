@@ -56,7 +56,6 @@ in
   services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
 
   wayland.windowManager.hyprland = {
-    # TODO: Not my config yet
     enable = true;
     package = hyprland;
     systemd.enable = true;
@@ -79,7 +78,10 @@ in
       ];
 
       monitor = [
-        "desc:Thermotrex Corporation TL140ADXP01,preferred,0x0,1.666667"
+        # Laptops
+        "desc:Thermotrex Corporation TL140ADXP01,preferred,auto,1.666667" # GA402R
+        "desc:AU Optronics 0x662D, preferred, auto,1.25"
+        # External
         "desc:HP Inc. HP X34 6CM25210CS,preferred,-1536x-250,1"
         "desc:GWD ARZOPA 000000000000,preferred,1536x0,1.25"
         ",preferred,auto,auto"
