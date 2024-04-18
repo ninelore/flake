@@ -32,7 +32,7 @@ let
     esac
   '';
 
-  hyprprodmode = pkgs.writeShellScript "hyprprodmode" = ''
+  hyprprodmode = pkgs.writeShellScript "hyprprodmode" ''
     HYPRPRODMODE=$(hyprctl getoption general:gaps_in | awk 'NR==1{print $3}')
     if [ ! "$HYPRPRODMODE" = 0 ] ; then
       hyprctl --batch "\
