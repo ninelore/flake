@@ -5,7 +5,7 @@
 }: let
   shellAliases = {
     "db" = "distrobox";
-    "untar" = "tar -xavf"
+    "untar" = "tar -xavf";
     "v" = "nvim";
     "ll" = "ls -a";
     "l" = "ls";
