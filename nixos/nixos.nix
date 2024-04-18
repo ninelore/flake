@@ -7,7 +7,7 @@
       ./audio.nix
       ./locale.nix
       ./login.nix
-      ./ga402r.nix
+      #./ga402r.nix
     ];
 
   documentation.nixos.enable = false;

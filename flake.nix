@@ -8,8 +8,6 @@
   description = "9l.nix";
 
   inputs = {
-    dotfiles.url = "github:ninelore/dots";
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -44,7 +42,7 @@
             home-manager.nixosModules.home-manager
             {
               users.users.${username} = {
-                shell = pkgs.nushell;
+                shell = nixpkgs.nushell;
                 isNormalUser = true;
                 initialPassword = username;
                 extraGroups = [
