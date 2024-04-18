@@ -11,7 +11,7 @@ let
     };
     themeIni = [
       # https://w.wallhaven.cc/full/r2/wallhaven-r2pmx1.jpg
-      { section = "General"; key = "background"; value = ./assets/wallhaven-r2pmx1.jpg; }
+      { section = "General"; key = "background"; value = ../assets/wallhaven-r2pmx1.jpg; }
     ];
 
     pname = "sddm-theme-${name}";
