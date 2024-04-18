@@ -62,8 +62,8 @@ in
           brightnessdown = "brightnessdown";
           brightnessup = "brightnessup";
           mute = "mute";
-          volumedown = "volumedown";
-          volumeup = "volumeup";
+          "volumedown" = "volumedown";
+          "volumeup" = "volumeup";
           sleep = "coffee";
         };
         meta = {

@@ -48,7 +48,7 @@ let
 
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  wpctl = "${pkgs.wireplumber}/bin/wpctl";
+  #wpctl = "${pkgs.wireplumber}/bin/wpctl";
 in
 {
   imports = [
