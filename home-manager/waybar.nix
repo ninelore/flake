@@ -9,7 +9,7 @@
     style = ../configs/waybar/style.css;
     systemd = {
       enable = true;
-      target = "hyprland-session.target"
+      target = "hyprland-session.target";
     };
   }
 }
