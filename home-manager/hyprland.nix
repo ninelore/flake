@@ -197,11 +197,11 @@ in
           (mvwindow "down" "d")
           (mvwindow "right" "r")
           (mvwindow "left" "l")
-          (resizeactive "k" "0 -%5")
+          (resizeactive "k" "0 -5%")
           (resizeactive "j" "0 5%")
           (resizeactive "l" "5% 0")
           (resizeactive "h" "-5% 0")
-          (resizeactive "up" "0 -%5")
+          (resizeactive "up" "0 -5%")
           (resizeactive "down" "0 5%")
           (resizeactive "right" "5% 0")
           (resizeactive "left" "-5% 0")
@@ -209,7 +209,7 @@ in
           (mvactive "j" "0 5%")
           (mvactive "l" "5% 0")
           (mvactive "h" "-5% 0")
-          (mvactive "up" "0 -%5")
+          (mvactive "up" "0 -5%")
           (mvactive "down" "0 5%")
           (mvactive "right" "5% 0")
           (mvactive "left" "-5% 0")
@@ -227,8 +227,8 @@ in
         ",XF86MonBrightnessDown, exec, ${brightnessctl} set  5%-"
         ",XF86KbdBrightnessUp,   exec, ${brightnessctl} -d asus::kbd_backlight set +1"
         ",XF86KbdBrightnessDown, exec, ${brightnessctl} -d asus::kbd_backlight set  1-"
-        ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ +5%"
-        ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ -5%"
+        ",XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ +5%"
+        ",XF86AudioLowerVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ -5%"
       ];
 
       bindl = [
@@ -237,7 +237,7 @@ in
         ",XF86AudioPause,   exec, ${playerctl} pause"
         ",XF86AudioPrev,    exec, ${playerctl} previous"
         ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMicMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle toggle"
+        ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle toggle"
       ];
 
       bindm = [

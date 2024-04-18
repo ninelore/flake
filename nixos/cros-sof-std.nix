@@ -23,7 +23,7 @@ let
   };
 in
 {
-  # Config for cros-stadard keyboard and SOF
+  # Config for cros-stadard keyboard and SOF for 24.05
   services.keyd = {
     enable = true;
     keyboards.internal = {
