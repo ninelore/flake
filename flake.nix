@@ -39,6 +39,7 @@
       in
         nixpkgs.lib.nixosSystem {
           system = system;
+          specialArgs = {inherit inputs;};
           modules = [
             ./nixos/nixos.nix
             home-manager.nixosModules.home-manager

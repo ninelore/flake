@@ -1,15 +1,12 @@
-{ pkgs, ... }:
-
-{
-  imports =
-    [
-      /etc/nixos/hardware-configuration.nix
-      ./audio.nix
-      ./hyprland.nix
-      ./locale.nix
-      ./login.nix
-      #./ga402r.nix
-    ];
+{ pkgs, ... }: {
+  imports = [
+    /etc/nixos/hardware-configuration.nix
+    ./audio.nix
+    ./locale.nix
+    ./login.nix
+    ./hyprland.nix
+    #./ga402r.nix
+  ];
 
   documentation.nixos.enable = false;
   nixpkgs.config.allowUnfree = true;
