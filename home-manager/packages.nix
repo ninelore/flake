@@ -26,7 +26,6 @@
 
     # langs
     nodejs_20
-    nodePackages.npm
     yarn
     go
     rustup
