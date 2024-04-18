@@ -3,13 +3,15 @@
 , ...
 }:
 let
+  wp = ../assets/wallhaven-r2pmx1.jpg;
+  
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
   hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
     handle() {
       case $1 in
-        monitoradded*) swww restore ;;
+        monitoradded*) swww img ${wp} ;;
       esac
     }
     socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
@@ -68,6 +70,7 @@ in
     settings = {
       exec-once = [
         "swww-daemon"
+        "swww img ${wp}"
         "hyprctl setcursor Qogir 24"
         "transmission-gtk"
         "${hypreventhandler}"
