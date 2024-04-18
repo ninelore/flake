@@ -58,7 +58,10 @@
 
   boot = {
     consoleLogLevel = 2;
-    initrd.verbose = false;
+    initrd = {
+      verbose = false;
+      systemd.enable = true;
+    };
     plymouth.enable = true;
     kernelParams = [ "quiet" "splash" "rd.systemd.show_status=error" "rd.udev.log_level=2" "udev.log_priority=2" "boot.shell_on_fail" ];
 
