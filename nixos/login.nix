@@ -9,8 +9,8 @@ let
       rev = version;
       sha256 = "036fxsa7m8ymmp3p40z671z163y6fcsa9a641lrxdrw225ssq5f3";
     };
+    # https://w.wallhaven.cc/full/r2/wallhaven-r2pmx1.jpg
     themeIni = [
-      # https://w.wallhaven.cc/full/r2/wallhaven-r2pmx1.jpg
       { section = "General"; key = "background"; value = ../assets/wallhaven-r2pmx1.jpg; }
     ];
 
