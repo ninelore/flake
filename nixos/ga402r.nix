@@ -1,6 +1,4 @@
 {config, ...}: {
-  modesetting.enable = true;
-
   # asusctl
   services.asusd = {
     enable = true;
