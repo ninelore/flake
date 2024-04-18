@@ -41,8 +41,6 @@ in {
         NIXPKGS_ALLOW_UNFREE = "1";
         NIXPKGS_ALLOW_INSECURE = "1";
         SHELL = ''"${pkgs.nushell}/bin/nu"'';
-        EDITOR = config.home.sessionVariables.EDITOR;
-        VISUAL = config.home.sessionVariables.VISUAL;
       };
       extraConfig = let
         conf = builtins.toJSON {
