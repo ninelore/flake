@@ -89,7 +89,7 @@ in
         layout = "dwindle";
         no_cursor_warps = true;
         gaps_in = 5;
-        gaps_out = 7,10,10,10;
+        gaps_out = "7,10,10,10";
         border_size = 2;
         col.active_border = "rgba(4444ddee) rgba(44dd44ee) rgba(dd4444ee) 30deg";
         col.inactive_border = "rgba(595959aa)";
