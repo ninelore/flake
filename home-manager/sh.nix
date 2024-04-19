@@ -82,7 +82,7 @@ in
               {
                 name = "completion_menu";
                 only_buffer_difference = false;
-                marker = " ";
+                marker = "  ";
                 type = {
                   layout = "columnar"; # list, description
                   columns = 4;

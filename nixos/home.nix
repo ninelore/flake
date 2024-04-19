@@ -24,7 +24,7 @@
 
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       GDK_BACKEND = "wayland,x11";
-      GDK_SCALE = 1.5;
+      GDK_SCALE = 1.25;
       GDK_DPI_SCALE = 1;
       MOZ_ENABLE_WAYLAND = 1;
       NIXOS_OZONE_WL = "1";

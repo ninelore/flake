@@ -28,6 +28,7 @@
     webcord
     thunderbird
     microsoft-edge
+    protonmail-bridge
 
     # langs
     nodejs_20
@@ -37,6 +38,7 @@
 
     # gaming
     lutris
+    steam
     wine-staging
   ];
 }

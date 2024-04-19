@@ -4,7 +4,7 @@
 }:
 let
   wp = ../assets/wallhaven-r2pmx1.jpg;
-  
+
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
@@ -135,6 +135,10 @@ in
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = true;
+      };
+
+      xwayland = {
+        force_zero_scaling = true;
       };
 
       windowrule =
