@@ -54,16 +54,31 @@ in {
     };
   };
 
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
+
   fonts.fontconfig.enable = true;
 
   gtk = {
     inherit font cursorTheme iconTheme;
     theme.name = theme.name;
     enable = true;
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
   };
 
   qt = {
     enable = true;
-    platformTheme = "kde";
+    #platformTheme = "kde";
   };
 }

@@ -63,7 +63,7 @@ in
     systemd.enable = true;
     xwayland.enable = true;
     plugins = with plugins; [
-      hyprexpo
+      #hyprexpo
       # borderspp
     ];
 
@@ -183,6 +183,10 @@ in
 
           ", XF86ScreenSaver, exec, hyprlock"
 
+          # Example special workspace (scratchpad)
+          "SUPER, A, togglespecialworkspace, magic"
+          "SUPER SHIFT, A, movetoworkspace, special:magic"
+
           (mvfocus "k" "u")
           (mvfocus "j" "d")
           (mvfocus "l" "r")
@@ -229,8 +233,8 @@ in
         ",XF86MonBrightnessDown, exec, ${brightnessctl} set  5%-"
         ",XF86KbdBrightnessUp,   exec, ${brightnessctl} -d asus::kbd_backlight set +1"
         ",XF86KbdBrightnessDown, exec, ${brightnessctl} -d asus::kbd_backlight set  1-"
-        ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ +5%"
-        ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ -5%"
+        ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
       bindl = [
@@ -277,17 +281,17 @@ in
         ];
       };
 
-      plugin = {
-        hyprexpo = {
-          columns = 4;
-          gap_size = 10;
-          bg_col = "rgb(232323)";
-          workspace_method = "first 1";
-          enable_gesture = true;
-          gesture_distance = 300;
-          gesture_positive = false;
-        };
-      };
+      #plugin = {
+      #  hyprexpo = {
+      #    columns = 3;
+      #    gap_size = 10;
+      #    bg_col = "rgb(232323)";
+      #    workspace_method = "first 1";
+      #    enable_gesture = true;
+      #    gesture_distance = 300;
+      #    gesture_positive = false;
+      #  };
+      #};
     };
   };
 }

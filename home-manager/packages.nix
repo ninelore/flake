@@ -5,19 +5,24 @@
 
   home.packages = with pkgs; with gnome; [
     # cli
+    btop
     gnutar
+    fastfetch
     htop
     less
+    neofetch
+    nixpkgs-fmt
     oh-my-posh
     ranger
-    ueberzug
     unar
+    ueberzug
     w3m
     zip
     unzip
 
     # gui
     obsidian
+    vscode-fhs
     libreoffice
     gimp
     webcord
