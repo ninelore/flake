@@ -8,7 +8,8 @@
 
 ## ToDo
 
-- Change "changeme" automatically in nx-rebuild?
+- get variables hostname, username and system from another file for portability without having to edit those
+- save flake path at build for use in an updater script
 
 ## Credits
 

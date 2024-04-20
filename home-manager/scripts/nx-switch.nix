@@ -1,11 +1,32 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   nx-switch = pkgs.writeShellScriptBin "nx-switch" ''
-    ${
-      if pkgs.stdenv.isDarwin
-      then "darwin-rebuild switch --flake . --impure"
-      else "sudo nixos-rebuild switch --flake . --impure"
-    }
+    _p=.
+    if [[ -r $HOME/.nx-flakepath ]]; then
+      if [[ -r "$(cat "$HOME"/.nx-flakepath)/flake.nix" ]]; then
+        _p=$(cat "$HOME"/.nx-flakepath)
+        echo "Found flakepath $_p"
+        cd "$_p" || exit 1
+      fi
+    fi
+
+    if [[ $1 == "-u" ]]; then
+      sudo nix-channel --update
+      sudo nix flake update
+    fi
+    sudo nixos-rebuild switch --flake "$_p" --impure
   '';
-in {
-  home.packages = [nx-switch];
+
+  nx-flakepath-update = pkgs.writeShellScriptBin "nx-flakepath-update" ''
+    echo "checking flake validity..."
+    if [[ -r ./flake.nix ]]; then
+      pwd > "$HOME"/.nx-flakepath
+      echo "success"
+    else
+      echo "failed"
+    fi
+  '';
+in
+{
+  home.packages = [ nx-switch nx-flakepath-update ];
 }

@@ -24,57 +24,61 @@
     #matugen.url = "github:InioX/matugen";
   };
 
-  outputs = inputs @ {
-    self,
-    home-manager,
-    nixpkgs,
-    ...
-  }: {
-    # nixos config
-    nixosConfigurations = {
-      "replaceme" = let
-        hostname = "replaceme";
-        username = "9l";
-        system = "x86_64-linux";
-      in
-        nixpkgs.lib.nixosSystem {
-          system = system;
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./nixos/nixos.nix
-            home-manager.nixosModules.home-manager
-            {
-              users.users.${username} = {
-                shell = nixpkgs.legacyPackages.${system}.pkgs.nushell;
-                isNormalUser = true;
-                initialPassword = username;
-                extraGroups = [
-                  "networkmanager"
-                  "power"
-                  "wheel"
-                  "audio"
-                  "video"
-                  "libvirtd"
-                  "docker"
-                  "adbusers"
-                  "plugdev"
-                  "openrazer"
-                ];
-              };
-              networking.hostName = hostname;
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = {inherit inputs;};
-                users.${username} = {
-                  home.username = username;
-                  home.homeDirectory = "/home/${username}";
-                  imports = [./nixos/home.nix];
+  outputs =
+    inputs @ { self
+    , home-manager
+    , nixpkgs
+    , ...
+    }: {
+      # nixos config
+      nixosConfigurations = {
+        "${nixpkgs.lib.strings.fileContents "/etc/nixos/HOSTNAME"}" =
+          let
+            hostname = nixpkgs.lib.strings.fileContents /etc/nixos/HOSTNAME;
+            username = "9l";
+            system = "x86_64-linux";
+          in
+          nixpkgs.lib.nixosSystem {
+            system = system;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./nixos/nixos.nix
+              home-manager.nixosModules.home-manager
+              {
+                users.users.${username} = {
+                  shell = nixpkgs.legacyPackages.${system}.pkgs.nushell;
+                  isNormalUser = true;
+                  initialPassword = username;
+                  extraGroups = [
+                    "networkmanager"
+                    "power"
+                    "wheel"
+                    "audio"
+                    "video"
+                    "libvirtd"
+                    "docker"
+                    "adbusers"
+                    "plugdev"
+                    "openrazer"
+                  ];
                 };
-              };
-            }
-          ];
-        };
+                environment.variables = {
+                  HOSTNAME = hostname;
+                };
+                networking.hostName = hostname;
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  extraSpecialArgs = { inherit inputs; };
+                  users.${username} = {
+                    home.username = username;
+                    home.homeDirectory = "/home/${username}";
+                    imports = [ ./nixos/home.nix ];
+                  };
+                };
+              }
+            ];
+          };
+      };
     };
-  };
 }

@@ -23,5 +23,6 @@ in
         application_prefer_dark_theme = true;
       };
     };
+    cageArgs = [ "-s" "-m" "last" ];
   };
 }

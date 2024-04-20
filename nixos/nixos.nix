@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   bgrtLuks = pkgs.stdenv.mkDerivation {
     name = "bgrtLuks";
@@ -77,9 +77,9 @@ in
     ./locale.nix
     ./login.nix
     ./hyprland.nix
-    #./ga402r.nix
-    #./cros-sof-std.nix
-  ];
+  ]
+  ++ lib.optional (lib.strings.fileContents "/etc/nixos/HOSTNAME" == "9l-zephyr") ./ga402r.nix
+  ++ lib.optional (lib.strings.fileContents "/sys/class/dmi/id/sys_vendor" == "Google") ./cros.nix;
 
   documentation.nixos.enable = false;
   nixpkgs.config.allowUnfree = true;
