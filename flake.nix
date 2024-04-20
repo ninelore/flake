@@ -57,6 +57,7 @@
                     "video"
                     "libvirtd"
                     "docker"
+                    "podman"
                     "adbusers"
                     "plugdev"
                     "openrazer"
