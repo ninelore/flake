@@ -12,6 +12,7 @@ in
       #credential.helper = "store";
       github.user = name;
       push.autoSetupRemote = true;
+      pull.rebase = true;
     };
     signing = {
       signByDefault = true;
