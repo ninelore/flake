@@ -74,7 +74,7 @@ in
         "hyprctl setcursor Qogir 24"
         "transmission-gtk"
         "${hypreventhandler}"
-        "protonmail-bridge --no-window"
+        "protonmail-bridge-gui --no-window"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hypridle"
@@ -164,7 +164,7 @@ in
           mvwindow = binding "SUPER SHIFT" "movewindow";
           ws = binding "SUPER" "workspace";
           mvtows = binding "SUPER SHIFT" "movetoworkspace";
-          arr = [ 1 2 3 4 5 6 7 8 9 0 ];
+          arr = [ 1 2 3 4 5 6 7 8 9 ];
         in
         [
           "SUPER, return, exec, kitty"
@@ -224,8 +224,10 @@ in
           (mvactive "right" "5% 0")
           (mvactive "left" "-5% 0")
           # WS 11 and 12
+          (ws "0" "10")
           (ws "code:20" "11")
           (ws "code:21" "12")
+          (mvtows "0" "10")
           (mvtows "code:20" "11")
           (mvtows "code:21" "12")
         ]
