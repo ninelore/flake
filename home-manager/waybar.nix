@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  #xdg.configFile."waybar/config.jsonc".source = ../configs/waybar/config.jsonc;
+  xdg.configFile."waybar/config.jsonc".source = ../configs/waybar/config.jsonc;
   programs.waybar = {
     enable = true;
     #settings = lib.importJSON ../configs/waybar/config.jsonc; # Not working
