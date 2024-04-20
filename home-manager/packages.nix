@@ -30,9 +30,10 @@
     microsoft-edge
     protonmail-bridge
     protonmail-bridge-gui
-
-    # langs
+    
+    # dev
     nodejs_20
+    python3
     yarn
     go
     rustup
@@ -40,6 +41,6 @@
     # gaming
     lutris
     steam
-    wine-staging
+    wineWowPackages.stagingFull
   ];
 }
