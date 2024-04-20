@@ -29,6 +29,7 @@
     thunderbird
     microsoft-edge
     protonmail-bridge
+    protonmail-bridge-gui
 
     # langs
     nodejs_20
