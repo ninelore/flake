@@ -8,7 +8,6 @@
     btop
     gnutar
     fastfetch
-    htop
     less
     neofetch
     nixpkgs-fmt
@@ -28,8 +27,9 @@
     webcord
     thunderbird
     microsoft-edge
-    protonmail-bridge
-    protonmail-bridge-gui
+    protonmail-desktop
+    #protonmail-bridge
+    #protonmail-bridge-gui
     
     # dev
     nodejs_20
@@ -39,7 +39,7 @@
     rustup
 
     # gaming
-    lutris
+    #lutris # lets try flatpak
     steam
     wineWowPackages.stagingFull
   ];

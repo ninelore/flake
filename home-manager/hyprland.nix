@@ -74,7 +74,7 @@ in
         "hyprctl setcursor Qogir 24"
         "transmission-gtk"
         "${hypreventhandler}"
-        "protonmail-bridge-gui --no-window"
+        #"protonmail-bridge-gui --no-window"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hypridle"
