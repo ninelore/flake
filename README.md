@@ -8,7 +8,8 @@
 
 ## ToDo
 
-- nothing atm
+- maybe try ags?
+- maybe swaync
 
 ## Credits
 
