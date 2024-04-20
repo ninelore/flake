@@ -3,6 +3,7 @@
   ...
 }: {
   services.mako = {
+    enable = true;
     font = "NotoSansNerdFont-Regular 11";
     borderRadius = 7;
     backgroundColor = "#151515DD";
