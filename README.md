@@ -3,13 +3,12 @@
 ## Install
 
 1. Clone
-2. Change the 2 "changeme" in flake.nix to your target hostname
+2. `echo <yourHostname> > /etc/nixos/HOSTNAME`
 3. `sudo nixos-rebuild --flake .# --impure`
 
 ## ToDo
 
-- get variables hostname, username and system from another file for portability without having to edit those
-- save flake path at build for use in an updater script
+- nothing atm
 
 ## Credits
 
