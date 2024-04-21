@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  nx-switch = pkgs.writeShellScriptBin "nx-switch" ''
+  nxsw = pkgs.writeShellScriptBin "nxsw" ''
     _p=.
     if [[ -r $HOME/.nx-flakepath ]]; then
       if [[ -r "$(cat "$HOME"/.nx-flakepath)/flake.nix" ]]; then
@@ -26,7 +26,11 @@ let
       echo "failed"
     fi
   '';
+
+  nx-flakepath-cd = pkgs.writeShellScriptBin "nx-flakepath-cd" ''
+    cd $(cat "$HOME"/.nx-flakepath)
+  '';
 in
 {
-  home.packages = [ nx-switch nx-flakepath-update ];
+  home.packages = [ nxsw nx-flakepath-update nx-flakepath-cd ];
 }
