@@ -23,9 +23,7 @@
           Restart = "on-failure";
         };
         Unit = {
-          After = [
-            "graphical-session-pre.target"
-          ];
+          After = [ "graphical-session-pre.target" ];
           Requires = [ "audio.target" ];
           Description = "Highly customizable Wayland bar for Sway and Wlroots based compositors.";
           Documentation = [ "https://github.com/Alexays/Waybar/wiki" ];

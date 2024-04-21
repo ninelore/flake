@@ -32,6 +32,9 @@ in {
       noto-fonts-color-emoji
       jetbrains-mono
 
+      adwaita-qt
+      adwaita-qt6
+
       theme.package
       font.package
       cursorTheme.package
@@ -41,6 +44,7 @@ in {
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
       XCURSOR_SIZE = "${toString cursorTheme.size}";
+      QT_STYLE_OVERRIDE = "adwaita-dark";
     };
     pointerCursor =
       cursorTheme
@@ -79,6 +83,10 @@ in {
 
   qt = {
     enable = true;
-    #platformTheme = "kde";
+    style.name = "adwaita-dark";
+    style.package = with pkgs; [
+      adwaita-qt
+      adwaita-qt6
+    ];
   };
 }
