@@ -7,6 +7,7 @@
     enable = true;
     style = ../configs/waybar/style.css;
   };
+
   systemd.user = {
     services = {
       waybarc = {
@@ -24,8 +25,8 @@
         Unit = {
           After = [
             "graphical-session-pre.target"
-            "audio.target"
           ];
+          Requires = [ "audio.target" ];
           Description = "Highly customizable Wayland bar for Sway and Wlroots based compositors.";
           Documentation = [ "https://github.com/Alexays/Waybar/wiki" ];
           PartOf = "graphical-session.target";
