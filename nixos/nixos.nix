@@ -151,13 +151,16 @@ in
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    curl
-    git
-    gh
-    home-manager
-    neovim
-  ];
+  environment = {
+    localBinInPath = true;
+    systemPackages = with pkgs; [
+      curl
+      git
+      gh
+      home-manager
+      neovim
+    ];
+  };
 
   system.stateVersion = "24.05";
 }
