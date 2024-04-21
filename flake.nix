@@ -21,6 +21,8 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    nix-alien.url = "github:thiagokokada/nix-alien";
+
     #matugen.url = "github:InioX/matugen";
   };
 
@@ -77,6 +79,13 @@
                     imports = [ ./nixos/home.nix ];
                   };
                 };
+              }
+              {
+                environment.systemPackages = with self.inputs.nix-alien.packages.${system}; [
+                  nix-alien
+                ];
+                # Optional, needed for `nix-alien-ld`
+                programs.nix-ld.enable = true;
               }
             ];
           };
