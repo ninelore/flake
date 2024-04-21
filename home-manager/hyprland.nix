@@ -172,7 +172,7 @@ in
           "SUPER, D, exec, anyrun"
           "SUPER, L, exec, hyprlock"
           "SUPER, M, exec, ${hyprpowermenu}"
-          "SUPER, V, exec, cliphist list | anyrun --hide-icons true --hide-plugin"
+          "SUPER, V, exec, cliphist list | anyrun --hide-icons true --hide-plugin-info true --show-results-immediately true --plugins libstdin.so | cliphist decode | wl-copy"
           "SUPER CTRL, V, exec, cliphist wipe"
           "SUPER SHIFT, S, exec, grimblast copy area"
 
