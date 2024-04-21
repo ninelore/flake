@@ -5,28 +5,44 @@
   xdg.configFile."waybar/config.jsonc".source = ../configs/waybar/config.jsonc;
   programs.waybar = {
     enable = true;
-    #settings = lib.importJSON ../configs/waybar/config.jsonc; # Not working
     style = ../configs/waybar/style.css;
-    systemd = {
-      enable = true;
-      target = "audio.target";
-    };
   };
-  systemd.user.targets = {
-    audio = {
-      Install = {
-        WantedBy = [
-          "graphical-session.target"
-        ];
+  systemd.user = {
+    services = {
+      waybarc = {
+        Service = {
+          ExecReload = "${pkgs.coreutils}/bin/kill -SIGUSR2 $MAINPID";
+          ExecStart = "${pkgs.waybar}bin/waybar";
+          KillMode = "mixed";
+          Restart = "on-failure";
+        };
+        Unit = {
+          After = [
+            "graphical-session-pre.target"
+            "audio.target"
+          ];
+          Description = "Highly customizable Wayland bar for Sway and Wlroots based compositors.";
+          Documentation = [ "https://github.com/Alexays/Waybar/wiki" ];
+          PartOf = "graphical-session.target";
+        };
       };
-      Unit = {
-        PartOf = [
-          "graphical-session.target"
-        ];
-        Requires = [
-          "pipewire.service"
-          "wireplumber.service"
-        ];
+    };
+    targets = {
+      audio = {
+        Install = {
+          WantedBy = [
+            "graphical-session.target"
+          ];
+        };
+        Unit = {
+          PartOf = [
+            "graphical-session.target"
+          ];
+          Requires = [
+            "pipewire.service"
+            "wireplumber.service"
+          ];
+        };
       };
     };
   };
