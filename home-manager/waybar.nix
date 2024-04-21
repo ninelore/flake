@@ -12,7 +12,7 @@
       waybarc = {
         Service = {
           ExecReload = "${pkgs.coreutils}/bin/kill -SIGUSR2 $MAINPID";
-          ExecStart = "${pkgs.waybar}bin/waybar";
+          ExecStart = "${pkgs.waybar}/bin/waybar";
           KillMode = "mixed";
           Restart = "on-failure";
         };
