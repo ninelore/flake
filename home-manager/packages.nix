@@ -9,6 +9,7 @@
     gnutar
     fastfetch
     less
+    minicom
     neofetch
     nixpkgs-fmt
     oh-my-posh
