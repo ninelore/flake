@@ -47,17 +47,20 @@
       "file://${home} Home"
     ];
 
-  programs.chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
-  programs.gpg.enable = true;
+  programs = {
+    home-manager.enable = true;
+    gpg.enable = true;
+    chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+  };
 
   services = {
     gpg-agent.enable = true;
-    #  kdeconnect = {
-    #    enable = true;
-    #    indicator = true;
-    #  };
+    easyeffects.enable = true;
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
   };
 
-  programs.home-manager.enable = true;
   home.stateVersion = "21.11";
 }

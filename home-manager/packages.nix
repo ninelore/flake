@@ -25,9 +25,11 @@
     libreoffice
     gimp
     webcord
-    thunderbird
     microsoft-edge
     protonmail-desktop
+
+    # Mail
+    #thunderbird
     #protonmail-bridge
     #protonmail-bridge-gui
     

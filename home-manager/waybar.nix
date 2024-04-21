@@ -10,6 +10,11 @@
   systemd.user = {
     services = {
       waybarc = {
+        Install = {
+          WantedBy = [
+            "graphical-session.target"
+          ];
+        };
         Service = {
           ExecReload = "${pkgs.coreutils}/bin/kill -SIGUSR2 $MAINPID";
           ExecStart = "${pkgs.waybar}/bin/waybar";
@@ -41,6 +46,7 @@
           Requires = [
             "pipewire.service"
             "wireplumber.service"
+            "easyeffects.service"
           ];
         };
       };
