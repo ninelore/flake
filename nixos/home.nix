@@ -49,6 +49,7 @@
     ];
 
   programs = {
+    direnv.enable = true;
     home-manager.enable = true;
     gpg.enable = true;
     chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
