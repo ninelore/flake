@@ -42,8 +42,7 @@
     rustup
 
     # gaming
-    #lutris # lets try flatpak
-    steam
+    #lutris # flatpak
     wineWowPackages.stagingFull
   ];
 }

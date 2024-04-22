@@ -71,6 +71,8 @@ let
   };
 in
 {
+  system.stateVersion = "24.05";
+
   imports = [
     /etc/nixos/hardware-configuration.nix
     ./audio.nix
@@ -162,5 +164,9 @@ in
     ];
   };
 
-  system.stateVersion = "24.05";
+  # I hate to have this outsaide of home-manager...
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true; # TODO: trial
+  };
 }
