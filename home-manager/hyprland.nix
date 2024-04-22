@@ -5,7 +5,7 @@
 let
   wp = ../assets/wallhaven-r2pmx1.jpg;
 
-  hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  #hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
   hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
@@ -59,7 +59,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland;
+    #package = hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     plugins = with plugins; [
