@@ -21,6 +21,7 @@
     unzip
 
     # gui
+    anytype
     obsidian
     vscode-fhs
     libreoffice
