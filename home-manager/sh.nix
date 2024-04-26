@@ -19,6 +19,8 @@ let
     "py" = "python3";
     "grep" = "grep --color=auto";
 
+    "nxgc" = "nix-collect-garbage --delete-older-than 7d";
+
     ":q" = "exit";
     "q" = "exit";
   };

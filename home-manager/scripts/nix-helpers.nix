@@ -27,10 +27,10 @@ let
     fi
   '';
 
-  nx-flakepath-cd = pkgs.writeShellScriptBin "nx-flakepath-cd" ''
+  nx-cdflake = pkgs.writeShellScriptBin "nx-cdflake" ''
     cd $(cat "$HOME"/.nx-flakepath)
   '';
 in
 {
-  home.packages = [ nxsw nx-flakepath-update nx-flakepath-cd ];
+  home.packages = [ nxsw nx-flakepath-update nx-cdflake ];
 }

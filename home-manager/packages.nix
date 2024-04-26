@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./scripts/nx-switch.nix
+    ./scripts/nix-helpers.nix
   ];
 
   home.packages = with pkgs; with gnome; [
