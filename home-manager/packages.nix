@@ -20,6 +20,9 @@
     zip
     unzip
 
+    # appimages
+    appimage-run
+
     # gui
     anytype
     obsidian
