@@ -1,4 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+let
+  edge = pkgs.microsoft-edge.override {
+    commandLineArgs = [
+      "--ozone-platform-hint=auto"
+      "--ozone-platform=wayland"
+    ];
+  };
+in
+{
   imports = [
     ./scripts/nix-helpers.nix
   ];
@@ -30,14 +39,14 @@
     libreoffice
     gimp
     webcord
-    microsoft-edge
+    edge
     protonmail-desktop
 
     # Mail
     #thunderbird
     #protonmail-bridge
     #protonmail-bridge-gui
-    
+
     # dev
     nodejs_20
     python3
