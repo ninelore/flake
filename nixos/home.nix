@@ -57,7 +57,7 @@
 
   services = {
     gpg-agent.enable = true;
-    #easyeffects.enable = true;
+    easyeffects.enable = true;
     kdeconnect = {
       enable = true;
       indicator = true;

@@ -45,7 +45,7 @@
           Requires = [
             "pipewire.service"
             "wireplumber.service"
-            #"easyeffects.service"
+            "easyeffects.service"
           ];
         };
       };
