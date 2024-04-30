@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, inputs, ... }: {
   system.stateVersion = "24.05";
 
   imports = [
@@ -7,7 +7,6 @@
     ./audio.nix
     ./locale.nix
     ./login.nix
-    ./nix-alien.nix
     ./hyprland.nix
   ]
   ++ lib.optional (lib.strings.fileContents "/etc/nixos/HOSTNAME" == "9l-zephyr") ./ga402r.nix
@@ -20,7 +19,6 @@
     auto-optimise-store = true;
   };
 
-  programs.virt-manager.enable = true;
   virtualisation = {
     podman = {
       enable = true;
@@ -41,25 +39,28 @@
     flatpak.enable = true;
   };
 
-  networking.networkmanager.enable = true;
 
-  networking.firewall = rec {
-    allowedTCPPortRanges = [
-      # Example
-      #{
-      #  from = 1714;
-      #  to = 1764;
-      #}
-    ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
+  networking = {
+    networkmanager.enable = true;
+    firewall = rec {
+      allowedTCPPortRanges = [
+        # Example
+        #{
+        #  from = 1714;
+        #  to = 1764;
+        #}
+      ];
+      allowedUDPPortRanges = allowedTCPPortRanges;
+    };
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
+    openrazer.enable = true;
   };
-
-  hardware.openrazer.enable = true;
 
   environment = {
     localBinInPath = true;
@@ -69,12 +70,17 @@
       gh
       home-manager
       neovim
+      inputs.nix-alien.packages.${pkgs.system}.nix-alien
     ];
   };
 
-  # I hate to have this outside of home-manager...
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true; # TODO: trial
+  programs = {
+    virt-manager.enable = true;
+    nix-ld.enable = true;
+    # I hate to have this outside of home-manager...
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true; # TODO: trial
+    };
   };
 }

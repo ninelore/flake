@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, ... }:
 let
   bgrtLuks = pkgs.stdenv.mkDerivation {
     name = "bgrtLuks";
