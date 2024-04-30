@@ -1,4 +1,4 @@
-# chrome-device.nix
+# FIXME: This config is only for Intel SOF Chrome devices with the pre-ADL keyboard layout
 { config, pkgs, lib, ... }:
 let
   cb-ucm-conf = with pkgs; alsa-ucm-conf.overrideAttrs {
