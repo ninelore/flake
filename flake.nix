@@ -76,7 +76,7 @@
                   users.${username} = {
                     home.username = username;
                     home.homeDirectory = "/home/${username}";
-                    imports = [ ./nixos/home.nix ];
+                    imports = [ ./home-manager/home.nix ];
                   };
                 };
               }

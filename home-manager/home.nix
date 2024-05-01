@@ -1,12 +1,12 @@
 { config, ... }: {
   imports = [
-    ../home-manager/configcopy.nix
-    ../home-manager/git.nix
-    ../home-manager/hyprland.nix
-    ../home-manager/mako.nix
-    ../home-manager/packages.nix
-    ../home-manager/sh.nix
-    ../home-manager/theme.nix
+    ./configcopy.nix
+    ./git.nix
+    ./hyprland.nix
+    ./mako.nix
+    ./packages.nix
+    ./sh.nix
+    ./theme.nix
   ];
 
   news.display = "show";
