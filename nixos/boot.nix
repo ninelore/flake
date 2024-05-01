@@ -69,7 +69,8 @@ let
       install -Dm444 $src $out/share/plymouth/themes/bgrt-luks/bgrt-luks.plymouth
     '';
   };
-in {
+in
+{
   boot = {
     consoleLogLevel = 2;
     initrd = {
@@ -87,8 +88,11 @@ in {
     #supportedFilesystems = [ "ntfs" ];
     loader = {
       timeout = 0;
-      systemd-boot.enable = true;
-      systemd-boot.editor = false;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        configurationLimit = 10;
+      };
       efi.canTouchEfiVariables = true;
     };
   };
