@@ -3,9 +3,10 @@
     ./configcopy.nix
     ./git.nix
     ./hyprland.nix
-    ./mako.nix
+    #./mako.nix
     ./packages.nix
     ./sh.nix
+    ./swaync.nix
     ./theme.nix
   ];
 
