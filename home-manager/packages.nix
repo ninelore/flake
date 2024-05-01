@@ -16,11 +16,11 @@ in
     # cli
     btop
     distrobox
-    gnutar
+    coreboot-utils
     fastfetch
+    gnutar
     less
     minicom
-    neofetch
     nixpkgs-fmt
     oh-my-posh
     ranger
