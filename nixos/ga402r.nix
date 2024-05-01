@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, inputs, pkgs, ... }: {
+  imports = [
+    inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
+  ];
+
   services = {
     asusd = {
       enable = true;
