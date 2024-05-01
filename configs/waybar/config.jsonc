@@ -12,6 +12,7 @@
     "modules-right": [
         "tray",
         "idle_inhibitor",
+        "custom/notification",
         "bluetooth",
         "network",
         "backlight",
@@ -131,10 +132,30 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
-          "default": "",
-          "performance": "",
-          "balanced": "",
-          "power-saver": ""
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
         }
-      }
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{} {icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "",
+            "dnd-notification": " ",
+            "dnd-none": "󰂛",
+            "inhibited-notification": " ",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": " ",
+            "dnd-inhibited-none": " "
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+        "escape": true
+    }
 }
