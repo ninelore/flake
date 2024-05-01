@@ -15,6 +15,7 @@ in
   home.packages = with pkgs; with gnome; [
     # cli
     btop
+    distrobox
     gnutar
     fastfetch
     less
