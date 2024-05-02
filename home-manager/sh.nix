@@ -27,6 +27,11 @@ let
 in
 {
   programs = {
+    oh-my-posh = {
+      enable = true;
+      useTheme = "json";
+    };
+
     bash = {
       inherit shellAliases;
       enable = true;
@@ -37,27 +42,12 @@ in
       inherit shellAliases;
       enable = true;
       environmentVariables = {
-        PROMPT_INDICATOR_VI_INSERT = "\"  \"";
-        PROMPT_INDICATOR_VI_NORMAL = "\"  \"";
-        #PROMPT_COMMAND = ''{|| create_left_prompt }'';
-        PROMPT_COMMAND_RIGHT = ''""'';
+        PROMPT_INDICATOR_VI_INSERT = ''""'';
+        PROMPT_INDICATOR_VI_NORMAL = ''""'';
         NIXPKGS_ALLOW_UNFREE = "1";
         NIXPKGS_ALLOW_INSECURE = "1";
         SHELL = ''"${pkgs.nushell}/bin/nu"'';
       };
-      extraEnv = ''
-        def create_left_prompt [] {
-          let home =  $nu.home-path
-          let dir = ([
-              ($env.PWD | str substring 0..($home | str length) | str replace $home "~"),
-              ($env.PWD | str substring ($home | str length)..)
-          ] | str join)
-          let path_color = (if (is-admin) { red_bold } else { green_bold })
-          let separator_color = (if (is-admin) { light_red_bold } else { light_green_bold })
-          let path_segment = $"($path_color)($dir)"
-          $path_segment | str replace --all (char path_sep) $"($separator_color)/($path_color)"
-        }
-      '';
       extraConfig =
         let
           theme = "molokai";
@@ -84,7 +74,7 @@ in
               {
                 name = "completion_menu";
                 only_buffer_difference = false;
-                marker = "  ";
+                marker = "";
                 type = {
                   layout = "columnar"; # list, description
                   columns = 4;
