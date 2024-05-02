@@ -26,11 +26,7 @@ let
       echo "failed"
     fi
   '';
-
-  nx-cdflake = pkgs.writeShellScriptBin "nx-cdflake" ''
-    cd $(cat "$HOME"/.nx-flakepath)
-  '';
 in
 {
-  home.packages = [ nxsw nx-flakepath-update nx-cdflake ];
+  home.packages = [ nxsw nx-flakepath-update ];
 }
