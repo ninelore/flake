@@ -70,6 +70,7 @@
       gh
       home-manager
       neovim
+      nix-index
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
     ];
   };
