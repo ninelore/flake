@@ -59,7 +59,10 @@
       enable = true;
       powerOnBoot = false;
     };
-    openrazer.enable = true;
+    openrazer = {
+      enable = true;
+      batteryNotifier.enable = false;
+    };
   };
 
   environment = {
