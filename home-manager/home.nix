@@ -9,7 +9,7 @@
     ./swaync.nix
     ./theme.nix
 
-    ../packages/eshare.nix
+    #../packages/eshare.nix
   ];
 
   news.display = "show";
