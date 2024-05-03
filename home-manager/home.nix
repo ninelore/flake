@@ -8,6 +8,8 @@
     ./sh.nix
     ./swaync.nix
     ./theme.nix
+
+    ../packages/eshare.nix
   ];
 
   news.display = "show";
