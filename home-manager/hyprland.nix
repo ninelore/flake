@@ -74,6 +74,7 @@ in
 
     settings = {
       exec-once = [
+        "waybar"
         "swww-daemon"
         "swww img ${wp}"
         "hyprctl setcursor Qogir 24"
