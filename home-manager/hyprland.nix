@@ -55,6 +55,11 @@ in
     ./waybar.nix
   ];
 
+  home.packages = with pkgs; [
+    libappindicator 
+    libappindicator-gtk3
+  ];
+
   services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
 
   wayland.windowManager.hyprland = {
