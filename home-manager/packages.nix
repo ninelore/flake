@@ -42,6 +42,7 @@ in
     webcord
     edge
     protonmail-desktop
+    helvum
 
     # Mail
     #thunderbird
