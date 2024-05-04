@@ -12,6 +12,11 @@ in
     ./scripts/nix-helpers.nix
   ];
 
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+  };
+
   home.packages = with pkgs; with gnome; [
     # cli
     btop
@@ -36,7 +41,6 @@ in
     # gui
     anytype
     obsidian
-    vscode-fhs
     libreoffice
     gimp
     webcord
