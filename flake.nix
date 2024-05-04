@@ -15,15 +15,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-alien.url = "github:thiagokokada/nix-alien";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    #hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/v0.40.0";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      #inputs.hyprland.follows = "hyprland";
+      inputs.hyprland.follows = "hyprland";
     };
 
-    nix-alien.url = "github:thiagokokada/nix-alien";
+    #waybar.url = "github:Alexays/Waybar";
+    waybar.url = "github:spitulax/Waybar/fix-overlay";
 
     #matugen.url = "github:InioX/matugen";
   };
