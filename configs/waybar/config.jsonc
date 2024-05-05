@@ -125,7 +125,8 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "easyeffects"
     },
     "power-profiles-daemon": {
         "format": "{icon}",
