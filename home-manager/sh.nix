@@ -27,9 +27,10 @@ let
 in
 {
   programs = {
-    wezterm = {
-      enable = true;
-    };
+    #wezterm = {
+    #  enable = true;
+    #  #package
+    #};
 
     oh-my-posh = {
       enable = true;
