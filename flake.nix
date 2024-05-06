@@ -24,8 +24,7 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    #waybar.url = "github:Alexays/Waybar";
-    waybar.url = "github:spitulax/Waybar/fix-overlay";
+    waybar.url = "github:Alexays/Waybar";
 
     #matugen.url = "github:InioX/matugen";
   };
