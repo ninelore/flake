@@ -26,7 +26,6 @@ in
     gnutar
     less
     minicom
-    nixpkgs-fmt
     oh-my-posh
     ranger
     unar
@@ -55,6 +54,8 @@ in
 
     # dev
     nixd
+    nixfmt-rfc-style
+    nixpkgs-fmt
     # TODO: define globally available shell envs
     nodejs_20
     python3
