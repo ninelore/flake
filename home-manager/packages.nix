@@ -54,6 +54,7 @@ in
     #protonmail-bridge-gui
 
     # dev
+    nixd
     # TODO: define globally available shell envs
     nodejs_20
     python3
