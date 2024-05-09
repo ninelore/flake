@@ -43,6 +43,7 @@ in
     libreoffice
     gimp
     webcord
+    discord
     edge
     protonmail-desktop
     helvum
