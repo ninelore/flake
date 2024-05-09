@@ -26,10 +26,8 @@
   };
 
   virtualisation = {
-    podman = {
+    docker = {
       enable = true;
-      dockerCompat = true;
-      dockerSocket.enable = true;
     };
     libvirtd.enable = true;
   };
