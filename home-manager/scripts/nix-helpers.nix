@@ -11,10 +11,10 @@ let
     fi
 
     if [[ $1 == "-u" ]]; then
-      sudo nix-channel --update
-      sudo nix flake update
+      sudo nix-channel --update || exit 1
+      sudo nix flake update || exit 1
     fi
-    sudo nixos-rebuild switch --flake "$_p" --impure
+    sudo nixos-rebuild switch --flake "$_p" --impure || exit 1
   '';
 
   nx-flakepath-update = pkgs.writeShellScriptBin "nx-flakepath-update" ''
