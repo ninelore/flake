@@ -54,10 +54,12 @@ in
     #protonmail-bridge-gui
 
     # dev
+    # TODO: define globally available shell envs
     nodejs_20
     python3
     yarn
     go
+    gcc
     rustup
 
     # gaming
