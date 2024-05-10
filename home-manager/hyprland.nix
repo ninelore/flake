@@ -101,7 +101,6 @@ in
 
       general = {
         layout = "dwindle";
-        no_cursor_warps = true;
         gaps_in = 5;
         gaps_out = "7,10,10,10";
         border_size = 2;
