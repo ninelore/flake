@@ -18,7 +18,7 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    hyprland.url = "github:hyprwm/Hyprland/v0.40.0";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -30,8 +30,7 @@
   };
 
   outputs =
-    inputs @ { self
-    , home-manager
+    inputs @ { home-manager
     , nixpkgs
     , ...
     }: {
