@@ -48,22 +48,21 @@ in
     protonmail-desktop
     helvum
 
-    # Mail
-    #thunderbird
-    #protonmail-bridge
-    #protonmail-bridge-gui
-
     # dev
     nixd
     nixfmt-rfc-style
     nixpkgs-fmt
-    # TODO: define globally available shell envs
+    # TODO: define globally available shell envs?
     nodejs_20
     python3
     yarn
     go
     gcc
     rustup
+    graalvm-ce
+    maven
+    quarkus
+    visualvm
 
     # gaming
     #lutris # flatpak
