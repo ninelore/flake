@@ -12,9 +12,15 @@ in
     ./scripts/nix-helpers.nix
   ];
 
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode.fhs;
+  programs = {
+    vscode = {
+      enable = true;
+      package = pkgs.vscode.fhs;
+    };
+    java = {
+      enable = true;
+      package = pkgs.graalvm-ce;
+    };
   };
 
   home.packages = with pkgs; with gnome; [
@@ -59,7 +65,6 @@ in
     go
     gcc
     rustup
-    graalvm-ce
     maven
     quarkus
     visualvm
