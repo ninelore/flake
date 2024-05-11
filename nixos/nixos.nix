@@ -9,8 +9,8 @@
     ./login.nix
     ./hyprland.nix
   ]
-  ++ lib.optional (lib.strings.fileContents "/etc/nixos/HOSTNAME" == "9l-zephyr") ./ga402r.nix
-  ++ lib.optional (lib.strings.fileContents "/sys/class/dmi/id/sys_vendor" == "Google") ./cros.nix;
+  ++ lib.optional (lib.strings.fileContents "/etc/nixos/HOSTNAME" == "9l-zephyr") ./hardware/ga402r.nix
+  ++ lib.optional (lib.strings.fileContents "/sys/class/dmi/id/sys_vendor" == "Google") ./hardware/cros.nix;
 
   documentation.nixos.enable = false;
   nixpkgs.config.allowUnfree = true;
