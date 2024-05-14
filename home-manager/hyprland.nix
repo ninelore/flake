@@ -103,8 +103,9 @@ in
         layout = "dwindle";
         gaps_in = 0;
         gaps_out = 0;
-        border_size = 2;
-        "col.active_border" = "rgba(4444ddee) rgba(44dd44ee) rgba(dd4444ee) 30deg";
+        border_size = 1;
+        #"col.active_border" = "rgba(4444ddee) rgba(44dd44ee) rgba(dd4444ee) 30deg";
+        "col.active_border" = "rgba(dadadaee)";
         "col.inactive_border" = "rgba(595959aa)";
       };
 
