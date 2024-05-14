@@ -38,11 +38,11 @@ let
 
   hyprprodmode = pkgs.writeShellScript "hyprprodmode" ''
     HYPRPRODMODE=$(hyprctl getoption decoration:rounding | awk 'NR==1{print $2}')
-    if [ ! "$HYPRPRODMODE" = 0 ] ; then
+    if [ "$HYPRPRODMODE" = 0 ] ; then
       hyprctl --batch "\
-        keyword general:gaps_in 1;\
-        keyword general:gaps_out 2;\
-        keyword decoration:rounding 0;"
+        keyword general:gaps_in 5;\
+        keyword general:gaps_out "7,10,10,10";\
+        keyword decoration:rounding 10;"
       exit
     fi
     hyprctl reload
@@ -76,7 +76,7 @@ in
 
     settings = {
       exec-once = [
-        "waybar"
+        "waybar""7,10,10,10"
         "swww-daemon"
         "swww img ${wp}"
         "hyprctl setcursor Qogir 24"
@@ -101,8 +101,8 @@ in
 
       general = {
         layout = "dwindle";
-        gaps_in = 5;
-        gaps_out = "7,10,10,10";
+        gaps_in = 0;
+        gaps_out = 0;
         border_size = 2;
         "col.active_border" = "rgba(4444ddee) rgba(44dd44ee) rgba(dd4444ee) 30deg";
         "col.inactive_border" = "rgba(595959aa)";
@@ -266,7 +266,7 @@ in
       ];
 
       decoration = {
-        rounding = 10;
+        rounding = 0;
         drop_shadow = false;
 
         dim_inactive = false;
