@@ -29,6 +29,7 @@ in
     distrobox
     coreboot-utils
     fastfetch
+    flyctl
     gnutar
     less
     minicom
