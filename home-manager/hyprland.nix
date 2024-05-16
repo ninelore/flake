@@ -56,7 +56,7 @@ in
   ];
 
   home.packages = with pkgs; [
-    libappindicator 
+    libappindicator
     libappindicator-gtk3
   ];
 
@@ -73,7 +73,8 @@ in
 
     settings = {
       exec-once = [
-        "waybar""7,10,10,10"
+        "waybar"
+        "7,10,10,10"
         "swww-daemon"
         "swww img ${wp}"
         "hyprctl setcursor Qogir 24"
@@ -164,10 +165,6 @@ in
       bind =
         let
           binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
-          mvfocus = binding "SUPER" "movefocus";
-          resizeactive = binding "SUPER CTRL" "resizeactive";
-          mvactive = binding "SUPER ALT" "moveactive";
-          mvwindow = binding "SUPER SHIFT" "movewindow";
           ws = binding "SUPER" "workspace";
           mvtows = binding "SUPER SHIFT" "movetoworkspace";
           arr = [ 1 2 3 4 5 6 7 8 9 ];
@@ -197,6 +194,27 @@ in
           "SUPER, A, togglespecialworkspace, magic"
           "SUPER SHIFT, A, movetoworkspace, special:magic"
 
+
+          # WS 11 and 12
+          (ws "0" "10")
+          (ws "code:20" "11")
+          (ws "code:21" "12")
+          (mvtows "0" "10")
+          (mvtows "code:20" "11")
+          (mvtows "code:21" "12")
+        ]
+        ++ (map (i: ws (toString i) (toString i)) arr)
+        ++ (map (i: mvtows (toString i) (toString i)) arr);
+
+      binde =
+        let
+          binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
+          mvfocus = binding "SUPER" "movefocus";
+          resizeactive = binding "SUPER CTRL" "resizeactive";
+          mvactive = binding "SUPER ALT" "moveactive";
+          mvwindow = binding "SUPER SHIFT" "movewindow";
+        in
+        [
           (mvfocus "k" "u")
           (mvfocus "j" "d")
           (mvfocus "l" "r")
@@ -213,32 +231,23 @@ in
           (mvwindow "down" "d")
           (mvwindow "right" "r")
           (mvwindow "left" "l")
-          (resizeactive "k" "0 -5%")
-          (resizeactive "j" "0 5%")
-          (resizeactive "l" "5% 0")
-          (resizeactive "h" "-5% 0")
-          (resizeactive "up" "0 -5%")
-          (resizeactive "down" "0 5%")
-          (resizeactive "right" "5% 0")
-          (resizeactive "left" "-5% 0")
-          (mvactive "k" "0 -5%")
-          (mvactive "j" "0 5%")
-          (mvactive "l" "5% 0")
-          (mvactive "h" "-5% 0")
-          (mvactive "up" "0 -5%")
-          (mvactive "down" "0 5%")
-          (mvactive "right" "5% 0")
-          (mvactive "left" "-5% 0")
-          # WS 11 and 12
-          (ws "0" "10")
-          (ws "code:20" "11")
-          (ws "code:21" "12")
-          (mvtows "0" "10")
-          (mvtows "code:20" "11")
-          (mvtows "code:21" "12")
-        ]
-        ++ (map (i: ws (toString i) (toString i)) arr)
-        ++ (map (i: mvtows (toString i) (toString i)) arr);
+          (resizeactive "k" "0 -2%")
+          (resizeactive "j" "0 2%")
+          (resizeactive "l" "2% 0")
+          (resizeactive "h" "-2% 0")
+          (resizeactive "up" "0 -2%")
+          (resizeactive "down" "0 2%")
+          (resizeactive "right" "2% 0")
+          (resizeactive "left" "-2% 0")
+          (mvactive "k" "0 -2%")
+          (mvactive "j" "0 2%")
+          (mvactive "l" "2% 0")
+          (mvactive "h" "-2% 0")
+          (mvactive "up" "0 -2%")
+          (mvactive "down" "0 2%")
+          (mvactive "right" "2% 0")
+          (mvactive "left" "-2% 0")
+        ];
 
       bindle = [
         ",XF86MonBrightnessUp,   exec, ${brightnessctl} set +5%"
