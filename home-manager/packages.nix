@@ -46,7 +46,8 @@ in
     # gui
     anytype
     obsidian
-    libreoffice
+    libreoffice-fresh
+    onlyoffice-bin_latest
     gimp
     webcord
     discord
