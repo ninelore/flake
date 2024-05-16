@@ -56,6 +56,7 @@ in
   ];
 
   home.packages = with pkgs; [
+    hyprpicker
     libappindicator
     libappindicator-gtk3
   ];
@@ -178,6 +179,7 @@ in
           "SUPER, V, exec, cliphist list | anyrun --hide-icons true --hide-plugin-info true --show-results-immediately true --plugins libstdin.so | cliphist decode | wl-copy"
           "SUPER CTRL, V, exec, cliphist wipe"
           "SUPER SHIFT, S, exec, grimblast copy area"
+          "SUPER SHIFT, W, exec, hyprpicker | tr -d '\\n' | wl-copy"
 
           "SUPER SHIFT, Q, killactive, "
           "SUPER, space, togglefloating, "
@@ -197,7 +199,7 @@ in
 
           # WS 11 and 12
           (ws "0" "10")
-          (ws "code:20" "11")
+          (ws "code:5%20" "11")
           (ws "code:21" "12")
           (mvtows "0" "10")
           (mvtows "code:20" "11")
