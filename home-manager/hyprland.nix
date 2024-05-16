@@ -8,8 +8,6 @@ let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
-  
-
   hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
     handle() {
       case $1 in
@@ -42,7 +40,7 @@ let
       hyprctl --batch "\
         keyword general:gaps_in 5;\
         keyword general:gaps_out "7,10,10,10";\
-        keyword decoration:rounding 10;"
+        keyword decoratiolibreofficen:rounding 10;"
       exit
     fi
     hyprctl reload
@@ -69,10 +67,9 @@ in
     package = hyprland;
     systemd.enable = true;
     xwayland.enable = true;
-    plugins = with plugins; [
-      #hyprexpo
-      # borderspp
-    ];
+    #plugins = with plugins; [
+    #  #hyprexpo
+    #];
 
     settings = {
       exec-once = [

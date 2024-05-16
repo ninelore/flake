@@ -43,6 +43,10 @@ in
     # appimages
     appimage-run
 
+    # gui system tools
+    wlr-randr
+
+
     # gui
     anytype
     obsidian
