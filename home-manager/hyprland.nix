@@ -64,7 +64,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland;
+    #package = hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     #plugins = with plugins; [

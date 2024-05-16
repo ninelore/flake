@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ...
+{ pkgs, ...
 }: {
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
@@ -18,7 +18,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
   };
 
