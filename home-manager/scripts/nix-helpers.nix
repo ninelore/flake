@@ -17,6 +17,11 @@ let
     sudo nixos-rebuild switch --flake "$_p" --impure || exit 1
   '';
 
+  nxgc = pkgs.writeShellScriptBin "nxgc" ''
+    nix-collect-garbage --delete-older-than 7d
+    sudo nix-collect-garbage --delete-older-than 7d
+  '';
+
   nx-flakepath-update = pkgs.writeShellScriptBin "nx-flakepath-update" ''
     echo "checking flake validity..."
     if [[ -r ./flake.nix ]]; then
@@ -28,5 +33,5 @@ let
   '';
 in
 {
-  home.packages = [ nxsw nx-flakepath-update ];
+  home.packages = [ nxsw nxgc nx-flakepath-update ];
 }
