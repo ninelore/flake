@@ -3,15 +3,13 @@
 , ...
 }:
 let
-  wp = ../assets/wallhaven-r2pmx1.jpg;
-
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
   hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
     handle() {
       case $1 in
-        monitoradded*) swww img ${wp} ;;
+        monitoradded*) swww img $(cat ~/.wallpaper) ;;
       esac
     }
     socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
@@ -49,6 +47,12 @@ let
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
+
+  setwp = pkgs.writeShellScriptBin "setwp" ''
+    if [[ ! -f $1 ]]; then return 1; fi
+    swww img $1 || return 1
+    echo $1 > ~/.wallpaper
+  '';
 in
 {
   imports = [
@@ -59,6 +63,7 @@ in
     hyprpicker
     libappindicator
     libappindicator-gtk3
+    setwp
   ];
 
   services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
@@ -77,7 +82,7 @@ in
         "waybar"
         "7,10,10,10"
         "swww-daemon"
-        "swww img ${wp}"
+        "swww img $(cat ~/.wallpaper)"
         "hyprctl setcursor Qogir 24"
         "transmission-gtk"
         "${hypreventhandler}"
@@ -89,7 +94,7 @@ in
 
       monitor = [
         # Laptops
-        "desc:Thermotrex Corporation TL140ADXP01,preferred,auto,1.666667" # GA402R
+        "desc:Thermotrex Corporation TL140ADXP01,preferred,auto,1.6" # GA402R
         "desc:AU Optronics 0x662D, preferred, auto,1.25" # Google Lillipup
         # External
         "desc:HP Inc. HP X34 6CM25210CS,preferred,-1536x-250,1"
