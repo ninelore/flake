@@ -204,7 +204,7 @@ in
 
           # WS 11 and 12
           (ws "0" "10")
-          (ws "code:5%20" "11")
+          (ws "code:20" "11")
           (ws "code:21" "12")
           (mvtows "0" "10")
           (mvtows "code:20" "11")
