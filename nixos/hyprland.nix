@@ -61,6 +61,9 @@
       swww
       wev
       wl-clipboard
+
+      grim
+      slurp
     ];
 
   services = {
