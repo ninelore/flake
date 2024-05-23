@@ -10,7 +10,6 @@ in
 {
   imports = [
     ./scripts/nix-helpers.nix
-    ../packages/eshare.nix
   ];
 
   programs = {
