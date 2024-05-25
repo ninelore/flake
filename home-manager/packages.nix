@@ -60,6 +60,7 @@ in
     edge
     protonmail-desktop
     helvum
+    scrcpy
 
     # dev
     nixd
