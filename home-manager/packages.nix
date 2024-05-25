@@ -25,6 +25,7 @@ in
 
   home.packages = with pkgs; with gnome; [
     # cli
+    android-tools
     btop
     distrobox
     coreboot-utils
