@@ -20,6 +20,10 @@ in
     };
     userEmail = email;
     userName = name;
+    ignores = [
+      "shell.nix"
+      "*.session.sql"
+    ];
   };
   programs.gh = {
     enable = true;
