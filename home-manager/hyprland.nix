@@ -80,7 +80,6 @@ in
     settings = {
       exec-once = [
         "waybar"
-        "7,10,10,10"
         "swww-daemon"
         "swww img $(cat ~/.wallpaper)"
         "hyprctl setcursor Qogir 24"
