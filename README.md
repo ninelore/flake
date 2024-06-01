@@ -2,9 +2,7 @@
 
 ## Install
 
-1. Clone
-2. `echo <yourHostname> > /etc/nixos/HOSTNAME`
-3. `sudo nixos-rebuild --flake .# --impure`
+ToDo
 
 ## ToDo
 

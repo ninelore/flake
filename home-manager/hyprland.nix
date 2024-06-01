@@ -3,8 +3,8 @@
 , ...
 }:
 let
-  hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  plugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  #hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  #plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
   hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
     handle() {

@@ -1,5 +1,5 @@
 # FIXME: This config is only for Intel SOF Chrome devices with the pre-ADL keyboard layout
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   cb-ucm-conf = with pkgs; alsa-ucm-conf.overrideAttrs {
     src = fetchFromGitHub {

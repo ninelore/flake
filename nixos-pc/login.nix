@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 let
   wp = ../assets/wallhaven-r2pmx1.jpg;
 in

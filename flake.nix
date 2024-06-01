@@ -36,52 +36,16 @@
     }: {
       # nixos config
       nixosConfigurations = {
-        "${nixpkgs.lib.strings.fileContents "/etc/nixos/HOSTNAME"}" =
-          let
-            hostname = nixpkgs.lib.strings.fileContents /etc/nixos/HOSTNAME;
-            username = "9l";
-            system = "x86_64-linux";
-          in
+        "9l-zephyr" =
           nixpkgs.lib.nixosSystem {
-            system = system;
+            system = "x86_64-linux";
             specialArgs = { inherit inputs; };
             modules = [
-              ./nixos/nixos.nix
+              ./9l.nix
+              ./hardware/ga402r.nix
+              ./nixos-pc/nixos.nix
               home-manager.nixosModules.home-manager
-              {
-                users.users.${username} = {
-                  shell = nixpkgs.legacyPackages.${system}.pkgs.nushell;
-                  isNormalUser = true;
-                  initialPassword = username;
-                  extraGroups = [
-                    "networkmanager"
-                    "power"
-                    "wheel"
-                    "audio"
-                    "video"
-                    "libvirtd"
-                    "docker"
-                    #"podman"
-                    "adbusers"
-                    "plugdev"
-                    "openrazer"
-                  ];
-                };
-                environment.variables = {
-                  HOSTNAME = hostname;
-                };
-                networking.hostName = hostname;
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  extraSpecialArgs = { inherit inputs; };
-                  users.${username} = {
-                    home.username = username;
-                    home.homeDirectory = "/home/${username}";
-                    imports = [ ./home-manager/home.nix ];
-                  };
-                };
-              }
+              { networking.hostName = "9l-zephyr"; }
             ];
           };
       };
