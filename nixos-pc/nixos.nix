@@ -89,5 +89,6 @@
       enable = true;
       gamescopeSession.enable = true; # TODO: trial
     };
+    adb.enable = true;
   };
 }
