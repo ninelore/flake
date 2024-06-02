@@ -57,6 +57,7 @@ in
     gimp
     webcord
     discord
+    firefox
     edge
     protonmail-desktop
     helvum
