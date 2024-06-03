@@ -1,7 +1,7 @@
-{ config, lib, inputs, pkgs, ... }: {
+{ config, lib, inputs, pkgs, modulesPath, ... }: {
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
-    #(nixpkgs + "/installer/scan/not-detected.nix")
+    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   services = {
@@ -26,6 +26,7 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "sdhci_pci" ];
   boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
@@ -64,7 +65,17 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  swapDevices = [ ];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-040f884d64c7.useDHCP = lib.mkDefault true;
+  # networking.interfaces.br-5785f70ee441.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

@@ -14,7 +14,7 @@ let
       sudo nix-channel --update || exit 1
       sudo nix flake update || exit 1
     fi
-    sudo nixos-rebuild switch --flake "$_p" --impure || exit 1
+    sudo nixos-rebuild switch --flake "$_p" || exit 1
   '';
 
   nxgc = pkgs.writeShellScriptBin "nxgc" ''
