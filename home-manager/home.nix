@@ -1,6 +1,6 @@
 { config, ... }: {
   imports = [
-    ./configcopy.nix
+    ./dots.nix
     ./git.nix
     ./hyprland.nix
     #./mako.nix
