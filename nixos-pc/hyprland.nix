@@ -1,5 +1,5 @@
 { pkgs
-, inputs
+#, inputs
 , ...
 }: {
   systemd = {

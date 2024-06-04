@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   edge = pkgs.microsoft-edge.override {
     commandLineArgs = [
@@ -6,6 +6,8 @@ let
       "--ozone-platform=wayland"
     ];
   };
+
+  wezterm-git = inputs.wezterm.packages."${pkgs.system}".default;
 in
 {
   imports = [
@@ -21,6 +23,10 @@ in
       enable = true;
       package = pkgs.graalvm-ce;
     };
+    #wezterm = {
+    #  enable = true;
+    #  package = wezterm-git;
+    #};
   };
 
   home.packages = with pkgs; with gnome; [

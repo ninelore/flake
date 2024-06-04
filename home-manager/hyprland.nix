@@ -175,7 +175,7 @@ in
           arr = [ 1 2 3 4 5 6 7 8 9 ];
         in
         [
-          "SUPER, return, exec, wezterm"
+          "SUPER, return, exec, kitty"
           "SUPER, E, exec, nautilus"
           "SUPER, D, exec, anyrun"
           "SUPER, L, exec, hyprlock"
