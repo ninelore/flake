@@ -77,6 +77,7 @@
       home-manager
       neovim
       nix-index
+      usbutils
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
     ];
   };
