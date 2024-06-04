@@ -40,6 +40,7 @@
 
     sessionPath = [
       "$HOME/.local/bin"
+      "$HOME/chromium-dev/depot_tools"
     ];
   };
 
