@@ -1,28 +1,16 @@
-{ ... }:
-let
-  wp = ../assets/wallhaven-r2pmx1.jpg;
-in
-{
-  services.greetd = {
-    enable = true;
-    settings = {
-      
-    };
-  };
-
-  programs.regreet = {
-    enable = true;
-    settings = {
-      background = {
-        path = "${wp}";
-        fit = "Cover";
-        # color = "#282a36";
+{ ... }: {
+  services = {
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        autoNumlock = true;
       };
-      GTK = {
-        theme_name = "adw-gtk3-dark";
-        application_prefer_dark_theme = true;
+      defaultSession = "hyprland";
+      autoLogin = {
+        enable = true;
+        user = "9l";
       };
     };
-    cageArgs = [ "-s" "-m" "last" ];
   };
 }
