@@ -24,11 +24,6 @@ let
 in
 {
   programs = {
-    #wezterm = {
-    #  enable = true;
-    #  #package
-    #};
-
     oh-my-posh = {
       enable = true;
       useTheme = "json";
