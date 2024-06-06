@@ -1,6 +1,6 @@
-let
+{  ... }: let
   email = "9l@9lo.re";
-  name = "ninelore";
+  name = "Ingo Reitz";
   editor = "nvim";
 in
 {
