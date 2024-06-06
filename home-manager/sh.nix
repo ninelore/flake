@@ -1,4 +1,5 @@
 { pkgs
+, lib
 , ...
 }:
 let
@@ -25,8 +26,16 @@ in
 {
   programs = {
     oh-my-posh = {
-      enable = true;
+      enable = false;
       useTheme = "json";
+    };
+    starship = {
+      enable = true;
+      settings = {
+        add_newline = false;
+        scan_timeout = 10;
+        command_timeout = 10;
+      };
     };
 
     bash = {
