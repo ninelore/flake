@@ -51,7 +51,7 @@ let
   setwp = pkgs.writeShellScriptBin "setwp" ''
     if [[ ! -f $1 ]]; then return 1; fi
     swww img $1 || return 1
-    echo $1 > ~/.wallpaper
+    echo $(pwd)/$1 > ~/.wallpaper
   '';
 in
 {
