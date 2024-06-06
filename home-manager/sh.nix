@@ -61,7 +61,7 @@ in
           conf = builtins.toJSON {
             show_banner = false;
             edit_mode = "vi";
-            shell_integration = true;
+            #shell_integration = true; # boolean deprecated at 0.94
 
             ls.clickable_links = true;
             rm.always_trash = true;
