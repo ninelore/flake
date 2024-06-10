@@ -1,7 +1,7 @@
 # Hardware config for Google Volteer
 { pkgs, ... }: {
   imports = [
-    ./cros.nix
+    #./cros.nix
   ];
 
   services.keyd = {
