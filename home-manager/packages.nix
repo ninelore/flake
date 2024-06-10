@@ -10,10 +10,6 @@ let
   wezterm-git = inputs.wezterm.packages."${pkgs.system}".default;
 in
 {
-  imports = [
-    ./scripts/nix-helpers.nix
-  ];
-
   programs = {
     vscode = {
       enable = true;

@@ -1,15 +1,11 @@
 { config, ... }: {
   imports = [
-    ./dots.nix
     ./git.nix
     ./hyprland.nix
-    #./mako.nix
+    ./nix-scripts.nix
     ./packages.nix
     ./sh.nix
-    ./swaync.nix
     ./theme.nix
-
-    #../packages/eshare.nix
   ];
 
   news.display = "show";

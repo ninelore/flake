@@ -55,18 +55,35 @@ let
   '';
 in
 {
-  imports = [
-    ./waybar.nix
-  ];
-
   home.packages = with pkgs; [
     hyprpicker
     libappindicator
     libappindicator-gtk3
     setwp
   ];
+  xdg.configFile = {
+    "anyrun".source = ../dots/anyrun;
+    "hypr/hypridle.conf".source = ../dots/hypr/hypridle.conf;
+    "hypr/hyprlock.conf".source = ../dots/hypr/hyprlock.conf;
+    "kitty".source = ../dots/kitty;
+    "waybar/config.jsonc".source = ../dots/waybar/config.jsonc;
+    "wezterm".source = ../dots/wezterm;
+  };
 
-  services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
+  programs.waybar = {
+    enable = true;
+    #package = inputs.waybar.packages.${pkgs.system}.waybar;
+    style = ../dots/waybar/style.css;
+  };
+
+  services = {
+    gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
+    swaync = {
+      enable = true;
+      #settings = {};
+      #style = "path";
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
