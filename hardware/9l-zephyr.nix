@@ -21,8 +21,7 @@
     rocm-opencl-runtime
   ];
 
-
-  # Formerly /etc/nixos/hardware-configuration.nix
+  # Formerly /etc/nixos/hardware-configuration.nix from 9l-zephyr
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "sdhci_pci" ];
   boot.kernelModules = [ "kvm-amd" ];

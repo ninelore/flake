@@ -45,10 +45,22 @@
             specialArgs = { inherit inputs; };
             modules = [
               ./9l.nix
-              ./hardware/ga402r.nix
+              ./hardware/9l-zephyr.nix
               ./nixos-pc/nixos.nix
               home-manager.nixosModules.home-manager
               { networking.hostName = "9l-zephyr"; }
+            ];
+          };
+          "9l-lillipup" =
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./9l.nix
+              ./hardware/9l-lillipup.nix
+              ./nixos-pc/nixos.nix
+              home-manager.nixosModules.home-manager
+              { networking.hostName = "9l-lillipup"; }
             ];
           };
       };

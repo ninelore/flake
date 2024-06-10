@@ -1,24 +1,9 @@
-# FIXME: This config is only for Intel SOF Chrome devices with the pre-ADL keyboard layout
-{ pkgs, ... }:
-let
-  cb-ucm-conf = with pkgs; alsa-ucm-conf.overrideAttrs {
-    src = fetchFromGitHub {
-      owner = "WeirdTreeThing";
-      repo = "alsa-ucm-conf-cros";
-      rev = "f7be751655e4298851615bded7adaf364ccfb8c3";
-      hash = "sha256-x4DQoYIF8tRlNQ1/vKgTtgzach/CCNYzsl+gxviSVHs=";
-    };
+# Hardware config for Google Volteer
+{ pkgs, ... }: {
+  imports = [
+    ./cros.nix
+  ];
 
-    installPhase = ''
-      runHook preInstall
-      mkdir -p $out/share/alsa
-      cp -r ucm2 $out/share/alsa/
-      runHook postInstall
-    '';
-  };
-in
-{
-  # Config for cros-stadard keyboard and SOF for 24.05
   services.keyd = {
     enable = true;
     keyboards.internal = {
@@ -109,9 +94,9 @@ in
 
   environment = {
     systemPackages = [ pkgs.sof-firmware ];
-    sessionVariables.ALSA_CONFIG_UCM2 = "${cb-ucm-conf}/share/alsa/ucm2";
   };
 
+  #FIXME: Broken on newer pipewire/wireplumber
   services.pipewire.wireplumber.configPackages = [
     (pkgs.writeTextDir "share/wireplumber/main.lua.d/51-increase-headroom.lua" ''
       rule = {
@@ -129,10 +114,5 @@ in
     '')
   ];
 
-  system.replaceRuntimeDependencies = [
-    ({
-      original = pkgs.alsa-ucm-conf;
-      replacement = cb-ucm-conf;
-    })
-  ];
+
 }
