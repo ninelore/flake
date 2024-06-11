@@ -29,6 +29,7 @@ in
     # cli
     btop
     distrobox
+    dmidecode
     coreboot-utils
     fastfetch
     flyctl
@@ -51,7 +52,7 @@ in
 
     # gui
     anytype
-    obsidian
+    #obsidian # flatpak for now
     libreoffice-fresh
     onlyoffice-bin_latest
     gimp
