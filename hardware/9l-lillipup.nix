@@ -1,11 +1,16 @@
-{ config, lib, modulesPath, ... }:
-{
-  # Formerly /etc/nixos/hardware-configuration.nix from 9l-lillipup
-
+# Formerly /etc/nixos/hardware-configuration.nix from 9l-lillipup
+{ config, lib, modulesPath, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./common/volteer.nix
   ];
+
+  networking.hostName = "9l-lillipup";
+
+  # Autologin since its pointless on FDE
+  services.displayManager.autoLogin = {
+    enable = true;
+  };
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
@@ -28,13 +33,7 @@
 
   swapDevices = [ ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s13f0u1u4.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

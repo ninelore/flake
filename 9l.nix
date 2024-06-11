@@ -30,4 +30,7 @@ in
       imports = [ ./home-manager/home.nix ];
     };
   };
+  services.displayManager.autoLogin = {
+    user = username;
+  };
 }

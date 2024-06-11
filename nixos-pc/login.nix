@@ -7,10 +7,6 @@
         autoNumlock = true;
       };
       defaultSession = "hyprland";
-      autoLogin = {
-        enable = true;
-        user = "9l";
-      };
     };
   };
 }

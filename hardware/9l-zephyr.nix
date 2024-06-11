@@ -1,8 +1,16 @@
+# Partially formerly /etc/nixos/hardware-configuration.nix from 9l-zephyr
 { config, lib, inputs, pkgs, modulesPath, ... }: {
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
+
+  networking.hostName = "9l-zephyr";
+
+  # Autologin since its pointless on FDE
+  services.displayManager.autoLogin = {
+    enable = true;
+  };
 
   services = {
     asusd = {
@@ -12,8 +20,6 @@
     supergfxd.enable = true;
   };
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = with pkgs; [
@@ -21,8 +27,7 @@
     rocm-opencl-runtime
   ];
 
-  # Formerly /etc/nixos/hardware-configuration.nix from 9l-zephyr
-
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usbhid" "sdhci_pci" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -71,6 +76,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
+
   # networking.interfaces.br-040f884d64c7.useDHCP = lib.mkDefault true;
   # networking.interfaces.br-5785f70ee441.useDHCP = lib.mkDefault true;
   # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
