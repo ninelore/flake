@@ -33,4 +33,5 @@ in
   services.displayManager.autoLogin = {
     user = username;
   };
+  security.pam.services.${username}.enableGnomeKeyring = true;
 }
