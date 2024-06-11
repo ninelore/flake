@@ -10,9 +10,13 @@ let
       fi
     fi
 
+    git pull || exit 1
+
     if [[ $1 == "-u" ]]; then
       sudo nix-channel --update || exit 1
       sudo nix flake update || exit 1
+      git add flake.lock || exit 1
+      git commit -m "update flake"
     fi
     sudo nixos-rebuild switch --flake "$_p" || exit 1
   '';
