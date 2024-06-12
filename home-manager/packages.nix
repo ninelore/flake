@@ -51,8 +51,7 @@ in
     wlr-randr
 
     # gui
-    anytype
-    #obsidian # flatpak for now
+    obsidian
     libreoffice-fresh
     onlyoffice-bin_latest
     gimp
