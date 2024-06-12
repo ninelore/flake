@@ -10,7 +10,7 @@ let
       fi
     fi
 
-    git pull || exit 1
+    git pull --autostash || exit 1
 
     if [[ $1 == "-u" ]]; then
       sudo nix-channel --update || exit 1
