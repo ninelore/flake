@@ -1,5 +1,5 @@
 { pkgs
-#, inputs
+, inputs
 , ...
 }: {
   systemd = {
@@ -20,7 +20,7 @@
 
   programs.hyprland = {
     enable = true;
-    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
   };
 
