@@ -6,8 +6,6 @@ let
       "--ozone-platform=wayland"
     ];
   };
-
-  wezterm-git = inputs.wezterm.packages."${pkgs.system}".default;
 in
 {
   programs = {
@@ -19,10 +17,10 @@ in
       enable = true;
       package = pkgs.graalvm-ce;
     };
-    #wezterm = {
-    #  enable = true;
-    #  package = wezterm-git;
-    #};
+    wezterm = {
+      enable = true;
+      package = inputs.wezterm.packages."${pkgs.system}".default;
+    };
   };
 
   home.packages = with pkgs; with gnome; [
