@@ -94,5 +94,9 @@
       gamescopeSession.enable = true; # TODO: trial
     };
     adb.enable = true;
+    flashrom = {
+      enable = true;
+      # package = ;
+    };
   };
 }
