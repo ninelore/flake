@@ -23,7 +23,13 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit inputs;
+      pkgs-small = import inputs.nixpkgs-small {
+        system = pkgs.system;
+        config.allowUnfree = true;
+      };
+    };
     users.${username} = {
       home.username = username;
       home.homeDirectory = "/home/${username}";

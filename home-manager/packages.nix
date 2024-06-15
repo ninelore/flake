@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, pkgs-small, ... }:
 let
   edge = pkgs.microsoft-edge.override {
     commandLineArgs = [
@@ -11,7 +11,7 @@ in
   programs = {
     vscode = {
       enable = true;
-      package = pkgs.vscode;
+      package = pkgs-small.vscode;
     };
     java = {
       enable = true;
