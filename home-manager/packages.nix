@@ -18,7 +18,7 @@ in
       package = pkgs.graalvm-ce;
     };
     wezterm = {
-      enable = true;
+      enable = false;
       package = inputs.wezterm.packages."${pkgs.system}".default;
     };
   };
