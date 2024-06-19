@@ -3,7 +3,6 @@
 , ...
 }:
 let
-  #hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   #plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
   hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
@@ -61,6 +60,7 @@ in
     libappindicator-gtk3
     setwp
   ];
+  
   xdg.configFile = {
     "anyrun".source = ../dots/anyrun;
     "hypr/hypridle.conf".source = ../dots/hypr/hypridle.conf;
@@ -87,7 +87,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    #package = hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     #plugins = with plugins; [
@@ -102,19 +102,19 @@ in
         "hyprctl setcursor Qogir 24"
         "transmission-gtk"
         "${hypreventhandler}"
-        #"protonmail-bridge-gui --no-window"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hypridle"
       ];
 
+      # TODO: External Monitor settings are only for GA402R for now
       monitor = [
         # Laptops
-        "desc:Thermotrex Corporation TL140ADXP01,preferred,auto,1.6" # GA402R
-        "desc:AU Optronics 0x662D, preferred, auto,1.25" # Google Lillipup
+        "desc:Thermotrex Corporation TL140ADXP01,preferred,0x0,1.6" # GA402R
+        "desc:AU Optronics 0x662D, preferred, 0x0,1.25" # Google Lillipup
         # External
         "desc:HP Inc. HP X34 6CM25210CS,preferred,-1536x-250,1"
-        "desc:GWD ARZOPA 000000000000,preferred,1536x0,1.25"
+        "desc:GWD ARZOPA 000000000000,preferred,0x1000,1.25"
         # Fallback
         ",preferred,auto,auto"
       ];
