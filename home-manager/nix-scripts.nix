@@ -22,8 +22,8 @@ let
   '';
 
   nxgc = pkgs.writeShellScriptBin "nxgc" ''
-    sudo nix-collect-garbage --delete-older-than 7d
-    nix-collect-garbage --delete-older-than 7d
+    sudo nix-collect-garbage --delete-older-than 7d --quiet
+    nix-collect-garbage --delete-older-than 7d --quiet
   '';
 
   nx-flakepath-update = pkgs.writeShellScriptBin "nx-flakepath-update" ''
