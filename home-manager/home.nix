@@ -35,8 +35,10 @@
     };
 
     sessionPath = [
+      "$HOME/.cargo/bin"
       "$HOME/.local/bin"
       "$HOME/chromium-dev/depot_tools"
+      "$HOME/go/bin"
     ];
   };
 
