@@ -32,12 +32,14 @@ in
     fastfetch
     flyctl
     gnutar
+    gptfdisk
     less
     minicom
     oh-my-posh
     ranger
     unar
     ueberzug
+    vboot_reference
     w3m
     zip
     unzip
