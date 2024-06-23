@@ -362,16 +362,15 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1718261463,
-        "narHash": "sha256-HwXek9yX2ZPC5UJtmEyAc3SJ66u34zRxJtlnVqNHE9w=",
-        "owner": "K900",
+        "lastModified": 1719069430,
+        "narHash": "sha256-d9KzCJv3UG6nX9Aur5OSEf4Uj+ywuxojhiCiRKYVzXA=",
+        "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "291c3ee610d94e39fa40f1051ebb14b56a57a5d9",
+        "rev": "e8232c132a95ddc62df9d404120ad4ff53862910",
         "type": "github"
       },
       "original": {
-        "owner": "K900",
-        "ref": "drop-amdvlk",
+        "owner": "NixOS",
         "repo": "nixos-hardware",
         "type": "github"
       }
