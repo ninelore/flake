@@ -113,7 +113,7 @@ in
         "desc:Thermotrex Corporation TL140ADXP01,preferred,0x0,1.6" # GA402R
         "desc:AU Optronics 0x662D, preferred, 0x0,1.25" # Google Lillipup
         # External
-        "desc:HP Inc. HP X34 6CM25210CS,preferred,-1536x-250,1"
+        "desc:HP Inc. HP X34 6CM25210CS,preferred,-3440x-250,1"
         "desc:GWD ARZOPA 000000000000,preferred,0x1000,1.25"
         # Fallback
         ",preferred,auto,auto"
