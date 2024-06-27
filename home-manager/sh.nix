@@ -32,8 +32,8 @@ in
       enable = true;
       settings = {
         add_newline = false;
-        scan_timeout = 10;
-        command_timeout = 10;
+        scan_timeout = 2000;
+        command_timeout = 2000;
       };
     };
 
