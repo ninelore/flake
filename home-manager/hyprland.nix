@@ -287,7 +287,7 @@ in
         ",XF86AudioPause,   exec, ${playerctl} pause"
         ",XF86AudioPrev,    exec, ${playerctl} previous"
         ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMicMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle toggle"
+        ",XF86AudioMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
 
       bindm = [
