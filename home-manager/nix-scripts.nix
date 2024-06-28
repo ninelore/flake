@@ -35,7 +35,11 @@ let
       echo "failed"
     fi
   '';
+
+  spawnb = pkgs.writeShellScriptBin "spawnb" ''
+    nohup $* &
+  '';
 in
 {
-  home.packages = [ nxsw nxgc nx-flakepath-update ];
+  home.packages = [ nxsw nxgc nx-flakepath-update spawnb ];
 }
