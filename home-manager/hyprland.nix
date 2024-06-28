@@ -59,6 +59,7 @@ in
     libappindicator
     libappindicator-gtk3
     setwp
+    xwaylandvideobridge
   ];
   
   xdg.configFile = {
@@ -105,6 +106,7 @@ in
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hypridle"
+        "xwaylandvideobridge"
       ];
 
       # TODO: External Monitor settings are only for GA402R for now
@@ -183,6 +185,14 @@ in
           (f "xdg-desktop-portal")
           (f "xdg-desktop-portal-gnome")
         ];
+
+      windowrulev2 =[
+        "opacity 0.0 override,class:^(xwaylandvideobridge)$"
+        "noanim,class:^(xwaylandvideobridge)$"
+        "noinitialfocus,class:^(xwaylandvideobridge)$"
+        "maxsize 1 1,class:^(xwaylandvideobridge)$"
+        "noblur,class:^(xwaylandvideobridge)$"
+      ];
 
       bind =
         let
