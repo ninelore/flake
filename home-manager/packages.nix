@@ -72,6 +72,7 @@ in
     yarn
     go
     gcc
+    cmakeCurses
     rustup
     maven
     quarkus
