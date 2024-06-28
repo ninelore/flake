@@ -35,7 +35,6 @@ in
     gptfdisk
     less
     minicom
-    oh-my-posh
     ranger
     unar
     ueberzug
