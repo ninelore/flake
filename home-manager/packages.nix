@@ -61,6 +61,7 @@ in
     protonmail-desktop
     helvum
     scrcpy
+    inputs.ninelore.packages.${pkgs.system}.eshare
 
     # dev
     nixd
