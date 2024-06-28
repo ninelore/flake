@@ -13,6 +13,7 @@ in
       github.user = name;
       push.autoSetupRemote = true;
       pull.rebase = true;
+      init.defaultBranch = "main";
     };
     signing = {
       signByDefault = true;
