@@ -1,5 +1,6 @@
 {  ... }: let
   email = "9l@9lo.re";
+  username = "ninelore";
   name = "Ingo Reitz";
   editor = "nvim";
 in
@@ -10,7 +11,7 @@ in
       color.ui = true;
       core.editor = editor;
       #credential.helper = "store";
-      github.user = name;
+      github.user = username;
       push.autoSetupRemote = true;
       pull.rebase = true;
       init.defaultBranch = "main";
