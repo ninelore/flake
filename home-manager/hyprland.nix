@@ -32,15 +32,23 @@ let
   '';
 
   hyprprodmode = pkgs.writeShellScript "hyprprodmode" ''
-    HYPRPRODMODE=$(hyprctl getoption decoration:rounding | awk 'NR==1{print $2}')
+    HYPRPRODMODE=$(hyprctl getoption general:gaps_out | awk 'NR==1{print $3}')
     if [ "$HYPRPRODMODE" = 0 ] ; then
       hyprctl --batch "\
         keyword general:gaps_in 5;\
         keyword general:gaps_out "7,10,10,10";\
-        keyword decoratiolibreofficen:rounding 10;"
+        keyword decoration:rounding 10;"
       exit
     fi
     hyprctl reload
+  '';
+
+  togglewaybar = pkgs.writeShellScript "togglewaybar" ''
+    if ! pgrep waybar ; then
+      waybar
+    else 
+      pkill waybar
+    fi
   '';
 
   playerctl = "${pkgs.playerctl}/bin/playerctl";
@@ -206,6 +214,7 @@ in
           "SUPER, E, exec, nautilus"
           "SUPER, D, exec, anyrun"
           "SUPER, L, exec, hyprlock"
+          "SUPER, N, exec, ${togglewaybar}"
           "SUPER, M, exec, ${hyprpowermenu}"
           "SUPER, V, exec, cliphist list | anyrun --hide-icons true --hide-plugin-info true --show-results-immediately true --plugins libstdin.so | cliphist decode | wl-copy"
           "SUPER CTRL, V, exec, cliphist wipe"
