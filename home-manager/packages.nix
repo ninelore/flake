@@ -39,6 +39,7 @@ in
     unar
     ueberzug
     vboot_reference
+    via
     w3m
     zip
     unzip

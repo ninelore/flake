@@ -32,15 +32,15 @@
     libvirtd.enable = true;
   };
 
-  services.logind.extraConfig = ''
-    HandlePowerKey=suspend
-    HandleLidSwitch=suspend
-    HandleLidSwitchDocked=ignore
-  '';
-
   services = {
     #printing.enable = true;
+    udev.packages = [ pkgs.via ];
     flatpak.enable = true;
+    logind.extraConfig = ''
+      HandlePowerKey=suspend
+      HandleLidSwitch=suspend
+      HandleLidSwitchDocked=ignore
+    '';
   };
 
   networking = {
@@ -69,6 +69,7 @@
       enable = true;
       batteryNotifier.enable = false;
     };
+    keyboard.qmk.enable = true;
   };
 
   environment = {
