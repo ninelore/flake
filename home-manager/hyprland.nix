@@ -114,7 +114,6 @@ in
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "hypridle"
-        "xwaylandvideobridge"
       ];
 
       # TODO: External Monitor settings are only for GA402R for now
