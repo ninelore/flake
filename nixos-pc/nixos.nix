@@ -89,6 +89,7 @@
   programs = {
     virt-manager.enable = true;
     nix-ld.enable = true;
+    wireshark.enable = true;
     # I hate to have this outside of home-manager...
     steam = {
       enable = true;
