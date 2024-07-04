@@ -62,6 +62,7 @@ in
     protonmail-desktop
     helvum
     scrcpy
+    wireshark
     inputs.ninelore.packages.${pkgs.system}.eshare
 
     # nix dev

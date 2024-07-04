@@ -18,6 +18,7 @@ in
       "adbusers"
       "plugdev"
       "openrazer"
+      "wireshark"
     ];
   };
   home-manager = {
