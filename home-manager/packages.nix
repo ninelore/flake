@@ -64,17 +64,21 @@ in
     scrcpy
     inputs.ninelore.packages.${pkgs.system}.eshare
 
-    # dev
+    # nix dev
     nixd
     nixfmt-rfc-style
     nixpkgs-fmt
     # TODO: define globally available shell envs?
+    # C dev
+    cmakeCurses
+    gcc
+    gnumake
+    ninja
+    # Other dev
     nodejs_20
     python3
     yarn
     go
-    gcc
-    cmakeCurses
     rustup
     maven
     quarkus
