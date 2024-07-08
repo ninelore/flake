@@ -35,8 +35,7 @@
     polkit.enable = true;
   };
 
-  environment.systemPackages = with pkgs;
-    with gnome; [
+  environment.systemPackages = with pkgs; [
       adwaita-icon-theme
       adw-gtk3
       anyrun
@@ -45,10 +44,10 @@
       cliphist
       evince
       file-roller
-      gnome-boxes
       gnome-calculator
       gnome-connections
-      gnome-software # for flatpak
+      gnome.gnome-boxes
+      gnome.gnome-software
       grimblast
       hypridle
       hyprlock
@@ -68,7 +67,6 @@
 
   services = {
     gvfs.enable = true;
-    #devmon.enable = true;
     udisks2.enable = true;
     upower.enable = true;
     power-profiles-daemon.enable = true;
