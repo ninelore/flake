@@ -74,9 +74,7 @@ in
     "anyrun".source = ../dots/anyrun;
     "hypr/hypridle.conf".source = ../dots/hypr/hypridle.conf;
     "hypr/hyprlock.conf".source = ../dots/hypr/hyprlock.conf;
-    "kitty".source = ../dots/kitty;
     "waybar/config.jsonc".source = ../dots/waybar/config.jsonc;
-    "wezterm".source = ../dots/wezterm;
   };
 
   programs.waybar = {

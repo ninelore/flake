@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ pkgs, config, ... }: {
   imports = [
     ./git.nix
     ./hyprland.nix
@@ -13,6 +13,14 @@
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     warn-dirty = false;
+  };
+
+  xdg.configFile = {
+    "kitty".source = ../dots/kitty;
+    "wezterm".source = ../dots/wezterm;
+    "libvirt/qemu.conf".source = pkgs.writeText "qemu.conf" ''
+      nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]
+    '';
   };
 
   home = {

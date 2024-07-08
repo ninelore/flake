@@ -39,7 +39,7 @@ in {
       font.package
       cursorTheme.package
       iconTheme.package
-      gnome.adwaita-icon-theme
+      adwaita-icon-theme
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
