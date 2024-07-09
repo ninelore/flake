@@ -92,11 +92,10 @@
     localBinInPath = true;
     systemPackages = with pkgs; [
       curl
-      git
-      gh
       home-manager
       neovim
       nix-index
+      less
       usbutils
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
     ];
