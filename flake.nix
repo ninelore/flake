@@ -32,10 +32,6 @@
       url = "github:wez/wezterm?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    waybar.url = "github:Alexays/Waybar";
-
-    #matugen.url = "github:InioX/matugen";
   };
 
   outputs =
