@@ -35,12 +35,9 @@ in
     gptfdisk
     less
     minicom
-    ranger
     unar
-    ueberzug
     vboot_reference
     via
-    w3m
     zip
     unzip
 
