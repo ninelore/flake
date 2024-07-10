@@ -3,6 +3,7 @@
 , ...
 }:
 let
+  hyprlandPackage = inputs.hyprland.packages.${pkgs.system}.hyprland;
   #plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
   hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
@@ -51,9 +52,9 @@ let
     fi
   '';
 
-  playerctl = "${pkgs.playerctl}/bin/playerctl";
-  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  wpctl = "${pkgs.wireplumber}/bin/wpctl";
+  playerctlBin = "${pkgs.playerctl}/bin/playerctl";
+  brightnessctlBin = "${pkgs.brightnessctl}/bin/brightnessctl";
+  wpctlBin = "${pkgs.wireplumber}/bin/wpctl";
 
   setwp = pkgs.writeShellScriptBin "setwp" ''
     if [[ ! -f $1 ]]; then return 1; fi
@@ -63,13 +64,39 @@ let
 in
 {
   home.packages = with pkgs; [
+    adwaita-icon-theme
+    adw-gtk3
+    anyrun
+    blueberry
+    brightnessctl
+    cliphist
+    evince
+    file-roller
+    gnome-calculator
+    gnome-connections
+    gnome.gnome-boxes
+    gnome.gnome-software
+    grim
+    grimblast
+    hypridle
+    hyprlock
     hyprpicker
+    kitty
     libappindicator
     libappindicator-gtk3
+    loupe
+    mako
+    nautilus
+    pavucontrol
     setwp
+    slurp
+    sushi
+    swww
+    wev
+    wl-clipboard
     xwaylandvideobridge
   ];
-  
+
   xdg.configFile = {
     "anyrun".source = ../dots/anyrun;
     "hypr/hypridle.conf".source = ../dots/hypr/hypridle.conf;
@@ -85,6 +112,7 @@ in
 
   services = {
     gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
+    gnome-keyring.enable = true;
     swaync = {
       enable = true;
       #settings = {};
@@ -92,9 +120,35 @@ in
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    configPackages = [ hyprlandPackage ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+  };
+
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    Unit = {
+      Description = "polkit-gnome-authentication-agent-1";
+      Wants = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = hyprlandPackage;
     systemd.enable = true;
     xwayland.enable = true;
     #plugins = with plugins; [
@@ -191,7 +245,7 @@ in
           (f "xdg-desktop-portal-gnome")
         ];
 
-      windowrulev2 =[
+      windowrulev2 = [
         "opacity 0.0 override,class:^(xwaylandvideobridge)$"
         "noanim,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
@@ -289,21 +343,21 @@ in
         ];
 
       bindle = [
-        ",XF86MonBrightnessUp,   exec, ${brightnessctl} set +5%"
-        ",XF86MonBrightnessDown, exec, ${brightnessctl} set  5%-"
-        ",XF86KbdBrightnessUp,   exec, ${brightnessctl} -d *::kbd_backlight set +1"
-        ",XF86KbdBrightnessDown, exec, ${brightnessctl} -d *::kbd_backlight set  1-"
-        ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"
+        ",XF86MonBrightnessUp,   exec, ${brightnessctlBin} set +5%"
+        ",XF86MonBrightnessDown, exec, ${brightnessctlBin} set  5%-"
+        ",XF86KbdBrightnessUp,   exec, ${brightnessctlBin} -d *::kbd_backlight set +1"
+        ",XF86KbdBrightnessDown, exec, ${brightnessctlBin} -d *::kbd_backlight set  1-"
+        ",XF86AudioRaiseVolume,  exec, ${wpctlBin} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ",XF86AudioLowerVolume,  exec, ${wpctlBin} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"
       ];
 
       bindl = [
-        ",XF86AudioPlay,    exec, ${playerctl} play-pause"
-        ",XF86AudioStop,    exec, ${playerctl} pause"
-        ",XF86AudioPause,   exec, ${playerctl} pause"
-        ",XF86AudioPrev,    exec, ${playerctl} previous"
-        ",XF86AudioNext,    exec, ${playerctl} next"
-        ",XF86AudioMute, exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioPlay,    exec, ${playerctlBin} play-pause"
+        ",XF86AudioStop,    exec, ${playerctlBin} pause"
+        ",XF86AudioPause,   exec, ${playerctlBin} pause"
+        ",XF86AudioPrev,    exec, ${playerctlBin} previous"
+        ",XF86AudioNext,    exec, ${playerctlBin} next"
+        ",XF86AudioMute, exec, ${wpctlBin} set-mute @DEFAULT_AUDIO_SINK@ toggle"
       ];
 
       bindm = [

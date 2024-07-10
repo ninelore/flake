@@ -23,7 +23,7 @@ in
     };
   };
 
-  home.packages = with pkgs; with gnome; [
+  home.packages = with pkgs; [
     # cli
     btop
     distrobox
@@ -60,6 +60,7 @@ in
     helvum
     scrcpy
     wireshark
+    #pkgs-small.ytmdesktop
     inputs.ninelore.packages.${pkgs.system}.eshare
 
     # nix dev

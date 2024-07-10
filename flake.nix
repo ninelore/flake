@@ -48,7 +48,7 @@
             modules = [
               ./9l.nix
               ./hardware/9l-zephyr.nix
-              ./nixos-pc/nixos.nix
+              ./nixos/nixos.nix
               home-manager.nixosModules.home-manager
             ];
           };
@@ -59,7 +59,7 @@
             modules = [
               ./9l.nix
               ./hardware/9l-lillipup.nix
-              ./nixos-pc/nixos.nix
+              ./nixos/nixos.nix
               home-manager.nixosModules.home-manager
             ];
           };

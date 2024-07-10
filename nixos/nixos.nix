@@ -2,25 +2,12 @@
   system.stateVersion = "24.05";
 
   imports = [
+    ../nix/nix.nix
     ./boot.nix
     ./audio.nix
     ./locale.nix
     ./login.nix
-    ./hyprland.nix
   ];
-
-  documentation.nixos.enable = false;
-  nixpkgs.config.allowUnfree = true;
-  nix.settings = {
-    substituters = [
-      "https://hyprland.cachix.org"
-    ];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
-    experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
-  };
 
   virtualisation = {
     docker = {
@@ -52,6 +39,12 @@
     #printing.enable = true;
     udev.packages = [ pkgs.via ];
     flatpak.enable = true;
+    gvfs.enable = true;
+    udisks2.enable = true;
+    upower.enable = true;
+    power-profiles-daemon.enable = true;
+    accounts-daemon.enable = true;
+    gnome.gnome-online-accounts.enable = true;
     logind.extraConfig = ''
       HandlePowerKey=suspend
       HandleLidSwitch=suspend
