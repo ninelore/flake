@@ -112,7 +112,6 @@ in
 
   services = {
     gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
-    gnome-keyring.enable = true;
     swaync = {
       enable = true;
       #settings = {};
