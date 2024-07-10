@@ -1,7 +1,17 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  # FIXME: Temp workaround
+  rocmllvmsmall = final: prev: {
+    rocmPackages = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.rocmPackages;
+  };
+in
+{
   # TODO: Move stuff here thats not home-manager and required on non-NixOS setups
   documentation.nixos.enable = false;
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [ rocmllvmsmall ];
+  };
   nix.settings = {
     substituters = [
       "https://hyprland.cachix.org"
