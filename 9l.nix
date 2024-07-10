@@ -26,7 +26,7 @@ in
     useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs;
-      pkgs-small = import inputs.nixpkgs-small {
+      pkgs-bleeding = import inputs.nixpkgs-master {
         system = pkgs.system;
         config.allowUnfree = true;
       };

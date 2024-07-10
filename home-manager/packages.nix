@@ -1,4 +1,4 @@
-{ inputs, pkgs, pkgs-small, ... }:
+{ inputs, pkgs, pkgs-bleeding, ... }:
 let
   edge = pkgs.microsoft-edge.override {
     commandLineArgs = [
@@ -11,7 +11,7 @@ in
   programs = {
     vscode = {
       enable = true;
-      package = pkgs-small.vscode;
+      package = pkgs-bleeding.vscode;
     };
     java = {
       enable = true;
@@ -60,7 +60,7 @@ in
     helvum
     scrcpy
     wireshark
-    #pkgs-small.ytmdesktop
+    pkgs-bleeding.ytmdesktop
     inputs.ninelore.packages.${pkgs.system}.eshare
 
     # nix dev
