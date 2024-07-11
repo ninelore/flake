@@ -1,9 +1,16 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   nerdfonts = pkgs.nerdfonts.override {
     fonts = [
       "JetBrainsMono"
       "Noto"
     ];
+  };
+
+  gtkConf = {
+    extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
   };
 
   theme = {
@@ -23,7 +30,8 @@
     name = "MoreWaita";
     package = pkgs.morewaita-icon-theme;
   };
-in {
+in
+{
   home = {
     packages = with pkgs; [
       font-awesome
@@ -73,12 +81,8 @@ in {
     inherit font cursorTheme iconTheme;
     theme.name = theme.name;
     enable = true;
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
+    gtk3 = gtkConf;
+    gtk4 = gtkConf;
   };
 
   qt = {

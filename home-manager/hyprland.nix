@@ -115,14 +115,26 @@ in
     swaync = {
       enable = true;
       #settings = {};
-      #style = "path";
+      style = ''
+        .control-center {
+          border-radius: 0;
+        }
+      '';
     };
   };
 
   xdg.portal = {
     enable = true;
-    configPackages = [ hyprlandPackage ];
+    config = {
+      common = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+      };
+    };
     extraPortals = with pkgs; [
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
   };
