@@ -44,6 +44,7 @@
     upower.enable = true;
     power-profiles-daemon.enable = true;
     accounts-daemon.enable = true;
+    gnome.gnome-keyring.enable = true;
     gnome.gnome-online-accounts.enable = true;
     logind.extraConfig = ''
       HandlePowerKey=suspend
