@@ -53,7 +53,7 @@ in
     onlyoffice-bin_latest
     gimp
     webcord
-    discord
+    discord-krisp
     firefox
     edge
     protonmail-desktop

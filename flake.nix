@@ -12,6 +12,7 @@
     nixpkgs-master.url = "github:nixos/nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nix-alien.url = "github:thiagokokada/nix-alien";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,6 +38,7 @@
   outputs =
     inputs @ { home-manager
     , nixpkgs
+    , chaotic
     , ...
     }: {
       # nixos config
@@ -50,6 +52,7 @@
               ./hardware/9l-zephyr.nix
               ./nixos/nixos.nix
               home-manager.nixosModules.home-manager
+              chaotic.nixosModules.default
             ];
           };
         "9l-lillipup" =
@@ -61,6 +64,7 @@
               ./hardware/9l-lillipup.nix
               ./nixos/nixos.nix
               home-manager.nixosModules.home-manager
+              chaotic.nixosModules.default
             ];
           };
       };
