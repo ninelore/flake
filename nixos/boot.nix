@@ -83,7 +83,14 @@ in
       themePackages = [ bgrtLuks ];
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=error" "rd.udev.log_level=2" "udev.log_priority=2" "boot.shell_on_fail" ];
+    kernelParams = [
+      "quiet"
+      "splash"
+      "rd.systemd.show_status=error"
+      "rd.udev.log_level=2"
+      "udev.log_priority=2"
+      "boot.shell_on_fail"
+    ];
 
     tmp.cleanOnBoot = true;
     #supportedFilesystems = [ "ntfs" ];

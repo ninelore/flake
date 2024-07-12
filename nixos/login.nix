@@ -1,4 +1,5 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   # required for defaultSession
   programs.hyprland = {
     enable = true;

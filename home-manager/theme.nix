@@ -54,11 +54,9 @@ in
       XCURSOR_SIZE = "${toString cursorTheme.size}";
       QT_STYLE_OVERRIDE = "adwaita-dark";
     };
-    pointerCursor =
-      cursorTheme
-      // {
-        gtk.enable = true;
-      };
+    pointerCursor = cursorTheme // {
+      gtk.enable = true;
+    };
     file = {
       ".local/share/themes/${theme.name}" = {
         source = "${theme.package}/share/themes/${theme.name}";

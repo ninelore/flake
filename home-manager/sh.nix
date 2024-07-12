@@ -1,6 +1,4 @@
-{ pkgs
-, ...
-}:
+{ pkgs, ... }:
 let
   shellAliases = {
     "db" = "distrobox";
@@ -99,16 +97,18 @@ in
                 source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu
               '';
             in
-            names:
-            builtins.foldl'
-              (prev: str: "${prev}\n${str}") ""
-              (map (name: completion name) names);
+            names: builtins.foldl' (prev: str: "${prev}\n${str}") "" (map (name: completion name) names);
         in
         ''
           use ${pkgs.nu_scripts}/share/nu_scripts/themes/nu-themes/${theme}.nu;
           $env.config = ${conf};
           $env.config.color_config = (${theme});
-          ${completions ["cargo" "git" "nix" "npm"]}
+          ${completions [
+            "cargo"
+            "git"
+            "nix"
+            "npm"
+          ]}
         '';
     };
   };

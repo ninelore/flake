@@ -41,5 +41,10 @@ let
   '';
 in
 {
-  home.packages = [ nxsw nxgc nx-flakepath-update spawnb ];
+  home.packages = [
+    nxsw
+    nxgc
+    nx-flakepath-update
+    spawnb
+  ];
 }

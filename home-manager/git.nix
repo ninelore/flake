@@ -1,4 +1,5 @@
-{  ... }: let
+{ ... }:
+let
   email = "9l@9lo.re";
   username = "ninelore";
   name = "Ingo Reitz";

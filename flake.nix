@@ -36,37 +36,41 @@
   };
 
   outputs =
-    inputs @ { home-manager
-    , nixpkgs
-    , chaotic
-    , ...
-    }: {
+    inputs@{
+      home-manager,
+      nixpkgs,
+      chaotic,
+      ...
+    }:
+    {
       # nixos config
       nixosConfigurations = {
-        "9l-zephyr" =
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit inputs; };
-            modules = [
-              ./9l.nix
-              ./hardware/9l-zephyr.nix
-              ./nixos/nixos.nix
-              home-manager.nixosModules.home-manager
-              chaotic.nixosModules.default
-            ];
+        "9l-zephyr" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
           };
-        "9l-lillipup" =
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit inputs; };
-            modules = [
-              ./9l.nix
-              ./hardware/9l-lillipup.nix
-              ./nixos/nixos.nix
-              home-manager.nixosModules.home-manager
-              chaotic.nixosModules.default
-            ];
+          modules = [
+            ./9l.nix
+            ./hardware/9l-zephyr.nix
+            ./nixos/nixos.nix
+            home-manager.nixosModules.home-manager
+            chaotic.nixosModules.default
+          ];
+        };
+        "9l-lillipup" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
           };
+          modules = [
+            ./9l.nix
+            ./hardware/9l-lillipup.nix
+            ./nixos/nixos.nix
+            home-manager.nixosModules.home-manager
+            chaotic.nixosModules.default
+          ];
+        };
       };
     };
 }

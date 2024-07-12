@@ -1,5 +1,6 @@
 # Hardware config for Google Volteer
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     #./cros.nix
   ];
@@ -113,6 +114,5 @@
       table.insert(alsa_monitor.rules,rule)
     '')
   ];
-
 
 }

@@ -1,7 +1,4 @@
-{ inputs
-, pkgs
-, ...
-}:
+{ inputs, pkgs, ... }:
 let
   hyprlandPackage = inputs.hyprland.packages.${pkgs.system}.hyprland;
   #plugins = inputs.hyprland-plugins.packages.${pkgs.system};
@@ -266,10 +263,22 @@ in
 
       bind =
         let
-          binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
+          binding =
+            mod: cmd: key: arg:
+            "${mod}, ${key}, ${cmd}, ${arg}";
           ws = binding "SUPER" "workspace";
           mvtows = binding "SUPER SHIFT" "movetoworkspace";
-          arr = [ 1 2 3 4 5 6 7 8 9 ];
+          arr = [
+            1
+            2
+            3
+            4
+            5
+            6
+            7
+            8
+            9
+          ];
         in
         [
           "SUPER, return, exec, kitty"
@@ -298,7 +307,6 @@ in
           "SUPER, A, togglespecialworkspace, magic"
           "SUPER SHIFT, A, movetoworkspace, special:magic"
 
-
           # WS 11 and 12
           (ws "0" "10")
           (ws "code:20" "11")
@@ -312,7 +320,9 @@ in
 
       binde =
         let
-          binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
+          binding =
+            mod: cmd: key: arg:
+            "${mod}, ${key}, ${cmd}, ${arg}";
           mvfocus = binding "SUPER" "movefocus";
           resizeactive = binding "SUPER CTRL" "resizeactive";
           mvactive = binding "SUPER ALT" "moveactive";
@@ -387,7 +397,7 @@ in
           size = 8;
           passes = 3;
           new_optimizations = "on";
-          noise = 0.01;
+          noise = 1.0e-2;
           contrast = 0.9;
           brightness = 0.8;
           popups = true;
