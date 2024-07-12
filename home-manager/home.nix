@@ -1,8 +1,8 @@
 {
-  config,
   inputs,
   pkgs,
   pkgs-bleeding,
+  pkgs-small,
   ...
 }:
 let
@@ -133,7 +133,7 @@ in
       helvum
       scrcpy
       wireshark
-      pkgs-bleeding.ytmdesktop
+      pkgs-small.ytmdesktop
       inputs.ninelore.packages.${pkgs.system}.eshare
 
       # nix dev

@@ -34,6 +34,10 @@ in
         system = pkgs.system;
         config.allowUnfree = true;
       };
+      pkgs-small = import inputs.nixpkgs-small {
+        system = pkgs.system;
+        config.allowUnfree = true;
+      };
     };
     users.${username} = {
       home.username = username;
