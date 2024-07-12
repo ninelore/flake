@@ -17,7 +17,6 @@ in
   home.stateVersion = "21.11";
 
   imports = [
-    ./git.nix
     ./hyprland.nix
     ./nix-scripts.nix
     ./sh.nix
@@ -41,12 +40,6 @@ in
       nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]
     '';
   };
-
-  gtk.gtk3.bookmarks =
-    let
-      home = config.home.homeDirectory;
-    in
-    [ "file://${home} Home" ];
 
   programs = {
     direnv.enable = true;
