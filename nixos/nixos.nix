@@ -10,6 +10,8 @@
     ./login.nix
   ];
 
+  documentation.nixos.enable = false;
+
   virtualisation = {
     docker = {
       enable = true;

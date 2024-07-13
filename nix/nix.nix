@@ -7,7 +7,6 @@ let
 in
 {
   # TODO: Move stuff here thats not home-manager and required on non-NixOS setups
-  documentation.nixos.enable = false;
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [ rocmllvmsmall ];

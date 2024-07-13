@@ -1,7 +1,7 @@
 {
   inputs,
   pkgs,
-  pkgs-bleeding,
+  #pkgs-bleeding,
   pkgs-small,
   ...
 }:
@@ -26,11 +26,10 @@ in
   news.display = "show";
 
   nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    warn-dirty = false;
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    experimental-features = "nix-command flakes";
+    auto-optimise-store = true;
   };
 
   xdg.configFile = {
@@ -48,7 +47,7 @@ in
     chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
     vscode = {
       enable = true;
-      package = pkgs-bleeding.vscode;
+      package = pkgs-small.vscode;
     };
     java = {
       enable = true;
