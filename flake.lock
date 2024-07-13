@@ -514,21 +514,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1720907508,
-        "narHash": "sha256-kOcvbshWzNgxLZ27D85ZOBEA72ZSJNa3dYUwWEpKJEc=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "1019312c355366edfb32412f90c5bf84470f7de3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-small": {
       "locked": {
         "lastModified": 1720890539,
@@ -586,7 +571,6 @@
         "nix-alien": "nix-alien",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-small": "nixpkgs-small",
         "wezterm": "wezterm"
       }

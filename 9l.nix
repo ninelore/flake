@@ -27,10 +27,6 @@ in
     useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs;
-      pkgs-bleeding = import inputs.nixpkgs-master {
-        system = pkgs.system;
-        config.allowUnfree = true;
-      };
       pkgs-small = import inputs.nixpkgs-small {
         system = pkgs.system;
         config.allowUnfree = true;
