@@ -1,8 +1,5 @@
 { inputs, pkgs, ... }:
 let
-  hyprlandPackage = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  #plugins = inputs.hyprland-plugins.packages.${pkgs.system};
-
   hypreventhandler = pkgs.writeShellScript "hypreventhandler" ''
     handle() {
       case $1 in
@@ -75,8 +72,6 @@ in
     gnome.gnome-software
     grim
     grimblast
-    hypridle
-    hyprlock
     hyprpicker
     kitty
     libappindicator
@@ -101,14 +96,25 @@ in
     "waybar/config.jsonc".source = ../dots/waybar/config.jsonc;
   };
 
-  programs.waybar = {
-    enable = true;
-    #package = inputs.waybar.packages.${pkgs.system}.waybar;
-    style = ../dots/waybar/style.css;
+  programs = {
+    waybar = {
+      enable = true;
+      #package = inputs.waybar.packages.${pkgs.system}.waybar;
+      style = ../dots/waybar/style.css;
+    };
+    hyprlock = {
+      enable = true;
+      package = inputs.hyprlock.packages.${pkgs.system}.default;
+    };
+    
   };
 
   services = {
     gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
+    hypridle = {
+      enable = true;
+      package = inputs.hypridle.packages.${pkgs.system}.default;
+    };
     swaync = {
       enable = true;
       #settings = {};
@@ -156,7 +162,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprlandPackage;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     systemd.enable = true;
     xwayland.enable = true;
     #plugins = with plugins; [

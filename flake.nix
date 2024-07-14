@@ -19,13 +19,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ninelore = {
-      url = "github:ninelore/9l-nixpkgs";
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hypridle = {
+      url = "github:hyprwm/hypridle";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    ninelore = {
+      url = "github:ninelore/9l-nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
