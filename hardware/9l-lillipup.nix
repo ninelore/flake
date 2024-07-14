@@ -31,15 +31,19 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/db6018c8-faea-4145-bd01-f5145d2307ff";
+    device = "/dev/disk/by-uuid/357c342a-7680-47c1-9402-daace1cb31cc";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-c173d741-16c4-47d0-9bf1-a719109ff5e7".device = "/dev/disk/by-uuid/c173d741-16c4-47d0-9bf1-a719109ff5e7";
+  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a37f130a-fe47-47ea-a808-f0b89291d72e";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/67C3-667D";
+    device = "/dev/disk/by-uuid/6324-84EE";
     fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   swapDevices = [ ];
