@@ -4,14 +4,6 @@
   pkgs-small,
   ...
 }:
-let
-  edge = pkgs.microsoft-edge.override {
-    commandLineArgs = [
-      "--ozone-platform-hint=auto"
-      "--ozone-platform=wayland"
-    ];
-  };
-in
 {
   home.stateVersion = "21.11";
 
@@ -35,7 +27,14 @@ in
     direnv.enable = true;
     home-manager.enable = true;
     gpg.enable = true;
-    chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+    chromium = {
+      enable = true;
+      package = pkgs.ungoogled-chromium;
+      commandLineArgs = [
+        "--enable-features=UseOzonePlatform"
+        "--ozone-platform=wayland"
+      ];
+    };
     vscode = {
       enable = true;
       package = pkgs-small.vscode;
@@ -114,7 +113,6 @@ in
       webcord
       discord-krisp
       firefox
-      edge
       protonmail-desktop
       helvum
       scrcpy
