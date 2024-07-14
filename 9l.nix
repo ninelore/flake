@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 let
   username = "9l";
-  
+
 in
 {
   users.users.${username} = {
@@ -36,8 +36,8 @@ in
       home.username = username;
       home.homeDirectory = "/home/${username}";
 
-      imports = [ 
-        ./home-manager/home.nix 
+      imports = [
+        ./home-manager/home.nix
         ./home-manager/git9l.nix
       ];
     };
