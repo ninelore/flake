@@ -33,7 +33,6 @@ in
 
   xdg.configFile = {
     "kitty".source = ../dots/kitty;
-    "wezterm".source = ../dots/wezterm;
     "libvirt/qemu.conf".source = pkgs.writeText "qemu.conf" ''
       nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]
     '';
@@ -51,10 +50,6 @@ in
     java = {
       enable = true;
       package = pkgs.graalvm-ce;
-    };
-    wezterm = {
-      enable = false;
-      package = inputs.wezterm.packages."${pkgs.system}".default;
     };
   };
 
