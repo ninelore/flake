@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ ... }:
 {
   # TODO: Move stuff here thats not home-manager and required on non-NixOS setups
   nixpkgs = {
