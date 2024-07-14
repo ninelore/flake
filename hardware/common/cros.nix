@@ -1,5 +1,5 @@
 # Common config for ChromeOS Hardware
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   cb-ucm-conf =
     with pkgs;
@@ -18,13 +18,10 @@ let
         runHook postInstall
       '';
     };
+
+  ucm = final: prev: { alsa-ucm-conf = cb-ucm-conf; };
 in
 {
   environment.sessionVariables.ALSA_CONFIG_UCM2 = "${cb-ucm-conf}/share/alsa/ucm2";
-  system.replaceRuntimeDependencies = [
-    {
-      original = pkgs.alsa-ucm-conf;
-      replacement = cb-ucm-conf;
-    }
-  ];
+  nixpkgs.overlays = [ ucm ];
 }
