@@ -38,6 +38,18 @@ let
     hyprctl reload
   '';
 
+  hyprrandr = pkgs.writeShellScriptBin "hyprrandr" ''
+    if [[ -z $1 ]]; then
+      echo "Usage: name,resolution,position,scale,extraargs"
+      echo "Mirroring extra arg: 'mirror,name'"
+      echo "More extra args: https://wiki.hyprland.org/Configuring/Monitors/#rotating"
+      echo
+      hyprctl monitors all
+      exit
+    fi
+    hyprctl -r keyword monitor
+  '';
+
   togglewaybar = pkgs.writeShellScript "togglewaybar" ''
     if ! pgrep waybar ; then
       waybar
@@ -80,13 +92,15 @@ in
     mako
     nautilus
     pavucontrol
-    setwp
     slurp
     sushi
     swww
     wev
     wl-clipboard
     xwaylandvideobridge
+
+    setwp
+    hyprrandr
   ];
 
   xdg.configFile = {
@@ -106,7 +120,7 @@ in
       enable = true;
       package = inputs.hyprlock.packages.${pkgs.system}.default;
     };
-    
+
   };
 
   services = {
