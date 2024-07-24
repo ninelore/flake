@@ -130,7 +130,7 @@
       gnumake
       ninja
       # Other dev
-      nodejs_20
+      nodejs_22
       python3
       yarn
       go
