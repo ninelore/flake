@@ -23,12 +23,19 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     hyprlock = {
       url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     hypridle = {
       url = "github:hyprwm/hypridle";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niqspkgs = {
+      url = "github:diniamo/niqspkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

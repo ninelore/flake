@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   nerdfonts = pkgs.nerdfonts.override {
     fonts = [
@@ -17,18 +17,30 @@ let
     name = "adw-gtk3-dark";
     package = pkgs.adw-gtk3;
   };
+
   font = {
     name = "NotoSans Nerd Font";
     package = nerdfonts;
   };
-  cursorTheme = {
-    name = "Qogir";
-    size = 24;
-    package = pkgs.qogir-icon-theme;
-  };
+
   iconTheme = {
     name = "MoreWaita";
     package = pkgs.morewaita-icon-theme;
+  };
+
+  cursorTheme = {
+    name = "Bibata-Modern-Ice";
+    size = 24;
+    package = pkgs.bibata-cursors;
+  };
+
+  hyprcursorTheme = {
+    name = "Bibata-modern";
+    package = inputs.niqspkgs.packages.${pkgs.system}.bibata-hyprcursor.override {
+      baseColor = "#FFFFFF";
+      outlineColor = "#000000";
+      watchBackgroundColor = "#FFFFFF";
+    };
   };
 in
 {
@@ -46,21 +58,22 @@ in
       theme.package
       font.package
       cursorTheme.package
+      hyprcursorTheme.package
       iconTheme.package
       adwaita-icon-theme
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
       XCURSOR_SIZE = "${toString cursorTheme.size}";
+      HYPRCURSOR_THEME = hyprcursorTheme.name;
+      HYPRCURSOR_SIZE = "${toString cursorTheme.size}";
       QT_STYLE_OVERRIDE = "adwaita-dark";
     };
     pointerCursor = cursorTheme // {
       gtk.enable = true;
     };
     file = {
-      ".local/share/themes/${theme.name}" = {
-        source = "${theme.package}/share/themes/${theme.name}";
-      };
+      ".local/share/themes/${theme.name}".source = "${theme.package}/share/themes/${theme.name}";
     };
   };
 
