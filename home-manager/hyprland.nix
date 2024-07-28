@@ -191,7 +191,6 @@ in
         "sleep 1 && waybar"
         "swww-daemon"
         "swww img $(cat ~/.wallpaper)"
-        "hyprctl setcursor Qogir 24"
         "transmission-gtk"
         "${hypreventhandler}"
         "wl-paste --type text --watch cliphist store"

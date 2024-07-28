@@ -51,16 +51,7 @@ in
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
       jetbrains-mono
-
-      adwaita-qt
-      adwaita-qt6
-
-      theme.package
-      font.package
-      cursorTheme.package
-      hyprcursorTheme.package
-      iconTheme.package
-      adwaita-icon-theme
+      font.package # Nerd Fonts
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
@@ -73,8 +64,13 @@ in
       gtk.enable = true;
     };
     file = {
-      ".local/share/themes/${theme.name}".source = "${theme.package}/share/themes/${theme.name}";
+      ".icons/${hyprcursorTheme.name}".source = "${hyprcursorTheme.package}/share/icons/${hyprcursorTheme.name}";
     };
+  };
+
+  xdg.dataFile = {
+    "icons/${hyprcursorTheme.name}".source = "${hyprcursorTheme.package}/share/icons/${hyprcursorTheme.name}";
+    "themes/${theme.name}".source = "${theme.package}/share/themes/${theme.name}";
   };
 
   dconf = {
