@@ -89,7 +89,6 @@ in
     libappindicator
     libappindicator-gtk3
     loupe
-    mako
     nautilus
     pavucontrol
     slurp
