@@ -83,6 +83,8 @@
 
     packages = with pkgs; [
       # cli
+      android-studio-tools
+      android-tools
       btop
       distrobox
       dmidecode
@@ -97,15 +99,14 @@
       vboot_reference
       via
       zip
+      wlr-randr
       unzip
 
       # appimages
       appimage-run
 
-      # gui system tools
-      wlr-randr
-
       # gui
+      android-studio
       obsidian
       libreoffice-fresh
       onlyoffice-bin_latest
