@@ -5,6 +5,7 @@
   imports = [
     ../nix/nix.nix
     ./boot.nix
+	  ./de.nix
     ./audio.nix
     ./locale.nix
     ./login.nix
@@ -48,13 +49,15 @@
     upower.enable = true;
     power-profiles-daemon.enable = true;
     accounts-daemon.enable = true;
-    gnome.gnome-keyring.enable = true;
-    gnome.gnome-online-accounts.enable = true;
     logind.extraConfig = ''
       HandlePowerKey=suspend
       HandleLidSwitch=suspend
       HandleLidSwitchDocked=ignore
     '';
+  };
+
+  xdg.portal = {
+    enable = true;
   };
 
   networking = {
@@ -100,7 +103,6 @@
   };
 
   programs = {
-    virt-manager.enable = true;
     nix-ld.enable = true;
     wireshark.enable = true;
     # I hate to have this outside of home-manager...

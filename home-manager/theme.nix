@@ -6,42 +6,6 @@ let
       "Noto"
     ];
   };
-
-  gtkConf = {
-    extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-  };
-
-  theme = {
-    name = "adw-gtk3-dark";
-    package = pkgs.adw-gtk3;
-  };
-
-  font = {
-    name = "NotoSans Nerd Font";
-    package = nerdfonts;
-  };
-
-  iconTheme = {
-    name = "MoreWaita";
-    package = pkgs.morewaita-icon-theme;
-  };
-
-  cursorTheme = {
-    name = "Bibata-Modern-Ice";
-    size = 24;
-    package = pkgs.bibata-cursors;
-  };
-
-  hyprcursorTheme = {
-    name = "Bibata-modern";
-    package = inputs.niqspkgs.packages.${pkgs.system}.bibata-hyprcursor.override {
-      baseColor = "#FFFFFF";
-      outlineColor = "#000000";
-      watchBackgroundColor = "#FFFFFF";
-    };
-  };
 in
 {
   home = {
@@ -51,53 +15,94 @@ in
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
       jetbrains-mono
-      font.package # Nerd Fonts
+      nerdfonts
+      material-icons
+      bibata-cursors
+      materia-kde-theme
+      materia-theme
     ];
-    sessionVariables = {
-      XCURSOR_THEME = cursorTheme.name;
-      XCURSOR_SIZE = "${toString cursorTheme.size}";
-      HYPRCURSOR_THEME = hyprcursorTheme.name;
-      HYPRCURSOR_SIZE = "${toString cursorTheme.size}";
-      QT_STYLE_OVERRIDE = "adwaita-dark";
-    };
-    pointerCursor = cursorTheme // {
-      gtk.enable = true;
-    };
-    file = {
-      ".icons/${hyprcursorTheme.name}".source = "${hyprcursorTheme.package}/share/icons/${hyprcursorTheme.name}";
-    };
-  };
-
-  xdg.dataFile = {
-    "icons/${hyprcursorTheme.name}".source = "${hyprcursorTheme.package}/share/icons/${hyprcursorTheme.name}";
-    "themes/${theme.name}".source = "${theme.package}/share/themes/${theme.name}";
-  };
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-    };
   };
 
   fonts.fontconfig.enable = true;
 
-  gtk = {
-    inherit font cursorTheme iconTheme;
-    theme.name = theme.name;
-    enable = true;
-    gtk3 = gtkConf;
-    gtk4 = gtkConf;
-  };
+  services.gpg-agent.pinentryPackage = pkgs.pinentry-qt;
 
-  qt = {
+  programs.plasma = {
     enable = true;
-    style.name = "adwaita-dark";
-    style.package = with pkgs; [
-      adwaita-qt
-      adwaita-qt6
+
+    workspace = {
+      cursor = {
+        theme = "Bibata-Modern-Ice";
+        size = 24;
+      };
+    };
+
+    panels = [
+      {
+        height = 30;
+        location = "top";
+        floating = true;
+        widgets = [
+          {
+            kickoff = {
+              sortAlphabetically = true;
+              icon = "nix-snowflake-white";
+            };
+          }
+          { name = "org.kde.plasma.marginsseparator"; }
+          {
+            iconTasks = {
+              launchers = [
+                "applications:kitty.desktop"
+                "applications:firefox.desktop"
+              ];
+            };
+          }
+          { name = "org.kde.plasma.appmenu"; }
+          { name = "org.kde.plasma.panelspacer"; }
+          {
+            digitalClock = {
+              date = {
+                enable = true;
+                position = "besideTime";
+                format = {
+                  custom = "ddd yyyy-MM-dd ";
+                };
+              };
+            };
+          }
+          { name = "org.kde.plasma.panelspacer"; }
+          { name = "org.kde.plasma.pager"; }
+          { systemTray = { }; }
+        ];
+      }
     ];
+
+    fonts = {
+      general = {
+        family = "NotoSans Nerd Font Propo";
+        pointSize = 10;
+      };
+      small = {
+        family = "NotoSans Nerd Font Propo";
+        pointSize = 8;
+      };
+      toolbar = {
+        family = "NotoSans Nerd Font Propo";
+        pointSize = 10;
+      };
+      menu = {
+        family = "NotoSans Nerd Font Propo";
+        pointSize = 10;
+      };
+      windowTitle = {
+        family = "NotoSans Nerd Font Propo";
+        pointSize = 10;
+      };
+      fixedWidth = {
+        family = "JetBrainsMono Nerd Font Propo";
+        pointSize = 10;
+      };
+    };
   };
 }

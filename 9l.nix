@@ -1,7 +1,6 @@
 { inputs, pkgs, ... }:
 let
   username = "9l";
-
 in
 {
   users.users.${username} = {
@@ -25,6 +24,7 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
     extraSpecialArgs = {
       inherit inputs;
       pkgs-small = import inputs.nixpkgs-small {
