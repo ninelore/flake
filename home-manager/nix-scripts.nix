@@ -2,6 +2,8 @@
 let
   nxsw = pkgs.writeShellScriptBin "nxsw" ''
     _p=.
+    _c=switch
+    
     if [[ -r $HOME/.nx-flakepath ]]; then
       if [[ -r "$(cat "$HOME"/.nx-flakepath)/flake.nix" ]]; then
         _p=$(cat "$HOME"/.nx-flakepath)
@@ -10,15 +12,21 @@ let
       fi
     fi
 
-    git pull --autostash || exit 1
+    # Do not abort when theres just no internet
+    if ping -c1 github.coam > /dev/null 2>&1; then
+      git pull --ff-only --autostash || exit 1
+    fi
 
-    if [[ $1 == "-u" ]]; then
+    if [[ $* == *"u"* ]]; then
       sudo nix-channel --update || exit 1
       sudo nix flake update || exit 1
-      git add flake.lock || exit 1
-      git commit -m "update flake"
     fi
-    sudo nixos-rebuild switch --flake "$_p" || exit 1
+
+    if [[ $* == *"b"* ]]; then
+      _c=boot
+    fi
+
+    sudo nixos-rebuild "$_c" --flake "$_p" || exit 1
   '';
 
   nxgc = pkgs.writeShellScriptBin "nxgc" ''
