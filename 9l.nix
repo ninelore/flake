@@ -24,7 +24,6 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
     extraSpecialArgs = {
       inherit inputs;
       pkgs-small = import inputs.nixpkgs-small {

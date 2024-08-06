@@ -5,10 +5,9 @@
   imports = [
     ../nix/nix.nix
     ./boot.nix
-	  ./de.nix
+	  ./userland.nix
     ./audio.nix
     ./locale.nix
-    ./login.nix
   ];
 
   documentation.nixos.enable = false;

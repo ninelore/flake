@@ -19,12 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     ninelore = {
       url = "github:ninelore/9l-nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
