@@ -13,11 +13,6 @@
 
   networking.hostName = "9l-lillipup";
 
-  # Autologin since its pointless on FDE
-  services.displayManager.autoLogin = {
-    enable = true;
-  };
-
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "nvme"

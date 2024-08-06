@@ -41,7 +41,7 @@ in
       ];
     };
   };
-  services.displayManager.autoLogin = {
-    user = username;
-  };
+  #services.displayManager.autoLogin = {
+  #  user = username;
+  #};
 }

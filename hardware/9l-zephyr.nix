@@ -15,11 +15,6 @@
 
   networking.hostName = "9l-zephyr";
 
-  # Autologin since its pointless on FDE
-  services.displayManager.autoLogin = {
-    enable = true;
-  };
-
   services = {
     asusd = {
       enable = true;
