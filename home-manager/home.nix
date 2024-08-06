@@ -8,10 +8,10 @@
   home.stateVersion = "21.11";
 
   imports = [
-    ./hyprland.nix
     ./nix-scripts.nix
     ./sh.nix
     ./theme.nix
+    ./gnome.nix
   ];
 
   news.display = "show";
@@ -47,8 +47,6 @@
 
   services = {
     gpg-agent.enable = true;
-    #easyeffects.enable = true;
-    gnome-keyring.enable = true;
     kdeconnect = {
       enable = true;
       indicator = true;
@@ -63,8 +61,8 @@
 
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       GDK_BACKEND = "wayland,x11";
-      GDK_SCALE = 1.25;
-      GDK_DPI_SCALE = 1;
+      #GDK_SCALE = 1.25;
+      #GDK_DPI_SCALE = 1;
       MOZ_ENABLE_WAYLAND = 1;
       NIXOS_OZONE_WL = "1";
       QT_AUTO_SCREEN_SCALE_FACTOR = 1;
@@ -106,6 +104,7 @@
       appimage-run
 
       # gui
+      kitty
       android-studio
       obsidian
       libreoffice-fresh

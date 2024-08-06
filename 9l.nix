@@ -1,7 +1,6 @@
 { inputs, pkgs, ... }:
 let
   username = "9l";
-
 in
 {
   users.users.${username} = {
@@ -42,7 +41,7 @@ in
       ];
     };
   };
-  services.displayManager.autoLogin = {
-    user = username;
-  };
+  #services.displayManager.autoLogin = {
+  #  user = username;
+  #};
 }
