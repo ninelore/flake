@@ -3,29 +3,40 @@
   services = {
     xserver = {
       enable = true;
+      excludePackages = [ pkgs.xterm ];
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
   };
 
-  environment.gnome.excludePackages =
-    (with pkgs; [
-      gnome-tour
-      gedit # text editor
-      cheese # webcam tool
-      gnome-terminal
-      epiphany # web browser
-      geary # email reader
-      evince # document viewer
-      totem # video player
-    ])
-    ++ (with pkgs.gnome; [
-      gnome-music
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
-    ]);
+  environment = {
+    systemPackages = with pkgs; [
+      gnome-tweaks
+    ];
+    gnome.excludePackages =
+      (with pkgs; [
+        cheese # webcam tool
+        evince # document viewer
+        geary # email reader
+        gedit # text editor      epiphany # web browser
+        gnome-terminal
+        gnome-tour
+        gnome-user-docs
+        simple-scan # scanner
+        snapshot
+        totem # video player
+      ])
+      ++ (with pkgs.gnome; [
+        atomix # puzzle game
+        gnome-contacts
+        gnome-maps
+        gnome-music
+        gnome-weather
+        hitori # sudoku game
+        iagno # go game
+        tali # poker game
+      ]);
+  };
 
   security = {
     polkit.enable = true;

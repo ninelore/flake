@@ -6,6 +6,33 @@ let
       "Noto"
     ];
   };
+
+  gtkConf = {
+    extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+  };
+
+  theme = {
+    name = "adw-gtk3-dark";
+    package = pkgs.adw-gtk3;
+  };
+
+  font = {
+    name = "NotoSans Nerd Font";
+    package = nerdfonts;
+  };
+
+  iconTheme = {
+    name = "MoreWaita";
+    package = pkgs.morewaita-icon-theme;
+  };
+
+  cursorTheme = {
+    name = "Bibata-Modern-Ice";
+    size = 24;
+    package = pkgs.bibata-cursors;
+  };
 in
 {
   home = {
@@ -21,24 +48,29 @@ in
       materia-kde-theme
       materia-theme
     ];
+    pointerCursor = cursorTheme // {
+      gtk.enable = true;
+    };
+  };
+
+  gtk = {
+    inherit font cursorTheme iconTheme;
+    theme.name = theme.name;
+    enable = true;
+    gtk3 = gtkConf;
+    gtk4 = gtkConf;
+  };
+
+  qt = {
+    enable = true;
+    style.name = "adwaita-dark";
+    style.package = with pkgs; [
+      adwaita-qt
+      adwaita-qt6
+    ];
   };
 
   fonts.fontconfig.enable = true;
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-      "org/gnome/shell" = {
-        disable-user-extensions = false;
-        enabled-extensions = with pkgs.gnomeExtensions; [
-          pop-shell.extensionUuid
-          blur-my-shell.extensionUuid
-          gsconnect.extensionUuid
-        ];
-      };
-    };
-  };
 
   services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
 

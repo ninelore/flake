@@ -11,6 +11,7 @@
     ./nix-scripts.nix
     ./sh.nix
     ./theme.nix
+    ./gnome.nix
   ];
 
   news.display = "show";
