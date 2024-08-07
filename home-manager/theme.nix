@@ -45,8 +45,6 @@ in
       nerdfonts
       material-icons
       bibata-cursors
-      materia-kde-theme
-      materia-theme
     ];
     pointerCursor = cursorTheme // {
       gtk.enable = true;
@@ -54,8 +52,7 @@ in
   };
 
   gtk = {
-    inherit font cursorTheme iconTheme;
-    theme.name = theme.name;
+    inherit font cursorTheme iconTheme theme;
     enable = true;
     gtk3 = gtkConf;
     gtk4 = gtkConf;
@@ -73,5 +70,4 @@ in
   fonts.fontconfig.enable = true;
 
   services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
-
 }

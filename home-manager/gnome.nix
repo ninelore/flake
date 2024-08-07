@@ -14,9 +14,6 @@
       {
         package = pkgs.gnomeExtensions.alphabetical-app-grid;
       }
-      {
-        package = pkgs.gnomeExtensions.dash-to-dock;
-      }
     ];
   };
 
@@ -41,5 +38,6 @@
 
   home.packages = with pkgs; [
     gnome-tweaks
+    gradience
   ];
 }
