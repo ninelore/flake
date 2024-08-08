@@ -54,18 +54,12 @@
 
   services = {
     gpg-agent.enable = true;
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
   };
 
   home = {
     sessionVariables = {
-      QT_XCB_GL_INTEGRATION = "none"; # kde-connect
       NIXPKGS_ALLOW_UNFREE = "1";
       NIXPKGS_ALLOW_INSECURE = "1";
-
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       GDK_BACKEND = "wayland,x11";
       #GDK_SCALE = 1.25;

@@ -1,19 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.gnome-shell = {
     enable = true;
     extensions = [
-      {
-        package = pkgs.gnomeExtensions.pop-shell;
-      }
-      {
-        package = pkgs.gnomeExtensions.blur-my-shell;
-      }
-      {
-        package = pkgs.gnomeExtensions.gsconnect;
-      }
-      {
-        package = pkgs.gnomeExtensions.alphabetical-app-grid;
-      }
+      { package = pkgs.gnomeExtensions.alphabetical-app-grid; }
+      { package = pkgs.gnomeExtensions.appindicator; }
+      { package = pkgs.gnomeExtensions.blur-my-shell; }
+      { package = pkgs.gnomeExtensions.pop-shell; }
     ];
   };
 
@@ -25,14 +18,12 @@
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           alphabetical-app-grid.extensionUuid
+          appindicator.extensionUuid
           blur-my-shell.extensionUuid
-          gsconnect.extensionUuid
           pop-shell.extensionUuid
         ];
       };
-      "org/gnome/mutter".experimental-features = [
-        "scale-monitor-framebuffer"
-      ];
+      "org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ];
     };
   };
 
