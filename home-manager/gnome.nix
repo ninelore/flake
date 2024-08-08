@@ -28,7 +28,9 @@
   };
 
   home.packages = with pkgs; [
+    eyedropper
     gnome-tweaks
     gradience
+    papers
   ];
 }

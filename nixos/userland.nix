@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   services = {
     xserver = {
@@ -16,20 +16,19 @@
     gnome.excludePackages =
       (with pkgs; [
         cheese # webcam tool
+        epiphany # web browser
         evince # document viewer
-        geary # email reader
-        gedit # text editor      epiphany # web browser
+        gedit # text editor 
+        gnome-calendar     
         gnome-terminal
         gnome-tour
         gnome-user-docs
         simple-scan # scanner
-        snapshot
-        totem # video player
+        yelp
       ])
       ++ (with pkgs.gnome; [
         atomix # puzzle game
         gnome-contacts
-        gnome-maps
         gnome-music
         gnome-weather
         hitori # sudoku game

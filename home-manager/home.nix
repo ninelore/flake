@@ -105,6 +105,8 @@
       appimage-run
 
       # gui
+      textpieces
+      gaphor
       kitty
       android-studio
       obsidian
