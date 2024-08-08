@@ -17,7 +17,6 @@
   news.display = "show";
 
   xdg.configFile = {
-    "kitty".source = ../dots/kitty;
     "libvirt/qemu.conf".text = ''
       nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]
     '';
@@ -98,23 +97,21 @@
       appimage-run
 
       # gui
-      textpieces
-      gaphor
-      kitty
       android-studio
-      obsidian
-      libreoffice-fresh
-      onlyoffice-bin_latest
-      gimp
-      webcord
       discord-krisp
+      inputs.ninelore.packages.${pkgs.system}.eshare
       firefox
-      protonmail-desktop
+      gimp
       helvum
+      libreoffice-fresh
+      obsidian
+      textpieces
+      onlyoffice-bin_latest
+      protonmail-desktop
       scrcpy
+      webcord
       wireshark
       pkgs-small.ytmdesktop
-      inputs.ninelore.packages.${pkgs.system}.eshare
 
       # nix dev
       nixd
