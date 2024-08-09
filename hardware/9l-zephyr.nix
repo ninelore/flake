@@ -11,17 +11,10 @@
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     (modulesPath + "/installer/scan/not-detected.nix")
+    ./common/asus.nix
   ];
 
   networking.hostName = "9l-zephyr";
-
-  services = {
-    asusd = {
-      enable = true;
-      enableUserService = true;
-    };
-    supergfxd.enable = true;
-  };
 
   hardware.graphics.extraPackages = with pkgs; [
     rocm-opencl-icd
@@ -76,16 +69,7 @@
 
   swapDevices = [ ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-2d7fc916a87c.useDHCP = lib.mkDefault true;
-  # networking.interfaces.br-c71cca196848.useDHCP = lib.mkDefault true;
-  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.vetheafabec.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
