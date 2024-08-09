@@ -52,7 +52,12 @@ in
   };
 
   gtk = {
-    inherit font cursorTheme iconTheme theme;
+    inherit
+      font
+      cursorTheme
+      iconTheme
+      theme
+      ;
     enable = true;
     gtk3 = gtkConf;
     gtk4 = gtkConf;
@@ -67,7 +72,12 @@ in
     ];
   };
 
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = [ "JetBrainsMono Nerd Font Propo" ];
+    };
+  };
 
   services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
 }
