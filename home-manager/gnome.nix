@@ -6,7 +6,6 @@
       { package = pkgs.gnomeExtensions.alphabetical-app-grid; }
       { package = pkgs.gnomeExtensions.appindicator; }
       { package = pkgs.gnomeExtensions.blur-my-shell; }
-      { package = pkgs.gnomeExtensions.native-window-placement; }
       { package = pkgs.gnomeExtensions.pop-shell; }
       { package = pkgs.gnomeExtensions.supergfxctl-gex; }
       { package = pkgs.gnomeExtensions.windownavigator; }
@@ -23,7 +22,6 @@
           alphabetical-app-grid.extensionUuid
           appindicator.extensionUuid
           blur-my-shell.extensionUuid
-          native-window-placement.extensionUuid
           pop-shell.extensionUuid
           supergfxctl-gex.extensionUuid
           windownavigator.extensionUuid
