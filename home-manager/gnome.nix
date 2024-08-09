@@ -24,6 +24,12 @@
         ];
       };
       "org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ];
+      "org/gnome/desktop/wm/keybindings" = {
+        switch-to-workspace-up =  ["<Super>Page_Up"];
+        switch-to-workspace-down =  ["<Super>Page_Down"];
+        move-to-workspace-up =  ["<Super><Shift>Page_Up"];
+        move-to-workspace-down =  ["<Super><Shift>Page_Down"];
+      };
     };
   };
 
