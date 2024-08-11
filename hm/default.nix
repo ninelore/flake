@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  pkgs-small,
-  ...
-}:
+{ pkgs, ... }:
 {
   home.stateVersion = "21.11";
 
@@ -23,8 +18,8 @@
   };
 
   programs = {
-    direnv.enable = true;
     home-manager.enable = true;
+    direnv.enable = true;
     gpg.enable = true;
     chromium = {
       enable = true;
@@ -36,7 +31,7 @@
     };
     vscode = {
       enable = true;
-      package = pkgs-small.vscode;
+      package = pkgs.pkgs-small.vscode;
     };
     java = {
       enable = true;
@@ -99,7 +94,7 @@
       # gui
       android-studio
       discord-krisp
-      inputs.ninelore.packages.${pkgs.system}.eshare
+      eshare
       firefox
       gimp
       helvum
@@ -111,7 +106,7 @@
       scrcpy
       webcord
       wireshark
-      pkgs-small.ytmdesktop
+      ytmdesktop
 
       # nix dev
       nixd

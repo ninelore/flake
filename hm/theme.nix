@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 let
   nerdfonts = pkgs.nerdfonts.override {
     fonts = [

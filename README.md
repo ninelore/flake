@@ -1,12 +1,14 @@
 # My NixOS config
 
-## ToDo
+## Directory Layout
 
-- Move code around, modularisation
-- fix waybar being too fast for wireplumber
-- neovim
-- vscodium?
+- 9l: __Personal__ user and git configuration
+- hardware: Configs equivalent to /etc/nixos/hardware-configuration.nix
+- hm: User-level home-manager configs
+- nix: Nix package manager configs and nix overlays
+- pkgs: Custom packages
+- sys: System-level Nix(OS) configs
 
 ## Acknowledgements
 
-- [Aylur](https://github.com/Aylur): [Dotfiles](https://github.com/Aylur/dotfiles) for inspiration and some copied config snippets
+- [Aylur](https://github.com/Aylur): [Dotfiles](https://github.com/Aylur/dotfiles) for inspiration and some formerly copied config snippets

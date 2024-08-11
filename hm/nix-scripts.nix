@@ -3,7 +3,7 @@ let
   nxsw = pkgs.writeShellScriptBin "nxsw" ''
     _p=.
     _c=switch
-    
+
     if [[ -r $HOME/.nx-flakepath ]]; then
       if [[ -r "$(cat "$HOME"/.nx-flakepath)/flake.nix" ]]; then
         _p=$(cat "$HOME"/.nx-flakepath)

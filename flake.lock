@@ -155,26 +155,6 @@
         "type": "github"
       }
     },
-    "ninelore": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1719578515,
-        "narHash": "sha256-z+1n7g4RiPrZXAAsCXZcSC6JR8fx99SzGXtfk1KxGT4=",
-        "owner": "ninelore",
-        "repo": "9l-nixpkgs",
-        "rev": "a203bdf86b0718027fefd39a7d4f3ffdc6125103",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ninelore",
-        "repo": "9l-nixpkgs",
-        "type": "github"
-      }
-    },
     "nix-alien": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -309,7 +289,6 @@
       "inputs": {
         "chaotic": "chaotic",
         "home-manager": "home-manager",
-        "ninelore": "ninelore",
         "nix-alien": "nix-alien",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

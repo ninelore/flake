@@ -1,5 +1,6 @@
 # Common config for ChromeOS Hardware
-{ inputs, pkgs, ... }:
+# TODO: Turn into module
+{ pkgs, ... }:
 let
   cb-ucm-conf =
     with pkgs;

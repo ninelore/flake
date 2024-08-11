@@ -1,11 +1,11 @@
 ##################################
 ##                              ##
-##    ninelore's nixos config   ##
+##     ninelore's nix config    ##
 ##                              ##
 ##################################
 
 {
-  description = "9lore's Nix configurations and profiles";
+  description = "9lore's Nix flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -27,11 +27,6 @@
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ninelore = {
-      url = "github:ninelore/9l-nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -41,35 +36,67 @@
       chaotic,
       ...
     }:
+    let
+      architectures = [
+        "aarch64-linux"
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      forSystems = nixpkgs.lib.genAttrs architectures;
+
+      mkSystems =
+        systems:
+        builtins.listToAttrs (
+          map (systemConfig: {
+            name = systemConfig.hostname;
+            value = nixpkgs.lib.nixosSystem {
+              system = systemConfig.architecture;
+              specialArgs = {
+                inherit inputs systemConfig;
+              };
+              modules = [
+                ./nix
+                ./sys
+                ./hardware/${systemConfig.hostname}
+                chaotic.nixosModules.default
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    extraSpecialArgs = {
+                      inherit inputs systemConfig;
+                    };
+                    users.${systemConfig.username} = {
+                      imports = [
+                        ./hm
+                        ./hm/9l
+                      ];
+                    };
+                  };
+                }
+              ];
+            };
+          }) systems
+        );
+    in
     {
+      # packages
+      packages = forSystems (system: (import ./pkgs nixpkgs.legacyPackages.${system}));
+
       # nixos config
-      nixosConfigurations = {
-        "9l-zephyr" = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./9l.nix
-            ./hardware/9l-zephyr.nix
-            ./nixos/nixos.nix
-            home-manager.nixosModules.home-manager
-            chaotic.nixosModules.default
-          ];
-        };
-        "9l-lillipup" = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [
-            ./9l.nix
-            ./hardware/9l-lillipup.nix
-            ./nixos/nixos.nix
-            home-manager.nixosModules.home-manager
-            chaotic.nixosModules.default
-          ];
-        };
-      };
+      nixosConfigurations = mkSystems [
+        {
+          username = "9l";
+          hostname = "9l-zephyr";
+          architecture = "x86_64-linux";
+        }
+        {
+          username = "9l";
+          hostname = "9l-lillipup";
+          architecture = "x86_64-linux";
+        }
+      ];
     };
 }

@@ -8,10 +8,8 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./common/volteer.nix
+    ../common/volteer.nix
   ];
-
-  networking.hostName = "9l-lillipup";
 
   boot.initrd.availableKernelModules = [
     "xhci_pci"
