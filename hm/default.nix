@@ -23,7 +23,8 @@
     gpg.enable = true;
     chromium = {
       enable = true;
-      package = pkgs.ungoogled-chromium;
+      #package = pkgs.ungoogled-chromium;
+      package = pkgs.google-chrome;
       commandLineArgs = [
         "--enable-features=UseOzonePlatform"
         "--ozone-platform=wayland"
