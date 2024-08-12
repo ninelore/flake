@@ -73,6 +73,7 @@
       android-studio-tools
       android-tools
       btop
+      comma
       distrobox
       dmidecode
       coreboot-utils
