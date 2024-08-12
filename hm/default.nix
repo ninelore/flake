@@ -93,17 +93,16 @@
       appimage-run
 
       # gui
-      android-studio
-      discord-krisp
       eshare
       firefox
       gimp
       helvum
+      jetbrains-toolbox
       libreoffice-fresh
       obsidian
       textpieces
       onlyoffice-bin_latest
-      protonmail-desktop
+      protonmail-bridge-gui
       scrcpy
       webcord
       wireshark
