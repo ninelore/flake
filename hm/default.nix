@@ -34,6 +34,11 @@
       enable = true;
       package = pkgs.pkgs-small.vscode;
     };
+    java = {
+      enable = true;
+      package = pkgs.graalvm-ce;
+    };
+
   };
 
   services = {
@@ -107,6 +112,20 @@
       webcord
       wireshark
       ytmdesktop
+
+      # dev
+      cmakeCurses
+      gcc
+      gnumake
+      ninja
+      nodejs_22
+      python3
+      yarn
+      go
+      rustup
+      maven
+      quarkus
+      visualvm
 
       # gaming
       #lutris # flatpak
