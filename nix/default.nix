@@ -14,8 +14,16 @@
       (final: _prev: import ../pkgs { pkgs = _prev.pkgs; })
     ];
   };
-  nix.settings = {
-    experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
+  nix = {
+    settings = {
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+      substituters = [ "https://devenv.cachix.org" ];
+      trusted-public-keys = [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
+    };
+    trustedUsers = [
+      "root"
+      "@wheel"
+    ];
   };
 }
