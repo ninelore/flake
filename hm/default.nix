@@ -34,10 +34,6 @@
       enable = true;
       package = pkgs.pkgs-small.vscode;
     };
-    java = {
-      enable = true;
-      package = pkgs.graalvm-ce;
-    };
   };
 
   services = {
@@ -74,6 +70,7 @@
       android-tools
       btop
       comma
+      devenv
       distrobox
       dmidecode
       coreboot-utils
@@ -83,6 +80,8 @@
       gptfdisk
       less
       minicom
+      nixd
+      nixfmt-rfc-style
       unar
       vboot_reference
       via
@@ -108,25 +107,6 @@
       webcord
       wireshark
       ytmdesktop
-
-      # nix dev
-      nixd
-      nixfmt-rfc-style
-      # TODO: define globally available shell envs?
-      # C dev
-      cmakeCurses
-      gcc
-      gnumake
-      ninja
-      # Other dev
-      nodejs_22
-      python3
-      yarn
-      go
-      rustup
-      maven
-      quarkus
-      visualvm
 
       # gaming
       #lutris # flatpak
