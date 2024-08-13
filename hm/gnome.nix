@@ -5,7 +5,7 @@
     extensions = [
       { package = pkgs.gnomeExtensions.alphabetical-app-grid; }
       { package = pkgs.gnomeExtensions.appindicator; }
-      { package = pkgs.gnomeExtensions.dash-to-dock; }
+      { package = pkgs.pkgs-small.gnomeExtensions.dash-to-dock; }
     ];
   };
 
