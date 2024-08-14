@@ -11,7 +11,7 @@
       theme = "bgrt-luks";
       themePackages = [ pkgs.plymouth-bgrt-luks ];
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = [
       "quiet"
       "splash"
