@@ -13,7 +13,7 @@ let
     fi
 
     # Do not abort when theres just no internet
-    if ping -c1 github.coam > /dev/null 2>&1; then
+    if ping -c1 github.com > /dev/null 2>&1; then
       git pull --ff-only --autostash || exit 1
     fi
 
