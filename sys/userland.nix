@@ -75,6 +75,9 @@
       enable = true;
       gamescopeSession.enable = true; # TODO: trial
     };
+    gamemode = {
+      enable = true;
+    };
     adb.enable = true;
     flashrom = {
       enable = true;
