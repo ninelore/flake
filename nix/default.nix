@@ -12,6 +12,8 @@
       })
       # Custom packages
       (final: _prev: import ../pkgs { pkgs = _prev.pkgs; })
+      # VSCode Extensions
+      inputs.vscode-ext.overlays.default
     ];
   };
   nix = {
