@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.stateVersion = "21.11";
+  home.stateVersion = "24.05";
 
   imports = [
     ./nix-scripts.nix
