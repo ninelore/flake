@@ -23,8 +23,7 @@
     gpg.enable = true;
     chromium = {
       enable = true;
-      #package = pkgs.ungoogled-chromium;
-      package = pkgs.google-chrome;
+      package = pkgs.ungoogled-chromium;
       commandLineArgs = [
         "--enable-features=UseOzonePlatform"
         "--ozone-platform=wayland"
@@ -108,6 +107,7 @@
       textpieces
       onlyoffice-bin_latest
       protonmail-bridge-gui
+      protonvpn-gui
       scrcpy
       webcord
       wireshark
