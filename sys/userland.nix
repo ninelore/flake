@@ -69,15 +69,7 @@
 
   programs = {
     nix-ld.enable = true;
-    wireshark.enable = true;
-    # I hate to have this outside of home-manager...
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true; # TODO: trial
-    };
-    gamemode = {
-      enable = true;
-    };
+    wireshark.enable = true;    
     adb.enable = true;
     flashrom = {
       enable = true;
