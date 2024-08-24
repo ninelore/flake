@@ -132,6 +132,7 @@ in
     package = pkgs.pkgs-small.vscodium;
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
+    mutableExtensionsDir = false;
     extensions = ovsx ++ vs-market;
     keybindings = [
       {
