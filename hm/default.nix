@@ -30,11 +30,13 @@
         "--ozone-platform=wayland"
       ];
     };
+    obs-studio = {
+      enable = true;
+    };
     java = {
       enable = true;
       package = pkgs.graalvm-ce;
     };
-
   };
 
   services = {
