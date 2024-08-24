@@ -7,11 +7,12 @@ let
     config.color_scheme = 'Batman'
     return config
   '';
-  
+
   shellAliases = {
     "db" = "distrobox";
     "untar" = "tar -xavf";
     "v" = "nvim";
+    "vim" = "nvim";
     "ll" = "ls -a";
     "l" = "ls";
     "l." = "ls -d .*";
