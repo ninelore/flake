@@ -13,16 +13,8 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ../common/asus.nix
     ../common/gaming.nix
+    ./extra.nix
   ];
-
-  services.ollama = {
-    acceleration = "rocm";
-    environmentVariables = {
-      HCC_AMDGPU_TARGET = "gfx1032"; # RX 6700S
-      #HCC_AMDGPU_TARGET = "gfx1035"; # RX 680M
-    };
-    rocmOverrideGfx = "10.3.2"; # adjust to above
-  };
 
   hardware.graphics.extraPackages = with pkgs; [
     rocm-opencl-icd
