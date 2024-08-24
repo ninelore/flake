@@ -12,6 +12,8 @@
       })
       # Custom packages
       (final: _prev: import ../pkgs { pkgs = _prev.pkgs; })
+      # Wezterm
+      #(final: _prev: { wezterm = inputs.wezterm.packages."${final.system}".default; })
       # VSCode Extensions
       inputs.vscode-ext.overlays.default
     ];
@@ -23,9 +25,9 @@
       substituters = [ "https://devenv.cachix.org" ];
       trusted-public-keys = [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
       trusted-users = [
-      "root"
-      "@wheel"
-    ];
+        "root"
+        "@wheel"
+      ];
     };
   };
 }

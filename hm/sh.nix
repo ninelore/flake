@@ -1,5 +1,13 @@
 { pkgs, ... }:
 let
+  weztermConf = ''
+    local wezterm = require 'wezterm'
+    local config = {}
+    config.font = wezterm.font 'JetBrainsMono Nerd Font Propo'
+    config.color_scheme = 'Batman'
+    return config
+  '';
+  
   shellAliases = {
     "db" = "distrobox";
     "untar" = "tar -xavf";
@@ -33,6 +41,10 @@ in
         "confirm_os_window_close" = 0;
         "background_opacity" = "0.8";
       };
+    };
+    wezterm = {
+      enable = true;
+      extraConfig = weztermConf;
     };
 
     starship = {
