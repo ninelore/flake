@@ -54,6 +54,9 @@
       HandleLidSwitch=suspend
       HandleLidSwitchDocked=ignore
     '';
+    ollama = {
+      enable = true;
+    };
   };
 
   systemd.packages = [
