@@ -7,6 +7,7 @@
     ./sh.nix
     ./theme.nix
     ./gnome.nix
+    ./vscode.nix
   ];
 
   news.display = "show";
@@ -28,10 +29,6 @@
         "--enable-features=UseOzonePlatform"
         "--ozone-platform=wayland"
       ];
-    };
-    vscode = {
-      enable = true;
-      package = pkgs.pkgs-small.vscode;
     };
     java = {
       enable = true;
