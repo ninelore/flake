@@ -100,8 +100,7 @@ let
       zignd.html-css-class-completion
     ]);
   vs-market =
-    with pkgs;
-    with vscode-marketplace;
+    with pkgs.vscode-marketplace;
     [
       # agutierrezr.vscode-essentials # Maybe trial
 
@@ -120,7 +119,6 @@ let
       oracle-labs-graalvm.visualvm-vscode
       pmneo.tsimporter
       quicktype.quicktype
-      platformio.platformio-ide
       raynigon.nginx-formatter
       ryu1kn.partial-diff
       thog.vscode-asl
@@ -150,14 +148,9 @@ in
         command = "workbench.action.files.saveFiles";
       }
       {
-        key = "ctrl+alt+e";
-        command = "sqltools.executeQuery";
-        when = "editorHasSelection && editorTextFocus && !config.sqltools.disableChordKeybindings";
-      }
-      {
-        key = "ctrl+e ctrl+e";
-        command = "-sqltools.executeQuery";
-        when = "editorHasSelection && editorTextFocus && !config.sqltools.disableChordKeybindings";
+        key = "f5";
+        "command" = "sqltools.executeCurrentQuery";
+        "when" = "editorTextFocus && editorLangId == sql";
       }
     ];
     userSettings = {
