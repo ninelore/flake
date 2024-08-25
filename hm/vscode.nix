@@ -47,6 +47,7 @@ let
       jeanp413.open-remote-ssh
       jeff-hykin.better-cpp-syntax
       jnoortheen.nix-ide
+      llvm-vs-code-extensions.vscode-clangd
       mads-hartmann.bash-ide-vscode
       marp-team.marp-vscode
       mechatroner.rainbow-csv
