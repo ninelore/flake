@@ -1,7 +1,10 @@
 { pkgs, ... }:
 let
   ovsx =
-    [ pkgs.open-vsx."13xforever".language-x86-64-assembly ]
+    [
+      pkgs.open-vsx."13xforever".language-x86-64-assembly
+      #pkgs.vscode-extensions.ms-vscode.cpptools # clangd better
+    ]
     ++ (with pkgs.open-vsx; [
       aaron-bond.better-comments
       adpyke.codesnap
@@ -55,6 +58,7 @@ let
       mkhl.direnv
       mongodb.mongodb-vscode
       mrmlnc.vscode-scss
+      ms-vscode.cmake-tools
       ms-vscode.hexeditor
       ms-vscode.makefile-tools
       mtxr.sqltools
@@ -100,32 +104,30 @@ let
       zguolee.tabler-icons
       zignd.html-css-class-completion
     ]);
-  vs-market =
-    with pkgs.vscode-marketplace;
-    [
-      # agutierrezr.vscode-essentials # Maybe trial
+  vs-market = with pkgs.vscode-marketplace; [
+    # agutierrezr.vscode-essentials # Maybe trial
 
-      ahmadalli.vscode-nginx-conf
-      ambar.bundle-size
-      chrmarti.regex
-      chukwuamaka.csvtojson-converter
-      fabiospampinato.vscode-monokai-night
-      idered.npm
-      johnsoncodehk.vscode-tsconfig-helper
-      joshuapoehls.json-escaper
-      kricsleo.vscode-package-json-inspector
-      leizongmin.node-module-intellisense
-      mike-co.import-sorter
-      nimda.deepdark-material
-      oracle-labs-graalvm.visualvm-vscode
-      pmneo.tsimporter
-      quicktype.quicktype
-      raynigon.nginx-formatter
-      ryu1kn.partial-diff
-      thog.vscode-asl
-      tinkertrain.theme-panda
-      vitaliymaz.vscode-svg-previewer
-    ];
+    ahmadalli.vscode-nginx-conf
+    ambar.bundle-size
+    chrmarti.regex
+    chukwuamaka.csvtojson-converter
+    fabiospampinato.vscode-monokai-night
+    idered.npm
+    johnsoncodehk.vscode-tsconfig-helper
+    joshuapoehls.json-escaper
+    kricsleo.vscode-package-json-inspector
+    leizongmin.node-module-intellisense
+    mike-co.import-sorter
+    nimda.deepdark-material
+    oracle-labs-graalvm.visualvm-vscode
+    pmneo.tsimporter
+    quicktype.quicktype
+    raynigon.nginx-formatter
+    ryu1kn.partial-diff
+    thog.vscode-asl
+    tinkertrain.theme-panda
+    vitaliymaz.vscode-svg-previewer
+  ];
 in
 {
   programs.vscode = {
@@ -224,8 +226,8 @@ in
       ];
       "editor.stickyScroll.enabled" = true;
       "editor.stickyTabStops" = true;
-      "editor.tabCompletion" = "off";
-      "editor.tabSize" = 4;
+      "editor.tabCompletion" = "on";
+      "editor.tabSize" = 2;
       "editor.unicodeHighlight.nonBasicASCII" = false;
       "editor.wordSeparators" = "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?";
       "emmet.showAbbreviationSuggestions" = false;
