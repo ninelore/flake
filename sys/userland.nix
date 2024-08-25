@@ -72,7 +72,7 @@
 
   programs = {
     nix-ld.enable = true;
-    wireshark.enable = true;    
+    wireshark.enable = true;
     adb.enable = true;
     flashrom = {
       enable = true;

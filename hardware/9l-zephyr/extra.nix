@@ -9,7 +9,5 @@
     rocmOverrideGfx = "10.3.2"; # adjust to above
   };
 
-  environment.systemPackages = with pkgs; [
-    rocmPackages.rocm-smi
-  ];
+  environment.systemPackages = with pkgs; [ rocmPackages.rocm-smi ];
 }
