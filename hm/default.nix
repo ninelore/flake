@@ -69,7 +69,6 @@
 
     packages = with pkgs; [
       # cli
-      android-studio-tools
       android-tools
       btop
       comma
@@ -112,22 +111,22 @@
       wireshark
       ytmdesktop
 
-      # dev
+      # build tools and managers
+      android-studio-tools
+      cargo
+      clang-tools
       cmakeCurses
-      gcc
       gnumake
-      ninja
-      nodejs_22
-      python3
-      yarn
-      go
-      rustup
       maven
+      ninja
       quarkus
-      visualvm
+      yarn
 
-      # gaming
-      #lutris # flatpak
+      # languages
+      nodejs
+      python3
+
+      # wine
       wineWowPackages.stagingFull
     ];
   };
