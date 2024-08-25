@@ -208,11 +208,9 @@ in
       "cmake.showOptionsMovedNotification" = false;
       "debug.onTaskErrors" = "debugAnyway";
       "debug.openDebug" = "openOnDebugBreak";
-      "dev.containers.dockerPath" = "podman";
       "diffEditor.hideUnchangedRegions.enabled" = true;
       "diffEditor.maxComputationTime" = 0;
       "diffEditor.renderSideBySide" = false;
-      "dotnetAcquisitionExtension.enableTelemetry" = false;
       "editor.accessibilitySupport" = "off";
       "editor.fontFamily" = "'JetBrainsMono Nerd Font Propo', 'JetBrainsMono Nerd Font', 'JetBrains Mono', Fira Code, Consolas, monospace";
       "editor.guides.bracketPairs" = true;
@@ -268,7 +266,6 @@ in
         MD034 = false;
       };
       "maven.executable.preferMavenWrapper" = true;
-      "mssql.objectExplorer.groupBySchema" = false;
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
       "nix.serverSettings" = {
@@ -278,15 +275,11 @@ in
           };
         };
       };
-      "powershell.buttons.showPanelMovementButtons" = false;
-      "powershell.codeFolding.showLastLine" = true;
-      "powershell.integratedConsole.focusConsoleOnExecute" = true;
       "quarkus.tools.alwaysShowWelcomePage" = false;
       "quarkus.tools.debug.terminateProcessOnExit" = "Always terminate";
       "quarkus.tools.starter.showExtensionDescriptions" = true;
       "redhat.telemetry.enabled" = false;
       "rust-analyzer.debug.engineSettings" = { };
-      "sqlDatabaseProjects.netCoreDoNotAsk" = true;
       "sqltools.format" = {
         linesBetweenQueries = "preserve";
       };
@@ -297,8 +290,6 @@ in
       "typescript.updateImportsOnFileMove.enabled" = "always";
       "update.showReleaseNotes" = false;
       "visualvm.installation.visualvmPath" = "/home/9l/.visualvm/visualvm_218";
-      "vscode-edge-devtools.webhint" = false;
-      "vscord.status.details.text.notInFile" = "Not in a file";
       "window.titleBarStyle" = "custom";
       "workbench.colorTheme" = "Panda Syntax";
       "workbench.editor.empty.hint" = "hidden";
@@ -311,6 +302,7 @@ in
       "workbench.startupEditor" = "none";
       "workbench.tree.indent" = 12;
       "zenMode.hideActivityBar" = false;
+      "C_Cpp.intelliSenseEngine" = "disabled";
     };
   };
 }
