@@ -44,7 +44,7 @@ in
       };
     };
     wezterm = {
-      enable = true;
+      enable = false;
       extraConfig = weztermConf;
     };
 
