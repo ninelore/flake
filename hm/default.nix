@@ -122,9 +122,12 @@
       quarkus
       yarn
 
-      # languages
+      # Language toolchains
+      gcc
+      go
       nodejs
       python3
+      rustc
 
       # wine
       wineWowPackages.stagingFull
