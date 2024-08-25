@@ -3,7 +3,7 @@ let
   ovsx =
     [
       pkgs.open-vsx."13xforever".language-x86-64-assembly
-      #pkgs.vscode-extensions.ms-vscode.cpptools # clangd better
+      pkgs.vscode-extensions.ms-vscode.cpptools
     ]
     ++ (with pkgs.open-vsx; [
       aaron-bond.better-comments
