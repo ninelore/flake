@@ -110,6 +110,7 @@
       webcord
       wireshark
       ytmdesktop
+      zed-editor
 
       # build tools and managers
       android-studio-tools
