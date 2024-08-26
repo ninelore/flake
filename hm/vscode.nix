@@ -1,9 +1,10 @@
 { pkgs, ... }:
 let
-  ovsx =
+  ovsx = with pkgs;
     [
-      pkgs.open-vsx."13xforever".language-x86-64-assembly
-      pkgs.vscode-extensions.ms-vscode.cpptools
+      open-vsx."13xforever".language-x86-64-assembly
+      vscode-extensions.ms-vscode.cpptools
+      vscode-extensions.ms-vscode.cmake-tools
     ]
     ++ (with pkgs.open-vsx; [
       aaron-bond.better-comments
@@ -58,7 +59,6 @@ let
       mkhl.direnv
       mongodb.mongodb-vscode
       mrmlnc.vscode-scss
-      ms-vscode.cmake-tools
       ms-vscode.hexeditor
       ms-vscode.makefile-tools
       mtxr.sqltools
