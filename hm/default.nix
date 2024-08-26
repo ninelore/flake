@@ -116,7 +116,9 @@
       cargo
       clang-tools
       cmakeCurses
+      gdb
       gnumake
+      lldb
       maven
       ninja
       quarkus
