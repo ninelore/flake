@@ -18,25 +18,23 @@
     ];
     gnome.excludePackages =
       (with pkgs; [
+        atomix # puzzle game
         cheese # webcam tool
         epiphany # web browser
         evince # document viewer
         gedit # text editor
         gnome-calendar
+        gnome-contacts
+        gnome-music
         gnome-terminal
         gnome-tour
         gnome-user-docs
-        simple-scan # scanner
-        yelp
-      ])
-      ++ (with pkgs.gnome; [
-        atomix # puzzle game
-        gnome-contacts
-        gnome-music
         gnome-weather
         hitori # sudoku game
         iagno # go game
+        simple-scan # scanner
         tali # poker game
+        yelp
       ]);
   };
 
