@@ -5,7 +5,10 @@
     extensions = [
       { package = pkgs.gnomeExtensions.alphabetical-app-grid; }
       { package = pkgs.gnomeExtensions.appindicator; }
-      { package = pkgs.pkgs-small.gnomeExtensions.dash-to-dock; }
+      #{ package = pkgs.gnomeExtensions.blur-my-shell; }
+      { package = pkgs.gnomeExtensions.dash-to-dock; }
+      { package = pkgs.gnomeExtensions.places-status-indicator; }
+      { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
   };
 
@@ -18,7 +21,10 @@
         enabled-extensions = with pkgs.gnomeExtensions; [
           alphabetical-app-grid.extensionUuid
           appindicator.extensionUuid
+          #blur-my-shell.extensionUuid
           dash-to-dock.extensionUuid
+          places-status-indicator.extensionUuid
+          tiling-shell.extensionUuid
         ];
       };
       "org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ];
