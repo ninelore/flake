@@ -11,6 +11,13 @@
     ../common/volteer.nix
   ];
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
+
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "nvme"
@@ -38,8 +45,6 @@
       "dmask=0022"
     ];
   };
-
-  swapDevices = [ ];
 
   networking.useDHCP = lib.mkDefault true;
 
