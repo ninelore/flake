@@ -1,10 +1,6 @@
 # Hardware config for Google Volteer
 { pkgs, ... }:
 {
-  imports = [
-    #./cros.nix
-  ];
-
   services.keyd = {
     enable = true;
     keyboards.internal = {
@@ -90,11 +86,20 @@
   };
 
   boot.extraModprobeConfig = ''
-    options snd-intel-dspcfg dsp_driver=3
+    options snd_sof sof_debug=1
+    options snd_intel_dspcfg dsp_driver=3
   '';
 
+  #nixpkgs.overlays = [
+  #  (final: _prev: { alsa-ucm-conf = pkgs.alsa-ucm-conf-cros; })
+  #];
+
   environment = {
-    systemPackages = [ pkgs.sof-firmware ];
+    sessionVariables.ALSA_CONFIG_UCM2 = "${pkgs.alsa-ucm-conf-cros}/share/alsa/ucm2";
+    systemPackages = [
+      pkgs.sof-firmware
+      pkgs.alsa-ucm-conf-cros
+    ];
   };
 
   #FIXME: Broken on newer pipewire/wireplumber
