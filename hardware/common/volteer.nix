@@ -90,9 +90,9 @@
     options snd_intel_dspcfg dsp_driver=3
   '';
 
-  nixpkgs.overlays = [
-    (final: _prev: { alsa-ucm-conf = pkgs.alsa-ucm-conf-cros; })
-  ];
+  #nixpkgs.overlays = [
+  #  (final: _prev: { alsa-ucm-conf = pkgs.alsa-ucm-conf-cros; })
+  #];
 
   environment = {
     sessionVariables.ALSA_CONFIG_UCM2 = "${pkgs.alsa-ucm-conf-cros}/share/alsa/ucm2";
