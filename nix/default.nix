@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   nixpkgs = {
     config.allowUnfree = true;
@@ -21,6 +21,7 @@
     ];
   };
   nix = {
+    package = pkgs.nixVersions.latest;
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;

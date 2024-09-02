@@ -13,12 +13,13 @@
     };
     kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = [
+      "boot.shell_on_fail"
+      # eye candy below
       "quiet"
       "splash"
       "rd.systemd.show_status=error"
       "rd.udev.log_level=2"
       "udev.log_priority=2"
-      "boot.shell_on_fail"
     ];
 
     tmp.cleanOnBoot = true;
