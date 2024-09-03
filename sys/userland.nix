@@ -72,6 +72,7 @@
     nix-ld.enable = true;
     wireshark.enable = true;
     adb.enable = true;
+    ydotool.enable = true;
     flashrom = {
       enable = true;
       # package = ;

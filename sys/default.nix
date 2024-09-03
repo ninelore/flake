@@ -23,6 +23,7 @@
       "plugdev"
       "openrazer"
       "wireshark"
+      "ydotool"
     ];
   };
 

@@ -7,6 +7,7 @@
       { package = pkgs.gnomeExtensions.appindicator; }
       #{ package = pkgs.gnomeExtensions.blur-my-shell; }
       { package = pkgs.gnomeExtensions.dash-to-dock; }
+      { package = pkgs.gnomeExtensions.disable-unredirect-fullscreen-windows; }
       { package = pkgs.gnomeExtensions.places-status-indicator; }
       { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
@@ -35,6 +36,11 @@
         move-to-workspace-down = [ "<Super><Shift>Page_Down" ];
       };
     };
+  };
+
+  systemd.user.sessionVariables = {
+    # GNOME / Wayland bug https://forums.opensuse.org/t/gnome-wayland-session-getting-killed/177667
+    MUTTER_DEBUG_KMS_THREAD_TYPE = "user";
   };
 
   home.packages = with pkgs; [
