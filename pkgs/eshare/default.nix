@@ -1,6 +1,6 @@
 { pkgs }:
 let
-  version = "7.5.0220";
+  version = "7.5.0509";
 in
 pkgs.stdenv.mkDerivation {
   name = "eshare-bin";
@@ -8,7 +8,7 @@ pkgs.stdenv.mkDerivation {
 
   src = pkgs.fetchurl {
     url = "https://cdn.sharemax.cn/rel/linux/EShareClient_v${version}_amd64.deb";
-    sha256 = "b276effb6d5ffa6d54c5f9cbffa037e92926e8a413205f5b2d07eaae3632f5b1";
+    sha256 = "sha256-4Vx5UXti4ukK/ITEBD/17CNUJRyo5xm4APBAYL+iXRE=";
 
     #url = "https://update.digitale-tafel.com/sharing/ubuntu-app/ubuntu.zip";
     #sha256 = "e715fd6aa9642a47f0b925f03da15f15ceb456f5950f0576a1d38710bdc20f60";
