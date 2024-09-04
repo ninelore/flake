@@ -123,6 +123,7 @@
       maven
       ninja
       quarkus
+      rustfmt
       yarn
 
       # Language toolchains
