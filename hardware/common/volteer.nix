@@ -85,11 +85,6 @@
     };
   };
 
-  boot.extraModprobeConfig = ''
-    options snd_sof sof_debug=1
-    options snd_intel_dspcfg dsp_driver=3
-  '';
-
   system.replaceRuntimeDependencies = [
     {
       original = pkgs.alsa-ucm-conf;
