@@ -45,6 +45,7 @@ let
       github.vscode-github-actions
       github.vscode-pull-request-github
       glenn2223.live-sass
+      golang.go
       hediet.vscode-drawio
       htmlhint.vscode-htmlhint
       janisdd.vscode-edit-csv
