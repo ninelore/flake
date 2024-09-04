@@ -131,8 +131,9 @@
       nodejs
       python3
 
-      # wine
+      # gayming
       wineWowPackages.stagingFull
+      prismlauncher
     ];
   };
 }
