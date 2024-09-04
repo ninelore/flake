@@ -114,7 +114,6 @@
 
       # build tools and managers
       android-studio-tools
-      cargo
       clang-tools
       cmakeCurses
       gdb
@@ -123,7 +122,7 @@
       maven
       ninja
       quarkus
-      rustfmt
+      rustup
       yarn
 
       # Language toolchains
@@ -131,7 +130,6 @@
       go
       nodejs
       python3
-      rustc
 
       # wine
       wineWowPackages.stagingFull
