@@ -86,23 +86,60 @@
             };
           }) systems
         );
+      mkFrankenIsos =
+        isos:
+        builtins.listToAttrs (
+          map (isoArch: {
+            name = isoArch + "-iso";
+            value = nixpkgs.lib.nixosSystem {
+              system = isoArch;
+              modules = [
+                (
+                  {
+                    pkgs,
+                    lib,
+                    modulesPath,
+                    ...
+                  }:
+                  {
+                    imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+                    networking.networkmanager.enable = true;
+                    networking.wireless.enable = lib.mkImageMediaOverride false;
+                    environment.systemPackages = with pkgs; [
+                      neovim
+                      arch-install-scripts
+                    ];
+                  }
+                )
+              ];
+            };
+          }) isos
+        );
     in
     {
       # packages
       packages = forSystems (system: (import ./pkgs nixpkgs.legacyPackages.${system}));
 
-      # nixos config
-      nixosConfigurations = mkSystems [
-        {
-          username = "9l";
-          hostname = "9l-zephyr";
-          architecture = "x86_64-linux";
-        }
-        {
-          username = "9l";
-          hostname = "9l-lillipup";
-          architecture = "x86_64-linux";
-        }
-      ];
+      nixosConfigurations =
+        # nixos pc configs
+        mkSystems [
+          {
+            username = "9l";
+            hostname = "9l-zephyr";
+            architecture = "x86_64-linux";
+          }
+          {
+            username = "9l";
+            hostname = "9l-lillipup";
+            architecture = "x86_64-linux";
+          }
+        ]
+
+        # iso images
+        # cmd: `nix build .#nixosConfigurations.{arch}-iso.config.system.build.isoImage`
+        // mkFrankenIsos [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
     };
 }
