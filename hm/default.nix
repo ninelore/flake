@@ -121,6 +121,7 @@
       lldb
       maven
       ninja
+      pkg-config
       quarkus
       rustup
       yarn
