@@ -43,10 +43,8 @@ in
         "background_opacity" = "0.8";
       };
     };
-    wezterm = {
-      enable = false;
-      extraConfig = weztermConf;
-    };
+
+    carapace.enable = true;
 
     starship = {
       enable = true;
@@ -69,9 +67,6 @@ in
       environmentVariables = {
         PROMPT_INDICATOR_VI_INSERT = ''""'';
         PROMPT_INDICATOR_VI_NORMAL = ''""'';
-        NIXPKGS_ALLOW_UNFREE = "1";
-        NIXPKGS_ALLOW_INSECURE = "1";
-        SHELL = ''"${pkgs.nushell}/bin/nu"'';
       };
       extraConfig =
         let
@@ -93,6 +88,16 @@ in
             cursor_shape = {
               vi_insert = "line";
               vi_normal = "block";
+            };
+
+            completions = {
+              quick = true;
+              partial = true;
+              algorithm = "fuzzy";
+              external = {
+                enable = true;
+                max_results = 100;
+              };
             };
 
             menus = [
@@ -126,20 +131,21 @@ in
           $env.config = ${conf};
           $env.config.color_config = (${theme});
           ${completions [
+            "adb"
             "cargo"
+            "curl"
+            "docker"
+            "fastboot"
+            "gh"
             "git"
+            "less"
+            "make"
+            "man"
+            "mvn"
             "nix"
             "npm"
+            "tar"
           ]}
-
-          bash -c $"source ($env.HOME)/.profile && env"
-            | lines
-            | parse "{n}={v}"
-            | filter { |x| ($x.n not-in $env) or $x.v != ($env | get $x.n) }
-            | where n not-in ["_", "LAST_EXIT_CODE", "DIRS_POSITION"]
-            | transpose --header-row
-            | into record
-            | load-env
         '';
     };
   };
