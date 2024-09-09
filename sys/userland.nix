@@ -57,17 +57,6 @@
     };
   };
 
-  systemd.packages = [
-    (pkgs.writeTextFile {
-      name = "monitors.conf";
-      destination = "/etc/systemd/system/gdm.service.d/monitors.conf";
-      text = ''
-        [Service]
-        ExecStartPre=cp -u /home/${systemConfig.username}/.config/monitors.xml /run/gdm/.config/
-      '';
-    })
-  ];
-
   programs = {
     nix-ld.enable = true;
     wireshark.enable = true;
