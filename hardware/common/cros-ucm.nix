@@ -12,17 +12,8 @@
 
         patches = [ ];
 
-        unpackPhase = ''
-          runHook preUnpack
-          tar xf "$src"
-          runHook postUnpack
-        '';
-
-        installPhase = ''
-          runHook preInstall
-          mkdir -p $out/share/alsa
-          cp -r alsa-ucm*/ucm2 $out/share/alsa
-          runHook postInstall
+        postInstall = ''
+          cp -rf $wttsrc/ucm2/* $out/share/alsa/
         '';
       };
     })
