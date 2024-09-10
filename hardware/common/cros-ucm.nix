@@ -1,26 +1,23 @@
 { pkgs, ... }:
-{
-  nixpkgs.overlays = [
-    (final: prev: {
-      alsa-ucm-conf = prev.alsa-ucm-conf.overrideAttrs {
-        wttsrc = pkgs.fetchFromGitHub {
-          owner = "WeirdTreeThing";
-          repo = "alsa-ucm-conf-cros";
-          rev = "f7be751655e4298851615bded7adaf364ccfb8c3";
-          hash = "sha256-x4DQoYIF8tRlNQ1/vKgTtgzach/CCNYzsl+gxviSVHs=";
-        };
-
-        patches = [ ];
-
-        postInstall = ''
-          cp -rf $wttsrc/ucm2/* $out/share/alsa/
-        '';
+let
+  cros-ucm =
+    with pkgs;
+    alsa-ucm-conf.overrideAttrs {
+      wttsrc = fetchFromGitHub {
+        owner = "WeirdTreeThing";
+        repo = "alsa-ucm-conf-cros";
+        rev = "f7be751655e4298851615bded7adaf364ccfb8c3";
+        hash = "sha256-x4DQoYIF8tRlNQ1/vKgTtgzach/CCNYzsl+gxviSVHs=";
       };
-    })
-  ];
 
+      postInstall = ''
+        cp -rf $wttsrc/ucm2/* $out/share/alsa/
+      '';
+    };
+in
+{
   environment = {
-    #sessionVariables.ALSA_CONFIG_UCM2 = "${pkgs.cb-ucm-conf}/share/alsa/ucm2";
+    sessionVariables.ALSA_CONFIG_UCM2 = "${cros-ucm}/share/alsa/ucm2";
     systemPackages = [ pkgs.sof-firmware ];
   };
 }
