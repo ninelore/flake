@@ -23,19 +23,6 @@ let
 in
 {
   programs = {
-    kitty = {
-      enable = true;
-      font = {
-        name = "JetBrainsMono Nerd Font Propo";
-      };
-      settings = {
-        #"window_padding_width" = 4;
-        "window_margin_width" = 4;
-        "confirm_os_window_close" = 0;
-        "background_opacity" = "0.8";
-      };
-    };
-
     tmux = {
       enable = true;
       prefix = "C-Space";

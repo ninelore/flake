@@ -8,12 +8,7 @@
   environment = {
     localBinInPath = true;
     systemPackages = with pkgs; [
-      curl
       home-manager
-      neovim
-      nix-index
-      less
-      usbutils
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
     ];
     gnome.excludePackages =

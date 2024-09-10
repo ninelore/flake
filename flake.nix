@@ -78,6 +78,7 @@
                       imports = [
                         ./hm
                         ./hm/9l
+                        ./hm/gui
                       ];
                     };
                   };

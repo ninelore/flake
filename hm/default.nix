@@ -5,12 +5,7 @@
   imports = [
     ./nix-scripts.nix
     ./sh.nix
-    ./theme.nix
-    ./gnome.nix
-    ./vscode.nix
   ];
-
-  news.display = "show";
 
   xdg.configFile = {
     "libvirt/qemu.conf".text = ''
@@ -22,17 +17,6 @@
     home-manager.enable = true;
     direnv.enable = true;
     gpg.enable = true;
-    chromium = {
-      enable = true;
-      package = pkgs.ungoogled-chromium;
-      commandLineArgs = [
-        "--enable-features=UseOzonePlatform"
-        "--ozone-platform=wayland"
-      ];
-    };
-    obs-studio = {
-      enable = true;
-    };
     java = {
       enable = true;
       package = pkgs.graalvm-ce;
@@ -41,7 +25,6 @@
 
   services = {
     gpg-agent.enable = true;
-    kdeconnect.enable = true;
   };
 
   home = {
@@ -73,6 +56,7 @@
       android-tools
       btop
       comma
+      curl
       devenv
       distrobox
       dmidecode
@@ -83,35 +67,16 @@
       gptfdisk
       less
       minicom
+      neovim
+      nix-index
       nixd
       nixfmt-rfc-style
+      pciutils
       unar
       vboot_reference
-      via
       zip
-      wlr-randr
       unzip
-
-      # appimages
-      appimage-run
-
-      # gui
-      eshare
-      firefox
-      gimp
-      helvum
-      jetbrains-toolbox
-      libreoffice-fresh
-      obsidian
-      textpieces
-      onlyoffice-bin_latest
-      protonmail-bridge-gui
-      protonvpn-gui
-      scrcpy
-      webcord
-      wireshark
-      ytmdesktop
-      zed-editor
+      usbutils
 
       # build tools and managers
       android-studio-tools
@@ -132,10 +97,6 @@
       go
       nodejs
       python3
-
-      # gayming
-      wineWowPackages.stagingFull
-      prismlauncher
     ];
   };
 }
