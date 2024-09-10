@@ -1,6 +1,10 @@
 # Hardware config for Google Volteer
 { pkgs, ... }:
 {
+  imports = [
+    ./cros-ucm.nix
+  ];
+
   services.keyd = {
     enable = true;
     keyboards.internal = {
@@ -83,18 +87,6 @@
         };
       };
     };
-  };
-
-  system.replaceRuntimeDependencies = [
-    {
-      original = pkgs.alsa-ucm-conf;
-      replacement = pkgs.cb-ucm-conf;
-    }
-  ];
-
-  environment = {
-    sessionVariables.ALSA_CONFIG_UCM2 = "${pkgs.cb-ucm-conf}/share/alsa/ucm2";
-    systemPackages = [ pkgs.sof-firmware ];
   };
 
   #FIXME: Broken on newer pipewire/wireplumber

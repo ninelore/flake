@@ -11,9 +11,9 @@
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../common/asus.nix
-    ../common/gaming.nix
+    ./asus.nix
     ./extra.nix
+    ../common/gaming.nix
   ];
 
   hardware.graphics.extraPackages = with pkgs; [
