@@ -70,7 +70,7 @@ in
       enable = true;
       bashrcExtra = ''
         if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-          exec tmux
+          exec tmux new -As0
         fi
       '';
     };
