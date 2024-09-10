@@ -64,6 +64,24 @@
           };
         };
       };
+      configPackages = [
+        (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/51-increase-headroom.conf" ''
+          monitor.alsa.rules = [
+            {
+              matches = [
+                {
+                  node.name = "~alsa_output.*"
+                }
+              ]
+              actions = {
+                update-props = {
+                  api.alsa.headroom = 8192
+                }
+              }
+            }
+          ]
+        '')
+      ];
     };
     extraConfig.pipewire."92-low-latency" = {
       "context.properties" = {
