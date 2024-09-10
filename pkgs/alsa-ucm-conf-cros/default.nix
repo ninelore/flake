@@ -1,13 +1,14 @@
 { pkgs, ... }:
-pkgs.alsa-ucm-conf.overrideAttrs {
+pkgs.stdenvNoCC.mkDerivation {
+  name = "alsa-ucm-conf-cros";
+  version = 1;
+
   src = pkgs.fetchFromGitHub {
     owner = "WeirdTreeThing";
     repo = "alsa-ucm-conf-cros";
     rev = "f7be751655e4298851615bded7adaf364ccfb8c3";
     hash = "sha256-x4DQoYIF8tRlNQ1/vKgTtgzach/CCNYzsl+gxviSVHs=";
   };
-
-  patches = [];
 
   installPhase = ''
     runHook preInstall
