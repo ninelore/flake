@@ -5,9 +5,10 @@
     extensions = [
       { package = pkgs.gnomeExtensions.alphabetical-app-grid; }
       { package = pkgs.gnomeExtensions.appindicator; }
-      #{ package = pkgs.gnomeExtensions.blur-my-shell; }
+      { package = pkgs.gnomeExtensions.blur-my-shell; }
       { package = pkgs.gnomeExtensions.dash-to-dock; }
       { package = pkgs.gnomeExtensions.disable-unredirect-fullscreen-windows; }
+      { package = pkgs.gnomeExtensions.gsconnect; }
       { package = pkgs.gnomeExtensions.places-status-indicator; }
       { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
@@ -22,8 +23,8 @@
         enabled-extensions = with pkgs.gnomeExtensions; [
           alphabetical-app-grid.extensionUuid
           appindicator.extensionUuid
-          #blur-my-shell.extensionUuid
           dash-to-dock.extensionUuid
+          gsconnect.extensionUuid
           places-status-indicator.extensionUuid
           tiling-shell.extensionUuid
         ];

@@ -41,6 +41,7 @@
 
   services = {
     gpg-agent.enable = true;
+    kdeconnect.enable = true;
   };
 
   home = {
