@@ -85,17 +85,16 @@
     };
   };
 
-  nixpkgs.overlays = [
-    (self: super: {
-      alsa-ucm-conf = pkgs.alsa-ucm-conf-cros;
-    })
+  system.replaceRuntimeDependencies = [
+    {
+      original = pkgs.alsa-ucm-conf;
+      replacement = pkgs.cb-ucm-conf;
+    }
   ];
 
   environment = {
-    systemPackages = [
-      pkgs.sof-firmware
-      pkgs.alsa-ucm-conf
-    ];
+    sessionVariables.ALSA_CONFIG_UCM2 = "${pkgs.cb-ucm-conf}/share/alsa/ucm2";
+    systemPackages = [ pkgs.sof-firmware ];
   };
 
   #FIXME: Broken on newer pipewire/wireplumber
