@@ -85,11 +85,16 @@
     };
   };
 
+  nixpkgs.overlays = [
+    (self: super: {
+      alsa-ucm-conf = pkgs.alsa-ucm-conf-cros;
+    })
+  ];
+
   environment = {
-    sessionVariables.ALSA_CONFIG_UCM2 = "${pkgs.alsa-ucm-conf-cros}/share/alsa/ucm2";
     systemPackages = [
       pkgs.sof-firmware
-      pkgs.alsa-ucm-conf-cros
+      pkgs.alsa-ucm-conf
     ];
   };
 
