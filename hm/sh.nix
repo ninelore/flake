@@ -44,6 +44,16 @@ in
       };
     };
 
+    tmux = {
+      enable = true;
+      prefix = "C-Space";
+      baseIndex = 1;
+      escapeTime = 0;
+      mouse = true;
+      clock24 = true;
+      shell = "${pkgs.nushell}/bin/nu";
+    };
+
     carapace.enable = true;
 
     starship = {
@@ -58,7 +68,11 @@ in
     bash = {
       inherit shellAliases;
       enable = true;
-      initExtra = "SHELL=${pkgs.bash}";
+      bashrcExtra = ''
+        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+          exec tmux
+        fi
+      '';
     };
 
     nushell = {
@@ -75,13 +89,12 @@ in
           conf = builtins.toJSON {
             show_banner = false;
             edit_mode = "vi";
-            #shell_integration = true; # boolean deprecated at 0.94
 
             ls.clickable_links = true;
             rm.always_trash = true;
 
             table = {
-              index_mode = "always"; # always never auto
+              index_mode = "always";
               header_on_separator = false;
             };
 

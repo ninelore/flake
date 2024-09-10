@@ -1,4 +1,4 @@
-{ pkgs, systemConfig, ... }:
+{ systemConfig, ... }:
 {
   imports = [
     ./system.nix
@@ -8,7 +8,6 @@
   ];
 
   users.users.${systemConfig.username} = {
-    #shell = pkgs.nushell; # breaks 
     isNormalUser = true;
     initialPassword = systemConfig.username;
     extraGroups = [
