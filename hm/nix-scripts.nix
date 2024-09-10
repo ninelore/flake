@@ -26,7 +26,11 @@ let
       _c=boot
     fi
 
-    sudo nixos-rebuild "$_c" --flake "$_p" || exit 1
+    if [[ $* == *"i"* ]]; then
+      sudo nixos-rebuild "$_c" --impure --flake "$_p" || exit 1
+    else 
+      sudo nixos-rebuild "$_c" --flake "$_p" || exit 1
+    fi
   '';
 
   nxgc = pkgs.writeShellScriptBin "nxgc" ''

@@ -16,6 +16,13 @@ let
     };
 in
 {
+  system.replaceRuntimeDependencies = with pkgs; [
+    {
+      original = alsa-ucm-conf;
+      replacement = cros-ucm;
+    }
+  ];
+
   environment = {
     sessionVariables.ALSA_CONFIG_UCM2 = "${cros-ucm}/share/alsa/ucm2";
     systemPackages = [ pkgs.sof-firmware ];
