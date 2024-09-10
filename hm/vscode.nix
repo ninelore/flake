@@ -288,6 +288,7 @@ in
       "terminal.integrated.autoReplies" = {
         "Terminate batch job (Y/N)" = "Y\r";
       };
+      "terminal.integrated.defaultProfile.linux" = "Nushell";
       "typescript.updateImportsOnFileMove.enabled" = "always";
       "update.showReleaseNotes" = false;
       "visualvm.installation.visualvmPath" = "/home/9l/.visualvm/visualvm_218";

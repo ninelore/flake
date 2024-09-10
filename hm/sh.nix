@@ -1,13 +1,5 @@
 { pkgs, ... }:
 let
-  weztermConf = ''
-    local wezterm = require 'wezterm'
-    local config = {}
-    config.font = wezterm.font 'JetBrainsMono Nerd Font Propo'
-    config.color_scheme = 'Batman'
-    return config
-  '';
-
   shellAliases = {
     "db" = "distrobox";
     "untar" = "tar -xavf";
@@ -69,7 +61,7 @@ in
       inherit shellAliases;
       enable = true;
       bashrcExtra = ''
-        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ ! "$TERM_PROGRAM" =~ vscode ]]; then
           exec tmux new -As0
         fi
       '';
