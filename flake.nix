@@ -106,9 +106,13 @@
                     imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
                     networking.networkmanager.enable = true;
                     networking.wireless.enable = lib.mkImageMediaOverride false;
+                    nix.package = pkgs.nixVersions.latest;
+                    nix.settings.experimental-features = "nix-command flakes";
                     environment.systemPackages = with pkgs; [
-                      neovim
                       arch-install-scripts
+                      git
+                      gh
+                      ranger
                     ];
                   }
                 )
