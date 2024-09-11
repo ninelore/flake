@@ -23,14 +23,19 @@ let
 in
 {
   programs = {
-    tmux = {
+    zellij = {
       enable = true;
-      prefix = "C-Space";
-      baseIndex = 1;
-      escapeTime = 0;
-      mouse = true;
-      clock24 = true;
-      shell = "${pkgs.nushell}/bin/nu";
+      enableBashIntegration = true;
+      settings = {
+        pane_frames = false;
+        default_shell = "${pkgs.nushell}/bin/nu";
+        theme = "dracula";
+        ui = {
+          pane_frames = {
+            hide_session_name = true;
+          };
+        };
+      };
     };
 
     carapace.enable = true;
@@ -47,11 +52,6 @@ in
     bash = {
       inherit shellAliases;
       enable = true;
-      bashrcExtra = ''
-        if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ ! "$TERM_PROGRAM" =~ vscode ]]; then
-          exec tmux new -As0
-        fi
-      '';
     };
 
     nushell = {
