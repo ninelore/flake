@@ -11,7 +11,6 @@
       theme = "bgrt-luks";
       themePackages = [ pkgs.plymouth-bgrt-luks ];
     };
-    kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = [
       "boot.shell_on_fail"
       # eye candy below

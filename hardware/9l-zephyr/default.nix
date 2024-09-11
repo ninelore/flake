@@ -16,6 +16,8 @@
     ../common/virt-x86.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+
   environment.systemPackages = with pkgs; [ rocmPackages.rocm-smi ];
 
   services.ollama = {
