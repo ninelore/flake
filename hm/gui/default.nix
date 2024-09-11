@@ -7,6 +7,9 @@
   ];
 
   programs = {
+    alacritty = {
+      enable = true;
+    };
     chromium = {
       enable = true;
       package = pkgs.ungoogled-chromium;

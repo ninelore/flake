@@ -42,6 +42,7 @@
       QT_QPA_PLATFORM = "wayland;xcb";
       QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
       SWWW_TRANSITION_STEP = 255;
+      ZELLIJ_AUTO_ATTACH = "true";
     };
 
     sessionPath = [
