@@ -6,6 +6,7 @@
       { package = pkgs.gnomeExtensions.alphabetical-app-grid; }
       { package = pkgs.gnomeExtensions.appindicator; }
       { package = pkgs.gnomeExtensions.blur-my-shell; }
+      { package = pkgs.gnomeExtensions.clipboard-history; }
       { package = pkgs.gnomeExtensions.dash-to-dock; }
       { package = pkgs.gnomeExtensions.disable-unredirect-fullscreen-windows; }
       { package = pkgs.gnomeExtensions.gsconnect; }
@@ -23,6 +24,7 @@
         enabled-extensions = with pkgs.gnomeExtensions; [
           alphabetical-app-grid.extensionUuid
           appindicator.extensionUuid
+          clipboard-history.extensionUuid
           dash-to-dock.extensionUuid
           gsconnect.extensionUuid
           places-status-indicator.extensionUuid
