@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
-  ovsx = with pkgs;
+  ovsx =
+    with pkgs;
     [
       open-vsx."13xforever".language-x86-64-assembly
       vscode-extensions.ms-vscode.cpptools
@@ -54,7 +55,6 @@ let
       jnoortheen.nix-ide
       llvm-vs-code-extensions.vscode-clangd
       mads-hartmann.bash-ide-vscode
-      marp-team.marp-vscode
       mechatroner.rainbow-csv
       mikestead.dotenv
       mkhl.direnv
@@ -99,7 +99,6 @@ let
       vscjava.vscode-maven
       vue.volar
       yoavbls.pretty-ts-errors
-      yzane.markdown-pdf
       yzhang.markdown-all-in-one
       zebreus.sconfig-extension
       zguolee.tabler-icons
@@ -289,6 +288,9 @@ in
         "Terminate batch job (Y/N)" = "Y\r";
       };
       "terminal.integrated.defaultProfile.linux" = "Nushell";
+      "terminal.integrated.automationProfile.linux" = {
+        "path" = "${pkgs.nushell}/bin/nu";
+      };
       "typescript.updateImportsOnFileMove.enabled" = "always";
       "update.showReleaseNotes" = false;
       "visualvm.installation.visualvmPath" = "/home/9l/.visualvm/visualvm_218";
