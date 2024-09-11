@@ -1,6 +1,5 @@
 {
   inputs,
-  systemConfig,
   pkgs,
   ...
 }:
@@ -11,8 +10,9 @@
       home-manager
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
     ];
-    gnome.excludePackages =
-      (with pkgs; [
+    gnome.excludePackages = (
+      with pkgs;
+      [
         atomix # puzzle game
         cheese # webcam tool
         epiphany # web browser
@@ -30,7 +30,8 @@
         simple-scan # scanner
         tali # poker game
         yelp
-      ]);
+      ]
+    );
   };
 
   services = {
@@ -48,6 +49,13 @@
       HandleLidSwitchDocked=ignore
     '';
     ollama = {
+      enable = true;
+    };
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
       enable = true;
     };
   };

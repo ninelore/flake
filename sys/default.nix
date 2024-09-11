@@ -4,7 +4,6 @@
     ./system.nix
     ./locale.nix
     ./userland.nix
-    ./virt.nix
   ];
 
   users.users.${systemConfig.username} = {

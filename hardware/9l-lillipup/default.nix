@@ -18,6 +18,7 @@
     }
   ];
 
+  # From nixos-generate-config onwards
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "nvme"

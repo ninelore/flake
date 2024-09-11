@@ -9,6 +9,11 @@
   programs = {
     alacritty = {
       enable = true;
+      settings = {
+        import = [
+          "${pkgs.alacritty-theme}/dracula_plus.toml"
+        ];
+      };
     };
     chromium = {
       enable = true;
@@ -33,6 +38,7 @@
     eshare
     firefox
     gimp
+    gnome-boxes
     helvum
     jetbrains-toolbox
     libreoffice-fresh
