@@ -13,6 +13,25 @@
         import = [
           "${pkgs.alacritty-theme}/dracula_plus.toml"
         ];
+        font = {
+          size = 12;
+        };
+        font.bold = {
+          family = "JetBrainsMono Nerd Font Propo";
+          style = "Bold";
+        };
+        font.bold_italic = {
+          family = "JetBrainsMono Nerd Font Propo";
+          style = "Bold Italic";
+        };
+        font.italic = {
+          family = "JetBrainsMono Nerd Font Propo";
+          style = "Italic";
+        };
+        font.normal = {
+          family = "JetBrainsMono Nerd Font Propo";
+          style = "Regular";
+        };
       };
     };
     chromium = {
