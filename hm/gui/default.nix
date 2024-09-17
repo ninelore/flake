@@ -14,7 +14,7 @@
           "${pkgs.alacritty-theme}/dracula_plus.toml"
         ];
         font = {
-          size = 12;
+          size = 11;
         };
         font.bold = {
           family = "JetBrainsMono Nerd Font Propo";
@@ -51,30 +51,41 @@
     kdeconnect.enable = true;
   };
 
-  home.packages = with pkgs; [
-    # GUI Apps
-    appimage-run
-    eshare
-    firefox
-    gimp
-    gnome-boxes
-    helvum
-    jetbrains-toolbox
-    libreoffice-fresh
-    obsidian
-    textpieces
-    onlyoffice-bin_latest
-    protonmail-bridge-gui
-    protonvpn-gui
-    scrcpy
-    via
-    webcord
-    wireshark
-    ytmdesktop
-    zed-editor
+  home = {
+    sessionVariables = {
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      GDK_BACKEND = "wayland,x11";
+      MOZ_ENABLE_WAYLAND = 1;
+      NIXOS_OZONE_WL = "1";
+      QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+      QT_ENABLE_HIGHDPI_SCALING = 1;
+      QT_QPA_PLATFORM = "wayland;xcb";
+    };
+    packages = with pkgs; [
+      # GUI Apps
+      appimage-run
+      eshare
+      firefox
+      gimp
+      gnome-boxes
+      helvum
+      jetbrains-toolbox
+      libreoffice-fresh
+      obsidian
+      textpieces
+      onlyoffice-bin_latest
+      protonmail-bridge-gui
+      protonvpn-gui
+      scrcpy
+      via
+      webcord
+      wireshark
+      ytmdesktop
+      zed-editor
 
-    # gayming
-    wineWowPackages.stagingFull
-    prismlauncher
-  ];
+      # gayming
+      wineWowPackages.stagingFull
+      prismlauncher
+    ];
+  };
 }

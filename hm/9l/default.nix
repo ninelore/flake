@@ -19,7 +19,7 @@ in
     };
     signing = {
       signByDefault = true;
-      key = "794BE2582FB7A351";
+      key = "794BE2582FB7A351"; # TODO decouple from config somehow?
     };
     userEmail = email;
     userName = name;
