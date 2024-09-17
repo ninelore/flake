@@ -16,7 +16,7 @@
       inputs.vscode-ext.overlays.default
       # Newer Gnome Extensions
       (final: _prev: {
-        gnomeExtensions = inputs.nixpkgs-9l-gnomeExt.legacyPackages.${final.system}.gnomeExtensions;
+        #gnomeExtensions = inputs.nixpkgs-9l-gnomeExt.legacyPackages.${final.system}.gnomeExtensions;
       })
     ];
   };
