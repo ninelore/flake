@@ -22,6 +22,7 @@
       "openrazer"
       "wireshark"
       "ydotool"
+      "dialout"
     ];
   };
 

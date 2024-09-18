@@ -41,7 +41,10 @@
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
-    udev.packages = [ pkgs.via ];
+    udev.packages = with pkgs; [
+      via
+      platformio-core.udev
+    ];
     flatpak.enable = true;
     logind.extraConfig = ''
       HandlePowerKey=suspend
