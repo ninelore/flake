@@ -71,6 +71,7 @@
       lldb
       maven
       ninja
+      platformio
       pkg-config
       quarkus
       rustup
