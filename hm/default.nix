@@ -62,6 +62,8 @@
       unzip
       usbutils
 
+      # TODO: dev stuff in config meh
+
       # build tools and managers
       android-studio-tools
       clang-tools
@@ -71,7 +73,8 @@
       lldb
       maven
       ninja
-      platformio
+      openocd
+      platformio-core
       pkg-config
       quarkus
       rustup

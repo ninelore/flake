@@ -106,7 +106,6 @@ let
     ]);
   vs-market = with pkgs.vscode-marketplace; [
     # agutierrezr.vscode-essentials # Maybe trial
-
     ahmadalli.vscode-nginx-conf
     ambar.bundle-size
     chrmarti.regex
@@ -121,6 +120,7 @@ let
     nimda.deepdark-material
     oracle-labs-graalvm.visualvm-vscode
     pmneo.tsimporter
+    platformio.platformio-ide
     quicktype.quicktype
     raynigon.nginx-formatter
     ryu1kn.partial-diff
@@ -307,6 +307,7 @@ in
       "workbench.tree.indent" = 12;
       "zenMode.hideActivityBar" = false;
       "C_Cpp.intelliSenseEngine" = "disabled";
+      "platformio-ide.useBuiltinPython" = false;
     };
   };
 }
