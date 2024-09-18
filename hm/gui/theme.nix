@@ -37,7 +37,7 @@ in
 {
   home = {
     sessionVariables = {
-      QT_WAYLAND_DECORATION = "adwaita";
+      #QT_WAYLAND_DECORATION = "adwaita";
       #QT_QPA_PLATFORMTHEME = "qt5ct:qt6ct";
     };
     packages = with pkgs; [
@@ -49,15 +49,6 @@ in
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
-
-      qt6ct
-      qt5ct
-      qadwaitadecorations
-      qadwaitadecorations-qt6
-      qgnomeplatform
-      qgnomeplatform-qt6
-      adwaita-qt
-      adwaita-qt6
     ];
     pointerCursor = cursorTheme // {
       gtk.enable = true;
@@ -78,11 +69,23 @@ in
 
   qt = {
     enable = true;
-    style.name = "adwaita-dark";
+    style.name = "kvantum-dark";
     style.package = with pkgs; [
-      adwaita-qt
-      adwaita-qt6
+      adwaita-kvantum
+      kdePackages.qtstyleplugin-kvantum
+      libsForQt5.qtstyleplugin-kvantum
+      qadwaitadecorations
+      qadwaitadecorations-qt6
+      qgnomeplatform
+      qgnomeplatform-qt6
     ];
+  };
+
+  xdg.configFile = {
+    "Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=KvLibadwaitaDark
+    '';
   };
 
   fonts.fontconfig = {
