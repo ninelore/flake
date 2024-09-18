@@ -70,6 +70,7 @@
       gnome-boxes
       helvum
       jetbrains-toolbox
+      kdePackages.kate
       libreoffice-fresh
       obsidian
       textpieces

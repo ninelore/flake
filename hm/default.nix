@@ -56,6 +56,7 @@
       nixd
       nixfmt-rfc-style
       pciutils
+      ranger
       unar
       vboot_reference
       zip
