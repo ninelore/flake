@@ -75,6 +75,7 @@
       pkg-config
       quarkus
       rustup
+      vcpkg
       yarn
 
       # Language toolchains
