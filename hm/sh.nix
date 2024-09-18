@@ -17,6 +17,8 @@ let
     "py" = "python3";
     "grep" = "grep --color=auto";
     "code" = "codium";
+    "z" = "zellij a -c main";
+    "zz" = "zellij";
     ":q" = "exit";
     "q" = "exit";
   };
