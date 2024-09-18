@@ -16,7 +16,7 @@ let
     "crypc" = "sudo cryptsetup close";
     "py" = "python3";
     "grep" = "grep --color=auto";
-
+    "code" = "codium";
     ":q" = "exit";
     "q" = "exit";
   };
@@ -25,7 +25,6 @@ in
   programs = {
     zellij = {
       enable = true;
-      enableBashIntegration = true;
       settings = {
         pane_frames = false;
         default_shell = "${pkgs.nushell}/bin/nu";
@@ -50,6 +49,11 @@ in
     };
 
     bash = {
+      inherit shellAliases;
+      enable = true;
+    };
+
+    zsh = {
       inherit shellAliases;
       enable = true;
     };

@@ -64,6 +64,9 @@
   };
 
   programs = {
+    zsh = {
+      enable = true;
+    };
     nix-ld.enable = true;
     wireshark.enable = true;
     adb.enable = true;
