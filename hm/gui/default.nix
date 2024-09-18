@@ -71,16 +71,19 @@
       helvum
       jetbrains-toolbox
       libreoffice-fresh
+      logseq
       obsidian
       textpieces
       onlyoffice-bin_latest
       protonmail-bridge-gui
       protonvpn-gui
+      rnote
       scrcpy
       via
       webcord
       wireshark
       ytmdesktop
+      xournalpp
       zed-editor
 
       # gayming
