@@ -84,7 +84,7 @@
       wireshark
       ytmdesktop
       xournalpp
-      zed-editor
+      zed-editor.fhs
 
       # gayming
       wineWowPackages.stagingFull
