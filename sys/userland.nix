@@ -54,6 +54,9 @@
     ollama = {
       enable = true;
     };
+    zerotierone = {
+      enable = false;
+    };
   };
 
   virtualisation.docker = {
