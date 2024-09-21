@@ -39,7 +39,7 @@ in
       };
     };
 
-    carapace.enable = true;
+    #carapace.enable = true;
 
     starship = {
       enable = true;
