@@ -11,6 +11,7 @@
           packages = [
             pkgs.OVMFFull.fd
             pkgs.pkgsCross.aarch64-multiplatform.OVMF.fd
+            pkgs.aarch64fd
           ];
         };
       };

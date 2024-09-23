@@ -21,7 +21,6 @@
 
   environment.systemPackages = with pkgs; [
     rocmPackages.rocm-smi
-    aarch64fd
   ];
 
   services.ollama = {
