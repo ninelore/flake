@@ -21,7 +21,6 @@ let
       christian-kohler.npm-intellisense
       christian-kohler.path-intellisense
       codezombiech.gitignore
-      continue.continue
       cschlosser.doxdocgen
       davidanson.vscode-markdownlint
       dbaeumer.vscode-eslint

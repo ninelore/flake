@@ -51,12 +51,6 @@
       HandleLidSwitch=suspend
       HandleLidSwitchDocked=ignore
     '';
-    ollama = {
-      enable = true;
-    };
-    zerotierone = {
-      enable = false;
-    };
   };
 
   virtualisation.docker = {
