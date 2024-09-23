@@ -14,6 +14,10 @@
       (final: _prev: import ../pkgs { pkgs = _prev.pkgs; })
       # VSCode Extensions
       inputs.vscode-ext.overlays.default
+      # Aarch64 fd
+      (final: _prev: {
+        aarch64fd = inputs.nixpkgs.legacyPackages."aarch64-linux".OVMF.fd;
+      })
     ];
   };
   nix = {

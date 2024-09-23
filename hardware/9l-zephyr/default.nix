@@ -19,7 +19,10 @@
   #boot.kernelPackages = pkgs.linuxPackages_cachyos;
   #boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  environment.systemPackages = with pkgs; [ rocmPackages.rocm-smi ];
+  environment.systemPackages = with pkgs; [
+    rocmPackages.rocm-smi
+    aarch64fd
+  ];
 
   services.ollama = {
     acceleration = "rocm";
