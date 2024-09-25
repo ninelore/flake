@@ -15,6 +15,8 @@ let
       arrterian.nix-env-selector
       augustocdias.tasks-shell-input
       bbenoist.doxygen
+      bierner.markdown-mermaid
+      bpruitt-goddard.mermaid-markdown-syntax-highlighting
       brunnerh.insert-unicode
       budparr.language-hugo-vscode
       cheshirekow.cmake-format
