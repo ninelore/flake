@@ -17,6 +17,8 @@
       };
     };
   };
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  programs.virt-manager.enable = true;
   environment.systemPackages = with pkgs; [
     qemu
   ];

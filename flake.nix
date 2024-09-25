@@ -102,7 +102,7 @@
                     ...
                   }:
                   {
-                    imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+                    imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix") ];
                     networking.networkmanager.enable = true;
                     networking.wireless.enable = lib.mkImageMediaOverride false;
                     nix.package = pkgs.nixVersions.latest;
@@ -140,7 +140,8 @@
         ]
 
         # iso images
-        # cmd: `nix build .#nixosConfigurations.{arch}-iso.config.system.build.isoImage`
+        # cmd: `nix build .#nixosConfigurations.x86_64-linux-iso.config.system.build.isoImage`
+        # cmd: `nix build .#nixosConfigurations.aarch64-linux-iso.config.system.build.isoImage`
         // mkFrankenIsos [
           "x86_64-linux"
           "aarch64-linux"
