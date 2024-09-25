@@ -79,6 +79,7 @@
       protonvpn-gui
       rnote
       scrcpy
+      tuba
       via
       webcord
       wireshark
