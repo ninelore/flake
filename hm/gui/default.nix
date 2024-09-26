@@ -42,6 +42,12 @@
         "--ozone-platform=wayland"
       ];
     };
+    firefox = {
+      enable = true;
+      nativeMessagingHosts = with pkgs; [
+        gnome-browser-connector
+      ];
+    };
     obs-studio = {
       enable = true;
     };
@@ -65,7 +71,6 @@
       # GUI Apps
       appimage-run
       eshare
-      firefox
       gimp
       gnome-boxes
       helvum

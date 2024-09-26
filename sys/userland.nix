@@ -51,6 +51,7 @@
       HandleLidSwitch=suspend
       HandleLidSwitchDocked=ignore
     '';
+    gnome.gnome-browser-connector.enable = true;
   };
 
   virtualisation.docker = {
