@@ -17,6 +17,7 @@
         cheese # webcam tool
         epiphany # web browser
         evince # document viewer
+        geary # Mail
         gedit # text editor
         gnome-calendar
         gnome-contacts
