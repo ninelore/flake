@@ -13,11 +13,6 @@ let
     };
   };
 
-  theme = {
-    name = "adw-gtk3-dark";
-    package = pkgs.adw-gtk3;
-  };
-
   font = {
     name = "NotoSans Nerd Font";
     package = nerdfonts;
@@ -41,6 +36,7 @@ in
       #QT_QPA_PLATFORMTHEME = "qt5ct:qt6ct";
     };
     packages = with pkgs; [
+      adw-gtk3
       bibata-cursors
       font-awesome
       jetbrains-mono
@@ -60,11 +56,9 @@ in
       font
       cursorTheme
       iconTheme
-      theme
       ;
     enable = true;
     gtk3 = gtkConf;
-    gtk4 = gtkConf;
   };
 
   qt = {
