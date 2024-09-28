@@ -1,0 +1,81 @@
+[
+  {
+    "id": "Golden Cut 1",
+    "tiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 0.33,
+        "height": 1,
+        "groups": [
+          1
+        ]
+      },
+      {
+        "x": 0.33,
+        "y": 0,
+        "width": 0.67,
+        "height": 1,
+        "groups": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Golden Cut 2",
+    "tiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 0.67,
+        "height": 1,
+        "groups": [
+          1
+        ]
+      },
+      {
+        "x": 0.67,
+        "y": 0,
+        "width": 0.33,
+        "height": 1,
+        "groups": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "id": "Triple",
+    "tiles": [
+      {
+        "x": 0,
+        "y": 0,
+        "width": 0.33,
+        "height": 1,
+        "groups": [
+          1
+        ]
+      },
+      {
+        "x": 0.33,
+        "y": 0,
+        "width": 0.34,
+        "height": 1,
+        "groups": [
+          2,
+          1
+        ]
+      },
+      {
+        "x": 0.67,
+        "y": 0,
+        "width": 0.33,
+        "height": 1,
+        "groups": [
+          2
+        ]
+      }
+    ]
+  }
+]
