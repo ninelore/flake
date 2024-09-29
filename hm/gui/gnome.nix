@@ -19,6 +19,10 @@
   dconf = {
     enable = true;
     settings = {
+      "org/gnome/desktop/peripherals/keyboard" = {
+        numlock-state = true;
+        remember-numlock-state = true;
+      };
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
@@ -31,6 +35,12 @@
           gsconnect.extensionUuid
           places-status-indicator.extensionUuid
           tiling-shell.extensionUuid
+        ];
+      };
+      "org/gnome/desktop/input-sources" = {
+        xkb-options = [
+          "terminate:ctrl_alt_bksp"
+          "numpad:mac"
         ];
       };
       "org/gnome/desktop/wm/keybindings" = {
