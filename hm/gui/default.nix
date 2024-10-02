@@ -83,6 +83,7 @@
       rnote
       scrcpy
       via
+      visualvm
       webcord
       wireshark
       ytmdesktop

@@ -1,13 +1,22 @@
 { pkgs, ... }:
 let
-  ovsx =
-    with pkgs;
+  extensions =
     [
-      open-vsx."13xforever".language-x86-64-assembly
-      vscode-extensions.ms-vscode.cpptools
-      vscode-extensions.ms-vscode.cmake-tools
+      # Workaround noncompliant names
+      pkgs.open-vsx."13xforever".language-x86-64-assembly # MIT
     ]
+    # nixpkgs-unstable-small
+    ++ (with pkgs.pkgs-small; [
+      vscode-extensions.charliermarsh.ruff # MIT
+      vscode-extensions.ms-python.python # MIT
+      vscode-extensions.rust-lang.rust-analyzer
+      vscode-extensions.sumneko.lua # MIT & Apache 2.0
+      vscode-extensions.vadimcn.vscode-lldb # MIT
+    ])
+    # Extension flake, updated nightly
+    # Open VSX
     ++ (with pkgs.open-vsx; [
+      # TODO: Audit Licences, but should be all FOSS
       aaron-bond.better-comments
       adpyke.codesnap
       angular.ng-template
@@ -31,6 +40,7 @@ let
       eamodio.gitlens
       ecmel.vscode-html-css
       editorconfig.editorconfig
+      #esbenp.prettier-vscode
       fill-labs.dependi
       firefox-devtools.vscode-firefox-debug
       formulahendry.auto-rename-tag
@@ -40,13 +50,14 @@ let
       franneck94.vscode-c-cpp-config
       franneck94.vscode-c-cpp-dev-extension-pack
       franneck94.vscode-coding-tools-extension-pack
+      franneck94.vscode-python-config
+      franneck94.vscode-python-dev-extension-pack
       franneck94.vscode-rust-config
       franneck94.vscode-rust-extension-pack
       franneck94.vscode-typescript-extension-pack
       franneck94.workspace-formatter
       github.vscode-github-actions
       github.vscode-pull-request-github
-      glenn2223.live-sass
       golang.go
       hediet.vscode-drawio
       htmlhint.vscode-htmlhint
@@ -61,12 +72,18 @@ let
       mkhl.direnv
       mongodb.mongodb-vscode
       mrmlnc.vscode-scss
+      ms-azuretools.vscode-docker
+      ms-python.isort
+      ms-python.mypy-type-checker
+      ms-vscode.cmake-tools
       ms-vscode.hexeditor
       ms-vscode.makefile-tools
       mtxr.sqltools
       mtxr.sqltools-driver-mysql
       mtxr.sqltools-driver-pg
       mtxr.sqltools-driver-sqlite
+      njqdev.vscode-python-typehint
+      njpwerner.autodocstring
       pflannery.vscode-versionlens
       pinage404.nix-extension-pack
       piousdeer.adwaita-theme
@@ -79,10 +96,8 @@ let
       redhat.vscode-yaml
       rokoroku.vscode-theme-darcula
       rusnasonov.vscode-hugo
-      rust-lang.rust-analyzer
       sainnhe.sonokai
       smcpeak.default-keys-windows
-      sumneko.lua
       tamasfe.even-better-toml
       tauri-apps.tauri-vscode
       thenuprojectcontributors.vscode-nushell-lang
@@ -92,7 +107,6 @@ let
       twxs.cmake
       unifiedjs.vscode-mdx
       usernamehw.errorlens
-      vadimcn.vscode-lldb
       vscjava.vscode-java-debug
       vscjava.vscode-java-dependency
       vscjava.vscode-java-pack
@@ -104,39 +118,32 @@ let
       zebreus.sconfig-extension
       zguolee.tabler-icons
       zignd.html-css-class-completion
+    ])
+    # Visual Studio Marketplace, IMPORTANT: FOSS only!
+    ++ (with pkgs.vscode-marketplace; [
+      ambar.bundle-size # MIT
+      chrmarti.regex # MIT
+      chukwuamaka.csvtojson-converter # MIT
+      joshuapoehls.json-escaper # MIT
+      kricsleo.vscode-package-json-inspector # MIT
+      mike-co.import-sorter # MIT
+      nimda.deepdark-material # MIT
+      oracle-labs-graalvm.visualvm-vscode # GPL2
+      pmneo.tsimporter # MIT
+      quicktype.quicktype # Apache 2.0
+      ryu1kn.partial-diff # MIT
+      thog.vscode-asl # MIT
+      #tinkertrain.theme-panda # Licence unclear. MIT according to issues
     ]);
-  vs-market = with pkgs.vscode-marketplace; [
-    # agutierrezr.vscode-essentials # Maybe trial
-    ahmadalli.vscode-nginx-conf
-    ambar.bundle-size
-    chrmarti.regex
-    chukwuamaka.csvtojson-converter
-    fabiospampinato.vscode-monokai-night
-    idered.npm
-    johnsoncodehk.vscode-tsconfig-helper
-    joshuapoehls.json-escaper
-    kricsleo.vscode-package-json-inspector
-    leizongmin.node-module-intellisense
-    mike-co.import-sorter
-    nimda.deepdark-material
-    oracle-labs-graalvm.visualvm-vscode
-    pmneo.tsimporter
-    quicktype.quicktype
-    raynigon.nginx-formatter
-    ryu1kn.partial-diff
-    thog.vscode-asl
-    tinkertrain.theme-panda
-    vitaliymaz.vscode-svg-previewer
-  ];
 in
 {
   programs.vscode = {
+    inherit extensions;
     enable = true;
     package = pkgs.pkgs-small.vscodium;
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
     mutableExtensionsDir = false;
-    extensions = ovsx ++ vs-market;
     keybindings = [
       {
         key = "ctrl+y";
@@ -230,13 +237,6 @@ in
       "editor.wordSeparators" = "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?";
       "emmet.showAbbreviationSuggestions" = false;
       "explorer.confirmDelete" = false;
-      "extensions.supportUntrustedWorkspaces" = {
-        "k--kato.intellij-idea-keybindings" = {
-          supported = true;
-          version = "";
-        };
-      };
-      "files.defaultLanguage" = "";
       "git.autofetch" = true;
       "git.confirmSync" = false;
       "git.enableSmartCommit" = true;
@@ -287,15 +287,11 @@ in
       "terminal.integrated.autoReplies" = {
         "Terminate batch job (Y/N)" = "Y\r";
       };
-      "terminal.integrated.defaultProfile.linux" = "Nushell";
-      "terminal.integrated.automationProfile.linux" = {
-        "path" = "${pkgs.nushell}/bin/nu";
-      };
       "typescript.updateImportsOnFileMove.enabled" = "always";
       "update.showReleaseNotes" = false;
-      "visualvm.installation.visualvmPath" = "/home/9l/.visualvm/visualvm_218";
+      "visualvm.installation.visualvmPath" = pkgs.visualvm;
       "window.titleBarStyle" = "custom";
-      "workbench.colorTheme" = "Panda Syntax";
+      "workbench.colorTheme" = "Sonokai Shusia";
       "workbench.editor.empty.hint" = "hidden";
       "workbench.editor.wrapTabs" = true;
       "workbench.editorAssociations" = {
@@ -306,7 +302,6 @@ in
       "workbench.startupEditor" = "none";
       "workbench.tree.indent" = 12;
       "zenMode.hideActivityBar" = false;
-      "C_Cpp.intelliSenseEngine" = "disabled";
     };
   };
 }
