@@ -3,21 +3,26 @@
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      # nixos-unstable-small
-      (final: _prev: {
+      (final: prev: {
+        # nixos-unstable-small
         pkgs-small = import inputs.nixpkgs-small {
           system = final.system;
           config.allowUnfree = true;
         };
+        # Aarch64 fd
+        aarch64fd = inputs.nixpkgs.legacyPackages."aarch64-linux".OVMF.fd;
+        # Fix file collision
+        visualvm = prev.visualvm.overrideAttrs {
+          fixupPhase = ''
+            mv $out/LICENSE.txt $out/visualvm-LICENSE.txt
+          '';
+        };
       })
       # Custom packages
-      (final: _prev: import ../pkgs { pkgs = _prev.pkgs; })
+      (final: prev: import ../pkgs { pkgs = prev.pkgs; })
       # VSCode Extensions
       inputs.vscode-ext.overlays.default
-      # Aarch64 fd
-      (final: _prev: {
-        aarch64fd = inputs.nixpkgs.legacyPackages."aarch64-linux".OVMF.fd;
-      })
+      # Other
     ];
   };
   nix = {
