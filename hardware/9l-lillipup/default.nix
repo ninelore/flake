@@ -30,7 +30,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/357c342a-7680-47c1-9402-daace1cb31cc";
+    device = "/dev/mapper/root";
     fsType = "ext4";
   };
 

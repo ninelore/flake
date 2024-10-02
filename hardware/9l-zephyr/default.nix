@@ -16,7 +16,7 @@
     ../common/virt-x86.nix
   ];
 
-  #boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
   #boot.kernelPackages = pkgs.linuxPackages_latest;
 
   environment.systemPackages = with pkgs; [
@@ -49,7 +49,7 @@
 
   # From nixos-generate-config onwards
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/65e11003-44dc-4d04-bddd-3d0abe63188f";
+    device = "/dev/mapper/root";
     fsType = "btrfs";
     options = [ "subvol=@" ];
   };
@@ -57,19 +57,19 @@
   boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/9c50dbd6-3a0b-4b6b-86b0-f326320a27dd";
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/65e11003-44dc-4d04-bddd-3d0abe63188f";
+    device = "/dev/mapper/root";
     fsType = "btrfs";
     options = [ "subvol=@nix" ];
   };
 
   fileSystems."/.snapshots" = {
-    device = "/dev/disk/by-uuid/65e11003-44dc-4d04-bddd-3d0abe63188f";
+    device = "/dev/mapper/root";
     fsType = "btrfs";
     options = [ "subvol=@.snapshots" ];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/65e11003-44dc-4d04-bddd-3d0abe63188f";
+    device = "/dev/mapper/root";
     fsType = "btrfs";
     options = [ "subvol=@home" ];
   };
