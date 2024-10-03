@@ -23,6 +23,13 @@
     rocmPackages.rocm-smi
   ];
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 32 * 1024;
+    }
+  ];
+
   services.ollama = {
     acceleration = "rocm";
     environmentVariables = {
@@ -82,8 +89,6 @@
       "dmask=0022"
     ];
   };
-
-  swapDevices = [ ];
 
   networking.useDHCP = lib.mkDefault true;
 
