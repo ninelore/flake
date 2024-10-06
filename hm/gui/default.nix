@@ -92,6 +92,7 @@
 
       # gayming
       wineWowPackages.stagingFull
+      bottles
       prismlauncher
     ];
   };
