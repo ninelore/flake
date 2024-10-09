@@ -13,7 +13,7 @@
     gpg.enable = true;
     java = {
       enable = true;
-      package = pkgs.graalvm-ce;
+      package = pkgs.jdk;
     };
   };
 
