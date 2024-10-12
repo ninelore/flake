@@ -124,6 +124,26 @@
         layouts-json = builtins.readFile ./tilingshell.json;
         enable-move-keybindings = false;
       };
+      "org/gnome/shell/extensions/clipboard-history" = {
+        window-width-percentag = 30;
+        history-size = 100;
+        cache-size = 100;
+        cache-only-favorites = false;
+        move-item-first = true;
+        strip-text = true;
+        paste-on-selection = false;
+        process-primary-selection = false;
+        display-mode = 0;
+        disable-down-arrow = true;
+        confirm-clear = true;
+        enable-keybindings = false;
+      };
+      "org/gnome/shell/extensions/mediacontrols" = {
+        label-width = 160;
+        fixed-label-width = false;
+        scroll-labels = true;
+        hide-media-notification = true;
+      };
     };
   };
 
