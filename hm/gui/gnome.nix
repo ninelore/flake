@@ -11,6 +11,7 @@
       { package = pkgs.gnomeExtensions.dash-to-dock; }
       { package = pkgs.gnomeExtensions.disable-unredirect-fullscreen-windows; }
       { package = pkgs.gnomeExtensions.gsconnect; }
+      { package = pkgs.gnomeExtensions.media-controls; }
       { package = pkgs.gnomeExtensions.places-status-indicator; }
       { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
@@ -33,6 +34,7 @@
           clipboard-history.extensionUuid
           dash-to-dock.extensionUuid
           gsconnect.extensionUuid
+          media-controls.extensionUuid
           places-status-indicator.extensionUuid
           tiling-shell.extensionUuid
         ];
