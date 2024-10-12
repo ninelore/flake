@@ -22,6 +22,7 @@
         gnome-calendar
         gnome-contacts
         gnome-music
+        gnome-software
         gnome-terminal
         gnome-tour
         gnome-user-docs
@@ -46,13 +47,13 @@
       via
       platformio-core.udev
     ];
-    flatpak.enable = true;
     logind.extraConfig = ''
       HandlePowerKey=suspend
       HandleLidSwitch=suspend
       HandleLidSwitchDocked=ignore
     '';
     gnome.gnome-browser-connector.enable = true;
+    flatpak.enable = false;
   };
 
   virtualisation.docker = {
@@ -72,7 +73,7 @@
     ydotool.enable = true;
     flashrom = {
       enable = true;
-      # package = ;
+      # TODO: possibly need custon build
     };
   };
 }
