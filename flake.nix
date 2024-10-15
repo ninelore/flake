@@ -1,11 +1,11 @@
 ##################################
 ##                              ##
-##     ninelore's nix config    ##
+##     ninelore's monoflake     ##
 ##                              ##
 ##################################
 
 {
-  description = "9lore's Nix flake";
+  description = "9lore's Monoflake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -36,98 +36,17 @@
   };
 
   outputs =
-    inputs@{
-      home-manager,
-      nixpkgs,
-      chaotic,
-      ...
-    }:
+    inputs@{ ... }:
     let
-      architectures = [
-        "aarch64-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-      forSystems = nixpkgs.lib.genAttrs architectures;
-
-      mkSystems =
-        systems:
-        builtins.listToAttrs (
-          map (systemConfig: {
-            name = systemConfig.hostname;
-            value = nixpkgs.lib.nixosSystem {
-              system = systemConfig.architecture;
-              specialArgs = {
-                inherit inputs systemConfig;
-              };
-              modules = [
-                ./nix
-                ./sys
-                ./hardware/${systemConfig.hostname}
-                chaotic.nixosModules.default
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    extraSpecialArgs = {
-                      inherit inputs systemConfig;
-                    };
-                    users.${systemConfig.username} = {
-                      imports = [
-                        ./hm
-                        ./hm/9l
-                        ./hm/gui
-                      ];
-                    };
-                  };
-                }
-              ];
-            };
-          }) systems
-        );
-      mkFrankenIsos =
-        isos:
-        builtins.listToAttrs (
-          map (isoArch: {
-            name = isoArch + "-iso";
-            value = nixpkgs.lib.nixosSystem {
-              system = isoArch;
-              modules = [
-                (
-                  {
-                    pkgs,
-                    lib,
-                    modulesPath,
-                    ...
-                  }:
-                  {
-                    imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix") ];
-                    networking.networkmanager.enable = true;
-                    networking.wireless.enable = lib.mkImageMediaOverride false;
-                    nix.package = pkgs.nixVersions.latest;
-                    nix.settings.experimental-features = "nix-command flakes";
-                    environment.systemPackages = with pkgs; [
-                      arch-install-scripts
-                      git
-                      gh
-                      ranger
-                    ];
-                  }
-                )
-              ];
-            };
-          }) isos
-        );
+      myLib = import ./lib { inherit inputs; };
     in
     {
       # packages
-      packages = forSystems (system: (import ./pkgs nixpkgs.legacyPackages.${system}));
+      packages = myLib.forSystems (system: (import ./pkgs inputs.nixpkgs.legacyPackages.${system}));
 
       nixosConfigurations =
         # nixos pc configs
-        mkSystems [
+        myLib.mkNixos [
           {
             username = "9l";
             hostname = "9l-zephyr";
@@ -139,11 +58,7 @@
             architecture = "x86_64-linux";
           }
         ]
-
-        # iso images
-        # cmd: `nix build .#nixosConfigurations.x86_64-linux-iso.config.system.build.isoImage`
-        # cmd: `nix build .#nixosConfigurations.aarch64-linux-iso.config.system.build.isoImage`
-        // mkFrankenIsos [
+        // myLib.mkIsos [
           "x86_64-linux"
           "aarch64-linux"
         ];

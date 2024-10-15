@@ -65,16 +65,16 @@
   };
 
   programs = {
-    zsh = {
-      enable = true;
-    };
-    nix-ld.enable = true;
-    wireshark.enable = true;
     adb.enable = true;
-    ydotool.enable = true;
+    command-not-found.enable = false;
     flashrom = {
       enable = true;
       # TODO: possibly need custon build
     };
+    nix-index.enable = true;
+    nix-ld.enable = true;
+    wireshark.enable = true;
+    ydotool.enable = true;
+    zsh.enable = true;
   };
 }

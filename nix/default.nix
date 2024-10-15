@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
   nixpkgs = {
-    config.allowUnfree = true;
+    config = import ./config.nix;
     overlays = [
       (final: prev: {
         # nixos-unstable-small
@@ -16,7 +16,8 @@
         # Fix file collision
         visualvm = prev.visualvm.overrideAttrs {
           fixupPhase = ''
-            mv $out/LICENSE.txt $out/visualvm-LICENSE.txt
+            mkdir $out/share
+            mv $out/LICENSE.txt $out/share/LICENSE.txt
           '';
         };
       })
@@ -28,6 +29,7 @@
   };
   nix = {
     package = pkgs.nixVersions.latest;
+    registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;

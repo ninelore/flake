@@ -17,17 +17,14 @@
     };
   };
 
+  nixpkgs.config = import ../nix/config.nix;
+  xdg.configFile."nixpkgs/config.nix".source = ../nix/config.nix;
+
   services = {
     gpg-agent.enable = true;
   };
 
   home = {
-    sessionVariables = {
-      NIXPKGS_ALLOW_UNFREE = "1";
-      NIXPKGS_ALLOW_INSECURE = "1";
-      ZELLIJ_AUTO_ATTACH = "true";
-    };
-
     sessionPath = [
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
@@ -52,7 +49,6 @@
       less
       minicom
       neovim
-      nix-index
       nixd
       nixfmt-rfc-style
       pciutils
