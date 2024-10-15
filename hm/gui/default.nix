@@ -73,6 +73,7 @@
       eshare
       gimp
       gnome-boxes
+      fractal
       helvum
       jetbrains-toolbox
       logseq
