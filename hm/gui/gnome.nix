@@ -6,12 +6,11 @@
       { package = pkgs.gnomeExtensions.alphabetical-app-grid; }
       { package = pkgs.gnomeExtensions.appindicator; }
       { package = pkgs.gnomeExtensions.app-menu-is-back; }
+      { package = pkgs.gnomeExtensions.blur-my-shell; }
       { package = pkgs.gnomeExtensions.caffeine; }
       { package = pkgs.gnomeExtensions.clipboard-history; }
-      { package = pkgs.gnomeExtensions.dash-to-dock; }
-      { package = pkgs.gnomeExtensions.disable-unredirect-fullscreen-windows; }
+      #{ package = pkgs.gnomeExtensions.dash-to-dock; }
       { package = pkgs.gnomeExtensions.gsconnect; }
-      { package = pkgs.gnomeExtensions.places-status-indicator; }
       { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
   };
@@ -29,11 +28,11 @@
           alphabetical-app-grid.extensionUuid
           appindicator.extensionUuid
           app-menu-is-back.extensionUuid
+          blur-my-shell.extensionUuid
           caffeine.extensionUuid
           clipboard-history.extensionUuid
-          dash-to-dock.extensionUuid
+          #dash-to-dock.extensionUuid
           gsconnect.extensionUuid
-          places-status-indicator.extensionUuid
           tiling-shell.extensionUuid
         ];
       };
@@ -79,7 +78,8 @@
       # Extensions
       "org/gnome/shell/extensions/dash-to-dock" = {
         # Position and Size
-        dock-position = "LEFT";
+        dock-position = "LEFT"; # BOTTOM
+        height-fraction = 0.7;
         dock-fixed = false;
         dash-max-icon-size = 42;
         # Launchers

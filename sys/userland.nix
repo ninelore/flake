@@ -22,6 +22,7 @@
         gnome-calendar
         gnome-contacts
         gnome-music
+        gnome-shell-extensions
         gnome-software
         gnome-terminal
         gnome-tour

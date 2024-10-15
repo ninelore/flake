@@ -11,6 +11,8 @@
         };
         # Aarch64 fd
         aarch64fd = inputs.nixpkgs.legacyPackages."aarch64-linux".OVMF.fd;
+        # Maintain more recent gnome extensions
+        gnomeExtensions = inputs.nixpkgs-9l-gnomeExt.legacyPackages.${final.system}.gnomeExtensions;
         # Fix file collision
         visualvm = prev.visualvm.overrideAttrs {
           fixupPhase = ''
