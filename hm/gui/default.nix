@@ -85,9 +85,7 @@
       scrcpy
       via
       visualvm
-      webcord
       wireshark
-      ytmdesktop
       xournalpp
       zed-editor.fhs
 
