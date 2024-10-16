@@ -9,7 +9,6 @@
       { package = pkgs.gnomeExtensions.blur-my-shell; }
       { package = pkgs.gnomeExtensions.caffeine; }
       { package = pkgs.gnomeExtensions.clipboard-history; }
-      #{ package = pkgs.gnomeExtensions.dash-to-dock; }
       { package = pkgs.gnomeExtensions.gsconnect; }
       { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
@@ -31,7 +30,6 @@
           blur-my-shell.extensionUuid
           caffeine.extensionUuid
           clipboard-history.extensionUuid
-          #dash-to-dock.extensionUuid
           gsconnect.extensionUuid
           tiling-shell.extensionUuid
         ];
@@ -76,47 +74,6 @@
         document-font-name = "Cantarell 11";
       };
       # Extensions
-      "org/gnome/shell/extensions/dash-to-dock" = {
-        # Position and Size
-        dock-position = "LEFT"; # BOTTOM
-        height-fraction = 0.7;
-        dock-fixed = false;
-        dash-max-icon-size = 42;
-        # Launchers
-        show-favorites = true;
-        isolate-workspaces = false;
-        isolate-monitors = false;
-        show-windows-preview = true;
-        scroll-to-focused-application = true;
-        show-show-apps-button = true;
-        show-apps-at-top = false;
-        animate-show-apps = true;
-        show-trash = false;
-        show-mounts = false;
-        dance-urgent-applications = true;
-        hide-tooltip = false;
-        show-icons-emblems = true;
-        show-icons-notifications-counter = true;
-        application-counter-overrides-notifications = true;
-        # Behavior
-        hot-keys = true;
-        hotkeys-overlay = true;
-        hotkeys-show-dock = true;
-        shortcut = [ "<Super>q" ];
-        click-action = "cycle-windows";
-        shift-click-action = "previews";
-        middle-click-action = "launch";
-        shift-middle-click-action = "quit";
-        scroll-action = "do-nothing";
-        # Appearance
-        custom-theme-shrink = true;
-        disable-overview-on-startup = false;
-        apply-custom-theme = false;
-        running-indicator-style = "DASHES";
-        custom-background-color = false;
-        transparency-mode = "DYNAMIC";
-        customize-alphas = false;
-      };
       "org/gnome/shell/extensions/tilingshell" = {
         active-screen-edges = false;
         layouts-json = builtins.readFile ./tilingshell.json;
