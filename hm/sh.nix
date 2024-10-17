@@ -31,11 +31,6 @@ in
         pane_frames = false;
         default_shell = "${pkgs.nushell}/bin/nu";
         theme = "dracula";
-        ui = {
-          pane_frames = {
-            hide_session_name = true;
-          };
-        };
       };
     };
 
@@ -64,8 +59,8 @@ in
       inherit shellAliases;
       enable = true;
       environmentVariables = {
-        PROMPT_INDICATOR_VI_INSERT = ''""'';
-        PROMPT_INDICATOR_VI_NORMAL = ''""'';
+        PROMPT_INDICATOR_VI_INSERT = '''';
+        PROMPT_INDICATOR_VI_NORMAL = '''';
       };
       extraConfig =
         let
