@@ -2,7 +2,6 @@
 with pkgs;
 {
   eshare = callPackage ./eshare { };
-  ytmdesktop = callPackage ./ytmdesktop { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
   adwaita-kvantum = callPackage ./adwaita-kvantum { };
   alsa-ucm-conf-cros = callPackage ./alsa-ucm-conf-cros { };

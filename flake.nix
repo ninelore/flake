@@ -62,5 +62,17 @@
           "x86_64-linux"
           "aarch64-linux"
         ];
+
+      homeConfigurations = {
+        "ninel" = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = myLib.forSystems (system: (import inputs.nixpkgs { system = system; }));
+          modules = [
+            ./nix
+            ./hm
+            ./hm/gui
+            ./hm/9l
+          ];
+        };
+      };
     };
 }
