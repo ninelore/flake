@@ -47,11 +47,11 @@
       gnutar
       gptfdisk
       less
-      minicom
       neovim
       nixd
       nixfmt-rfc-style
       pciutils
+      picocom
       ranger
       unar
       vboot_reference
