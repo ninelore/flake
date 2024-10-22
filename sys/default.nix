@@ -4,6 +4,7 @@
     ./system.nix
     ./locale.nix
     ./userland.nix
+    ./smb.nix
   ];
 
   users.users.${systemConfig.username} = {
@@ -24,6 +25,7 @@
       "wireshark"
       "ydotool"
       "dialout"
+      "ninelsmb"
     ];
   };
 
@@ -33,6 +35,8 @@
     hostName = systemConfig.hostname;
     networkmanager.enable = true;
     firewall = rec {
+      enable = true;
+      allowPing = false;
       allowedTCPPortRanges = [
         # KDEConnect
         {
