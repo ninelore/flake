@@ -76,7 +76,6 @@
       fractal
       helvum
       jetbrains-toolbox
-      logseq
       obsidian
       textpieces
       onlyoffice-bin_latest

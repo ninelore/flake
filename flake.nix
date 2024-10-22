@@ -71,6 +71,9 @@
             ./hm
             ./hm/gui
             ./hm/9l
+            {
+              targets.genericLinux.enable = true;
+            }
           ];
         };
       };
