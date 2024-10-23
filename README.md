@@ -1,4 +1,4 @@
-# My NixOS config
+# My Nix monoflake
 
 ## Directory Layout
 
