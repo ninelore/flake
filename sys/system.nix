@@ -47,7 +47,10 @@
   };
 
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    doas.enable = true;
+  };
   services.pipewire = {
     enable = true;
     alsa.enable = true;

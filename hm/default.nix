@@ -7,6 +7,9 @@
     ./sh.nix
   ];
 
+  nixpkgs.config = import ../nix/config.nix;
+  xdg.configFile."nixpkgs/config.nix".source = ../nix/config.nix;
+
   programs = {
     home-manager.enable = true;
     direnv.enable = true;
@@ -15,10 +18,12 @@
       enable = true;
       package = pkgs.jdk;
     };
+    helix = {
+      enable = true;
+      defaultEditor = true;
+      # TODO: Config
+    };
   };
-
-  nixpkgs.config = import ../nix/config.nix;
-  xdg.configFile."nixpkgs/config.nix".source = ../nix/config.nix;
 
   services = {
     gpg-agent.enable = true;
@@ -31,7 +36,9 @@
       "$HOME/chromium-dev/depot_tools"
       "$HOME/go/bin"
     ];
-
+    sessionVariables = {
+      EDITOR = "hx";
+    };
     packages = with pkgs; [
       # cli
       android-tools
@@ -47,7 +54,6 @@
       gnutar
       gptfdisk
       less
-      neovim
       nixd
       nixfmt-rfc-style
       pciutils

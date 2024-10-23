@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -7,8 +6,8 @@
   environment = {
     localBinInPath = true;
     systemPackages = with pkgs; [
-      home-manager
-      inputs.nix-alien.packages.${pkgs.system}.nix-alien
+      git
+      vim
     ];
     gnome.excludePackages = (
       with pkgs;
