@@ -1,26 +1,14 @@
 { pkgs, ... }:
 let
   shellAliases = {
-    "db" = "distrobox";
-    "untar" = "tar -xavf";
-    "v" = "nvim";
-    "vim" = "nvim";
-    "ll" = "ls -a";
-    "l" = "ls";
-    "l." = "ls -d .*";
-    "sv" = "sudo nvim";
-    "r" = "ranger";
-    "sr" = "sudo ranger";
     "c" = "clear";
-    "crypo" = "sudo cryptsetup open";
-    "crypc" = "sudo cryptsetup close";
-    "py" = "python3";
+    "db" = "distrobox";
     "grep" = "grep --color=auto";
-    "code" = "codium";
+    "py" = "python3";
+    "q" = "exit";
+    "untar" = "tar -xavf";
     "z" = "zellij a -c main";
     "zz" = "zellij";
-    ":q" = "exit";
-    "q" = "exit";
   };
 in
 {

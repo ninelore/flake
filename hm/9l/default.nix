@@ -3,19 +3,19 @@ let
   email = "9l@9lo.re";
   gituser = "ninelore";
   name = "Ingo Reitz";
-  editor = "nvim";
+  editor = "hx";
 in
 {
   programs.git = {
     enable = true;
     extraConfig = {
       color.ui = true;
+      commit.verbose = true;
       core.editor = editor;
-      #credential.helper = "store";
       github.user = gituser;
+      init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
-      init.defaultBranch = "main";
     };
     signing = {
       signByDefault = true;

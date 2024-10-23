@@ -5,6 +5,11 @@
     defaultEditor = true;
     settings = {
       theme = "base16_transparent";
+      editor.cursor-shape = {
+      normal = "block";
+      insert = "bar";
+      select = "underline";
+    };
     };
     languages = {
       language = [
@@ -16,6 +21,9 @@
           };
         }
       ];
+      language-server.nixd = {
+        command = "nixd";
+      };
     };
     extraPackages = with pkgs; [
       bash-language-server
@@ -24,6 +32,7 @@
       docker-compose-language-service
       dockerfile-language-server-nodejs
       gopls
+      jdt-language-server
       lua-language-server
       pkgs-small.nushell
       marksman
