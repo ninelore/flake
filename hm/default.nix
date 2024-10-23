@@ -3,6 +3,7 @@
   home.stateVersion = "24.05";
 
   imports = [
+    ./helix.nix
     ./nix-scripts.nix
     ./sh.nix
   ];
@@ -18,11 +19,6 @@
       enable = true;
       package = pkgs.jdk;
     };
-    helix = {
-      enable = true;
-      defaultEditor = true;
-      # TODO: Config
-    };
   };
 
   services = {
@@ -36,9 +32,6 @@
       "$HOME/chromium-dev/depot_tools"
       "$HOME/go/bin"
     ];
-    sessionVariables = {
-      EDITOR = "hx";
-    };
     packages = with pkgs; [
       # cli
       android-tools
@@ -87,7 +80,7 @@
       gcc
       go
       nodejs
-      python3
+      python312
     ];
   };
 }
