@@ -70,7 +70,7 @@
       enable = true;
       # TODO: possibly need custon build
     };
-    nix-index.enable = true;
+    nix-index-database.comma.enable = true;
     nix-ld.enable = true;
     wireshark.enable = true;
     ydotool.enable = true;

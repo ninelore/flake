@@ -43,7 +43,6 @@
       # cli
       android-tools
       btop
-      comma
       curl
       devenv
       distrobox
