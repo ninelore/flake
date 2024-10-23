@@ -2,7 +2,7 @@
   cmake,
   fetchgit,
   libftdi1,
-  libusb,
+  libusb1,
   pkg-config,
   stdenv,
   ...
@@ -25,7 +25,7 @@ stdenv.mkDerivation {
   buildInputs = [
     cmake
     libftdi1
-    libusb
+    libusb1
     pkg-config
   ];
 
