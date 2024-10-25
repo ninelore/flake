@@ -40,8 +40,7 @@
   };
 
   hardware.graphics.extraPackages = with pkgs; [
-    rocm-opencl-icd
-    rocm-opencl-runtime
+    rocmPackages.clr
   ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
