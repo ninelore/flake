@@ -73,7 +73,6 @@
       appimage-run
       blender
       gimp
-      gnome-boxes
       fractal
       helvum
       jetbrains.clion

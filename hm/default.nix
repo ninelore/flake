@@ -15,10 +15,6 @@
     home-manager.enable = true;
     direnv.enable = true;
     gpg.enable = true;
-    java = {
-      enable = true;
-      package = pkgs.jdk;
-    };
   };
 
   services = {
@@ -49,18 +45,13 @@
       nixfmt-rfc-style
       pciutils
       picocom
+      platformio-core
       ranger
       unar
       vboot_reference
       zip
       unzip
       usbutils
-
-      # Language Servers
-      # TODO: Either get rid of vscode or await https://github.com/nix-community/home-manager/issues/6004
-      clang-tools
-      nixd
-      platformio-core
     ];
   };
 }
