@@ -6,6 +6,7 @@ let
     "grep" = "grep --color=auto";
     "py" = "python3";
     "q" = "exit";
+    "sudo" = "doas";
     "untar" = "tar -xavf";
     "z" = "zellij a -c main";
     "zz" = "zellij";
