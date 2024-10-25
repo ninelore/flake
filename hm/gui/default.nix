@@ -69,12 +69,18 @@
     };
     packages = with pkgs; [
       # GUI Apps
+      android-studio
       appimage-run
       blender
       gimp
       gnome-boxes
       fractal
       helvum
+      jetbrains.clion
+      jetbrains.datagrip
+      jetbrains.dataspell
+      jetbrains.goland
+      jetbrains.idea-ultimate
       obsidian
       textpieces
       onlyoffice-bin_latest
