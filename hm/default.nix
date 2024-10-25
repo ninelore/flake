@@ -46,7 +46,6 @@
       gnutar
       gptfdisk
       less
-      nixd
       nixfmt-rfc-style
       pciutils
       picocom
@@ -57,30 +56,11 @@
       unzip
       usbutils
 
-      # TODO: dev stuff in config meh
-
-      # build tools and managers
-      android-studio-tools
+      # Language Servers
+      # TODO: Either get rid of vscode or await https://github.com/nix-community/home-manager/issues/6004
       clang-tools
-      cmakeCurses
-      gdb
-      gnumake
-      lldb
-      maven
-      ninja
-      openocd
+      nixd
       platformio-core
-      pkg-config
-      quarkus
-      rustup
-      vcpkg
-      yarn
-
-      # Language toolchains
-      gcc
-      go
-      nodejs
-      python312
     ];
   };
 }

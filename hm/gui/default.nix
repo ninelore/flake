@@ -70,24 +70,19 @@
     packages = with pkgs; [
       # GUI Apps
       appimage-run
-      eshare
+      blender
       gimp
       gnome-boxes
       fractal
       helvum
-      jetbrains-toolbox
       obsidian
       textpieces
       onlyoffice-bin_latest
+      papers
       protonvpn-gui
-      rnote
       scrcpy
       via
-      visualvm
       webcord
-      wireshark
-      xournalpp
-      zed-editor.fhs
 
       # gayming
       wineWowPackages.stagingFull

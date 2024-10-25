@@ -105,6 +105,5 @@
     eyedropper
     gnome-tweaks
     gradience
-    papers
   ];
 }
