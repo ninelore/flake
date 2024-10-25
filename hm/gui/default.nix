@@ -3,7 +3,6 @@
   imports = [
     ./theme.nix
     ./gnome.nix
-    ./vscode.nix
   ];
 
   programs = {
