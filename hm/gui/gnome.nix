@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.gnome-shell = {
     enable = true;
@@ -16,7 +16,7 @@
 
   dconf = {
     enable = true;
-    settings = {
+    settings = with lib.hm.gvariant; {
       "org/gnome/desktop/peripherals/keyboard" = {
         numlock-state = true;
         remember-numlock-state = true;
@@ -75,6 +75,7 @@
       };
       # Extensions
       "org/gnome/shell/extensions/tilingshell" = {
+        show-indicator = false;
         active-screen-edges = false;
         layouts-json = builtins.readFile ./tilingshell.json;
         enable-move-keybindings = false;
@@ -92,6 +93,23 @@
         disable-down-arrow = true;
         confirm-clear = true;
         enable-keybindings = false;
+      };
+      "com/raggesilver/BlackBox" = {
+        show-headerbar = false;
+        floating-controls = true;
+        font = "JetBrainsMonoNL Nerd Font Mono 11";
+        working-directory-mode = 1;
+        cursor-shape = 1;
+        scroolback-lines = 10000;
+        theme-dark = "Monokai Dark";
+        theme-light = "Adwaita";
+        use-sixel = true;
+        terminal-padding = mkTuple [
+          (mkUint32 6)
+          (mkUint32 6)
+          (mkUint32 6)
+          (mkUint32 6)
+        ];
       };
     };
   };

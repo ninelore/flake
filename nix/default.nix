@@ -13,13 +13,8 @@
         aarch64fd = inputs.nixpkgs.legacyPackages."aarch64-linux".OVMF.fd;
         # Maintain more recent gnome extensions
         gnomeExtensions = inputs.nixpkgs-9l-gnomeExt.legacyPackages.${final.system}.gnomeExtensions;
-        # Fix file collision
-        visualvm = prev.visualvm.overrideAttrs {
-          fixupPhase = ''
-            mkdir $out/share
-            mv $out/LICENSE.txt $out/share/LICENSE.txt
-          '';
-        };
+        # blackbox-terminal with sixel
+        blackbox-terminal = prev.blackbox-terminal.override {sixelSupport = true;};
       })
       # Custom packages
       (final: prev: import ../pkgs { pkgs = prev.pkgs; })
