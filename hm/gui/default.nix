@@ -70,7 +70,6 @@
       # GUI Apps
       android-studio
       appimage-run
-      blackbox-terminal
       blender
       gimp
       fractal
