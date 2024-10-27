@@ -4,7 +4,7 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "darcula-solid";
+      theme = "base16_transparent";
       editor.cursor-shape = {
         normal = "block";
         insert = "bar";

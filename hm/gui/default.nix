@@ -10,8 +10,12 @@
       enable = true;
       settings = {
         general.import = [
-          "${pkgs.alacritty-theme}/dracula_plus.toml"
+          "${pkgs.alacritty-theme}/monokai_charcoal.toml"
         ];
+        window = {
+          decorations = "None";
+          opacity = 0.8;
+        };
         font = {
           size = 11;
         };

@@ -31,6 +31,7 @@
       # cli
       android-tools
       btop
+      chafa
       curl
       devenv
       distrobox
