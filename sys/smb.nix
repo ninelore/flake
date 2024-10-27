@@ -22,7 +22,7 @@
       };
     };
   };
-  users.groups.ninelsmb = {};
+  users.groups.ninelsmb = { };
   system.activationScripts = {
     smbshareFolder.text = ''
       mkdir -p /srv/smbshare

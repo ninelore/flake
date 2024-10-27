@@ -6,10 +6,10 @@
     settings = {
       theme = "darcula-solid";
       editor.cursor-shape = {
-      normal = "block";
-      insert = "bar";
-      select = "underline";
-    };
+        normal = "block";
+        insert = "bar";
+        select = "underline";
+      };
     };
     languages = {
       language = [
