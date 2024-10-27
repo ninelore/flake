@@ -13,6 +13,10 @@ let
   };
 in
 {
+  imports = [
+    ./helix.nix
+  ];
+
   programs = {
     zellij = {
       enable = true;
@@ -22,6 +26,15 @@ in
         default_shell = "${pkgs.nushell}/bin/nu";
         theme = "dracula";
       };
+    };
+
+    yazi = {
+      enable = true;
+      package = pkgs.pkgs-small.yazi;
+    };
+
+    ranger = {
+      enable = true;
     };
 
     starship = {

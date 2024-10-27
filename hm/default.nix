@@ -3,7 +3,6 @@
   home.stateVersion = "24.05";
 
   imports = [
-    ./helix.nix
     ./nix-scripts.nix
     ./sh.nix
   ];
@@ -46,7 +45,6 @@
       pciutils
       picocom
       platformio-core
-      ranger
       unar
       vboot_reference
       zip
