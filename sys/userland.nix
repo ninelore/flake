@@ -18,6 +18,7 @@
         evince # document viewer
         geary # Mail
         gedit # text editor
+        gnome-console
         gnome-calendar
         gnome-contacts
         gnome-music

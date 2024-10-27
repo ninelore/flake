@@ -24,8 +24,6 @@ in
       };
     };
 
-    #carapace.enable = true;
-
     starship = {
       enable = true;
       settings = {
@@ -128,7 +126,10 @@ in
             "mvn"
             "nix"
             "npm"
+            "rustup"
+            "ssh"
             "tar"
+            "zellij"
           ]}
         '';
     };

@@ -9,7 +9,7 @@
     alacritty = {
       enable = true;
       settings = {
-        import = [
+        general.import = [
           "${pkgs.alacritty-theme}/dracula_plus.toml"
         ];
         font = {
@@ -70,6 +70,7 @@
       # GUI Apps
       android-studio
       appimage-run
+      blackbox-terminal
       blender
       gimp
       fractal

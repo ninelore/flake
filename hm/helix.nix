@@ -17,7 +17,7 @@
           name = "nix";
           language-servers = [ "nixd" ];
           formatter = {
-            command = "mylang-formatter";
+            command = "nixfmt";
           };
         }
       ];
