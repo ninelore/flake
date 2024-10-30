@@ -15,7 +15,7 @@ let
             ../sys
             ../hardware/${systemConfig.hostname}
             inputs.chaotic.nixosModules.default
-            inputs.nix-index-database.darwinModules.nix-index
+            inputs.nix-index-database.nixosModules.nix-index
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager = {
