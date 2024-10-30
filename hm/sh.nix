@@ -23,7 +23,7 @@ in
       package = pkgs.pkgs-small.zellij;
       settings = {
         pane_frames = false;
-        default_shell = "${pkgs.nushell}/bin/nu";
+        default_shell = "${pkgs.pkgs-small.nushell}/bin/nu";
         theme = "dracula";
       };
     };

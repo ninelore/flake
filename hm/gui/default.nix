@@ -13,7 +13,6 @@
           "${pkgs.alacritty-theme}/monokai_charcoal.toml"
         ];
         window = {
-          decorations = "None";
           opacity = 0.8;
         };
         font = {
