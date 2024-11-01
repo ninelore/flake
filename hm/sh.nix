@@ -147,4 +147,7 @@ in
         '';
     };
   };
+
+  # Fix Distrobox shells
+  home.packages = [ pkgs.starship ];
 }

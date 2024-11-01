@@ -12,7 +12,7 @@
         # Aarch64 fd
         aarch64fd = inputs.nixpkgs.legacyPackages."aarch64-linux".OVMF.fd;
         # Maintain more recent gnome extensions
-        gnomeExtensions = inputs.nixpkgs-9l-gnomeExt.legacyPackages.${final.system}.gnomeExtensions;
+        #gnomeExtensions = inputs.nixpkgs-9l-gnomeExt.legacyPackages.${final.system}.gnomeExtensions;
       })
       # Custom packages
       (final: prev: import ../pkgs { pkgs = prev.pkgs; })
@@ -20,7 +20,6 @@
   };
   nix = {
     package = pkgs.nixVersions.latest;
-    registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;

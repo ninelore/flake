@@ -10,8 +10,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
-    nixpkgs-9l-gnomeExt.url = "github:ninelore/nixpkgs/gnomeExtensionsUpdate";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    #nixpkgs-9l-gnomeExt.url = "github:ninelore/nixpkgs/gnomeExtensionsUpdate";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -46,6 +46,7 @@
             username = "9l";
             hostname = "9l-zephyr";
             architecture = "x86_64-linux";
+            bleeding = true;
           }
           {
             username = "9l";

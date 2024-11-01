@@ -73,7 +73,6 @@
       # GUI Apps
       android-studio
       appimage-run
-      blender
       gimp
       fractal
       helvum

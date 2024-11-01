@@ -35,13 +35,20 @@ let
 
   nxgc = pkgs.writeShellScriptBin "nxgc" ''
     _n=7
+    _elev=false
+
+    if sudo echo; then 
+      _elev=true 
+    fi
 
     if [[ $* =~ "[0-9]+" ]]; then 
       _n=$*
     fi
 
-    sudo nix-collect-garbage --delete-older-than "$_n"d --quiet
     nix-collect-garbage --delete-older-than "$_n"d --quiet
+    if [[ _elev ]]; then 
+      sudo nix-collect-garbage --delete-older-than "$_n"d --quiet
+    fi
   '';
 
   nx-flakepath-update = pkgs.writeShellScriptBin "nx-flakepath-update" ''
