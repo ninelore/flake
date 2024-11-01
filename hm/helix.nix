@@ -26,6 +26,7 @@
       };
     };
     extraPackages = with pkgs; [
+      # LSP
       bash-language-server
       clang-tools
       cmake-language-server
@@ -43,6 +44,11 @@
       vscode-langservers-extracted
       vue-language-server
       yaml-language-server
+
+      # DAP
+      lldb
+      delve
+      vscode-js-debug
     ];
   };
 }
