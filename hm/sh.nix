@@ -28,15 +28,6 @@ in
       };
     };
 
-    yazi = {
-      enable = true;
-      package = pkgs.pkgs-small.yazi;
-    };
-
-    ranger = {
-      enable = true;
-    };
-
     starship = {
       enable = true;
       settings = {
