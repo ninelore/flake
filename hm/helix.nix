@@ -38,6 +38,7 @@
       pkgs-small.nushell
       marksman
       nixd
+      omnisharp-roslyn
       python312Packages.python-lsp-server
       rust-analyzer
       typescript-language-server
@@ -48,6 +49,7 @@
       # DAP
       lldb
       delve
+      netcoredbg
       vscode-js-debug
     ];
   };

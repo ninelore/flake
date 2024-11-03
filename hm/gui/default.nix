@@ -81,6 +81,7 @@
       jetbrains.dataspell
       jetbrains.goland
       jetbrains.idea-ultimate
+      jetbrains.rider
       obsidian
       textpieces
       onlyoffice-bin_latest
