@@ -48,11 +48,6 @@
             architecture = "x86_64-linux";
             bleeding = true;
           }
-          {
-            username = "9l";
-            hostname = "9l-lillipup";
-            architecture = "x86_64-linux";
-          }
         ]
         // myLib.mkIsos [
           "x86_64-linux"
