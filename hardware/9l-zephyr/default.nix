@@ -17,7 +17,6 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
   environment.systemPackages = with pkgs; [
     rocmPackages.rocm-smi
@@ -31,6 +30,7 @@
   ];
 
   services.ollama = {
+    enable = true;
     acceleration = "rocm";
     environmentVariables = {
       HCC_AMDGPU_TARGET = "gfx1032"; # RX 6700S

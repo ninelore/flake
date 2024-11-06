@@ -46,7 +46,6 @@
             username = "9l";
             hostname = "9l-zephyr";
             architecture = "x86_64-linux";
-            bleeding = true;
           }
         ]
         // myLib.mkIsos [
