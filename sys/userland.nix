@@ -56,10 +56,25 @@
     flatpak.enable = false;
   };
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
+  virtualisation = {
+    docker = {
       enable = true;
+      rootless = {
+        enable = true;
+      };
+    };
+    libvirtd = {
+      enable = true;
+      onBoot = "ignore";
+      qemu = {
+        swtpm.enable = true;
+        ovmf = {
+          enable = true;
+          packages = [
+            pkgs.OVMFFull.fd
+          ];
+        };
+      };
     };
   };
 
@@ -70,8 +85,16 @@
       enable = true;
       # TODO: possibly need custon build
     };
+    gamemode = {
+      enable = true;
+    };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true; # TODO: trial
+    };
+    virt-manager.enable = true;
     wireshark.enable = true;
     ydotool.enable = true;
     zsh.enable = true;

@@ -12,8 +12,6 @@
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     (modulesPath + "/installer/scan/not-detected.nix")
     ./asus.nix
-    ../common/gaming.nix
-    ../common/virt-x86.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
