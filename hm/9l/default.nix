@@ -1,21 +1,15 @@
+# TODO: remove?
+
 { ... }:
 let
   email = "9l@9lo.re";
-  gituser = "ninelore";
+  ghName = "ninelore";
   name = "Ingo Reitz";
-  editor = "hx";
 in
 {
   programs.git = {
-    enable = true;
     extraConfig = {
-      color.ui = true;
-      commit.verbose = true;
-      core.editor = editor;
-      github.user = gituser;
-      init.defaultBranch = "main";
-      push.autoSetupRemote = true;
-      pull.rebase = true;
+      github.user = ghName;
     };
     signing = {
       signByDefault = true;
@@ -23,14 +17,5 @@ in
     };
     userEmail = email;
     userName = name;
-    ignores = [
-      "shell.nix"
-      "*.session.sql"
-    ];
-  };
-  programs.gh = {
-    enable = true;
-    gitCredentialHelper.enable = true;
-    settings.editor = editor;
   };
 }

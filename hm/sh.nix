@@ -13,10 +13,6 @@ let
   };
 in
 {
-  imports = [
-    ./helix.nix
-  ];
-
   programs = {
     zellij = {
       enable = true;
@@ -138,7 +134,4 @@ in
         '';
     };
   };
-
-  # Fix Distrobox shells
-  home.packages = [ pkgs.starship ];
 }

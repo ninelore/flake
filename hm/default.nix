@@ -3,6 +3,8 @@
   home.stateVersion = "24.05";
 
   imports = [
+    ./helix.nix
+    ./git.nix
     ./nix-scripts.nix
     ./sh.nix
   ];
@@ -12,8 +14,10 @@
 
   programs = {
     home-manager.enable = true;
+    broot.enable = true;
     direnv.enable = true;
     gpg.enable = true;
+    jq.enable = true;
   };
 
   services = {
@@ -46,6 +50,8 @@
       pciutils
       picocom
       platformio-core
+      starship # Distrobox fix
+      tldr
       unar
       vboot_reference
       zip
