@@ -16,10 +16,9 @@ in
   programs = {
     zellij = {
       enable = true;
-      package = pkgs.pkgs-small.zellij;
       settings = {
         pane_frames = false;
-        default_shell = "${pkgs.pkgs-small.nushell}/bin/nu";
+        default_shell = "${pkgs.nushell}/bin/nu";
         theme = "dracula";
       };
     };
@@ -46,7 +45,6 @@ in
     nushell = {
       inherit shellAliases;
       enable = true;
-      package = pkgs.pkgs-small.nushell;
       environmentVariables = {
         PROMPT_INDICATOR_VI_INSERT = '''';
         PROMPT_INDICATOR_VI_NORMAL = '''';

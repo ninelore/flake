@@ -10,7 +10,7 @@ let
       gopls
       jdt-language-server
       lua-language-server
-      pkgs-small.nushell
+      nushell
       marksman
       nixd
       omnisharp-roslyn
