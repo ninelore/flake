@@ -8,19 +8,16 @@ let
     "q" = "exit";
     "sudo" = "doas";
     "untar" = "tar -xavf";
-    "z" = "zellij a -c main";
-    "zz" = "zellij";
+    "z" = "zellij";
   };
 in
 {
+  xdg.configFile."zellij/config.kdl".source = ./zellij.kdl;
+
   programs = {
     zellij = {
       enable = true;
-      settings = {
-        pane_frames = false;
-        default_shell = "${pkgs.nushell}/bin/nu";
-        theme = "dracula";
-      };
+      package = pkgs.pkgs-small.zellij;
     };
 
     starship = {
