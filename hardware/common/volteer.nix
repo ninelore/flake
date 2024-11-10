@@ -5,6 +5,14 @@
     ./cros-ucm.nix
   ];
 
+  security.tpm2.enable = false;
+
+  boot.kernelParams = [ "iomem=relaxed" ];
+
+  environment.systemPackages = [
+    pkgs.cros-ectool
+  ];
+
   services.keyd = {
     enable = true;
     keyboards.internal = {
@@ -88,8 +96,6 @@
       };
     };
   };
-
-  security.tpm2.enable = false;
 
   #FIXME: Broken on newer pipewire/wireplumber
   services.pipewire.wireplumber.configPackages = [

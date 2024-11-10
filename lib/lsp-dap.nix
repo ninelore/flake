@@ -1,31 +1,31 @@
 { pkgs, ... }:
-let 
+let
   list = with pkgs; [
-      # LSP
-      bash-language-server
-      clang-tools
-      cmake-language-server
-      docker-compose-language-service
-      dockerfile-language-server-nodejs
-      gopls
-      jdt-language-server
-      lua-language-server
-      nushell
-      marksman
-      nixd
-      omnisharp-roslyn
-      python312Packages.python-lsp-server
-      rust-analyzer
-      typescript-language-server
-      vscode-langservers-extracted
-      vue-language-server
-      yaml-language-server
+    # LSP
+    bash-language-server
+    clang-tools
+    cmake-language-server
+    docker-compose-language-service
+    dockerfile-language-server-nodejs
+    gopls
+    jdt-language-server
+    lua-language-server
+    nushell
+    marksman
+    nixd
+    omnisharp-roslyn
+    python312Packages.python-lsp-server
+    rust-analyzer
+    typescript-language-server
+    vscode-langservers-extracted
+    vue-language-server
+    yaml-language-server
 
-      # DAP
-      lldb
-      delve
-      netcoredbg
-      vscode-js-debug
+    # DAP
+    lldb
+    delve
+    netcoredbg
+    vscode-js-debug
   ];
-in 
+in
 list
