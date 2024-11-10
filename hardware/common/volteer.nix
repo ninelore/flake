@@ -89,6 +89,8 @@
     };
   };
 
+  security.tpm2.enable = false;
+
   #FIXME: Broken on newer pipewire/wireplumber
   services.pipewire.wireplumber.configPackages = [
     (pkgs.writeTextDir "share/wireplumber/main.lua.d/51-increase-headroom.lua" ''
