@@ -55,10 +55,6 @@
     };
   };
 
-  services = {
-    kdeconnect.enable = true;
-  };
-
   home = {
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";

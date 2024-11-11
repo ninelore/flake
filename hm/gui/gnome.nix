@@ -9,7 +9,6 @@
       { package = pkgs.gnomeExtensions.blur-my-shell; }
       { package = pkgs.gnomeExtensions.caffeine; }
       { package = pkgs.gnomeExtensions.clipboard-history; }
-      { package = pkgs.gnomeExtensions.gsconnect; }
       { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
   };
@@ -30,7 +29,6 @@
           blur-my-shell.extensionUuid
           caffeine.extensionUuid
           clipboard-history.extensionUuid
-          gsconnect.extensionUuid
           tiling-shell.extensionUuid
         ];
       };
