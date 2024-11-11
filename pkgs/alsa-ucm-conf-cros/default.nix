@@ -9,6 +9,6 @@ alsa-ucm-conf.overrideAttrs {
   };
 
   postInstall = ''
-    cp -rf $wttsrc/ucm2/* $out/share/alsa/
+    cp -rf $wttsrc/ucm2 $out/share/alsa/
   '';
 }
