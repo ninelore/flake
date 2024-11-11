@@ -57,6 +57,7 @@
       zip
       unzip
       usbutils
+      weechat
     ];
   };
 }
