@@ -24,6 +24,7 @@
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
+  # Generated from here
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "dwc3_pci"
