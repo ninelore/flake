@@ -79,7 +79,6 @@
       jetbrains.clion
       jetbrains.datagrip
       jetbrains.dataspell
-      jetbrains.goland
       jetbrains.idea-ultimate
       jetbrains.rider
       obsidian
