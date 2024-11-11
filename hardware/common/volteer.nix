@@ -13,7 +13,7 @@
   environment.systemPackages = [
     pkgs.cros-ectool
   ];
-  
+
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -27,19 +27,19 @@
     enable = true;
     keyboards.internal = {
       ids = [
-        "k:0001:0001"
-        "k:18d1:5044"
-        "k:18d1:5052"
-        "k:0000:0000"
-        "k:18d1:5050"
-        "k:18d1:504c"
-        "k:18d1:503c"
-        "k:18d1:5030"
-        "k:18d1:503d"
         "k:18d1:505b"
-        "k:18d1:5057"
+        "k:18d1:5052"
         "k:18d1:502b"
+        "k:18d1:5044"
+        "k:18d1:5030"
+        "k:18d1:504c"
+        "k:18d1:5057"
+        "k:18d1:503d"
         "k:18d1:5061"
+        "k:0000:0000"
+        "k:0001:0001"
+        "k:18d1:5050"
+        "k:18d1:503c"
       ];
       settings = {
         main = {
@@ -53,6 +53,7 @@
           f8 = "mute";
           f9 = "volumedown";
           f10 = "volumeup";
+          
           back = "back";
           forward = "forward";
           refresh = "refresh";
@@ -63,6 +64,8 @@
           mute = "mute";
           volumedown = "volumedown";
           volumeup = "volumeup";
+          
+          f13 = "coffee";
           sleep = "coffee";
         };
         meta = {
@@ -76,6 +79,7 @@
           f8 = "f8";
           f9 = "f9";
           f10 = "f10";
+
           back = "f1";
           forward = "f2";
           refresh = "f3";
@@ -86,6 +90,8 @@
           mute = "f8";
           volumedown = "f9";
           volumeup = "f10";
+
+          f13 = "f12";
           sleep = "f12";
         };
         alt = {
@@ -97,11 +103,17 @@
           f7 = "kbdillumup";
         };
         control = {
-          f5 = "print";
-          scale = "print";
+          f5 = "sysrq";
+          scale = "sysrq";
         };
         controlalt = {
           backspace = "C-A-delete";
+        };
+        altgr = {
+          left = "home";
+          right = "end";
+          up = "pageup";
+          down = "pagedown";
         };
       };
     };
