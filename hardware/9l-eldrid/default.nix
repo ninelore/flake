@@ -23,6 +23,7 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  hardware.sensor.iio.enable = true;
 
   # Generated from here
   boot.initrd.availableKernelModules = [
