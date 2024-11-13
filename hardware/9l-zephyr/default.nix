@@ -28,7 +28,6 @@
   ];
 
   services.ollama = {
-    enable = true;
     acceleration = "rocm";
     environmentVariables = {
       HCC_AMDGPU_TARGET = "gfx1032"; # RX 6700S
