@@ -19,7 +19,11 @@ let
 
     if [[ $* == *"u"* ]]; then
       sudo nix-channel --update || exit 1
-      sudo nix flake update || exit 1
+      if [[ $* == *"c"* ]]; then 
+         nix flake update --commit-lock-file
+      else
+        sudo nix flake update || exit 1
+      fi
     fi
 
     if [[ $* == *"b"* ]]; then

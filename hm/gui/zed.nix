@@ -2,7 +2,7 @@
 {
   programs.zed-editor = {
     enable = true;
-    package = pkgs.pkgs-small.zed-editor;
+    package = pkgs.zed-editor_git;
     userSettings = {
       theme = "Zedokai";
       telemetry = {
