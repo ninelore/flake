@@ -2,6 +2,6 @@
 {
   programs.zed-editor = {
     enable = true;
-    package = pkgs.zed-editor_git;
+    package = pkgs.pkgs-small.zed-editor;
   };
 }

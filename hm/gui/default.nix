@@ -3,6 +3,7 @@
   imports = [
     ./theme.nix
     ./gnome.nix
+    ./zed.nix
   ];
 
   programs = {
@@ -76,13 +77,12 @@
       jetbrains.datagrip
       jetbrains.dataspell
       jetbrains.idea-ultimate
-      jetbrains.rider
       obsidian
-      textpieces
       onlyoffice-bin_latest
       papers
       protonvpn-gui
       scrcpy
+      textpieces
       via
       webcord
 
