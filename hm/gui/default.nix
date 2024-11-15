@@ -85,7 +85,6 @@
       textpieces
       via
       webcord
-      whatsapp-for-linux
 
       # gayming
       wineWowPackages.stagingFull
