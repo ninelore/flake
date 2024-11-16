@@ -50,31 +50,53 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  # From nixos-generate-config onwards
   fileSystems."/" = {
     device = "/dev/mapper/root";
     fsType = "btrfs";
-    options = [ "subvol=@" ];
+    options = [
+      "subvol=@"
+      "noatime"
+      "nodiratime"
+      "discard"
+    ];
   };
 
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/9c50dbd6-3a0b-4b6b-86b0-f326320a27dd";
+  boot.initrd.luks.devices."root" = {
+    device = "/dev/disk/by-uuid/9c50dbd6-3a0b-4b6b-86b0-f326320a27dd";
+    allowDiscards = true;
+  };
 
   fileSystems."/nix" = {
     device = "/dev/mapper/root";
     fsType = "btrfs";
-    options = [ "subvol=@nix" ];
+    options = [
+      "subvol=@nix"
+      "noatime"
+      "nodiratime"
+      "discard"
+    ];
   };
 
   fileSystems."/.snapshots" = {
     device = "/dev/mapper/root";
     fsType = "btrfs";
-    options = [ "subvol=@.snapshots" ];
+    options = [
+      "subvol=@.snapshots"
+      "noatime"
+      "nodiratime"
+      "discard"
+    ];
   };
 
   fileSystems."/home" = {
     device = "/dev/mapper/root";
     fsType = "btrfs";
-    options = [ "subvol=@home" ];
+    options = [
+      "subvol=@home"
+      "noatime"
+      "nodiratime"
+      "discard"
+    ];
   };
 
   fileSystems."/boot" = {
