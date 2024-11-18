@@ -77,6 +77,7 @@
       jetbrains.datagrip
       jetbrains.dataspell
       jetbrains.idea-ultimate
+      libreoffice-fresh
       obsidian
       onlyoffice-bin_latest
       papers
