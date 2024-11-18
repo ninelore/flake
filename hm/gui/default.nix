@@ -3,7 +3,7 @@
   imports = [
     ./theme.nix
     ./gnome.nix
-    #./zed.nix
+    ./zed.nix
   ];
 
   programs = {
