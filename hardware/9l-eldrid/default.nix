@@ -12,7 +12,7 @@
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../common/volteer.nix
+    ../common/cros
   ];
 
   swapDevices = [
