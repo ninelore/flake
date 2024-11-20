@@ -9,12 +9,15 @@ let
     dockerfile-language-server-nodejs
     gopls
     jdt-language-server
+    kotlin-language-server
     lua-language-server
     nushell
     marksman
+    markdown-oxide
     nixd
     python312Packages.python-lsp-server
     rust-analyzer
+    texlab
     typescript-language-server
     vscode-langservers-extracted
     vue-language-server
