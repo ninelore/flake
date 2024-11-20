@@ -59,7 +59,7 @@
           f8 = "mute";
           f9 = "volumedown";
           f10 = "volumeup";
-          
+
           back = "back";
           forward = "forward";
           refresh = "refresh";
@@ -70,7 +70,7 @@
           mute = "mute";
           volumedown = "volumedown";
           volumeup = "volumeup";
-          
+
           f13 = "coffee";
           sleep = "coffee";
         };

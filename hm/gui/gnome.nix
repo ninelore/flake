@@ -105,6 +105,9 @@
   home.packages = with pkgs; [
     eyedropper
     gnome-tweaks
+    gnome-maps
     gradience
+    papers
+    resources
   ];
 }

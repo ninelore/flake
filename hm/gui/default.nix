@@ -80,7 +80,6 @@
       libreoffice-fresh
       obsidian
       onlyoffice-bin_latest
-      papers
       protonvpn-gui
       scrcpy
       textpieces

@@ -20,9 +20,9 @@
         gedit # text editor
         gnome-calendar
         gnome-contacts
-        gnome-music
         gnome-shell-extensions
         gnome-software
+        gnome-system-monitor
         gnome-terminal
         gnome-tour
         gnome-user-docs
