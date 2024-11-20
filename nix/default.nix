@@ -3,15 +3,7 @@
   nixpkgs = {
     config = import ./config.nix;
     overlays = [
-      (final: prev: {
-        # nixos-unstable-small
-        pkgs-small = import inputs.nixpkgs-small {
-          system = final.system;
-          config.allowUnfree = true;
-        };
-        # Aarch64 fd
-        aarch64fd = inputs.nixpkgs.legacyPackages."aarch64-linux".OVMF.fd;
-      })
+      #(final: prev: { })
       # Custom packages
       (final: prev: import ../pkgs { pkgs = prev.pkgs; })
     ];

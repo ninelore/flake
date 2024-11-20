@@ -77,7 +77,7 @@
       jetbrains.datagrip
       jetbrains.dataspell
       jetbrains.idea-ultimate
-      libreoffice-fresh
+      #libreoffice-fresh
       obsidian
       onlyoffice-bin_latest
       protonvpn-gui

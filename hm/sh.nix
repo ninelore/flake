@@ -17,7 +17,6 @@ in
   programs = {
     zellij = {
       enable = true;
-      package = pkgs.pkgs-small.zellij;
     };
 
     starship = {
