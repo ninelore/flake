@@ -1,4 +1,10 @@
 { pkgs, ... }:
+let
+  keymapScript = ./cros-keyboard-map.py;
+  keymap = pkgs.runCommandLocal "myOutput" { } ''
+    ${pkgs.python3.interpreter} ${keymapScript} > $out
+  '';
+in
 {
   # TODO: wireplumber headroom
   environment = {
@@ -9,9 +15,7 @@
     ];
     # TODO: No handling for Nocturne, Atlas, Eve, Sarien and Arcada keyboards yet
     etc = {
-      "keyd/cros.conf".text = ''
-        ${pkgs.python3.interpreter} ${./cros-keyboard-map.py}      
-      '';
+      "keyd/cros.conf".source = keymap;
       "libinput/cros.quirks".text = ''
         [keyd virtual keyboard]
         MatchName=keyd virtual keyboard
