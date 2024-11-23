@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.gnome-shell = {
     enable = true;
@@ -15,7 +15,7 @@
 
   dconf = {
     enable = true;
-    settings = {
+    settings = with lib.hm.gvariant; {
       "org/gnome/desktop/peripherals/keyboard" = {
         numlock-state = true;
         remember-numlock-state = true;
@@ -60,7 +60,7 @@
       };
       "org/gnome/desktop/peripherals/touchpad" = {
         speed = 0.6;
-        accel-profile = "flat";
+        accel-profile = mkString "flat";
         click-method = "fingers";
         natural-scroll = true;
       };
