@@ -22,7 +22,10 @@ let
                 nix.package = pkgs.nixVersions.latest;
                 nix.settings.experimental-features = "nix-command flakes";
                 environment.systemPackages = with pkgs; [
+                  apk-tools
+                  apt
                   arch-install-scripts
+                  dnf5
                   git
                   gh
                   ranger
