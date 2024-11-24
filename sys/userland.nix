@@ -84,7 +84,7 @@
     command-not-found.enable = false;
     flashrom = {
       enable = true;
-      # TODO: possibly need custon build
+      package = pkgs.flashprog;
     };
     gamemode = {
       enable = true;
