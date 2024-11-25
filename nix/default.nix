@@ -3,7 +3,14 @@
   nixpkgs = {
     config = import ./config.nix;
     overlays = [
-      #(final: prev: { })
+      (final: prev: {
+        nerdfonts = prev.nerdfonts.override {
+          fonts = [
+            "JetBrainsMono"
+            "Noto"
+          ];
+        };
+      })
       # Custom packages
       (final: prev: import ../pkgs { pkgs = prev.pkgs; })
     ];

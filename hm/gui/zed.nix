@@ -18,6 +18,26 @@
           "model" = "qwen2.5-coder:1.5b";
         };
       };
+      "buffer_font_family" = "JetBrainsMono Nerd Font Propo";
+      "buffer_font_size" = 14;
+      "languages" = {
+        "Nix" = {
+          "language_servers" = [
+            "nixd"
+            "!nil"
+            "..."
+          ];
+        };
+      };
+      "lsp" = {
+        "nixd" = {
+          "initialization_options" = {
+            "formatting" = {
+              "command" = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+            };
+          };
+        };
+      };
     };
     extensions = [
       "cargo-tom"

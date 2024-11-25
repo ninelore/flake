@@ -1,12 +1,5 @@
 { pkgs, ... }:
 let
-  nerdfonts = pkgs.nerdfonts.override {
-    fonts = [
-      "JetBrainsMono"
-      "Noto"
-    ];
-  };
-
   gtkConf = {
     extraConfig = {
       gtk-application-prefer-dark-theme = true;
@@ -15,7 +8,7 @@ let
 
   font = {
     name = "NotoSans Nerd Font";
-    package = nerdfonts;
+    package = pkgs.nerdfonts;
   };
 
   iconTheme = {
