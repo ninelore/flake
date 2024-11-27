@@ -15,12 +15,6 @@ let
     name = "MoreWaita";
     package = pkgs.morewaita-icon-theme;
   };
-
-  cursorTheme = {
-    name = "Bibata-Modern-Ice";
-    size = 24;
-    package = pkgs.bibata-cursors;
-  };
 in
 {
   home = {
@@ -30,7 +24,6 @@ in
     };
     packages = with pkgs; [
       adw-gtk3
-      bibata-cursors
       font-awesome
       jetbrains-mono
       material-icons
@@ -39,15 +32,11 @@ in
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
     ];
-    pointerCursor = cursorTheme // {
-      gtk.enable = true;
-    };
   };
 
   gtk = {
     inherit
       font
-      cursorTheme
       iconTheme
       ;
     enable = true;
