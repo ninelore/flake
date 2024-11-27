@@ -36,11 +36,11 @@
       android-tools
       btop
       chafa
+      coreboot-utils
       curl
       devenv
       distrobox
       dmidecode
-      coreboot-utils
       fastfetch
       flyctl
       gnutar

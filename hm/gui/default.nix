@@ -70,8 +70,9 @@
       # GUI Apps
       android-studio
       appimage-run
-      gimp
       fractal
+      gaphor
+      gimp
       helvum
       jetbrains.clion
       jetbrains.datagrip
