@@ -4,8 +4,8 @@ alsa-ucm-conf.overrideAttrs {
   wttsrc = fetchFromGitHub {
     owner = "WeirdTreeThing";
     repo = "alsa-ucm-conf-cros";
-    rev = "00b399ed00930bfe544a34358547ab20652d71e3";
-    hash = "sha256-lRrgZDb3nnZ6/UcIsfjqAAbbSMOkP3lBGoGzZci+c1k=";
+    rev = "1908a457c7f2bf8b63264fe3b1e0522ea632ac5a";
+    hash = "sha256-h4qphJgXlEGMjpV4+llTaJeM3hoglmmgkXY8rOp+MAI=";
   };
 
   postInstall = ''
