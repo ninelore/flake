@@ -106,7 +106,9 @@
       font-awesome
       jetbrains-mono
       material-icons
-      nerdfonts
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.noto
+      nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji

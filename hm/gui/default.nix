@@ -92,14 +92,14 @@
       wineWowPackages.stagingFull
       bottles
       prismlauncher
-      (retroarch.override {
-        cores = with libretro; [
+      (pkgs.retroarch.withCores (
+        cores: with cores; [
           melonds
           pcsx2
           ppsspp
           vba-m
-        ];
-      })
+        ]
+      ))
     ];
   };
 }

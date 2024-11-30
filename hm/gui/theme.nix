@@ -8,7 +8,7 @@ let
 
   font = {
     name = "NotoSans Nerd Font";
-    package = pkgs.nerdfonts;
+    package = pkgs.nerd-fonts.noto;
   };
 
   iconTheme = {
@@ -18,16 +18,14 @@ let
 in
 {
   home = {
-    sessionVariables = {
-      #QT_WAYLAND_DECORATION = "adwaita";
-      #QT_QPA_PLATFORMTHEME = "qt5ct:qt6ct";
-    };
     packages = with pkgs; [
       adw-gtk3
       font-awesome
       jetbrains-mono
       material-icons
-      nerdfonts
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.noto
+      nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
