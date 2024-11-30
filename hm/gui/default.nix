@@ -70,6 +70,7 @@
       # GUI Apps
       android-studio
       appimage-run
+      discord
       fractal
       gaphor
       gimp
