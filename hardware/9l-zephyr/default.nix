@@ -11,20 +11,12 @@
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./asus.nix
+    ../common
+    ../common/asus
   ];
-
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   environment.systemPackages = with pkgs; [
     rocmPackages.rocm-smi
-  ];
-
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 32 * 1024;
-    }
   ];
 
   services.ollama = {

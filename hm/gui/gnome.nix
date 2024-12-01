@@ -69,7 +69,7 @@
       };
       "org/gnome/desktop/interface" = {
         gtk-theme = "adw-gtk3";
-        font-name = "NotoSans Nerd Font 10";
+        font-name = "Noto Sans 10";
         document-font-name = "Cantarell 11";
         monospace-font-name = "JetBrainsMono Nerd Font Propo 10";
       };

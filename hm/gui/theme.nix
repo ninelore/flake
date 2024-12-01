@@ -7,8 +7,8 @@ let
   };
 
   font = {
-    name = "NotoSans Nerd Font";
-    package = pkgs.nerd-fonts.noto;
+    name = "Noto Sans";
+    package = pkgs.noto-fonts;
   };
 
   iconTheme = {
@@ -25,7 +25,6 @@ in
       material-icons
       nerd-fonts.jetbrains-mono
       nerd-fonts.noto
-      nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji

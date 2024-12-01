@@ -11,7 +11,7 @@
           boot: [],
           wake: [],
           shutdown: [],
-          display_enabled: true,
+          display_enabled: false,
           display_brightness: High,
           builtin_anims_enabled: false,
           off_when_unplugged: false,

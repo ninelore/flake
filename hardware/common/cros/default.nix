@@ -26,6 +26,7 @@ in
   };
 
   security.tpm2.enable = false;
+  hardware.sensor.iio.enable = true;
   boot.initrd.systemd.tpm2.enable = false;
 
   boot.kernelParams = [ "iomem=relaxed" ];
