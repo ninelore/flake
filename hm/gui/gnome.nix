@@ -73,7 +73,7 @@
         gtk-theme = "adw-gtk3";
         font-name = "Noto Sans 10";
         document-font-name = "Cantarell 11";
-        monospace-font-name = "JetBrainsMono Nerd Font Propo 10";
+        monospace-font-name = "JetBrains Mono 10";
       };
       # Extensions
       "org/gnome/shell/extensions/tilingshell" = {
