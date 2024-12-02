@@ -12,12 +12,12 @@
     gnome.excludePackages = (
       with pkgs;
       [
-        atomix # puzzle game
-        cheese # webcam tool
-        epiphany # web browser
-        evince # document viewer
-        geary # Mail
-        gedit # text editor
+        atomix
+        cheese
+        epiphany
+        evince
+        geary
+        gedit
         gnome-calendar
         gnome-contacts
         gnome-shell-extensions
@@ -27,10 +27,10 @@
         gnome-tour
         gnome-user-docs
         gnome-weather
-        hitori # sudoku game
-        iagno # go game
-        simple-scan # scanner
-        tali # poker game
+        hitori
+        iagno
+        simple-scan
+        tali
         yelp
       ]
     );
