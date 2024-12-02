@@ -9,6 +9,7 @@
       { package = pkgs.gnomeExtensions.blur-my-shell; }
       { package = pkgs.gnomeExtensions.caffeine; }
       { package = pkgs.gnomeExtensions.clipboard-history; }
+      { package = pkgs.gnomeExtensions.nightscout; }
       { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
   };
@@ -29,6 +30,7 @@
           blur-my-shell.extensionUuid
           caffeine.extensionUuid
           clipboard-history.extensionUuid
+          nightscout.extensionUuid
           tiling-shell.extensionUuid
         ];
       };
@@ -93,6 +95,12 @@
         disable-down-arrow = true;
         confirm-clear = true;
         enable-keybindings = false;
+      };
+      "org/gnome/shell/extensions/nightscout" = {
+        notification-out-of-range = true;
+        notification-stale-data = false;
+        notification-rapidly-changes = false;
+        notification-urgency-level = 3;
       };
     };
   };
