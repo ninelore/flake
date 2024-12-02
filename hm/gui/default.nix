@@ -81,7 +81,6 @@
       jetbrains.idea-ultimate
       libreoffice-fresh
       obsidian
-      onlyoffice-desktopeditors
       protonvpn-gui
       scrcpy
       textpieces
