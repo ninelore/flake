@@ -98,9 +98,9 @@
       };
       "org/gnome/shell/extensions/nightscout" = {
         notification-out-of-range = true;
-        notification-stale-data = false;
+        notification-stale-data = true;
         notification-rapidly-changes = false;
-        notification-urgency-level = 3;
+        notification-urgency-level = 2;
       };
     };
   };
