@@ -5,7 +5,7 @@
 ##################################
 
 {
-  description = "9lore's Monoflake";
+  description = "9lore's monoflake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -30,13 +30,11 @@
   };
 
   outputs =
-    inputs@{ ... }:
+    inputs@{ self, ... }:
     let
       myLib = import ./lib { inherit inputs; };
     in
     {
-      # packages
-      packages = myLib.forSystems (system: (import ./pkgs inputs.nixpkgs.legacyPackages.${system}));
 
       nixosConfigurations =
         # nixos pc configs
@@ -71,5 +69,23 @@
           ];
         };
       };
+
+      packages = myLib.forSystems (system: (import ./pkgs inputs.nixpkgs.legacyPackages.${system}));
+
+      devShells = myLib.forSystemsPkgs (
+        { pkgs }:
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              nixfmt-rfc-style
+              statix
+              vulnix
+            ];
+          };
+        }
+      );
+
+      formatter = myLib.forSystemsPkgs (pkgs: pkgs.nixfmt-rfc-style);
+
     };
 }
