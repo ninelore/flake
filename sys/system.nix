@@ -3,22 +3,10 @@
   boot = {
     consoleLogLevel = 2;
     initrd = {
-      verbose = false;
       systemd.enable = true;
-    };
-    plymouth = {
-      enable = true;
-      theme = "bgrt-luks";
-      themePackages = [ pkgs.plymouth-bgrt-luks ];
     };
     kernelParams = [
       "boot.shell_on_fail"
-      # eye candy below
-      "quiet"
-      "splash"
-      "rd.systemd.show_status=error"
-      "rd.udev.log_level=2"
-      "udev.log_priority=2"
     ];
 
     tmp.cleanOnBoot = true;
@@ -49,7 +37,6 @@
   hardware.pulseaudio.enable = false;
   security = {
     rtkit.enable = true;
-    doas.enable = true;
   };
   services.pipewire = {
     enable = true;

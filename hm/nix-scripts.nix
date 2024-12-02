@@ -18,11 +18,10 @@ let
     fi
 
     if [[ $* == *"u"* ]]; then
-      sudo nix-channel --update || exit 1
-      if [[ $* == *"c"* ]]; then 
-         nix flake update --commit-lock-file
+      if [[ $* == *"c"* ]]; then
+        nix flake update --commit-lock-file
       else
-        sudo nix flake update || exit 1
+        nix flake update || exit 1
       fi
     fi
 
@@ -31,27 +30,9 @@ let
     fi
 
     if [[ $* == *"i"* ]]; then
-      sudo nixos-rebuild "$_c" --impure --flake "$_p" || exit 1
-    else 
-      sudo nixos-rebuild "$_c" --flake "$_p" || exit 1
-    fi
-  '';
-
-  nxgc = pkgs.writeShellScriptBin "nxgc" ''
-    _n=7
-    _elev=false
-
-    if sudo echo; then 
-      _elev=true 
-    fi
-
-    if [[ $* =~ "[0-9]+" ]]; then 
-      _n=$*
-    fi
-
-    nix-collect-garbage --delete-older-than "$_n"d --quiet
-    if [[ _elev ]]; then 
-      sudo nix-collect-garbage --delete-older-than "$_n"d --quiet
+      run0 nixos-rebuild "$_c" --impure --flake "$_p" || exit 1
+    else
+      run0 nixos-rebuild "$_c" --flake "$_p" || exit 1
     fi
   '';
 
@@ -77,7 +58,6 @@ in
   home.packages = [
     devflake
     nxsw
-    nxgc
     nx-flakepath-update
     spawnb
   ];
