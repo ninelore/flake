@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
+
   gtkConf = {
     extraConfig = {
       gtk-application-prefer-dark-theme = true;
@@ -20,11 +21,9 @@ in
   home = {
     packages = with pkgs; [
       adw-gtk3
-      font-awesome
       jetbrains-mono
-      material-icons
+      liberation_ttf
       nerd-fonts.jetbrains-mono
-      nerd-fonts.noto
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji

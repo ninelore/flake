@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   ...
 }:
@@ -105,12 +106,11 @@
     packages = with pkgs; [
       font-awesome
       jetbrains-mono
-      material-icons
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.noto
+      liberation_ttf
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-color-emoji
+      noto-fonts-emoji
+      nerd-fonts.jetbrains-mono
     ];
   };
 }
