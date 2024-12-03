@@ -42,49 +42,15 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/mapper/root";
-    fsType = "btrfs";
-    options = [
-      "subvol=@"
-      "noatime"
-      "nodiratime"
-      "discard"
-    ];
-  };
-
   boot.initrd.luks.devices."root" = {
     device = "/dev/disk/by-uuid/9c50dbd6-3a0b-4b6b-86b0-f326320a27dd";
     allowDiscards = true;
   };
 
-  fileSystems."/nix" = {
+  fileSystems."/" = {
     device = "/dev/mapper/root";
-    fsType = "btrfs";
+    fsType = "ext4";
     options = [
-      "subvol=@nix"
-      "noatime"
-      "nodiratime"
-      "discard"
-    ];
-  };
-
-  fileSystems."/.snapshots" = {
-    device = "/dev/mapper/root";
-    fsType = "btrfs";
-    options = [
-      "subvol=@.snapshots"
-      "noatime"
-      "nodiratime"
-      "discard"
-    ];
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/mapper/root";
-    fsType = "btrfs";
-    options = [
-      "subvol=@home"
       "noatime"
       "nodiratime"
       "discard"
@@ -92,7 +58,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/8C76-9B64";
+    device = "/dev/disk/by-uuid/D547-AF4A";
     fsType = "vfat";
     options = [
       "fmask=0022"
