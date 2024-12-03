@@ -2,7 +2,7 @@
 {
   programs.zed-editor = {
     enable = true;
-    #package = pkgs.zed-editor_git;
+    package = pkgs.zed-editor_git;
     extraPackages = (import ../../lib/lsp-dap.nix { pkgs = pkgs; });
     userSettings = {
       theme = "Zedokai";
