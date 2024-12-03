@@ -23,6 +23,13 @@ let
               inputs.nix-index-database.nixosModules.nix-index
               inputs.home-manager.nixosModules.home-manager
               {
+                security.polkit = {
+                  enable = true;
+                  adminIdentities = [
+                    "unix-user:${systemConfig.username}"
+                    "unix-group:wheel"
+                  ];
+                };
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;
