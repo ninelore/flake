@@ -6,7 +6,7 @@ let
     "grep" = "grep --color=auto";
     "py" = "python3";
     "q" = "exit";
-    "sudo" = "run0";
+    #"sudo" = "run0";
     "untar" = "tar -xavf";
     "z" = "zellij";
   };

@@ -30,9 +30,9 @@ let
     fi
 
     if [[ $* == *"i"* ]]; then
-      run0 nixos-rebuild "$_c" --impure --flake "$_p" || exit 1
+      sudo nixos-rebuild "$_c" --impure --flake "$_p" || exit 1
     else
-      run0 nixos-rebuild "$_c" --flake "$_p" || exit 1
+      sudo nixos-rebuild "$_c" --flake "$_p" || exit 1
     fi
   '';
 
