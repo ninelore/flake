@@ -70,7 +70,7 @@
       # GUI Apps
       android-studio
       appimage-run
-      discord
+      discord-canary
       fractal
       gaphor
       gimp
