@@ -38,7 +38,6 @@
       chafa
       coreboot-utils
       curl
-      devenv
       distrobox
       dmidecode
       fastfetch
