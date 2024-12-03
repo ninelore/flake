@@ -6,11 +6,7 @@ let
       map (
         systemConfig:
         let
-          nixpkgs-sys =
-            if (systemConfig ? bleeding && systemConfig.bleeding == true) then
-              inputs.nixpkgs-small
-            else
-              inputs.nixpkgs;
+          nixpkgs-sys = if (systemConfig ? channel) then systemConfig.channel else inputs.nixpkgs;
         in
         {
           name = systemConfig.hostname;
