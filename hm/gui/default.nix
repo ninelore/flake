@@ -85,7 +85,6 @@
       scrcpy
       textpieces
       via
-      webcord
 
       # gayming
       wineWowPackages.stagingFull
