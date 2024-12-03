@@ -1,6 +1,5 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 let
-
   gtkConf = {
     extraConfig = {
       gtk-application-prefer-dark-theme = true;
@@ -8,8 +7,8 @@ let
   };
 
   font = {
-    name = "Noto Sans";
-    package = pkgs.noto-fonts;
+    name = "NotoSans Nerd Font";
+    package = pkgs.nerd-fonts.noto;
   };
 
   iconTheme = {
@@ -24,6 +23,7 @@ in
       jetbrains-mono
       liberation_ttf
       nerd-fonts.jetbrains-mono
+      nerd-fonts.noto
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
@@ -63,7 +63,7 @@ in
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = [ "JetBrains Mono" ];
+      monospace = [ "JetBrainsMono Nerd Font Propo" ];
     };
   };
 

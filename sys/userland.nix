@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -107,10 +106,11 @@
       font-awesome
       jetbrains-mono
       liberation_ttf
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.noto
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      nerd-fonts.jetbrains-mono
     ];
   };
 }
