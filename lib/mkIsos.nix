@@ -28,7 +28,6 @@ let
                   arch-install-scripts
                   dnf5
                   git
-                  gh
                   ranger
                 ];
                 home-manager = {
