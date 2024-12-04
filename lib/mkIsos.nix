@@ -31,7 +31,6 @@ let
                   gh
                   ranger
                 ];
-                users.users."nixos".password = "nixos";
                 home-manager = {
                   useGlobalPkgs = true;
                   useUserPackages = true;

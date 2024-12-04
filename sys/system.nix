@@ -37,6 +37,7 @@
   hardware.pulseaudio.enable = false;
   security = {
     rtkit.enable = true;
+    pam.services.systemd-run0 = { };
   };
   services.pipewire = {
     enable = true;
