@@ -27,7 +27,6 @@ in
     packages = with pkgs; [
       adw-gtk3
       bibata-cursors
-      font-awesome
       jetbrains-mono
       liberation_ttf
       nerd-fonts.jetbrains-mono

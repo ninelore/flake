@@ -103,7 +103,6 @@
 
   fonts = {
     packages = with pkgs; [
-      font-awesome
       jetbrains-mono
       liberation_ttf
       nerd-fonts.jetbrains-mono
