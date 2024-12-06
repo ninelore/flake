@@ -22,6 +22,19 @@ let
               {
                 networking.networkmanager.enable = true;
                 networking.wireless.enable = lib.mkImageMediaOverride false;
+                boot.kernelParams = [
+                  "iomem=relaxed"
+                ];
+                programs = {
+                  adb.enable = true;
+                  command-not-found.enable = false;
+                  flashrom = {
+                    enable = true;
+                    package = pkgs.flashprog;
+                  };
+                  nix-index-database.comma.enable = true;
+                  nix-ld.enable = true;
+                };
                 environment.systemPackages = with pkgs; [
                   apk-tools
                   apt
