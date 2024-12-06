@@ -77,6 +77,7 @@
         };
       };
     };
+    waydroid.enable = true;
   };
 
   programs = {
