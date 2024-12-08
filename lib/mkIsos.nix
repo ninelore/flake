@@ -8,11 +8,6 @@ let
         value = inputs.nixpkgs.lib.nixosSystem {
           system = isoArch;
           modules = [
-            "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix"
-            inputs.chaotic.nixosModules.default
-            inputs.nix-index-database.nixosModules.nix-index
-            inputs.home-manager.nixosModules.home-manager
-            ../nix
             (
               {
                 pkgs,
@@ -20,28 +15,42 @@ let
                 ...
               }:
               {
+                imports = [
+                  "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix"
+                  inputs.home-manager.nixosModules.home-manager
+                  ../nix
+                ];
                 networking.networkmanager.enable = true;
                 networking.wireless.enable = lib.mkImageMediaOverride false;
                 boot.kernelParams = [
                   "iomem=relaxed"
                 ];
                 programs = {
-                  adb.enable = true;
-                  command-not-found.enable = false;
                   flashrom = {
                     enable = true;
                     package = pkgs.flashprog;
                   };
-                  nix-index-database.comma.enable = true;
                   nix-ld.enable = true;
                 };
                 environment.systemPackages = with pkgs; [
+                  btop
+                  coreboot-utils
+                  cros-ectool
+                  curl
+                  dmidecode
+                  git
+                  less
+                  nixfmt-rfc-style
+                  pciutils
+                  picocom
+                  vboot_reference
+                  usbutils
+                  # Package managers
                   apk-tools
                   apt
                   arch-install-scripts
                   dnf5
-                  git
-                  ranger
+                  pacman
                 ];
                 home-manager = {
                   useGlobalPkgs = true;
@@ -50,8 +59,10 @@ let
                     inherit inputs;
                   };
                   users."nixos" = {
+                    home.stateVersion = "24.05";
                     imports = [
-                      ../hm
+                      ../hm/sh.nix
+                      ../hm/helix.nix
                     ];
                   };
                 };
