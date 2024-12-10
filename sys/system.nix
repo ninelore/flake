@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   boot = {
-    consoleLogLevel = 2;
+    consoleLogLevel = 0;
     initrd = {
       systemd.enable = true;
       verbose = false;
@@ -12,8 +12,8 @@
       "quiet"
       "splash"
       "rd.systemd.show_status=error"
-      "rd.udev.log_level=2"
-      "udev.log_priority=2"
+      "rd.udev.log_level=0"
+      "udev.log_priority=0"
     ];
     plymouth = {
       enable = true;
