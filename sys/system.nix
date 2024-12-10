@@ -1,22 +1,31 @@
 { pkgs, ... }:
 {
   boot = {
-    consoleLogLevel = 15;
+    consoleLogLevel = 2;
     initrd = {
       systemd.enable = true;
+      verbose = false;
     };
     kernelParams = [
       "boot.shell_on_fail"
+      # eye candy below
+      "quiet"
+      "splash"
+      "rd.systemd.show_status=error"
+      "rd.udev.log_level=2"
+      "udev.log_priority=2"
     ];
-
+    plymouth = {
+      enable = true;
+      theme = "bgrt-luks";
+      themePackages = [ pkgs.plymouth-bgrt-luks ];
+    };
     tmp.cleanOnBoot = true;
-    #supportedFilesystems = [ "ntfs" ];
     loader = {
       timeout = 0;
       systemd-boot = {
         enable = true;
-        editor = false;
-        configurationLimit = 10;
+        configurationLimit = 15;
       };
       efi.canTouchEfiVariables = true;
     };
