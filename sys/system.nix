@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   boot = {
-    consoleLogLevel = 2;
+    consoleLogLevel = 15;
     initrd = {
       systemd.enable = true;
     };
