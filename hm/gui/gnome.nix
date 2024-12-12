@@ -61,8 +61,6 @@
         workspaces-only-on-primary = true;
       };
       "org/gnome/desktop/peripherals/touchpad" = {
-        speed = 0.6;
-        accel-profile = "flat"; # TODO broken
         click-method = "fingers";
         natural-scroll = true;
       };
