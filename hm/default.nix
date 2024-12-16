@@ -25,6 +25,9 @@
   };
 
   home = {
+    sessionVariables = {
+      NIXPKGS_ALLOW_UNFREE = 1;
+    };
     sessionPath = [
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
