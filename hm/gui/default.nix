@@ -93,6 +93,7 @@
       (pkgs.retroarch.withCores (
         cores: with cores; [
           melonds
+          desmume
           pcsx2
           ppsspp
           vba-m

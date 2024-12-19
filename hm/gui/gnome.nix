@@ -10,6 +10,7 @@
       { package = pkgs.gnomeExtensions.caffeine; }
       { package = pkgs.gnomeExtensions.clipboard-history; }
       { package = pkgs.gnomeExtensions.nightscout; }
+      { package = pkgs.gnomeExtensions.quick-web-search; }
       { package = pkgs.gnomeExtensions.tiling-shell; }
     ];
   };
@@ -31,6 +32,7 @@
           caffeine.extensionUuid
           clipboard-history.extensionUuid
           nightscout.extensionUuid
+          quick-web-search.extensionUuid
           tiling-shell.extensionUuid
         ];
       };
