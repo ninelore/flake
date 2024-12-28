@@ -9,7 +9,7 @@
         "server string" = "smbnix";
         "netbios name" = "smbnix";
         "security" = "user";
-        "hosts allow" = "10.10. 192.168. 127.0.0.1 localhost";
+        "hosts allow" = "10. 192.168. 127.0.0.1 localhost";
         "hosts deny" = "0.0.0.0/0";
       };
       "private" = {
