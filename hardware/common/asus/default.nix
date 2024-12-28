@@ -4,7 +4,7 @@
     asusd = {
       enable = true;
       enableUserService = true;
-      animeConfig.text = ''
+      animeConfig = ''
         (
           model_override: None,
           system: [],
