@@ -11,13 +11,6 @@
         "metrics" = false;
       };
       "base_keymap" = "VSCode";
-      "assistant" = {
-        "version" = "2";
-        "default_model" = {
-          "provider" = "ollama";
-          "model" = "qwen2.5-coder:3b";
-        };
-      };
       "buffer_font_family" = "JetBrainsMono Nerd Font Propo";
       "buffer_font_size" = 14;
       "languages" = {

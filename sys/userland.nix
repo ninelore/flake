@@ -48,7 +48,6 @@
       via
       platformio-core.udev
     ];
-    ollama.enable = true;
     logind.extraConfig = ''
       HandlePowerKey=suspend
       HandleLidSwitch=suspend
