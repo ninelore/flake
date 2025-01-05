@@ -1,6 +1,6 @@
 { ... }:
 let
-  editor = "hx";
+  editor = "nvim";
 in
 {
   programs = {

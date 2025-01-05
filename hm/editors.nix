@@ -3,7 +3,7 @@
   programs = {
     helix = {
       enable = true;
-      defaultEditor = true;
+      defaultEditor = false;
       settings = {
         theme = "base16_transparent";
         editor.cursor-shape = {
@@ -30,7 +30,24 @@
     };
     neovim = {
       enable = true;
-      extraPackages = (import ../lib/lsp-dap.nix { pkgs = pkgs; });
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      withNodeJs = true;
+      withPython3 = true;
+      extraPackages = with pkgs; [
+        fd
+        gcc
+        git
+        gnumake
+        ripgrep
+        tree-sitter
+        unzip
+        wget
+        # Language Tools
+        nixd
+        nixfmt-rfc-style
+      ];
     };
   };
 }

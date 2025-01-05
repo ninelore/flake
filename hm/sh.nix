@@ -8,6 +8,7 @@ let
     "q" = "exit";
     "sudo" = "run0";
     "untar" = "tar -xavf";
+    "v" = "nvim";
     "z" = "zellij";
   };
 in
