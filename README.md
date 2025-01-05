@@ -1,5 +1,7 @@
 # My Nix monoflake
 
+WARNING: Expect force-pushes to main
+
 ## Directory Layout
 
 - hardware: Configs equivalent to /etc/nixos/hardware-configuration.nix
@@ -7,7 +9,6 @@
   - 9l: __Personal__ user and git configuration
 - lib: Library of custom functions
 - nix: Nix package manager configs and nix overlays
-- nvim: neovim config, works on non-nix
 - pkgs: Custom packages
 - sys: System-level Nix(OS) configs
 

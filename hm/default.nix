@@ -3,10 +3,9 @@
   home.stateVersion = "24.05";
 
   imports = [
-    ./helix.nix
+    ./editors.nix
     ./git.nix
     ./nix-scripts.nix
-    ./nvim.nix
     ./sh.nix
   ];
 
