@@ -6,6 +6,7 @@
     ./helix.nix
     ./git.nix
     ./nix-scripts.nix
+    ./nvim.nix
     ./sh.nix
   ];
 
