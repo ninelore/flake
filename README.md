@@ -7,6 +7,7 @@
   - 9l: __Personal__ user and git configuration
 - lib: Library of custom functions
 - nix: Nix package manager configs and nix overlays
+- nvim: neovim config, works on non-nix
 - pkgs: Custom packages
 - sys: System-level Nix(OS) configs
 
@@ -18,3 +19,4 @@
 ## Acknowledgements
 
 - [Aylur](https://github.com/Aylur): [Dotfiles](https://github.com/Aylur/dotfiles) for inspiration and some formerly copied config snippets
+- [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim): Should be self-explainatory
