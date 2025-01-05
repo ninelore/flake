@@ -8,7 +8,7 @@ attach_to_session true
 default_mode "locked"
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl space" { SwitchToMode "normal"; }
+        bind "Ctrl b" { SwitchToMode "normal"; }
     }
     pane {
         bind "left" { MoveFocus "left"; }
