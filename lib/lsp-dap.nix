@@ -27,9 +27,6 @@ let
     lldb
     delve
     vscode-js-debug
-
-    # Fix jdtls
-    python3
   ];
 in
 list
