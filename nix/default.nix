@@ -4,6 +4,7 @@
     config = import ./config.nix;
     overlays = [
       (final: prev: {
+        # Rebuilds mutter, gnome-shell, gnome-control-center
         mutter = prev.mutter.overrideAttrs (oldAttrs: {
           src = pkgs.fetchFromGitLab {
             domain = "gitlab.gnome.org";
