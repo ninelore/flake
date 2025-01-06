@@ -84,6 +84,7 @@
       scrcpy
       textpieces
       via
+      wl-clipboard
 
       # gayming
       wineWowPackages.stagingFull

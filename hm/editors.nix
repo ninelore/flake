@@ -44,6 +44,7 @@
         tree-sitter
         unzip
         wget
+        wl-clipboard
         # Language Tools
         nixd
         nixfmt-rfc-style
