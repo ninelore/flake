@@ -104,15 +104,13 @@
 
   fonts = {
     packages = with pkgs; [
+      jetbrains-mono
       liberation_ttf
-      nerd-fonts.fantasque-sans-mono
       nerd-fonts.jetbrains-mono
-      nerd-fonts.monofur
       nerd-fonts.noto
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-      noto-fonts-monochrome-emoji
+      noto-fonts-emoji
     ];
   };
 }

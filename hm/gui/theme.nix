@@ -27,15 +27,13 @@ in
     packages = with pkgs; [
       adw-gtk3
       bibata-cursors
+      jetbrains-mono
       liberation_ttf
-      nerd-fonts.fantasque-sans-mono
       nerd-fonts.jetbrains-mono
-      nerd-fonts.monofur
       nerd-fonts.noto
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
-      noto-fonts-monochrome-emoji
     ];
     pointerCursor = cursorTheme // {
       gtk.enable = true;
@@ -76,7 +74,7 @@ in
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      monospace = [ "FantasqueSansM Nerd Font" ];
+      monospace = [ "JetBrainsMono Nerd Font Propo" ];
     };
   };
 
