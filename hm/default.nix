@@ -3,7 +3,6 @@
   home.stateVersion = "24.05";
 
   imports = [
-    ./editors.nix
     ./git.nix
     ./nix-scripts.nix
     ./sh.nix
