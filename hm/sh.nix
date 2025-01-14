@@ -28,6 +28,8 @@ in
         gcc
         git
         gnumake
+        lua5_1
+        luarocks
         ripgrep
         tree-sitter
         wget
