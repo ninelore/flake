@@ -7,7 +7,11 @@
     localBinInPath = true;
     systemPackages = with pkgs; [
       git
-      vim
+      # Fallback tools
+      alacritty
+      helix
+      neovim
+      textpieces
     ];
     gnome.excludePackages = (
       with pkgs;
@@ -24,6 +28,7 @@
         gnome-software
         gnome-system-monitor
         gnome-terminal
+        gnome-text-editor
         gnome-tour
         gnome-user-docs
         gnome-weather
@@ -58,11 +63,10 @@
   };
 
   virtualisation = {
-    docker = {
+    podman = {
       enable = true;
-      rootless = {
-        enable = true;
-      };
+      dockerSocket.enable = true;
+      dockerCompat = true;
     };
     libvirtd = {
       enable = true;
@@ -100,6 +104,16 @@
     wireshark.enable = true;
     ydotool.enable = true;
     zsh.enable = true;
+  };
+
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "Alacritty.desktop"
+        "org.gnome.Console.desktop"
+      ];
+    };
   };
 
   fonts = {
