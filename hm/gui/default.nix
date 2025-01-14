@@ -14,24 +14,25 @@
         ];
         window = {
           opacity = 0.8;
+          startup_mode = "Maximized";
         };
         font = {
           size = 11;
         };
         font.bold = {
-          family = "JetBrainsMono Nerd Font Propo";
+          family = "JetBrainsMono Nerd Font";
           style = "Bold";
         };
         font.bold_italic = {
-          family = "JetBrainsMono Nerd Font Propo";
+          family = "JetBrainsMono Nerd Font";
           style = "Bold Italic";
         };
         font.italic = {
-          family = "JetBrainsMono Nerd Font Propo";
+          family = "JetBrainsMono Nerd Font";
           style = "Italic";
         };
         font.normal = {
-          family = "JetBrainsMono Nerd Font Propo";
+          family = "JetBrainsMono Nerd Font";
           style = "Regular";
         };
       };
