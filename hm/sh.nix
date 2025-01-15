@@ -16,30 +16,6 @@ in
   xdg.configFile."zellij/config.kdl".source = ./zellij.kdl;
 
   programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      withNodeJs = true;
-      withPython3 = true;
-      extraPackages = with pkgs; [
-        fd
-        gcc
-        git
-        gnumake
-        lua5_1
-        luarocks
-        ripgrep
-        tree-sitter
-        wget
-        wl-clipboard
-        # Stuff that doesnt work or isnt available via mason.nvim
-        nixd
-        nixfmt-rfc-style
-      ];
-    };
-
     zellij = {
       enable = true;
     };
