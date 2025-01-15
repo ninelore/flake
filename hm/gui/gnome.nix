@@ -114,7 +114,6 @@
     eyedropper
     gnome-tweaks
     gnome-maps
-    gradience
     papers
     resources
   ];
