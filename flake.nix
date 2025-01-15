@@ -45,6 +45,11 @@
             hostname = "9l-eldrid";
             architecture = "x86_64-linux";
           }
+          {
+            username = "9l";
+            hostname = "9l-drobit";
+            architecture = "x86_64-linux";
+          }
         ]
         // myLib.mkIsos [
           "x86_64-linux"
