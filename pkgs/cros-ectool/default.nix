@@ -39,7 +39,7 @@ stdenv.mkDerivation {
     runHook preInstall
 
     mkdir -p $out/bin
-    cp src/ectool $out/bin/crosectool
+    cp src/ectool $out/bin/ectool
 
     runHook postInstall
   '';

@@ -5,8 +5,8 @@
       # cli
       android-tools
       btop
+      cbfstool
       chafa
-      coreboot-utils
       curl
       distrobox
       dmidecode
@@ -53,7 +53,7 @@
         tree-sitter
         wget
         wl-clipboard
-        # Mason. TODO: Bad Practice
+        # Mason  TODO: Bad Practice
         cargo
         go
         jdk17_headless

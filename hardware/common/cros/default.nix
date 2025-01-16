@@ -10,8 +10,9 @@ in
   environment = {
     sessionVariables.ALSA_CONFIG_UCM2 = "${pkgs.alsa-ucm-conf-cros}/share/alsa/ucm2";
     systemPackages = with pkgs; [
-      sof-firmware
+      cbmem
       cros-ectool
+      sof-firmware
     ];
     # TODO: No handling for Nocturne, Atlas, Eve, Sarien and Arcada keyboards yet
     etc = {
