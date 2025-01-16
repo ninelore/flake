@@ -14,6 +14,8 @@
     ../common/cros
   ];
 
+  boot.kernelParams = [ "initcall_blacklist=simpledrm_platform_driver_init" ];
+
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "thunderbolt"
