@@ -6,6 +6,7 @@
   environment = {
     localBinInPath = true;
     systemPackages = with pkgs; [
+      dmidecode
       git
       # Fallback tools
       alacritty
