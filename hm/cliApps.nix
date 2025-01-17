@@ -15,6 +15,7 @@
       gnutar
       gptfdisk
       less
+      lm_sensors
       nixfmt-rfc-style
       pciutils
       picocom
