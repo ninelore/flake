@@ -37,6 +37,7 @@ let
                     ];
                   };
                 };
+                console.keyMap = if (systemConfig ? keymap) then systemConfig.keymap else "us";
               }
             ];
           };

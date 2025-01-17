@@ -39,16 +39,19 @@
             username = "9l";
             hostname = "9l-zephyr";
             architecture = "x86_64-linux";
+            keymap = "de";
           }
           {
             username = "9l";
             hostname = "9l-eldrid";
             architecture = "x86_64-linux";
+            keymap = "de";
           }
           {
             username = "9l";
             hostname = "9l-drobit";
             architecture = "x86_64-linux";
+            keymap = "uk";
           }
         ]
         // myLib.mkIsos [
