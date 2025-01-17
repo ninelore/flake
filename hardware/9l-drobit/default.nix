@@ -14,14 +14,13 @@
     ../common/cros
   ];
 
-  boot.kernelParams = [ "initcall_blacklist=simpledrm_platform_driver_init" ];
+  boot.kernelParams = [
+    "initcall_blacklist=simpledrm_platform_driver_init"
+  ];
 
   boot.initrd.availableKernelModules = [
-    "xhci_pci"
     "thunderbolt"
     "nvme"
-    "usb_storage"
-    "sd_mod"
     "sdhci_pci"
   ];
   boot.initrd.kernelModules = [ ];

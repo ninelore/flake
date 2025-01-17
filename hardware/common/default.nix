@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   swapDevices = [
     {
@@ -7,5 +7,7 @@
     }
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos;
+
+  services.fwupd.enable = true;
 }
