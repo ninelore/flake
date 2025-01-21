@@ -16,6 +16,9 @@
       gaphor
       gimp
       helvum
+      hunspell
+      hunspellDicts.de_DE
+      hunspellDicts.en_GB-ise
       jetbrains.clion
       jetbrains.datagrip
       jetbrains.dataspell
