@@ -30,11 +30,15 @@ let
                     inherit inputs systemConfig;
                   };
                   users.${systemConfig.username} = {
-                    imports = [
-                      ../hm
-                      ../hm/9l
-                      ../hm/gui
-                    ];
+                    imports =
+                      [
+                        ../hm
+                        ../hm/9l
+                        ../hm/gui
+                      ]
+                      ++ nixpkgs-sys.lib.optionals (systemConfig ? gaming && systemConfig.gaming) [
+                        ../hm/gui/gaming.nix
+                      ];
                   };
                 };
                 console.keyMap = if (systemConfig ? keymap) then systemConfig.keymap else "us";

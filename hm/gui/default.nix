@@ -10,6 +10,7 @@
       # GUI Apps
       android-studio
       appimage-run
+      bottles
       discord-canary
       fractal
       gaphor
@@ -26,21 +27,8 @@
       scrcpy
       textpieces
       via
-      wl-clipboard
-
-      # gayming
       wineWowPackages.stagingFull
-      bottles
-      prismlauncher
-      (pkgs.retroarch.withCores (
-        cores: with cores; [
-          melonds
-          desmume
-          pcsx2
-          ppsspp
-          vba-m
-        ]
-      ))
+      wl-clipboard
     ];
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
@@ -98,9 +86,6 @@
       nativeMessagingHosts = with pkgs; [
         gnome-browser-connector
       ];
-    };
-    obs-studio = {
-      enable = true;
     };
   };
 }
