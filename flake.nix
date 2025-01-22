@@ -52,6 +52,7 @@
             username = "9l";
             hostname = "9l-drobit";
             architecture = "x86_64-linux";
+            gaming = true;
             keymap = "uk";
           }
         ]
