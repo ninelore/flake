@@ -10,8 +10,9 @@
             domain = "gitlab.gnome.org";
             owner = "vanvugt";
             repo = "mutter";
-            rev = "triple-buffering-v4-47";
-            sha256 = "sha256-1VXEzKwzrqLCZby2oWxjclA08kPhxs/Om5N17qYeglM=";
+            #rev = "triple-buffering-v4-47";
+            rev = "1bc34b96a271597a6b1211e6a17aeeb06661b879";
+            sha256 = "sha256-D2Al6p+H2uNAFnBaCvMiuxXToPhhkiwmT+ojAjK4C9I=";
           };
           preConfigure =
             let
