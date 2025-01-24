@@ -10,7 +10,6 @@
       git
       # Fallback tools
       alacritty
-      helix
       neovim
       textpieces
     ];
