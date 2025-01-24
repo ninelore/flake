@@ -21,9 +21,7 @@
       hunspellDicts.en_GB-ise
       jetbrains.clion
       jetbrains.datagrip
-      jetbrains.dataspell
       jetbrains.idea-ultimate
-      jetbrains.rider
       libreoffice-fresh
       obsidian
       protonvpn-gui
