@@ -119,6 +119,7 @@
 
   fonts = {
     packages = with pkgs; [
+      dejavu_fonts
       jetbrains-mono
       liberation_ttf
       nerd-fonts.jetbrains-mono
@@ -126,6 +127,7 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
+      open-sans
     ];
   };
 }

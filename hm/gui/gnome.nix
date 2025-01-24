@@ -111,6 +111,7 @@
   };
 
   home.packages = with pkgs; [
+    adw-gtk3
     eyedropper
     gnome-tweaks
     gnome-maps

@@ -24,17 +24,6 @@ let
 in
 {
   home = {
-    packages = with pkgs; [
-      adw-gtk3
-      bibata-cursors
-      jetbrains-mono
-      liberation_ttf
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.noto
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-color-emoji
-    ];
     pointerCursor = cursorTheme // {
       gtk.enable = true;
     };
