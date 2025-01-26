@@ -94,6 +94,10 @@
     gamemode = {
       enable = true;
     };
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "alacritty";
+    };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;
     steam = {
