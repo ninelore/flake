@@ -27,6 +27,7 @@
       protonvpn-gui
       scrcpy
       textpieces
+      tuba
       wineWowPackages.stagingFull
       wl-clipboard
     ];
