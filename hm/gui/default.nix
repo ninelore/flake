@@ -13,7 +13,6 @@
       bottles
       discord-canary
       fractal
-      gaphor
       gimp
       helvum
       hunspell
@@ -24,10 +23,10 @@
       jetbrains.idea-ultimate
       libreoffice-fresh
       obsidian
+      pdfarranger
       protonvpn-gui
       scrcpy
       textpieces
-      via
       wineWowPackages.stagingFull
       wl-clipboard
     ];
