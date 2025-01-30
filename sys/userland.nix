@@ -7,6 +7,7 @@
     localBinInPath = true;
     systemPackages = with pkgs; [
       dmidecode
+      docker-compose
       git
       # Fallback tools
       alacritty
