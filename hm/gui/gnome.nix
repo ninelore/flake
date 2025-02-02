@@ -1,20 +1,21 @@
 { lib, pkgs, ... }:
+let
+  extensionList = with pkgs.gnomeExtensions; [
+    alphabetical-app-grid
+    appindicator
+    app-menu-is-back
+    blur-my-shell
+    caffeine
+    clipboard-history
+    nightscout
+    tiling-shell
+    vitals
+  ];
+in
 {
   programs.gnome-shell = {
     enable = true;
-    extensions = with pkgs.gnomeExtensions; [
-      { package = alphabetical-app-grid; }
-      { package = appindicator; }
-      { package = app-menu-is-back; }
-      { package = blur-my-shell; }
-      { package = caffeine; }
-      { package = clipboard-history; }
-      { package = just-perfection; }
-      { package = nightscout; }
-      { package = quick-web-search; }
-      { package = tiling-shell; }
-      { package = vitals; }
-    ];
+    extensions = builtins.map (ext: { package = ext; }) extensionList;
   };
 
   dconf = {
@@ -26,17 +27,7 @@
       };
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = with pkgs.gnomeExtensions; [
-          alphabetical-app-grid.extensionUuid
-          appindicator.extensionUuid
-          app-menu-is-back.extensionUuid
-          blur-my-shell.extensionUuid
-          caffeine.extensionUuid
-          clipboard-history.extensionUuid
-          nightscout.extensionUuid
-          quick-web-search.extensionUuid
-          tiling-shell.extensionUuid
-        ];
+        enabled-extensions = builtins.map (ext: ext.extensionUuid) extensionList;
       };
       "org/gnome/desktop/input-sources" = {
         xkb-options = [
