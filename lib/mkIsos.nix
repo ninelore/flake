@@ -26,7 +26,6 @@ let
                   "iomem=relaxed"
                 ];
                 programs = {
-                  adb.enable = true;
                   command-not-found.enable = false;
                   flashrom = {
                     enable = true;
@@ -36,25 +35,29 @@ let
                   nix-ld.enable = true;
                 };
                 environment.systemPackages = with pkgs; [
+                  # Distro install tools
                   apk-tools
                   apt
                   arch-install-scripts
                   dnf5
+                  # Tools
                   git
+                  neovim
                   ranger
+                  # Neovim deps
+                  fd
+                  gcc
+                  git
+                  gnumake
+                  lua5_1
+                  luarocks
+                  ripgrep
+                  tree-sitter
+                  wget
+                  nil
+                  nixd
+                  nixfmt-rfc-style
                 ];
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  extraSpecialArgs = {
-                    inherit inputs;
-                  };
-                  users."nixos" = {
-                    imports = [
-                      ../hm
-                    ];
-                  };
-                };
               }
             )
           ];
