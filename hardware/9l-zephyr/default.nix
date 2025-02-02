@@ -15,10 +15,10 @@
     ../common/asus
   ];
 
-  hardware.amdgpu.amdvlk = {
-    enable = true;
-    support32Bit.enable = true;
-  };
+  #hardware.amdgpu.amdvlk = {
+  #  enable = true;
+  #  support32Bit.enable = true;
+  #};
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.initrd.availableKernelModules = [
