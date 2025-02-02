@@ -2,16 +2,18 @@
 {
   programs.gnome-shell = {
     enable = true;
-    extensions = [
-      { package = pkgs.gnomeExtensions.alphabetical-app-grid; }
-      { package = pkgs.gnomeExtensions.appindicator; }
-      { package = pkgs.gnomeExtensions.app-menu-is-back; }
-      { package = pkgs.gnomeExtensions.blur-my-shell; }
-      { package = pkgs.gnomeExtensions.caffeine; }
-      { package = pkgs.gnomeExtensions.clipboard-history; }
-      { package = pkgs.gnomeExtensions.nightscout; }
-      { package = pkgs.gnomeExtensions.quick-web-search; }
-      { package = pkgs.gnomeExtensions.tiling-shell; }
+    extensions = with pkgs.gnomeExtensions; [
+      { package = alphabetical-app-grid; }
+      { package = appindicator; }
+      { package = app-menu-is-back; }
+      { package = blur-my-shell; }
+      { package = caffeine; }
+      { package = clipboard-history; }
+      { package = just-perfection; }
+      { package = nightscout; }
+      { package = quick-web-search; }
+      { package = tiling-shell; }
+      { package = vitals; }
     ];
   };
 
@@ -101,6 +103,14 @@
         notification-stale-data = true;
         notification-rapidly-changes = false;
         notification-urgency-level = 2;
+      };
+      "org/gnome/shell/extensions/vitals" = {
+        hot-sensors = [ "_default_icon_" ];
+        icon-style = 1;
+      };
+      "org/gnome/shell/extensions/just-perfection" = {
+        workspace-switcher-should-show = true;
+        workspace-switcher-size = 6;
       };
     };
   };
