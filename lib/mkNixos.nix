@@ -6,11 +6,12 @@ let
       map (
         systemConfig:
         let
-          nixpkgs-sys = if (systemConfig ? channel) then systemConfig.channel else inputs.nixpkgs;
+          sys = if (systemConfig ? channel) then systemConfig.channel else inputs.nixos;
+          isGaming = systemConfig ? gaming && systemConfig.gaming;
         in
         {
           name = systemConfig.hostname;
-          value = nixpkgs-sys.lib.nixosSystem {
+          value = sys.lib.nixosSystem {
             system = systemConfig.architecture;
             specialArgs = {
               inherit inputs systemConfig;
@@ -34,13 +35,22 @@ let
                       [
                         ../hm/9l
                         ../hm/gui
+                        {
+                          nix.channels = {
+                            nixpkgs = sys.lib.mkDefault sys;
+                          };
+                        }
                       ]
-                      ++ nixpkgs-sys.lib.optionals (systemConfig ? gaming && systemConfig.gaming) [
+                      ++ sys.lib.optionals isGaming [
                         ../hm/gui/gaming.nix
                       ];
                   };
                 };
                 console.keyMap = if (systemConfig ? keymap) then systemConfig.keymap else "us";
+                programs.steam = {
+                  enable = isGaming;
+                  gamescopeSession.enable = isGaming; # TODO: trial
+                };
               }
             ];
           };

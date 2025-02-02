@@ -5,10 +5,10 @@ let
     builtins.listToAttrs (
       map (isoArch: {
         name = isoArch + "-iso";
-        value = inputs.nixpkgs.lib.nixosSystem {
+        value = inputs.nixos.lib.nixosSystem {
           system = isoArch;
           modules = [
-            "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix"
+            "${inputs.nixos}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel-no-zfs.nix"
             inputs.chaotic.nixosModules.default
             inputs.nix-index-database.nixosModules.nix-index
             inputs.home-manager.nixosModules.home-manager

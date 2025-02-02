@@ -108,10 +108,6 @@
     };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true; # TODO: trial
-    };
     virt-manager.enable = true;
     wireshark.enable = true;
     ydotool.enable = true;

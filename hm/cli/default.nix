@@ -1,6 +1,4 @@
 {
-  inputs,
-  lib,
   ...
 }:
 {
@@ -13,10 +11,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  nix.channels = {
-    nixpkgs = lib.mkDefault inputs.nixpkgs;
-  };
 
   programs = {
     home-manager.enable = true;
