@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   nixpkgs = {
-    config = import ./config.nix;
+    config.allowUnfree = true;
     overlays = [
       (final: prev: {
         # Rebuilds mutter, gnome-shell, gnome-control-center

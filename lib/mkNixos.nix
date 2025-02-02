@@ -32,7 +32,6 @@ let
                   users.${systemConfig.username} = {
                     imports =
                       [
-                        ../hm
                         ../hm/9l
                         ../hm/gui
                       ]

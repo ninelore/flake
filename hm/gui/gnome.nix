@@ -62,12 +62,6 @@ in
       "org/gnome/desktop/wm/preferences" = {
         button-layout = "icon:minimize,close";
       };
-      "org/gnome/desktop/interface" = {
-        gtk-theme = "adw-gtk3";
-        font-name = "NotoSans Nerd Font 10";
-        document-font-name = "Cantarell 11";
-        monospace-font-name = "JetBrainsMono Nerd Font 10";
-      };
       # Extensions
       "org/gnome/shell/extensions/tilingshell" = {
         show-indicator = false;
@@ -110,13 +104,4 @@ in
     # GNOME / Wayland bug https://forums.opensuse.org/t/gnome-wayland-session-getting-killed/177667
     MUTTER_DEBUG_KMS_THREAD_TYPE = "user";
   };
-
-  home.packages = with pkgs; [
-    adw-gtk3
-    eyedropper
-    gnome-tweaks
-    gnome-maps
-    papers
-    resources
-  ];
 }

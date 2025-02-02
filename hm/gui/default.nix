@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ../cli
     ./theme.nix
     ./gnome.nix
   ];

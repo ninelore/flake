@@ -7,8 +7,8 @@ let
   };
 
   font = {
-    name = "NotoSans Nerd Font";
-    package = pkgs.nerd-fonts.noto;
+    name = "Cantarell";
+    package = pkgs.cantarell-fonts;
   };
 
   iconTheme = {
@@ -24,6 +24,16 @@ let
 in
 {
   home = {
+    packages = with pkgs; [
+      cantarell-fonts
+      dejavu_fonts
+      liberation_ttf
+      nerd-fonts.jetbrains-mono
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-emoji
+      open-sans
+    ];
     pointerCursor = cursorTheme // {
       gtk.enable = true;
     };
@@ -46,10 +56,6 @@ in
       adwaita-kvantum
       kdePackages.qtstyleplugin-kvantum
       libsForQt5.qtstyleplugin-kvantum
-      qadwaitadecorations
-      qadwaitadecorations-qt6
-      qgnomeplatform
-      qgnomeplatform-qt6
     ];
   };
 
@@ -63,6 +69,8 @@ in
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
+      sansSerif = [ "Cantarell" ];
+      serif = [ "Cantarell" ];
       monospace = [ "JetBrainsMono Nerd Font" ];
     };
   };

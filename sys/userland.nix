@@ -11,8 +11,15 @@
       git
       # Fallback tools
       alacritty
+      firefox
       neovim
       textpieces
+      # gnome apps
+      eyedropper
+      gnome-tweaks
+      gnome-maps
+      papers
+      resources
     ];
     gnome.excludePackages = (
       with pkgs;
@@ -123,11 +130,10 @@
 
   fonts = {
     packages = with pkgs; [
+      cantarell-fonts
       dejavu_fonts
-      jetbrains-mono
       liberation_ttf
       nerd-fonts.jetbrains-mono
-      nerd-fonts.noto
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
