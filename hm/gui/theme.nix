@@ -47,7 +47,6 @@ in
   gtk = {
     inherit
       font
-      theme
       cursorTheme
       iconTheme
       ;

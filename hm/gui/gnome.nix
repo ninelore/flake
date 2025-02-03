@@ -19,6 +19,10 @@ in
     extensions = builtins.map (ext: { package = ext; }) extensionList;
   };
 
+  home.packages = with pkgs; [
+    adw-gtk3
+  ];
+
   dconf = {
     enable = true;
     settings = with lib.hm.gvariant; {
@@ -62,6 +66,9 @@ in
       };
       "org/gnome/desktop/wm/preferences" = {
         button-layout = "icon:minimize,close";
+      };
+      "org/gnome/desktop/interface" = {
+        gtk-theme = "adw-gtk3";
       };
       # Extensions
       "org/gnome/shell/extensions/tilingshell" = {
