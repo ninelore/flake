@@ -93,6 +93,7 @@ in
       "org/gnome/shell/extensions/vitals" = {
         hot-sensors = [ "_default_icon_" ];
         icon-style = 1;
+        position-in-panel = 0;
       };
       "org/gnome/shell/extensions/just-perfection" = {
         workspace-switcher-should-show = true;
