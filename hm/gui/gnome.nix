@@ -7,6 +7,7 @@ let
     blur-my-shell
     caffeine
     clipboard-history
+    just-perfection
     nightscout
     tiling-shell
     vitals
