@@ -4,7 +4,7 @@ let
     alphabetical-app-grid
     appindicator
     app-menu-is-back
-    blur-my-shell
+    #blur-my-shell
     caffeine
     clipboard-history
     just-perfection
