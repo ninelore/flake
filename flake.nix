@@ -14,8 +14,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/894d1db77131a4a449d1993c7ba314ee15dd4e36";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
