@@ -1,0 +1,43 @@
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/zjstatus.wasm" {
+                format_left   "{mode} #[fg=#89B4FA,bold]{session}"
+                format_center "{tabs}"
+                format_right  "{command_git_branch} {datetime}"
+                format_space  ""
+                mode_normal        "#[fg=255] NORMAL "
+                mode_locked        "#[fg=249] LOCKED "
+                mode_pane          "#[fg=255] PANE "
+                mode_tab           "#[fg=255] TAB "
+                mode_scroll        "#[fg=255] SCROLL "
+                mode_enter_search  "#[fg=255] ENT-SEARCH "
+                mode_search        "#[fg=255] SEARCH "
+                mode_resize        "#[fg=255] RESIZE "
+                mode_rename_tab    "#[fg=255] RENAME TAB "
+                mode_rename_pane   "#[fg=255] RENAME PANE "
+                mode_move          "#[fg=255] MOVE "
+                mode_session       "#[fg=255] SESSION "
+                mode_prompt        "#[fg=255] PROMPT "
+                tab_normal              "#[fg=249] {index} #[fg=249] {name} {floating_indicator} "
+                tab_normal_fullscreen   "#[fg=249] {index} #[fg=249] {name} {fullscreen_indicator} "
+                tab_normal_sync         "#[fg=249] {index} #[fg=249] {name} {sync_indicator} "
+                tab_active              "#[fg=255] {index} #[fg=255,bold] {name} {floating_indicator} "
+                tab_active_fullscreen   "#[fg=255] {index} #[fg=255,bold] {name} {fullscreen_indicator} "
+                tab_active_sync         "#[fg=255] {index} #[fg=255,bold] {name} {sync_indicator} "
+                tab_separator           " "
+                tab_sync_indicator       ""
+                tab_fullscreen_indicator "󰊓"
+                tab_floating_indicator   "󰹙"
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[fg=red] {stdout} "
+                command_git_branch_interval    "10"
+                command_git_branch_rendermode  "static"
+                datetime        "#[fg=#6C7086,bold] {format} "
+                datetime_format "%A, %d %b %Y %H:%M"
+                datetime_timezone "Europe/Berlin"
+            }
+        }
+        children
+    }
+}
