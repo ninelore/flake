@@ -22,6 +22,7 @@
       jetbrains.clion
       jetbrains.datagrip
       jetbrains.idea-ultimate
+      kicad-small
       libreoffice-fresh
       obsidian
       pdfarranger
