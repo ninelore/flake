@@ -14,9 +14,7 @@ let
 in
 {
   xdg.configFile = {
-    "zellij/config.kdl".source = ./zellij.kdl;
-    "zellij/zjstatus.wasm".source = ./zjstatus.wasm;
-    "zellij/layouts/default.kdl".text = '''';
+    "zellij".source = ./zellij;
   };
   programs = {
     zellij = {
