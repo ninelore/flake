@@ -28,6 +28,10 @@
               cp -a "${gvdb}" ./subprojects/gvdb
             '';
         });
+        # Workaround https://github.com/NixOS/nixpkgs/issues/380196
+        lldb = prev.lldb.overrideAttrs {
+          dontCheckForBrokenSymlinks = true;
+        };
       })
       # Custom packages
       (final: prev: import ../pkgs { pkgs = prev.pkgs; })

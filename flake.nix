@@ -71,8 +71,6 @@
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               nixfmt-rfc-style
-              statix
-              vulnix
             ];
           };
         };
