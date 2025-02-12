@@ -6,28 +6,23 @@
       android-tools
       btop
       cbfstool
-      chafa
       curl
       distrobox
       dmidecode
       fastfetch
       flyctl
       gnutar
-      gptfdisk
       less
       lm_sensors
       nixfmt-rfc-style
       pciutils
       picocom
-      platformio-core
-      starship # Distrobox fix
       tldr
       unar
       vboot_reference
       zip
       unzip
       usbutils
-      weechat
     ];
   };
 

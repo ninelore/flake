@@ -61,6 +61,14 @@
           "x86_64-linux"
           "aarch64-linux"
         ];
+
+      homeConfigurations = myLib.mkHm [
+        {
+          user = "ninel";
+          arch = "x86_64-linux";
+          gui = true;
+        }
+      ];
     }
     // inputs.flake-utils.lib.eachDefaultSystem (system: {
       devShells =
@@ -76,24 +84,6 @@
         };
 
       formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
-
-      homeConfigurations = {
-        "ninel" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = import inputs.nixpkgs { inherit system; };
-          modules = [
-            ./nix
-            ./hm
-            ./hm/gui
-            ./hm/9l
-            {
-              targets.genericLinux.enable = true;
-              nix.channels = {
-                nixpkgs = inputs.nixpkgs.lib.mkDefault inputs.nixpkgs;
-              };
-            }
-          ];
-        };
-      };
 
       packages = import ./pkgs inputs.nixos.legacyPackages.${system};
     });
