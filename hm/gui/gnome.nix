@@ -4,10 +4,8 @@ let
     alphabetical-app-grid
     appindicator
     app-menu-is-back
-    #blur-my-shell
     caffeine
     clipboard-history
-    just-perfection
     nightscout
     tiling-shell
     vitals
@@ -100,10 +98,6 @@ in
       "org/gnome/shell/extensions/vitals" = {
         hot-sensors = [ "_default_icon_" ];
         icon-style = 1;
-      };
-      "org/gnome/shell/extensions/just-perfection" = {
-        workspace-switcher-should-show = true;
-        workspace-switcher-size = 6;
       };
     };
   };
