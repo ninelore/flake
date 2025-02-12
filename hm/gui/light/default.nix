@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
-    ../cli
-    ./theme.nix
-    ./gnome.nix
+    ../../cli
+    ../theme.nix
+    ../gnome.nix
   ];
 
   home = {
