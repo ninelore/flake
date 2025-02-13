@@ -28,6 +28,7 @@
       pdfarranger
       protonvpn-gui
       scrcpy
+      spotify
       textpieces
       tuba
       wineWowPackages.stagingFull
