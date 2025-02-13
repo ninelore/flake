@@ -73,7 +73,7 @@
           # Mason  TODO: Bad Practice
           cargo
           go
-          jdk17_headless
+          jdk21_headless
           python3
           rustc
           # Stuff that doesnt work or isnt available via mason.nvim
