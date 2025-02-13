@@ -31,7 +31,6 @@
       editor = "nvim";
     in
     {
-      broot.enable = true;
       direnv.enable = true;
       git = {
         enable = true;
@@ -53,7 +52,6 @@
         settings.editor = editor;
       };
       gpg.enable = true;
-      jq.enable = true;
       neovim = {
         enable = true;
         defaultEditor = true;

@@ -74,9 +74,9 @@ in
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      sansSerif = [ "Cantarell" ];
-      serif = [ "Cantarell" ];
-      monospace = [ "JetBrainsMono Nerd Font" ];
+      sansSerif = [ "Cantarell 10" ];
+      serif = [ "Cantarell 10" ];
+      monospace = [ "JetBrainsMono Nerd Font 11" ];
     };
   };
 

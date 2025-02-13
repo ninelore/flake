@@ -37,22 +37,20 @@ in
       inherit shellAliases;
       enable = true;
     };
-
     zsh = {
       inherit shellAliases;
       enable = true;
     };
-
     nushell = {
       inherit shellAliases;
       enable = true;
       environmentVariables = {
-        PROMPT_INDICATOR_VI_INSERT = '''';
-        PROMPT_INDICATOR_VI_NORMAL = '''';
+        PROMPT_INDICATOR_VI_INSERT = "";
+        PROMPT_INDICATOR_VI_NORMAL = "";
       };
       extraConfig =
         let
-          theme = "molokai";
+          theme = "monokai-soda";
 
           conf = builtins.toJSON {
             show_banner = false;
@@ -115,14 +113,11 @@ in
             "adb"
             "cargo"
             "curl"
-            "docker"
-            "dotnet"
             "fastboot"
             "gh"
             "git"
             "less"
             "make"
-            "man"
             "mvn"
             "nix"
             "npm"
