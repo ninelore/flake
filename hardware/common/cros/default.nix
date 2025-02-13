@@ -4,8 +4,6 @@
   environment = {
     sessionVariables.ALSA_CONFIG_UCM2 = "${pkgs.alsa-ucm-conf-cros}/share/alsa/ucm2";
     systemPackages = with pkgs; [
-      cbmem
-      cros-ectool
       sof-firmware
     ];
     # TODO: No handling for Nocturne, Atlas, Eve, Sarien and Arcada keyboards yet
@@ -16,6 +14,21 @@
         AttrKeyboardIntegration=internal
         ModelTabletModeNoSuspend=1
       '';
+    };
+  };
+
+  security.wrappers = {
+    cbmem = {
+      setuid = true;
+      owner = "root";
+      group = "root";
+      source = "${pkgs.cbmem}/bin/cbmem";
+    };
+    ectool = {
+      setuid = true;
+      owner = "root";
+      group = "root";
+      source = "${pkgs.cros-ectool}/bin/ectool";
     };
   };
 
