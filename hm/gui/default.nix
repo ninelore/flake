@@ -86,9 +86,6 @@
     };
     firefox = {
       enable = true;
-      nativeMessagingHosts = with pkgs; [
-        gnome-browser-connector
-      ];
     };
   };
 }
