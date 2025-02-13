@@ -68,6 +68,10 @@
           arch = "x86_64-linux";
           gui = true;
         }
+        {
+          user = "9l";
+          arch = "x86_64-linux";
+        }
       ];
     }
     // inputs.flake-utils.lib.eachDefaultSystem (system: {
