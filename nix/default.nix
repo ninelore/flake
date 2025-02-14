@@ -3,12 +3,7 @@
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      (final: prev: {
-        # Workaround https://github.com/NixOS/nixpkgs/issues/380196
-        lldb = prev.lldb.overrideAttrs {
-          dontCheckForBrokenSymlinks = true;
-        };
-      })
+      (final: prev: { })
       # Custom packages
       (final: prev: import ../pkgs { pkgs = prev.pkgs; })
     ];
