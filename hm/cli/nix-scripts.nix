@@ -24,14 +24,9 @@ let
   spawnb = pkgs.writeShellScriptBin "spawnb" ''
     nohup $* &
   '';
-
-  devflake = pkgs.writeShellScriptBin "devflake" ''
-    nix flake init --template "https://flakehub.com/f/the-nix-way/dev-templates/*#$1"
-  '';
 in
 {
   home.packages = [
-    devflake
     nxr
     nx-flakepath-update
     spawnb
