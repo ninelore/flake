@@ -26,7 +26,6 @@
       [
         atomix
         cheese
-        epiphany
         evince
         geary
         gedit
