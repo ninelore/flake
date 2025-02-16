@@ -17,6 +17,7 @@
       nixfmt-rfc-style
       pciutils
       picocom
+      pmbootstrap
       tldr
       unar
       vboot_reference
