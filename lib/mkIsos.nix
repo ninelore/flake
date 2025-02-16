@@ -40,6 +40,7 @@ let
                   apt
                   arch-install-scripts
                   dnf5
+                  pmbootstrap
                   # Tools
                   git
                   neovim
