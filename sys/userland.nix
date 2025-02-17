@@ -13,6 +13,7 @@
       alacritty
       firefox
       neovim
+      ptyxis
       textpieces
       # gnome apps
       eyedropper
@@ -30,6 +31,7 @@
         geary
         gedit
         gnome-calendar
+        gnome-console
         gnome-contacts
         gnome-shell-extensions
         gnome-software
