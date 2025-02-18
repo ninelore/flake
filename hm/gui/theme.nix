@@ -11,6 +11,7 @@ let
     package = pkgs.cantarell-fonts;
   };
 
+  # ignore unused
   theme = {
     name = "adw-gtk3";
     package = pkgs.adw-gtk3;
@@ -58,10 +59,15 @@ in
     enable = true;
     style.name = "kvantum-dark";
     style.package = with pkgs; [
+      kdePackages.qtsvg
+      libsForQt5.qtsvg
       adwaita-kvantum
       kdePackages.qtstyleplugin-kvantum
       libsForQt5.qtstyleplugin-kvantum
     ];
+    platformTheme = {
+      name = "adwaita";
+    };
   };
 
   xdg.configFile = {
