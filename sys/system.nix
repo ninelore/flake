@@ -6,7 +6,10 @@
       systemd.enable = true;
       verbose = false;
     };
-    blacklistedKernelModules = [ "r8153_ecm" ];
+    blacklistedKernelModules = [
+      "r8153_ecm"
+      "r8152"
+    ];
     kernelParams = [
       "boot.shell_on_fail"
       # eye candy below
