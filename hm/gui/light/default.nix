@@ -9,6 +9,7 @@
   home = {
     packages = with pkgs; [
       appimage-run
+      ptyxis
       wl-clipboard
     ];
     sessionVariables = {
