@@ -52,6 +52,9 @@
         general.import = [
           "${pkgs.alacritty-theme}/monokai_charcoal.toml"
         ];
+        colors.primary = {
+          background = "#191515";
+        };
         window = {
           opacity = 0.8;
           startup_mode = "Maximized";
