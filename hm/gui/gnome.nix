@@ -6,6 +6,7 @@ let
     app-menu-is-back
     caffeine
     clipboard-history
+    gsconnect
     nightscout
     tiling-shell
     vitals
