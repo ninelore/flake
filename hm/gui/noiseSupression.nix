@@ -41,6 +41,6 @@ let
 in
 {
   xdg.configFile."pipewire/pipewire.conf.d/99-input-denoising.conf" = {
-    source = pkgs.formats.json.generate "99-input-denoising.conf" pw_rnnoise_config;
+    source = (pkgs.formats.json { }).generate "99-input-denoising.conf" pw_rnnoise_config;
   };
 }
