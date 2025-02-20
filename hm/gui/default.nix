@@ -4,6 +4,7 @@
     ../cli
     ./theme.nix
     ./gnome.nix
+    ./noiseSupression.nix
   ];
 
   home = {
