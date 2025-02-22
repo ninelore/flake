@@ -8,6 +8,4 @@
   ];
 
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos;
-
-  services.fwupd.enable = true;
 }
