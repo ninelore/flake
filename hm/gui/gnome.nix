@@ -31,7 +31,7 @@ in
       };
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = builtins.map (ext: ext.extensionUuid) extensionList;
+        #enabled-extensions = builtins.map (ext: ext.extensionUuid) extensionList;
       };
       "org/gnome/desktop/input-sources" = {
         xkb-options = [
