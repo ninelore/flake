@@ -11,8 +11,7 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     #nixos-stable.url = "ngithub:nixos/nixpkgs/nixos-24.11"; # Unused
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixos.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
@@ -89,6 +88,6 @@
 
       formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
 
-      packages = import ./pkgs inputs.nixos.legacyPackages.${system};
+      packages = import ./pkgs inputs.nixpkgs.legacyPackages.${system};
     });
 }

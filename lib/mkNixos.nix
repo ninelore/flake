@@ -6,7 +6,7 @@ let
       map (
         systemConfig:
         let
-          sys = if (systemConfig ? channel) then systemConfig.channel else inputs.nixos;
+          sys = if (systemConfig ? channel) then systemConfig.channel else inputs.nixpkgs;
           isGaming = systemConfig ? gaming && systemConfig.gaming;
         in
         {
