@@ -28,7 +28,7 @@
   boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices."root" = {
-    device = "/dev/disk/by-uuid/385f5c5f-ed66-4f01-bcb3-6c47ecf959b0";
+    device = "/dev/disk/by-uuid/6d32df27-7946-4514-9f82-c5c39d2e5caa";
     allowDiscards = true;
   };
 
@@ -43,7 +43,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/9427-7F30";
+    device = "/dev/disk/by-uuid/DC54-538D";
     fsType = "vfat";
     options = [
       "fmask=0022"
@@ -56,3 +56,4 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
+
