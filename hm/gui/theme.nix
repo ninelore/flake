@@ -59,8 +59,6 @@ in
     enable = true;
     style.name = "kvantum-dark";
     style.package = with pkgs; [
-      kdePackages.qtsvg
-      libsForQt5.qtsvg
       adwaita-kvantum
       kdePackages.qtstyleplugin-kvantum
       libsForQt5.qtstyleplugin-kvantum
