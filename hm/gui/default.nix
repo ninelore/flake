@@ -20,9 +20,6 @@
       hunspell
       hunspellDicts.de_DE
       hunspellDicts.en_GB-ise
-      jetbrains.clion
-      jetbrains.datagrip
-      jetbrains.idea-ultimate
       kicad-small
       libreoffice-fresh
       obsidian
