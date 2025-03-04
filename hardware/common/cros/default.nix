@@ -16,34 +16,33 @@
       '';
     };
   };
-
-  security.wrappers = {
-    cbmem = {
-      setuid = true;
-      owner = "root";
-      group = "root";
-      source = "${pkgs.cbmem}/bin/cbmem";
-    };
-    ectool = {
-      setuid = true;
-      owner = "root";
-      group = "root";
-      source = "${pkgs.cros-ectool}/bin/ectool";
+  boot = {
+    kernelParams = [ "iomem=relaxed" ];
+    initrd.systemd.tpm2.enable = false;
+  };
+  hardware.sensor.iio.enable = true;
+  security = {
+    tpm2.enable = false;
+    wrappers = {
+      cbmem = {
+        setuid = true;
+        owner = "root";
+        group = "root";
+        source = "${pkgs.cbmem}/bin/cbmem";
+      };
+      ectool = {
+        setuid = true;
+        owner = "root";
+        group = "root";
+        source = "${pkgs.cros-ectool}/bin/ectool";
+      };
     };
   };
-
-  security.tpm2.enable = false;
-  hardware.sensor.iio.enable = true;
-  boot.initrd.systemd.tpm2.enable = false;
-
-  boot.kernelParams = [ "iomem=relaxed" ];
-
   systemd.services."getty@tty11" = {
     enable = true;
     wantedBy = [ "getty.target" ];
     serviceConfig.Restart = "always";
   };
-
   services = {
     keyd.enable = true;
     libinput.enable = true;
