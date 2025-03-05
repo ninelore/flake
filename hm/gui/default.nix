@@ -10,7 +10,6 @@
   home = {
     packages = with pkgs; [
       # GUI Apps
-      android-studio
       appimage-run
       bottles
       discord-canary
