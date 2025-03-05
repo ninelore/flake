@@ -1,29 +1,29 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
+let
+  withExtraPackages =
+    pkg: extraPackages:
+    pkgs.runCommand "${pkg.name}-wrapped" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
+      for exe in ${lib.getBin pkg}/bin/*; do
+        makeWrapper $exe $out/bin/$(basename $exe) --prefix PATH : ${lib.makeBinPath extraPackages}
+      done
+    '';
+in
+
 {
   home = {
     packages = with pkgs; [
       # cli
       android-tools
       btop
-      cbfstool
-      curl
       distrobox
-      dmidecode
-      fastfetch
       flyctl
-      gnutar
-      less
-      lm_sensors
-      nixfmt-rfc-style
-      pciutils
+      harlequin
       picocom
       pmbootstrap
       tldr
-      unar
       vboot_reference
       zip
       unzip
-      usbutils
     ];
   };
 

@@ -6,21 +6,24 @@
   environment = {
     localBinInPath = true;
     systemPackages = with pkgs; [
+      alacritty
+      curl
       dmidecode
       docker-compose
-      git
-      # Fallback tools
-      alacritty
-      firefox
-      neovim
-      ptyxis
-      textpieces
-      # gnome apps
       eyedropper
+      firefox
+      git
       gnome-tweaks
       gnome-maps
+      less
+      lm_sensors
+      neovim
       papers
+      pciutils
+      ptyxis
       resources
+      textpieces
+      usbutils
     ];
     gnome.excludePackages = (
       with pkgs;
@@ -67,7 +70,6 @@
       HandleLidSwitch=suspend
       HandleLidSwitchDocked=ignore
     '';
-    gnome.gnome-browser-connector.enable = true;
     flatpak.enable = false;
   };
 
