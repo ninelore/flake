@@ -88,5 +88,22 @@
     firefox = {
       enable = true;
     };
+    mpv = {
+      enable = true;
+      scripts = with pkgs.mpvScripts; [
+        mpris
+        sponsorblock
+        thumbfast
+        uosc
+        videoclip
+      ];
+      scriptOpts = {
+        thumbfast = {
+          spawn_first = true;
+          network = true;
+          hwdec = true;
+        };
+      };
+    };
   };
 }
