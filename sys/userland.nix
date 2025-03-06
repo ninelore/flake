@@ -17,11 +17,11 @@
       gnome-maps
       less
       lm_sensors
+      mpv
       neovim
       papers
       pciutils
       ptyxis
-      resources
       textpieces
       usbutils
     ];
@@ -36,6 +36,7 @@
         gnome-calendar
         gnome-console
         gnome-contacts
+        gnome-music
         gnome-shell-extensions
         gnome-software
         gnome-system-monitor
@@ -48,6 +49,7 @@
         iagno
         simple-scan
         tali
+        totem
         yelp
       ]
     );
