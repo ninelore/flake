@@ -4,7 +4,6 @@
     ./system.nix
     ./locale.nix
     ./userland.nix
-    ./smb.nix
   ];
 
   users.users.${systemConfig.username} = {
@@ -26,7 +25,6 @@
       "wireshark"
       "ydotool"
       "dialout"
-      "ninelsmb"
     ];
   };
 
