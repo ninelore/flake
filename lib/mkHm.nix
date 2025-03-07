@@ -9,7 +9,7 @@ let
           pkgs = import inputs.nixpkgs { system = hmConfig.arch; };
           modules = [
             ../nix
-            (if (hmConfig ? gui) then ../hm/gui/light else ../hm/cli)
+            (if (hmConfig ? gui) then ../hm/gui else ../hm/cli)
             {
               home.username = hmConfig.user;
               home.homeDirectory = "/home/${hmConfig.user}";

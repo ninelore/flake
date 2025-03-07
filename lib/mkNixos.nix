@@ -7,7 +7,7 @@ let
         systemConfig:
         let
           sys = if (systemConfig ? channel) then systemConfig.channel else inputs.nixpkgs;
-          isGaming = systemConfig ? gaming && systemConfig.gaming;
+          extras = systemConfig ? extras && systemConfig.extras;
         in
         {
           name = systemConfig.hostname;
@@ -41,15 +41,15 @@ let
                           };
                         }
                       ]
-                      ++ sys.lib.optionals isGaming [
-                        ../hm/gui/gaming.nix
+                      ++ sys.lib.optionals extras [
+                        ../hm/gui/extra
                       ];
                   };
                 };
                 console.keyMap = if (systemConfig ? keymap) then systemConfig.keymap else "us";
                 programs.steam = {
-                  enable = isGaming;
-                  gamescopeSession.enable = isGaming; # TODO: trial
+                  enable = extras;
+                  gamescopeSession.enable = extras; # TODO: trial
                 };
               }
             ];

@@ -40,7 +40,7 @@
             username = "9l";
             hostname = "9l-zephyr";
             architecture = "x86_64-linux";
-            gaming = true;
+            extras = true;
             keymap = "de";
           }
           {
@@ -53,6 +53,7 @@
             username = "9l";
             hostname = "9l-drobit";
             architecture = "x86_64-linux";
+            extras = true;
             keymap = "uk";
           }
         ]

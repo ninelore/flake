@@ -124,7 +124,7 @@
     settings = {
       default = [
         "Alacritty.desktop"
-        "org.gnome.Console.desktop"
+        "org.gnome.Ptyxis.desktop"
       ];
     };
   };
