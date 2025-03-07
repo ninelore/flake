@@ -13,7 +13,6 @@
       eyedropper
       firefox
       git
-      gnome-tweaks
       gnome-maps
       less
       lm_sensors
@@ -22,6 +21,7 @@
       papers
       pciutils
       ptyxis
+      refine
       textpieces
       usbutils
     ];
