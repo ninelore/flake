@@ -21,7 +21,6 @@
       hunspellDicts.en_GB-ise
       kicad-small
       libreoffice-fresh
-      obsidian
       pdfarranger
       protonvpn-gui
       scrcpy
