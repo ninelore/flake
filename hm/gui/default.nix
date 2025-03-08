@@ -42,39 +42,19 @@
   };
 
   programs = {
-    alacritty = {
+    kitty = {
       enable = true;
-      settings = {
-        general.import = [
-          "${pkgs.alacritty-theme}/monokai_charcoal.toml"
-        ];
-        colors.primary = {
-          background = "#191515";
-        };
-        window = {
-          opacity = 0.8;
-          startup_mode = "Maximized";
-        };
-        font = {
-          size = 11;
-        };
-        font.bold = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Bold";
-        };
-        font.bold_italic = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Bold Italic";
-        };
-        font.italic = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Italic";
-        };
-        font.normal = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Regular";
-        };
+      font = {
+        name = "JetBrainsMono Nerd Font";
+        size = 11;
       };
+      settings = {
+        wayland_titlebar_color = "background";
+        remember_window_size = true;
+        enabled_layouts = "stack,splits";
+        confirm_os_window_close = 0;
+      };
+      themeFile = "Monokai_Soda";
     };
     chromium = {
       enable = true;
