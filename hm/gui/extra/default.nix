@@ -11,5 +11,7 @@
         vba-m
       ]
     ))
+    protonvpn-cli
+    protonvpn-gui
   ];
 }

@@ -22,7 +22,6 @@
       kicad-small
       libreoffice-fresh
       pdfarranger
-      protonvpn-gui
       scrcpy
       spotify
       textpieces
