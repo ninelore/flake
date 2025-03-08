@@ -31,7 +31,18 @@ in
       };
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        #enabled-extensions = builtins.map (ext: ext.extensionUuid) extensionList;
+        enabled-extensions = builtins.map (ext: ext.extensionUuid) extensionList;
+        favorite-apps = [
+          "kitty.desktop"
+          "firefox.desktop"
+          "org.gnome.Nautilus.desktop"
+          "discord-canary.desktop"
+          "spotify.desktop"
+          "org.gnome.Fractal.desktop"
+          "dev.geopjr.Tuba.desktop"
+          "startcenter.desktop"
+          "dev.zed.Zed.desktop"
+        ];
       };
       "org/gnome/desktop/input-sources" = {
         xkb-options = [
