@@ -37,7 +37,6 @@
       configs = import ./9l { inherit inputs; };
     in
     inputs.flake-utils.lib.eachDefaultSystem (system: {
-      githubActions = inputs.nix-github-actions.lib.mkGithubMatrix { checks = self.packages; };
       formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
       packages = import ./pkgs { inherit inputs system; };
       devShells = with inputs.nixpkgs.legacyPackages.${system}; {
@@ -51,6 +50,7 @@
       };
     })
     // {
+      githubActions = inputs.nix-github-actions.lib.mkGithubMatrix { checks = self.packages; };
       nixosConfigurations = configs.nixos;
       homeConfigurations = configs.hm;
       overlays.default =
