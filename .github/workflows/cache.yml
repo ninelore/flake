@@ -1,5 +1,6 @@
 name: Build and Cache packages
 on:
+  workflow_dispatch:
   push:
     branches: [main]
 
