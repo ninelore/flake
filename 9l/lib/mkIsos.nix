@@ -12,7 +12,7 @@ let
             inputs.chaotic.nixosModules.default
             inputs.nix-index-database.nixosModules.nix-index
             inputs.home-manager.nixosModules.home-manager
-            ../nix
+            ../../nix
             (
               {
                 pkgs,

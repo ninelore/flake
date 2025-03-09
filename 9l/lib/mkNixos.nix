@@ -17,9 +17,10 @@ let
               inherit inputs systemConfig;
             };
             modules = [
-              ../nix
-              ../sys
-              ../hardware/${systemConfig.hostname}
+              ../../nix
+              ../../sys
+              ../../hardware/${systemConfig.hostname}
+              inputs.self.nixosModules.default
               inputs.chaotic.nixosModules.default
               inputs.nix-index-database.nixosModules.nix-index
               inputs.home-manager.nixosModules.home-manager
@@ -33,8 +34,8 @@ let
                   users.${systemConfig.username} = {
                     imports =
                       [
-                        ../hm/9l
-                        ../hm/gui
+                        ../../9l/hm
+                        ../../hm/gui
                         {
                           nix.channels = {
                             nixpkgs = sys.lib.mkDefault sys;
@@ -42,7 +43,7 @@ let
                         }
                       ]
                       ++ sys.lib.optionals extras [
-                        ../hm/gui/extra
+                        ../../hm/gui/extra
                       ];
                   };
                 };

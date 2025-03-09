@@ -4,8 +4,6 @@
     config.allowUnfree = true;
     overlays = [
       (final: prev: { })
-      # Custom packages
-      (final: prev: import ../pkgs { pkgs = prev.pkgs; })
     ];
   };
   nix = {

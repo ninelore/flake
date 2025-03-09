@@ -1,14 +1,13 @@
 # My Nix monoflake
 
-WARNING: Expect force-pushes to main
-
 ## Directory Layout
 
+- 9l: definition of personal outputs
 - hardware: Configs equivalent to /etc/nixos/hardware-configuration.nix
 - hm: User-level home-manager configs
-  - 9l: __Personal__ user and git configuration
 - lib: Library of custom functions
-- nix: Nix package manager configs and nix overlays
+- modules: custom {nixos,home}Modules
+- nix: Nix config module kept compatible as both NixOS and home-manager Module
 - pkgs: Custom packages
 - sys: System-level Nix(OS) configs
 
@@ -20,4 +19,3 @@ WARNING: Expect force-pushes to main
 ## Acknowledgements
 
 - [Aylur](https://github.com/Aylur): [Dotfiles](https://github.com/Aylur/dotfiles) for inspiration and some formerly copied config snippets
-- [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim): Should be self-explainatory

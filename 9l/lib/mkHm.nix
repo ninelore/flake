@@ -8,8 +8,11 @@ let
         value = inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = import inputs.nixpkgs { system = hmConfig.arch; };
           modules = [
-            ../nix
-            (if (hmConfig ? gui) then ../hm/gui else ../hm/cli)
+            ../../nix
+            inputs.self.homeModules.default
+            inputs.chaotic.homeManagerModules.default
+            inputs.nix-index-database.hmModules.nix-index
+            (if (hmConfig ? gui) then ../../hm/gui else ../../hm/cli)
             {
               home.username = hmConfig.user;
               home.homeDirectory = "/home/${hmConfig.user}";
