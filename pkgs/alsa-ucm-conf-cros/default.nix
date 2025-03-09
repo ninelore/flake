@@ -11,4 +11,7 @@ alsa-ucm-conf.overrideAttrs {
   postInstall = ''
     cp -rf $wttsrc/ucm2 $out/share/alsa/
   '';
+
+  # Note: inherits meta
+  # License: BSD 3-Clause
 }

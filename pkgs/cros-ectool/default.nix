@@ -5,6 +5,7 @@
   libusb1,
   pkg-config,
   stdenv,
+  lib,
   ...
 }:
 stdenv.mkDerivation {
@@ -43,4 +44,15 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
+
+  meta = {
+    description = "chromium embedded controller tool";
+    license = lib.licenses.mit;
+    platforms = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
+  };
 }

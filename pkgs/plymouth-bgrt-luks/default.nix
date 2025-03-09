@@ -2,6 +2,7 @@
   plymouth,
   stdenv,
   writeText,
+  lib,
   ...
 }:
 stdenv.mkDerivation (finalAttrs: {
@@ -71,4 +72,13 @@ stdenv.mkDerivation (finalAttrs: {
   installPhase = ''
     install -Dm444 $src $out/share/plymouth/themes/bgrt-luks/bgrt-luks.plymouth
   '';
+
+  meta = {
+    description = "Plymouth BGRT theme but luks password prompt wont overlap bgrt image";
+    license = lib.licenses.gpl3;
+    platforms = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+  };
 })

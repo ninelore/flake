@@ -5,6 +5,7 @@
   openssl,
   pkg-config,
   stdenv,
+  lib,
   ...
 }:
 stdenv.mkDerivation {
@@ -41,4 +42,16 @@ stdenv.mkDerivation {
     cp extra/usb_updater $out/bin/gsctool
     runHook postInstall
   '';
+
+  meta = {
+    description = "chromium google security chip (CR-50, TI-50) tool";
+    license = lib.licenses.mit;
+    platforms = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
+  };
+
 }
