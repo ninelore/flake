@@ -7,7 +7,10 @@ let
     caffeine
     clipboard-history
     gsconnect
+    hot-edge
     nightscout
+    quick-settings-audio-devices-hider
+    quick-settings-audio-devices-renamer
     tiling-shell
     vitals
   ];
