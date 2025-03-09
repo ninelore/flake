@@ -26,6 +26,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-github-actions = {
+      url = "github:nix-community/nix-github-actions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -73,6 +78,8 @@
           arch = "x86_64-linux";
         }
       ];
+
+      githubActions = inputs.nix-github-actions.lib.mkGithubMatrix { checks = self.packages; };
     }
     // inputs.flake-utils.lib.eachDefaultSystem (system: {
       devShells =
