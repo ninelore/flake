@@ -1,3 +1,4 @@
+name: Update lockfile
 on:
   workflow_dispatch:
   schedule:
