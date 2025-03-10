@@ -6,7 +6,6 @@
   environment = {
     localBinInPath = true;
     systemPackages = with pkgs; [
-      alacritty
       curl
       dmidecode
       docker-compose
@@ -123,7 +122,6 @@
     enable = true;
     settings = {
       default = [
-        "Alacritty.desktop"
         "org.gnome.Ptyxis.desktop"
       ];
     };
