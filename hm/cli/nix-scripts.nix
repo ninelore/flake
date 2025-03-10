@@ -5,8 +5,12 @@ let
     if [[ -r $HOME/.nx-flakepath ]] && ! [[ -r ./flake.nix ]]; then
       if [[ -r "$(cat "$HOME"/.nx-flakepath)/flake.nix" ]]; then
         _p=$(cat "$HOME"/.nx-flakepath)
+        cd "$_p" || exit 1
         echo "Found flakepath $_p"
       fi
+    fi
+    if ping -c1 github.com > /dev/null 2>&1; then
+      git pull --ff-only --autostash || exit 1
     fi
     run0 nixos-rebuild --flake $_p $*
   '';
