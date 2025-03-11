@@ -14,3 +14,6 @@ jobs:
       - uses: DeterminateSystems/update-flake-lock@main
         with:
           token: ${{ secrets.GH_TOKEN }}
+      - run: "gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }}"
+        env:
+          GH_TOKEN: ${{ github.token }}
