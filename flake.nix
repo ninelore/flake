@@ -38,7 +38,7 @@
     in
     inputs.flake-utils.lib.eachDefaultSystem (system: {
       formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
-      packages = import ./pkgs { inherit inputs system; };
+      legacyPackages = import ./pkgs { inherit inputs system; };
       devShells = with inputs.nixpkgs.legacyPackages.${system}; {
         default = mkShellNoCC {
           packages = [
@@ -50,7 +50,7 @@
       };
     })
     // {
-      githubActions = inputs.nix-github-actions.lib.mkGithubMatrix { checks = self.packages; };
+      githubActions = inputs.nix-github-actions.lib.mkGithubMatrix { checks = self.legacyPackages; };
       nixosConfigurations = configs.nixos;
       homeConfigurations = configs.hm;
       overlays.default =
