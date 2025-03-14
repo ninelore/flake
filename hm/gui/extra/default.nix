@@ -1,7 +1,12 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    discord-canary
+    fractal
     prismlauncher
+    protonvpn-cli
+    protonvpn-gui
+    tuba
     (pkgs.retroarch.withCores (
       cores: with cores; [
         melonds
@@ -11,7 +16,5 @@
         vba-m
       ]
     ))
-    protonvpn-cli
-    protonvpn-gui
   ];
 }

@@ -12,10 +12,7 @@
       # GUI Apps
       appimage-run
       bottles
-      discord-canary
-      fractal
       gimp
-      helvum
       hunspell
       hunspellDicts.de_DE
       hunspellDicts.en_GB-ise
@@ -25,7 +22,6 @@
       scrcpy
       spotify
       textpieces
-      tuba
       wineWowPackages.stagingFull
       wl-clipboard
       zed-editor_git

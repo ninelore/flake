@@ -13,6 +13,7 @@
       firefox
       git
       gnome-maps
+      helvum
       less
       lm_sensors
       mpv
