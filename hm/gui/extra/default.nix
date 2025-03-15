@@ -7,6 +7,13 @@
     protonvpn-cli
     protonvpn-gui
     tuba
+    (pkgs.ghidra.withExtensions (
+      p: with p; [
+        ghidraninja-ghidra-scripts
+        ret-sync
+        wasm
+      ]
+    ))
     (pkgs.retroarch.withCores (
       cores: with cores; [
         melonds
