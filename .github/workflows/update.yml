@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/update-flake-lock@main
+      - uses: DeterminateSystems/update-flake-lock@v24
       - name: Print PR number
         run: echo Pull request number is ${{ steps.update.outputs.pull-request-number }}.
       - run: "gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }}"
