@@ -10,11 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/update-flake-lock@v24
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+      - name: Update flake.lock
+        id: update
+        uses: DeterminateSystems/update-flake-lock@v24
       - name: Print PR number
         run: echo Pull request number is ${{ steps.update.outputs.pull-request-number }}.
-      - run: "gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }}"
+      - name: Attempt automatic merge
+        run: |
+          gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }} || true
         if: ${{ steps.update.outputs.pull-request-number }}
         env:
           GH_TOKEN: ${{ github.token }}
