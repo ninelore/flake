@@ -15,6 +15,12 @@ jobs:
       - name: Update flake.lock
         id: update
         uses: DeterminateSystems/update-flake-lock@v24
+        with:
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          git-author-name: 'ninelore CI'
+          git-author-email: 'ci-bot@9lo.re'
+          git-committer-name: 'ninelore CI'
+          git-committer-email: 'ci-bot@9lo.re'
       - name: Attempt automatic merge
         run: |
           gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }} || true
