@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   nixpkgs = {
-    config.allowUnfree = true;
     overlays = [
       (final: prev: { })
     ];

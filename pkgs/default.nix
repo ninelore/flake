@@ -1,5 +1,8 @@
 { inputs, system, ... }:
-with inputs.nixpkgs.legacyPackages.${system};
+with import inputs.nixpkgs {
+  inherit system;
+  config.allowUnfree = true;
+};
 {
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
   adwaita-kvantum = callPackage ./adwaita-kvantum { };

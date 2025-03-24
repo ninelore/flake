@@ -8,11 +8,16 @@ let
         let
           sys = if (systemConfig ? channel) then systemConfig.channel else inputs.nixpkgs;
           extras = systemConfig ? extras && systemConfig.extras;
+          pkgs = import sys {
+            system = systemConfig.architecture;
+            config.allowUnfree = true;
+          };
         in
         {
           name = systemConfig.hostname;
           value = sys.lib.nixosSystem {
             system = systemConfig.architecture;
+            inherit pkgs;
             specialArgs = {
               inherit inputs systemConfig;
             };
