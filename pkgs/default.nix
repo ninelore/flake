@@ -12,4 +12,5 @@ with inputs.nixpkgs.legacyPackages.${system};
   };
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
+  warcraftlogs-uploader = callPackage ./warcraftlogs-uploader { };
 }
