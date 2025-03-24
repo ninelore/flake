@@ -1,5 +1,9 @@
-{ pkgs, ... }:
-with pkgs;
+{
+  alsa-ucm-conf,
+  fetchFromGitHub,
+  lib,
+  ...
+}:
 alsa-ucm-conf.overrideAttrs {
   wttsrc = fetchFromGitHub {
     owner = "WeirdTreeThing";
@@ -12,6 +16,7 @@ alsa-ucm-conf.overrideAttrs {
     cp -rf $wttsrc/ucm2 $out/share/alsa/
   '';
 
+  meta.license = lib.licenses.bsd3;
   # Note: inherits meta
   # License: BSD 3-Clause
 }
