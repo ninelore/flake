@@ -7,7 +7,7 @@
     protonvpn-cli
     protonvpn-gui
     tuba
-    warcraftlogs-uploader
+    warcraftlogs
     (pkgs.ghidra.withExtensions (
       p: with p; [
         ghidraninja-ghidra-scripts

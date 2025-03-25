@@ -15,5 +15,5 @@ with import inputs.nixpkgs {
   };
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
-  warcraftlogs-uploader = callPackage ./warcraftlogs-uploader { };
+  warcraftlogs = callPackage ./warcraftlogs-uploader { };
 }
