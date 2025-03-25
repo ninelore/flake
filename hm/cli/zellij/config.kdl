@@ -1,6 +1,7 @@
 default_shell "nu"
 theme "dracula"
 pane_frames false
+show_startup_tips false
 
 session_name "Main"
 attach_to_session true
