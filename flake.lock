@@ -228,6 +228,21 @@
         "type": "github"
       }
     },
+    "nixos-cachyos-kernel": {
+      "locked": {
+        "lastModified": 1743115876,
+        "narHash": "sha256-l9BHY+GpHs2ZnI3RZeLVEGpF60t1qhXVI0meWGBipVk=",
+        "owner": "drakon64",
+        "repo": "nixos-cachyos-kernel",
+        "rev": "2ecd40eda1c1de4a917b27aca28fea7ba4a935ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "drakon64",
+        "repo": "nixos-cachyos-kernel",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1743167577,
@@ -299,6 +314,7 @@
         "home-manager": "home-manager_2",
         "nix-github-actions": "nix-github-actions_2",
         "nix-index-database": "nix-index-database",
+        "nixos-cachyos-kernel": "nixos-cachyos-kernel",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3"
       }

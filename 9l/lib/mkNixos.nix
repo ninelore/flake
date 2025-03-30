@@ -27,6 +27,7 @@ let
               ../../hardware/${systemConfig.hostname}
               inputs.self.nixosModules.default
               inputs.chaotic.nixosModules.default
+              inputs.nixos-cachyos-kernel.nixosModules.default
               inputs.nix-index-database.nixosModules.nix-index
               inputs.home-manager.nixosModules.home-manager
               {
