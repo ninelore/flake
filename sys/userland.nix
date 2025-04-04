@@ -14,6 +14,7 @@
       git
       gnome-maps
       helvum
+      kitty
       less
       lm_sensors
       mpv
@@ -125,6 +126,7 @@
     enable = true;
     settings = {
       default = [
+        "kitty.desktop"
         "org.gnome.Ptyxis.desktop"
       ];
     };
