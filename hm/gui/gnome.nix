@@ -44,7 +44,6 @@ in
           "org.gnome.Fractal.desktop"
           "dev.geopjr.Tuba.desktop"
           "startcenter.desktop"
-          "dev.zed.Zed.desktop"
         ];
       };
       "org/gnome/desktop/input-sources" = {

@@ -24,7 +24,6 @@
       textpieces
       wineWowPackages.stagingFull
       wl-clipboard
-      zed-editor_git
     ];
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
