@@ -109,19 +109,14 @@ in
           $env.config = ${conf};
           $env.config.color_config = (${theme});
           ${completions [
-            "adb"
             "cargo"
             "curl"
-            "fastboot"
             "gh"
             "git"
             "less"
             "make"
-            "mvn"
             "nix"
-            "npm"
             "rg"
-            "rustup"
             "ssh"
             "tar"
             "zellij"
