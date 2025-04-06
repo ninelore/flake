@@ -6,7 +6,10 @@ let
       map (hmConfig: {
         name = hmConfig.user;
         value = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = import inputs.nixpkgs { system = hmConfig.arch; };
+          pkgs = import inputs.nixpkgs {
+            system = hmConfig.arch;
+            config.allowUnfree = true;
+          };
           modules = [
             ../../nix
             inputs.self.homeModules.default
