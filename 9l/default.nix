@@ -27,7 +27,6 @@ let
       {
         user = "ninel";
         arch = "x86_64-linux";
-        gui = true;
       }
       {
         user = "9l";
