@@ -11,11 +11,11 @@ let
             config.allowUnfree = true;
           };
           modules = [
-            ../../nix
+            ../nixcfg
             inputs.self.homeModules.default
             inputs.chaotic.homeManagerModules.default
             inputs.nix-index-database.hmModules.nix-index
-            (if (hmConfig ? gui) then ../../hm/gui else ../../hm/cli)
+            (if (hmConfig ? gui) then ../hm/gui else ../hm/cli)
             {
               home.username = hmConfig.user;
               home.homeDirectory = "/home/${hmConfig.user}";

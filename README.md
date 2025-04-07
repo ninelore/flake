@@ -2,14 +2,14 @@
 
 ## Directory Layout
 
-- 9l: definition of personal outputs
-- hardware: Configs equivalent to /etc/nixos/hardware-configuration.nix
-- hm: User-level home-manager configs
-- lib: Library of custom functions
-- modules: custom {nixos,home}Modules
-- nix: Nix config module kept compatible as both NixOS and home-manager Module
-- pkgs: Custom packages
-- sys: System-level Nix(OS) configs
+- modules: Custom {nixos,home}Modules
+- pkgs: Package Derivations
+- 9l: Personal outputs and configuration
+    - hardware: Configs equivalent to /etc/nixos/hardware-configuration.nix
+    - hm: User-level home-manager configs
+    - lib: Library of custom functions
+    - nixcfg: Nix config module kept compatible as both NixOS and home-manager modules
+    - sys: System-level Nix(OS) configs
 
 ## Iso image commands
 

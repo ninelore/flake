@@ -22,9 +22,9 @@ let
               inherit inputs systemConfig;
             };
             modules = [
-              ../../nix
-              ../../sys
-              ../../hardware/${systemConfig.hostname}
+              ../nixcfg
+              ../sys
+              ../hardware/${systemConfig.hostname}
               inputs.self.nixosModules.default
               inputs.chaotic.nixosModules.default
               inputs.nixos-cachyos-kernel.nixosModules.default
@@ -40,8 +40,7 @@ let
                   users.${systemConfig.username} = {
                     imports =
                       [
-                        ../../9l/hm
-                        ../../hm/gui
+                        ../hm/gui
                         {
                           nix.channels = {
                             nixpkgs = sys.lib.mkDefault sys;
@@ -49,7 +48,7 @@ let
                         }
                       ]
                       ++ sys.lib.optionals extras [
-                        ../../hm/gui/extra
+                        ../hm/gui/extra
                       ];
                   };
                 };

@@ -5,6 +5,7 @@
   home.stateVersion = "24.05";
 
   imports = [
+    ./9l.nix
     ./apps.nix
     ./nix-scripts.nix
     ./sh.nix
