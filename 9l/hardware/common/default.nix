@@ -10,7 +10,7 @@
   #boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos;
   boot.kernelPackages =
     if pkgs.system == "x86_64-linux" then
-      lib.mkDefault (with pkgs; linuxPackagesFor linuxPackages_cachyos)
+      lib.mkDefault pkgs.linuxPackages_cachyos
     else
-      lib.mkDefault pkgs.linuxPackages;
+      lib.mkDefault pkgs.linuxPackages_latest;
 }

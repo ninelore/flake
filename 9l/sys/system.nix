@@ -40,10 +40,10 @@
       enable = true;
       powerOnBoot = true;
     };
-    openrazer = {
-      enable = true;
-      batteryNotifier.enable = false;
-    };
+    # openrazer = {
+    #   enable = true;
+    #   batteryNotifier.enable = false;
+    # };
     keyboard.qmk.enable = true;
   };
 
