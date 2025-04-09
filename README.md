@@ -9,7 +9,7 @@
     - hm: User-level home-manager configs
     - lib: Library of custom functions
     - nixcfg: Nix config module kept compatible as both NixOS and home-manager modules
-    - sys: System-level Nix(OS) configs
+    - nixos: System-level NixOS configs
 
 ## Iso image commands
 

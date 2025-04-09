@@ -23,7 +23,7 @@ let
             };
             modules = [
               ../nixcfg
-              ../sys
+              ../nixos
               ../hardware/${systemConfig.hostname}
               inputs.self.nixosModules.default
               inputs.chaotic.nixosModules.default
