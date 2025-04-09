@@ -191,12 +191,6 @@ in
 
   services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
 
-  home.file = {
-    ".gtkrc-2.0".force = true;
-    ".config/gtk-3.0/settings.ini".force = true;
-    ".config/gtk-4.0/settings.ini".force = true;
-  };
-
   # systemd.user.sessionVariables = {
   #   # GNOME / Wayland bug https://forums.opensuse.org/t/gnome-wayland-session-getting-killed/177667
   #   MUTTER_DEBUG_KMS_THREAD_TYPE = "user";
