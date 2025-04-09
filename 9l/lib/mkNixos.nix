@@ -32,6 +32,7 @@ let
               inputs.home-manager.nixosModules.home-manager
               {
                 home-manager = {
+                  backupFileExtension = "hmbak";
                   useGlobalPkgs = true;
                   useUserPackages = true;
                   sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
