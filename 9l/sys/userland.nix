@@ -105,9 +105,8 @@
     adb.enable = true;
     command-not-found.enable = false;
     dconf.enable = true;
-    flashrom = {
+    flashprog = {
       enable = true;
-      package = pkgs.flashprog;
     };
     gamemode = {
       enable = true;
