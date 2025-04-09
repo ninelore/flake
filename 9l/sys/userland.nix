@@ -9,60 +9,51 @@
       curl
       dmidecode
       docker-compose
-      eyedropper
       firefox
       git
-      gnome-maps
       helvum
       kitty
       less
       lm_sensors
       mpv
       neovim
-      papers
       pciutils
-      ptyxis
-      refine
-      textpieces
       usbutils
     ];
-    gnome.excludePackages = (
-      with pkgs;
-      [
-        atomix
-        cheese
-        evince
-        geary
-        gedit
-        gnome-calendar
-        gnome-console
-        gnome-contacts
-        gnome-music
-        gnome-shell-extensions
-        gnome-software
-        gnome-system-monitor
-        gnome-terminal
-        gnome-text-editor
-        gnome-tour
-        gnome-user-docs
-        gnome-weather
-        hitori
-        iagno
-        simple-scan
-        tali
-        totem
-        yelp
-      ]
-    );
+    gnome.excludePackages = with pkgs; [
+      atomix
+      cheese
+      evince
+      geary
+      gnome-calendar
+      gnome-contacts
+      gnome-music
+      gnome-shell-extensions
+      gnome-software
+      gnome-system-monitor
+      gnome-terminal
+      gnome-text-editor
+      gnome-tour
+      gnome-user-docs
+      gnome-weather
+      hitori
+      iagno
+      simple-scan
+      tali
+      totem
+      yelp
+    ];
+    plasma6.excludePackages = with pkgs.kdePackages; [
+      elisa
+      khelpcenter
+    ];
   };
 
   services = {
-    xserver = {
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
-      };
-      desktopManager.gnome.enable = true;
+    desktopManager.plasma6.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
     };
     udev.packages = with pkgs; [
       # https://github.com/NixOS/nixpkgs/pull/395654
@@ -103,6 +94,7 @@
   programs = {
     adb.enable = true;
     command-not-found.enable = false;
+    dconf.enable = true;
     flashrom = {
       enable = true;
       package = pkgs.flashprog;
@@ -127,17 +119,19 @@
     settings = {
       default = [
         "kitty.desktop"
-        "org.gnome.Ptyxis.desktop"
       ];
     };
   };
 
   fonts = {
     packages = with pkgs; [
+      adwaita-fonts
       cantarell-fonts
       dejavu_fonts
       liberation_ttf
       nerd-fonts.jetbrains-mono
+      nerd-fonts.iosevka
+      nerd-fonts.iosevka-term
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji

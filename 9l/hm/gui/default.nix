@@ -2,7 +2,7 @@
 {
   imports = [
     ../cli
-    ./gnome.nix
+    ./plasma
     ./noiseSupression.nix
   ];
 

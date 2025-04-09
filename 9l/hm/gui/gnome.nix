@@ -120,6 +120,13 @@ in
 
   home = {
     packages = with pkgs; [
+      # Apps
+      eyedropper
+      gnome-maps
+      papers
+      refine
+      textpieces
+      # Theme stuff
       adw-gtk3
       cantarell-fonts
       dejavu_fonts
