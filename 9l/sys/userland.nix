@@ -4,6 +4,9 @@
 }:
 {
   environment = {
+    sessionVariables = {
+      GSK_RENDERER = "gl";
+    };
     localBinInPath = true;
     systemPackages = with pkgs; [
       curl
@@ -50,10 +53,17 @@
   };
 
   services = {
-    desktopManager.plasma6.enable = true;
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
+    # desktopManager.plasma6.enable = true;
+    # displayManager.sddm = {
+    #   enable = true;
+    #   wayland.enable = true;
+    # };
+    xserver = {
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
+      desktopManager.gnome.enable = true;
     };
     udev.packages = with pkgs; [
       # https://github.com/NixOS/nixpkgs/pull/395654
