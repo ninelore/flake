@@ -128,10 +128,14 @@ in
       textpieces
       # Theme stuff
       adw-gtk3
+      # Fonts
+      adwaita-fonts
       cantarell-fonts
       dejavu_fonts
       liberation_ttf
       nerd-fonts.jetbrains-mono
+      nerd-fonts.iosevka
+      nerd-fonts.iosevka-term
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
@@ -150,8 +154,8 @@ in
       package = pkgs.morewaita-icon-theme;
     };
     font = {
-      name = "Cantarell";
-      package = pkgs.cantarell-fonts;
+      name = "Adwaita Sans";
+      package = pkgs.adwaita-fonts;
     };
     gtk3 = {
       extraConfig = {
@@ -183,8 +187,8 @@ in
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      sansSerif = [ "Cantarell 10" ];
-      serif = [ "Cantarell 10" ];
+      sansSerif = [ "Adwaita Sans 11" ];
+      serif = [ "Adwaita Sans 11" ];
       monospace = [ "JetBrainsMono Nerd Font 11" ];
     };
   };
