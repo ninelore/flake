@@ -16,8 +16,9 @@ in
       android-tools
       btop
       distrobox
+      fd
       flyctl
-      harlequin
+      fzf
       picocom
       pmbootstrap
       tldr
