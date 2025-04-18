@@ -16,14 +16,19 @@ let
             inputs.chaotic.homeManagerModules.default
             inputs.nix-index-database.hmModules.nix-index
             (if (hmConfig ? gui) then ../hm/gui else ../hm/cli)
-            {
-              home.username = hmConfig.user;
-              home.homeDirectory = "/home/${hmConfig.user}";
-              targets.genericLinux.enable = true;
-              nix.channels = {
-                nixpkgs = inputs.nixpkgs.lib.mkDefault inputs.nixpkgs;
-              };
-            }
+            (
+              { pkgs, ... }:
+              {
+                home.username = hmConfig.user;
+                home.homeDirectory = "/home/${hmConfig.user}";
+                targets.genericLinux.enable = true;
+                nix.channels = {
+                  nixpkgs = inputs.nixpkgs.lib.mkDefault inputs.nixpkgs;
+                };
+                # Experiment: only config
+                programs.kitty.package = if hmConfig ? gui then pkgs.kitty else pkgs.emptyDirectory;
+              }
+            )
           ];
         };
       }) systems
