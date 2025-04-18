@@ -26,7 +26,10 @@ let
                   nixpkgs = inputs.nixpkgs.lib.mkDefault inputs.nixpkgs;
                 };
                 # Experiment: only config
-                programs.kitty.package = if hmConfig ? gui then pkgs.kitty else pkgs.emptyDirectory;
+                programs = {
+                  kitty.package = if hmConfig ? gui then pkgs.kitty else pkgs.emptyDirectory;
+                  nix-index-database.comma.enable = true;
+                };
               }
             )
           ];
