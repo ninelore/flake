@@ -82,8 +82,8 @@
       homeModules.default = {
         nixpkgs.overlays = [ self.overlays.default ];
         nix.settings = {
-          substituters = [ "https://9lore.cachix.org" ];
-          trusted-public-keys = [ "9lore.cachix.org-1:H2/a1Wlm7VJRfJNNvFbxtLQPYswP3KzXwSI5ROgzGII=" ];
+          extra-substituters = [ "https://9lore.cachix.org" ];
+          extra-trusted-public-keys = [ "9lore.cachix.org-1:H2/a1Wlm7VJRfJNNvFbxtLQPYswP3KzXwSI5ROgzGII=" ];
         };
       };
     };
