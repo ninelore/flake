@@ -21,7 +21,6 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.initrd.availableKernelModules = [
     "nvme"
-    "xhci_pci"
     "usbhid"
     "sdhci_pci"
   ];

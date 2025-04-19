@@ -26,12 +26,20 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.initrd.luks.devices."root" = {
+    device = "/dev/disk/by-uuid/052f554d-1f74-4800-816c-1d0fbd807b4a";
+    allowDiscards = true;
+  };
+
   fileSystems."/" = {
     device = "/dev/mapper/root";
     fsType = "ext4";
+    options = [
+      "noatime"
+      "nodiratime"
+      "discard"
+    ];
   };
-
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/052f554d-1f74-4800-816c-1d0fbd807b4a";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/7D36-428A";
