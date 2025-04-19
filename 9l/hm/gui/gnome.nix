@@ -123,6 +123,7 @@ in
         ddcutil-sleep-multiplier = 80;
         show-osd = true;
         show-display-name = true;
+        hide-system-indicator = true;
       };
     };
   };
