@@ -52,10 +52,7 @@
       enable = true;
       powerOnBoot = true;
     };
-    # openrazer = {
-    #   enable = true;
-    #   batteryNotifier.enable = false;
-    # };
+    i2c.enable = true;
     keyboard.qmk.enable = true;
   };
 

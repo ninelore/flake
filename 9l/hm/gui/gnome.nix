@@ -4,9 +4,9 @@ let
     alphabetical-app-grid
     appindicator
     app-menu-is-back
+    brightness-control-using-ddcutil
     caffeine
     clipboard-history
-    control-monitor-brightness-and-volume-with-ddcutil
     gsconnect
     hot-edge
     nightscout
@@ -116,6 +116,13 @@ in
       "org/gnome/shell/extensions/vitals" = {
         hot-sensors = [ "_default_icon_" ];
         icon-style = 1;
+      };
+      "org/gnome/shell/extensions/display-brightness-ddcutil" = {
+        button-location = 1;
+        ddcutil-queue-ms = 500;
+        ddcutil-sleep-multiplier = 80;
+        show-osd = true;
+        show-display-name = true;
       };
     };
   };
