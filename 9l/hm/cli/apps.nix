@@ -15,6 +15,7 @@ in
       # cli
       android-tools
       btop
+      ddcutil
       devenv
       distrobox
       fd
