@@ -6,6 +6,7 @@ let
     app-menu-is-back
     caffeine
     clipboard-history
+    control-monitor-brightness-and-volume-with-ddcutil
     gsconnect
     hot-edge
     nightscout
@@ -13,6 +14,7 @@ let
     quick-settings-audio-devices-renamer
     tiling-shell
     vitals
+    wiggle
   ];
 
   cursorTheme = {
@@ -125,7 +127,6 @@ in
       gnome-maps
       papers
       refine
-      textpieces
       # Theme stuff
       adw-gtk3
       # Fonts
