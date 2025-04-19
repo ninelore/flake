@@ -56,7 +56,9 @@ let
                 console.keyMap = if (systemConfig ? keymap) then systemConfig.keymap else "us";
                 programs.steam = {
                   enable = extras;
-                  gamescopeSession.enable = extras; # TODO: trial
+                  extraCompatPackages = sys.lib.optionals extras [
+                    inputs.chaotic.legacyPackages.${pkgs.system}.proton-ge-custom
+                  ];
                 };
               }
             ];
