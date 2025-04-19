@@ -15,6 +15,7 @@ in
       # cli
       android-tools
       btop
+      devenv
       distrobox
       fd
       flyctl
