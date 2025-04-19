@@ -12,6 +12,7 @@
       # GUI Apps
       appimage-run
       bottles
+      devtoolbox
       gimp
       hunspell
       hunspellDicts.de_DE
@@ -21,7 +22,6 @@
       pdfarranger
       scrcpy
       spotify
-      textpieces
       wineWowPackages.stagingFull
       wl-clipboard
     ];

@@ -113,7 +113,7 @@
     };
     nautilus-open-any-terminal = {
       enable = true;
-      terminal = "alacritty";
+      terminal = "kitty";
     };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;
