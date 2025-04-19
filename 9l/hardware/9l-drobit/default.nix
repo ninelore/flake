@@ -10,7 +10,6 @@
   imports = [
     "${inputs.nixos-hardware}/common/cpu/intel/tiger-lake"
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../common
     ../common/cros
   ];
 

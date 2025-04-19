@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   boot = {
+    kernelPackages =
+      if pkgs.system == "x86_64-linux" then
+        lib.mkDefault pkgs.linuxPackages_cachyos
+      else
+        lib.mkDefault pkgs.linuxPackages_latest;
     consoleLogLevel = 0;
     initrd = {
       systemd.enable = true;
@@ -34,6 +39,13 @@
       efi.canTouchEfiVariables = true;
     };
   };
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 32 * 1024;
+    }
+  ];
 
   hardware = {
     bluetooth = {

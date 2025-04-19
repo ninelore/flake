@@ -10,7 +10,6 @@
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../common
     ../common/asus
   ];
 
