@@ -4,9 +4,6 @@
 }:
 {
   environment = {
-    sessionVariables = {
-      GSK_RENDERER = "gl";
-    };
     localBinInPath = true;
     systemPackages = with pkgs; [
       curl
