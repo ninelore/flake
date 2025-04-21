@@ -25,10 +25,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-github-actions = {
-      url = "github:ninelore/nix-github-actions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     chrultrabook-tools = {
       url = "github:death7654/chrultrabook-tools/c79cc0bd1744838ddcf36fa45e72efecbed707fd"; # v3.0.2 + flake stuff
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,7 +51,12 @@
       };
     })
     // {
-      githubActions = inputs.nix-github-actions.lib.mkGithubMatrix { checks = self.legacyPackages; };
+      lib = import ./lib;
+      githubActions = self.lib.mkGithubMatrix {
+        sourceAttrSet = self.legacyPackages;
+        attrPrefix = "legacyPackages";
+        lib = inputs.nixpkgs.lib;
+      };
       nixosConfigurations = configs.nixos;
       homeConfigurations = configs.hm;
       overlays.default =

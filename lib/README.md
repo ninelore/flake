@@ -1,0 +1,1 @@
+`mkGithubMatrix` is derived from [nix-community/nix-github-actions](https://github.com/nix-community/nix-github-actions), which is licensed under [MIT](https://github.com/nix-community/nix-github-actions/blob/master/LICENSE).

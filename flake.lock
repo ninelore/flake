@@ -188,26 +188,6 @@
         "type": "github"
       }
     },
-    "nix-github-actions_2": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1742858648,
-        "narHash": "sha256-Pop4XCFZZS4saD5BFMRBSetgT3/fa6U7iUkm+/G8lz0=",
-        "owner": "ninelore",
-        "repo": "nix-github-actions",
-        "rev": "43edb51b83118036aee3fc9c721b23f53309fa83",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ninelore",
-        "repo": "nix-github-actions",
-        "type": "github"
-      }
-    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -320,7 +300,6 @@
         "chrultrabook-tools": "chrultrabook-tools",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager_2",
-        "nix-github-actions": "nix-github-actions_2",
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
