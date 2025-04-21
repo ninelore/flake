@@ -119,8 +119,8 @@ in
       };
       "org/gnome/shell/extensions/display-brightness-ddcutil" = {
         button-location = 1;
-        ddcutil-queue-ms = 500;
-        ddcutil-sleep-multiplier = 80;
+        ddcutil-queue-ms = 500.0;
+        ddcutil-sleep-multiplier = 80.0;
         show-osd = true;
         show-display-name = true;
         hide-system-indicator = true;
