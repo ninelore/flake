@@ -1,5 +1,6 @@
 {
   lib,
+  callPackage,
   fetchurl,
   linuxManualConfig,
   ...
@@ -15,8 +16,8 @@ linuxManualConfig {
     inherit hash;
   };
 
-  allowImportFromDerivation = true;
   configfile = ./config.aarch64;
+  config = callPackage ../kconfigToNix.nix { };
 
   kernelPatches = [
     {
