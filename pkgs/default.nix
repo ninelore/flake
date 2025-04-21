@@ -16,6 +16,6 @@ with import inputs.nixpkgs {
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   warcraftlogs = callPackage ./warcraftlogs-uploader { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
-  linux_mt81 = callPackage ./linux_mt81 { };
-  linux_sc7180 = callPackage ./linux_sc7180 { };
+  linuxPackages_mt81 = linuxPackagesFor (callPackage ./linux_mt81 { });
+  linuxPackages_sc7180 = linuxPackagesFor (callPackage ./linux_sc7180 { });
 }
