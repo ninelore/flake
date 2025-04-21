@@ -1,0 +1,94 @@
+From 2379590f43baff3f0e80326f25df21cc98e8ae11 Mon Sep 17 00:00:00 2001
+From: Nikita Travkin <nikita@trvn.ru>
+Date: Sat, 9 Jul 2022 00:40:27 +0500
+Subject: [PATCH 10/11] arm64: dts: qcom: acer-aspire1: Add embedded controller
+
+The laptop contains an embedded controller that provides a set of
+features:
+
+- Battery and charger monitoring
+- USB Type-C DP alt mode HPD monitoring
+- Lid status detection
+- Small amount of keyboard configuration*
+
+[*] The keyboard is handled by the same EC but it has a dedicated i2c
+bus and is already enabled. This port only provides fn key behavior
+configuration.
+
+Add the EC to the device tree and describe the relationship between the
+EC-managed type-c port and the SoC DisplayPort.
+
+Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+Signed-off-by: Nikita Travkin <nikita@trvn.ru>
+---
+ .../boot/dts/qcom/sc7180-acer-aspire1.dts     | 40 ++++++++++++++++++-
+ 1 file changed, 39 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts b/arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts
+index 5afcb8212f49..3f0d3e33894a 100644
+--- a/arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts
++++ b/arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts
+@@ -255,7 +255,25 @@ &i2c2 {
+ 	clock-frequency = <400000>;
+ 	status = "okay";
+ 
+-	/* embedded-controller@76 */
++	embedded-controller@76 {
++		compatible = "acer,aspire1-ec";
++		reg = <0x76>;
++
++		interrupts-extended = <&tlmm 30 IRQ_TYPE_LEVEL_LOW>;
++
++		pinctrl-0 = <&ec_int_default>;
++		pinctrl-names = "default";
++
++		connector {
++			compatible = "usb-c-connector";
++
++			port {
++				ec_dp_in: endpoint {
++					remote-endpoint = <&mdss_dp_out>;
++				};
++			};
++		};
++	};
+ };
+ 
+ &i2c4 {
+@@ -419,6 +437,19 @@ &mdss {
+ 	status = "okay";
+ };
+ 
++&mdss_dp {
++	data-lanes = <0 1>;
++
++	vdda-1p2-supply = <&vreg_l3c_1p2>;
++	vdda-0p9-supply = <&vreg_l4a_0p8>;
++
++	status = "okay";
++};
++
++&mdss_dp_out {
++	remote-endpoint = <&ec_dp_in>;
++};
++
+ &mdss_dsi0 {
+ 	vdda-supply = <&vreg_l3c_1p2>;
+ 	status = "okay";
+@@ -857,6 +888,13 @@ codec_irq_default: codec-irq-deault-state {
+ 		bias-disable;
+ 	};
+ 
++	ec_int_default: ec-int-default-state {
++		pins = "gpio30";
++		function = "gpio";
++		drive-strength = <2>;
++		bias-disable;
++	};
++
+ 	edp_bridge_irq_default: edp-bridge-irq-default-state {
+ 		pins = "gpio11";
+ 		function = "gpio";
+-- 
+2.44.0
+
