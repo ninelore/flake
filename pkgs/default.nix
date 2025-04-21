@@ -16,9 +16,6 @@ with import inputs.nixpkgs {
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   warcraftlogs = callPackage ./warcraftlogs-uploader { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
-}
-# Workaround for Github Actions matrix generation failure
-// lib.optionalAttrs stdenv.hostPlatform.isLinux {
   linux_mt81 = callPackage ./linux_mt81 { };
   linux_sc7180 = callPackage ./linux_sc7180 { };
 }
