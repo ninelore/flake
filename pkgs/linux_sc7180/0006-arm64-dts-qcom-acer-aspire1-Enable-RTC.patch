@@ -1,0 +1,34 @@
+From 2384f0140ed50ef2ee57fd575e69dc91fe13652b Mon Sep 17 00:00:00 2001
+From: Nikita Travkin <nikita@trvn.ru>
+Date: Tue, 5 Dec 2023 16:48:10 +0500
+Subject: [PATCH 6/8] arm64: dts: qcom: acer-aspire1: Enable RTC
+
+pm6150 has a read-only RTC that can be used to keep the time with some
+extra userspace tools. Enable it.
+
+Reviewed-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+Signed-off-by: Nikita Travkin <nikita@trvn.ru>
+Link: https://lore.kernel.org/r/20231205-aspire1-sound-v2-1-443b7ac0a06f@trvn.ru
+Signed-off-by: Bjorn Andersson <andersson@kernel.org>
+---
+ arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts b/arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts
+index 3342cb048038..00b442696618 100644
+--- a/arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts
++++ b/arch/arm64/boot/dts/qcom/sc7180-acer-aspire1.dts
+@@ -364,6 +364,10 @@ &pm6150_pon {
+ 	status = "disabled";
+ };
+ 
++&pm6150_rtc {
++	status = "okay";
++};
++
+ &qupv3_id_0 {
+ 	status = "okay";
+ };
+-- 
+2.43.2
+

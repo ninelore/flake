@@ -20,4 +20,5 @@ with import inputs.nixpkgs {
 # Workaround for Github Actions matrix generation failure
 // lib.optionalAttrs stdenv.hostPlatform.isLinux {
   linux_mt81 = callPackage ./linux_mt81 { };
+  linux_sc7180 = callPackage ./linux_sc7180 { };
 }
