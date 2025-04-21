@@ -7,7 +7,7 @@
 }:
 let
   ver = "6.6.87";
-  hash = "sha256-ZDFCwbWZFWDdEvlQglzBnkSXuVuCZBkY7P8Rd/QTDB0=";
+  hash = "sha256-iVflwtrNvEehbb8fYwPKcIhAm+YZejiB91IxMnU1esY=";
 in
 linuxManualConfig {
   version = ver + "-sc7180";
@@ -20,10 +20,10 @@ linuxManualConfig {
   config = callPackage ../kconfigToNix.nix { };
 
   kernelPatches = [
-    {
-      name = "remoteproc-qcom-pas-Add-sc7180-adsp";
-      patch = ./0001-remoteproc-qcom-pas-Add-sc7180-adsp.patch;
-    }
+    # {
+    #   name = "remoteproc-qcom-pas-Add-sc7180-adsp";
+    #   patch = ./0001-remoteproc-qcom-pas-Add-sc7180-adsp.patch;
+    # }
     {
       name = "arm64-dts-qcom-sc7180-Add-tertiary-mi2s-pinctrl";
       patch = ./0002-arm64-dts-qcom-sc7180-Add-tertiary-mi2s-pinctrl.patch;
@@ -60,10 +60,10 @@ linuxManualConfig {
       name = "arm64-dts-qcom-acer-aspire1-Add-embedded-controller";
       patch = ./0010-arm64-dts-qcom-acer-aspire1-Add-embedded-controller.patch;
     }
-    {
-      name = "HACK-clk-Delay-disabling-unused-clocks-by-10s";
-      patch = ./0011-HACK-clk-Delay-disabling-unused-clocks-by-10s.patch;
-    }
+    # {
+    #   name = "HACK-clk-Delay-disabling-unused-clocks-by-10s";
+    #   patch = ./0011-HACK-clk-Delay-disabling-unused-clocks-by-10s.patch;
+    # }
   ];
 
   extraMeta = {
