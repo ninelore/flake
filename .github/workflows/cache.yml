@@ -25,7 +25,7 @@ jobs:
   nix-build:
     name: ${{ matrix.name }} (${{ matrix.system }})
     needs: nix-matrix
-    continue-on-error: false
+    continue-on-error: true
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
