@@ -15,7 +15,11 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
+      - uses: docker/setup-qemu-action@v3
       - uses: DeterminateSystems/nix-installer-action@v3
+        with:
+          extra-conf: |
+            extra-platforms = aarch64-linux
       - id: set-matrix
         name: Generate Nix Matrix
         run: |
