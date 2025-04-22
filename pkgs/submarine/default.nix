@@ -2,6 +2,7 @@
   bc,
   bison,
   callPackage,
+  dtc,
   fetchgit,
   flex,
   elfutils,
@@ -51,7 +52,7 @@ stdenv.mkDerivation rec {
     u-root
     util-linux
     vboot_reference
-  ];
+  ] ++ lib.optionals (system == "aarch64-linux") [ dtc ];
   buildInputs = [
     gmp
     libmpc
