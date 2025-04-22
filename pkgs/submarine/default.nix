@@ -1,6 +1,7 @@
 {
   bc,
   bison,
+  callPackage,
   fetchgit,
   flex,
   elfutils,
@@ -25,6 +26,7 @@ let
     "aarch64-linux" = "arm64";
     "x86_64-linux" = "x86_64";
   };
+  depthcharge-tools = callPackage ../depthcharge-tools { };
 in
 stdenv.mkDerivation rec {
   name = "submarine";
@@ -36,22 +38,20 @@ stdenv.mkDerivation rec {
     fetchSubmodules = true;
   };
 
-  nativeBuildInputs =
-    [
-      bc
-      bison
-      elfutils
-      go
-      flex
-      parted
-      u-root
-      util-linux
-      vboot_reference
-    ]
-    ++ lib.optionals (system == "aarch64-linux") [
-      perl
-      python3
-    ];
+  nativeBuildInputs = [
+    bc
+    bison
+    depthcharge-tools
+    elfutils
+    go
+    flex
+    parted
+    perl
+    python3
+    u-root
+    util-linux
+    vboot_reference
+  ];
   buildInputs = [
     gmp
     libmpc
