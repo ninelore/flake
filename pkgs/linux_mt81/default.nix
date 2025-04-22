@@ -2,13 +2,14 @@
   lib,
   fetchurl,
   linuxManualConfig,
+  system,
   ...
 }:
 let
   ver = "6.12.24";
   hash = "sha256-ZDFCwbWZFWDdEvlQglzBnkSXuVuCZBkY7P8Rd/QTDB0=";
 in
-linuxManualConfig {
+linuxManualConfig rec {
   version = ver + "-mt81";
   src = fetchurl {
     url = "mirror://kernel/linux/kernel/v${lib.versions.major ver}.x/linux-${ver}.tar.xz";
@@ -16,6 +17,7 @@ linuxManualConfig {
   };
 
   configfile = ./config.aarch64;
+  allowImportFromDerivation = builtins.elem system extraMeta.platforms;
 
   kernelPatches = [
     {
