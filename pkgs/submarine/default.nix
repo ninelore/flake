@@ -11,6 +11,8 @@
   mpfr,
   openssl,
   parted,
+  perl,
+  python3,
   stdenv,
   system,
   u-root,
@@ -34,17 +36,22 @@ stdenv.mkDerivation rec {
     fetchSubmodules = true;
   };
 
-  nativeBuildInputs = [
-    bc
-    bison
-    elfutils
-    go
-    flex
-    parted
-    u-root
-    util-linux
-    vboot_reference
-  ];
+  nativeBuildInputs =
+    [
+      bc
+      bison
+      elfutils
+      go
+      flex
+      parted
+      u-root
+      util-linux
+      vboot_reference
+    ]
+    ++ lib.optionals (system == "aarch64-linux") [
+      perl
+      python3
+    ];
   buildInputs = [
     gmp
     libmpc
