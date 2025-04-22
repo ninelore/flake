@@ -14,6 +14,7 @@ let
         ...
       }:
       {
+        system.stateVersion = "24.11";
         networking.networkmanager.enable = true;
         networking.wireless.enable = lib.mkImageMediaOverride false;
         boot.supportedFilesystems.zfs = lib.mkForce false;
