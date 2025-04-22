@@ -39,6 +39,10 @@ buildPythonApplication rec {
     setuptools
   ];
 
+  propagatedBuildInputs = [
+    setuptools
+  ];
+
   postFIxup = ''
     wrapProgram $out/bin/depthchargectl --suffix PATH : ${lib.makeBinPath pathPackages}
     wrapProgram $out/bin/mkdepthcharge --suffix PATH : ${lib.makeBinPath pathPackages}
