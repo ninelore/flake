@@ -11,10 +11,11 @@
     - nixcfg: Nix config module kept compatible as both NixOS and home-manager modules
     - nixos: System-level NixOS configs
 
-## Iso image commands
+## Images
 
-- `nix build .#nixosConfigurations.x86_64-linux-iso.config.system.build.isoImage`
-- `nix build .#nixosConfigurations.aarch64-linux-iso.config.system.build.isoImage`
+Refer to `./lib/images.nix` on available images.
+
+Images can be built with `nix build .#nixosImages.<name>`
 
 ## Acknowledgements
 

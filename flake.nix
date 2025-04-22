@@ -25,6 +25,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     chrultrabook-tools = {
       url = "github:death7654/chrultrabook-tools/c79cc0bd1744838ddcf36fa45e72efecbed707fd"; # v3.0.2 + flake stuff
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,6 +61,7 @@
         attrPrefix = "legacyPackages";
         lib = inputs.nixpkgs.lib;
       };
+      nixosImages = import ./lib/images.nix { inherit inputs; };
       nixosConfigurations = configs.nixos;
       homeConfigurations = configs.hm;
       overlays.default =

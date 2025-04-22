@@ -2,27 +2,22 @@
 let
   myLib = import ./lib { inherit inputs; };
   self = {
-    nixos =
-      myLib.mkNixos [
-        {
-          username = "9l";
-          hostname = "9l-zephyr";
-          architecture = "x86_64-linux";
-          extras = true;
-          keymap = "de";
-        }
-        {
-          username = "9l";
-          hostname = "9l-drobit";
-          architecture = "x86_64-linux";
-          extras = true;
-          keymap = "uk";
-        }
-      ]
-      // myLib.mkIsos [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
+    nixos = myLib.mkNixos [
+      {
+        username = "9l";
+        hostname = "9l-zephyr";
+        architecture = "x86_64-linux";
+        extras = true;
+        keymap = "de";
+      }
+      {
+        username = "9l";
+        hostname = "9l-drobit";
+        architecture = "x86_64-linux";
+        extras = true;
+        keymap = "uk";
+      }
+    ];
     hm = myLib.mkHm [
       {
         user = "ninel";

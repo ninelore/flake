@@ -21,6 +21,7 @@
       '';
     };
   };
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
   hardware.sensor.iio.enable = lib.mkDefault true;
   services = {
     keyd.enable = lib.mkDefault true;
