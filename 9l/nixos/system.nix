@@ -38,6 +38,9 @@
       };
       efi.canTouchEfiVariables = true;
     };
+    binfmt.emulatedSystems =
+      lib.optionals (pkgs.system == "x86_64-linux") [ "aarch64-linux" ]
+      ++ lib.optionals (pkgs.system == "aarch64-linux") [ "x86_64-linux" ];
   };
 
   swapDevices = [
