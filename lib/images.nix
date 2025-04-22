@@ -1,7 +1,6 @@
 { inputs, ... }:
 let
   commonModules = [
-    "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
     inputs.chaotic.nixosModules.default
     inputs.self.nixosModules.default
     inputs.nix-index-database.nixosModules.nix-index
@@ -37,7 +36,6 @@ let
           [
             # Distro install tools
             apk-tools
-            apt
             dnf5
             pmbootstrap
             # Tools
@@ -59,6 +57,8 @@ let
             nixfmt-rfc-style
           ]
           ++ lib.optionals (system == "x86_64-linux") [
+            # Distro install tools
+            apt
             arch-install-scripts
           ];
       }
