@@ -14,6 +14,7 @@ with import inputs.nixpkgs {
   };
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
+  depthcharge-tools = callPackage ./depthcharge-tools { };
   linux_mt81 = callPackage ./linux_mt81 { };
   linux_sc7180 = callPackage ./linux_sc7180 { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
