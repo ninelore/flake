@@ -72,7 +72,7 @@
         };
       nixosModules =
         let
-          import = path: path; # let the module system know what we are exporting
+          import = path: path;
         in
         {
           default = {

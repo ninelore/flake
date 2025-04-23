@@ -1,10 +1,8 @@
 { inputs, ... }:
 let
   commonModules = [
-    inputs.chaotic.nixosModules.default
     inputs.self.nixosModules.default
-    inputs.nix-index-database.nixosModules.nix-index
-    inputs.home-manager.nixosModules.home-manager
+    inputs.chaotic.nixosModules.default
     ../9l/nixcfg
     (
       {
@@ -22,15 +20,7 @@ let
         ];
         hardware.enableAllHardware = true;
         hardware.enableRedistributableFirmware = true;
-        programs = {
-          command-not-found.enable = false;
-          flashrom = {
-            enable = true;
-            package = pkgs.flashprog;
-          };
-          nix-index-database.comma.enable = true;
-          nix-ld.enable = true;
-        };
+        programs.flashprog.enable = true;
         environment.systemPackages =
           with pkgs;
           [
@@ -64,12 +54,14 @@ let
       }
     )
   ];
+  customFormats = import ./imageFormats;
+  specialArgs = { inherit inputs; };
 in
 {
+  # Raw image for MTK-based Chromebooks with Depthcharge
   raw-mt81 = inputs.nixos-generators.nixosGenerate {
+    inherit customFormats specialArgs;
     system = "aarch64-linux";
-    format = "raw-efi";
-    specialArgs = { inherit inputs; };
     modules = commonModules ++ [
       (
         { pkgs, ... }:
@@ -79,11 +71,12 @@ in
         }
       )
     ];
+    format = "raw-cros";
   };
+  # Raw image for Qualcomm-based Chromebooks with Depthcharge
   raw-sc7180 = inputs.nixos-generators.nixosGenerate {
+    inherit customFormats specialArgs;
     system = "aarch64-linux";
-    format = "raw-efi";
-    specialArgs = { inherit inputs; };
     modules = commonModules ++ [
       (
         { pkgs, ... }:
@@ -93,11 +86,27 @@ in
         }
       )
     ];
+    format = "raw-cros";
   };
-  iso-x86_64 = inputs.nixos-generators.nixosGenerate {
+  # Raw image for Intel or AMD-based Chromebooks with Depthcharge
+  raw-x64cros = inputs.nixos-generators.nixosGenerate {
+    inherit customFormats specialArgs;
     system = "x86_64-linux";
-    format = "install-iso";
-    specialArgs = { inherit inputs; };
+    modules = commonModules ++ [
+      (
+        { pkgs, ... }:
+        {
+          boot.kernelPackages = pkgs.linuxPackages_cachyos;
+          boot.kernelParams = [ "console=tty0" ];
+        }
+      )
+    ];
+    format = "raw-cros";
+  };
+  # ISO 9660 image for reqular x86_64 computers
+  iso-x86_64 = inputs.nixos-generators.nixosGenerate {
+    inherit customFormats specialArgs;
+    system = "x86_64-linux";
     modules = commonModules ++ [
       (
         { pkgs, ... }:
@@ -106,5 +115,6 @@ in
         }
       )
     ];
+    format = "install-iso";
   };
 }
