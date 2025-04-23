@@ -6,6 +6,7 @@
   lib,
   lz4,
   lzop,
+  makeWrapper,
   python3Packages,
   ubootTools,
   vboot_reference,
@@ -35,6 +36,8 @@ buildPythonApplication rec {
     hash = "sha256-3xPRNDUXLOwYy8quMfYSiBfzQl4peauTloqtZBGbvlw=";
   };
 
+  nativeBuildInputs = [ makeWrapper ];
+
   build-system = [
     setuptools
   ];
@@ -43,7 +46,7 @@ buildPythonApplication rec {
     setuptools
   ];
 
-  postFIxup = ''
+  postFixup = ''
     wrapProgram $out/bin/depthchargectl --suffix PATH : ${lib.makeBinPath pathPackages}
     wrapProgram $out/bin/mkdepthcharge --suffix PATH : ${lib.makeBinPath pathPackages}
   '';
