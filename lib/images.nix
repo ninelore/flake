@@ -115,9 +115,10 @@ in
     system = "x86_64-linux";
     modules = commonModules ++ [
       (
-        { pkgs, ... }:
+        { lib, pkgs, ... }:
         {
           boot.kernelPackages = pkgs.linuxPackages_latest;
+          image.baseName = lib.mkForce "nixos-${pkgs.system}-${inputs.self.shortRev or "dirty"}";
         }
       )
     ];
