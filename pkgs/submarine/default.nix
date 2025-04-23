@@ -71,8 +71,7 @@ stdenv.mkDerivation rec {
 
   buildPhase = ''
     runHook preBuild
-    printenv | grep GO
-    make ${arch.${system}}
+    make -j$NIX_BUILD_CORES ${arch.${system}}
   '';
 
   installPhase = ''
