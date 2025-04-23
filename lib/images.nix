@@ -31,7 +31,6 @@ let
             # Distro install tools
             apk-tools
             dnf5
-            pmbootstrap
             # Tools
             git
             neovim
