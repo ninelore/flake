@@ -60,6 +60,10 @@ stdenv.mkDerivation rec {
     openssl
   ];
 
+  patches = [
+    ./0001-Makefile-specify-keys-and-keyblock.patch
+  ];
+
   postPatch = ''
     substituteInPlace Makefile \
       --replace-fail '/usr/share/vboot/devkeys/' '${vboot_reference}/share/vboot/devkeys/'

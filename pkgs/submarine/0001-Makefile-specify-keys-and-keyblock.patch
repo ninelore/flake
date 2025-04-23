@@ -1,0 +1,29 @@
+From c6c32867969f53c74c92c57d2d432e8232c44a1a Mon Sep 17 00:00:00 2001
+From: Ingo Reitz <9l@9lo.re>
+Date: Wed, 23 Apr 2025 04:32:57 +0200
+Subject: [PATCH] Makefile: specify keys and keyblock
+
+to be substituted in nix
+
+Signed-off-by: Ingo Reitz <9l@9lo.re>
+---
+ Makefile | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index d2f5468..e4c6100 100644
+--- a/Makefile
++++ b/Makefile
+@@ -77,6 +77,9 @@ $(KPART_A64): $(BZIMAGE_A64)
+ 		--board arm64-generic \
+ 		--kernel $(WORKDIR)/$(BZIMAGE_A64) \
+ 		--fdtdir $(WORKDIR)/dtbs \
++		--vboot-keyblock /usr/share/vboot/devkeys/kernel.keyblock \
++		--vboot-private-key /usr/share/vboot/devkeys/kernel_data_key.vbprivk \
++		--vboot-public-key /usr/share/vboot/devkeys/kernel_subkey.vbpubk \
+ 		--root none \
+ 		--kernel-cmdline "console=tty0" \
+ 		--output $(WORKDIR)/$(KPART_A64)
+-- 
+2.49.0
+
