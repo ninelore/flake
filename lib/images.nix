@@ -23,8 +23,6 @@ let
         boot.kernelParams = [
           "iomem=relaxed"
         ];
-        boot.swraid.enable = lib.mkForce pkgs.system != "aarch64-linux";
-        hardware.enableAllHardware = lib.mkForce pkgs.system != "aarch64-linux";
         hardware.enableRedistributableFirmware = true;
         programs.flashprog.enable = true;
         environment.systemPackages =
@@ -60,6 +58,25 @@ let
       }
     )
   ];
+
+  crosArmConfig = (
+    { lib, ... }:
+    {
+      boot.kernelParams = [ "console=tty0" ];
+      # Specialized kernels are missing some modules included in these options
+      boot.initrd.includeDefaultModules = lib.mkForce false;
+      hardware.enableAllHardware = lib.mkForce false;
+      boot.initrd.availableKernelModules = [
+        # Storage
+        "nvme"
+        "mmc_block"
+      ];
+      boot.initrd.kernelModules = [
+        "dm_mod"
+      ];
+    }
+  );
+
   customFormats = import ./imageFormats { inherit inputs; };
   specialArgs = { inherit inputs; };
 in
@@ -69,11 +86,11 @@ in
     inherit customFormats specialArgs;
     system = "aarch64-linux";
     modules = commonModules ++ [
+      crosArmConfig
       (
         { pkgs, ... }:
         {
           boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_mt81;
-          boot.kernelParams = [ "console=tty0" ];
         }
       )
     ];
@@ -84,11 +101,11 @@ in
     inherit customFormats specialArgs;
     system = "aarch64-linux";
     modules = commonModules ++ [
+      crosArmConfig
       (
         { pkgs, ... }:
         {
           boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_sc7180;
-          boot.kernelParams = [ "console=tty0" ];
         }
       )
     ];
@@ -103,7 +120,6 @@ in
         { pkgs, ... }:
         {
           boot.kernelPackages = pkgs.linuxPackages_latest;
-          boot.kernelParams = [ "console=tty0" ];
         }
       )
     ];
