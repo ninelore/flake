@@ -9,8 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
-      - name: Run nix flake check
-        run: nix build -L .#nixosImages.raw-mt81
+      - run: nix build -L .#nixosImages.raw-mt81
       - uses: actions/upload-artifact@v4.6.2
         with:
           path: result/*.img
@@ -20,8 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
-      - name: Run nix flake check
-        run: nix build -L .#nixosImages.raw-sc7180
+      - run: nix build -L .#nixosImages.raw-sc7180
       - uses: actions/upload-artifact@v4.6.2
         with:
           path: result/*.img
@@ -31,8 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
-      - name: Run nix flake check
-        run: nix build -L .#nixosImages.raw-x64cros
+      - run: nix build -L .#nixosImages.raw-x64cros
       - uses: actions/upload-artifact@v4.6.2
         with:
           path: result/*.img
@@ -42,8 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
-      - name: Run nix flake check
-        run: nix build -L .#nixosImages.iso-x86_64
+      - run: nix build -L .#nixosImages.iso-x86_64
       - uses: actions/upload-artifact@v4.6.2
         with:
           path: result/*.iso
