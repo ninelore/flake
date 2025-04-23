@@ -23,6 +23,7 @@ let
         boot.kernelParams = [
           "iomem=relaxed"
         ];
+        boot.swraid.enable = lib.mkForce pkgs.system != "aarch64-linux";
         hardware.enableAllHardware = true;
         hardware.enableRedistributableFirmware = true;
         programs.flashprog.enable = true;
