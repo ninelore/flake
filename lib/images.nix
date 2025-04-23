@@ -8,10 +8,16 @@ let
       {
         pkgs,
         lib,
+        modulesPath,
         ...
       }:
       {
         system.stateVersion = "24.11";
+        imports = [
+          # some default installer ISO config
+          "${toString modulesPath}/profiles/installation-device.nix"
+          "${toString modulesPath}/profiles/base.nix"
+        ];
         networking.networkmanager.enable = true;
         networking.wireless.enable = lib.mkImageMediaOverride false;
         boot.supportedFilesystems.zfs = lib.mkForce false;
