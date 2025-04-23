@@ -7,13 +7,16 @@ jobs:
     name: raw aarch64 mt81xx
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
       - uses: cachix/cachix-action@v14
         with:
           name: 9lore
           skipPush: true
           useDaemon: false
+      - uses: nixbuild/nixbuild-action@v20
+        with:
+          nixbuild_token: ${{ secrets.NIXBUILD_TOKEN }}
+      - uses: actions/checkout@v3
       - name: Save commit short hash 
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
@@ -26,13 +29,16 @@ jobs:
     name: raw aarch64 sc7180
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
       - uses: cachix/cachix-action@v14
         with:
           name: 9lore
           skipPush: true
           useDaemon: false
+      - uses: nixbuild/nixbuild-action@v20
+        with:
+          nixbuild_token: ${{ secrets.NIXBUILD_TOKEN }}
+      - uses: actions/checkout@v3
       - name: Save commit short hash 
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
@@ -45,13 +51,13 @@ jobs:
     name: raw x86_64 cros
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
       - uses: cachix/cachix-action@v14
         with:
           name: 9lore
           skipPush: true
           useDaemon: false
+      - uses: actions/checkout@v3
       - name: Save commit short hash 
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
@@ -64,13 +70,13 @@ jobs:
     name: ISO 9660 x86_64
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
       - uses: cachix/cachix-action@v14
         with:
           name: 9lore
           skipPush: true
           useDaemon: false
+      - uses: actions/checkout@v3
       - name: Save commit short hash 
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
