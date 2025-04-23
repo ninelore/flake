@@ -62,7 +62,7 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     substituteInPlace Makefile \
-      --replace /usr/share/vboot ${vboot_reference}/share/vboot
+      --replace-fail '/usr/share/vboot/devkeys/' '${vboot_reference}/share/vboot/devkeys/'
   '';
 
   preBuild = ''
