@@ -2,7 +2,6 @@
 let
   commonModules = [
     inputs.self.nixosModules.default
-    inputs.chaotic.nixosModules.default
     ../9l/nixcfg
     (
       {
@@ -102,7 +101,7 @@ in
       (
         { pkgs, ... }:
         {
-          boot.kernelPackages = pkgs.linuxPackages_cachyos;
+          boot.kernelPackages = pkgs.linuxPackages_latest;
           boot.kernelParams = [ "console=tty0" ];
         }
       )
@@ -117,7 +116,7 @@ in
       (
         { pkgs, ... }:
         {
-          boot.kernelPackages = pkgs.linuxPackages_cachyos;
+          boot.kernelPackages = pkgs.linuxPackages_latest;
         }
       )
     ];
