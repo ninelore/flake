@@ -80,7 +80,7 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/submarine
-    cp build/* $out/share/submarine
+    cp -r build/* $out/share/submarine
   '';
 
   meta = {
