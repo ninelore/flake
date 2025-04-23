@@ -5,7 +5,7 @@ on:
 jobs:
   raw-mt81:
     name: raw aarch64 mt81xx
-    runs-on: ubuntu-latest-arm
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
@@ -20,7 +20,7 @@ jobs:
           path: result/*.img
   raw-sc7180:
     name: raw aarch64 sc7180
-    runs-on: ubuntu-latest-arm
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
@@ -35,7 +35,7 @@ jobs:
           path: result/*.img
   raw-x86:
     name: raw x86_64 cros
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
@@ -50,7 +50,7 @@ jobs:
           path: result/*.img
   iso-x64:
     name: ISO 9660 x86_64
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v3
       - uses: DeterminateSystems/nix-installer-action@v3
