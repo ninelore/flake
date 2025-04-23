@@ -17,6 +17,8 @@ alsa-ucm-conf.overrideAttrs {
   '';
 
   meta.license = lib.licenses.bsd3;
-  # Note: inherits meta
-  # License: BSD 3-Clause
+  meta.platforma = [
+    "aarch64-linux"
+    "x86_64-linux"
+  ];
 }
