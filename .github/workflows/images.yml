@@ -18,15 +18,10 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - run: nix build -L .#nixosImages.raw-mt81
-      - name: Copy and compress file
-        run: |
-          cp result/nixos_cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.img .
-          xz -z nixos_cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.img
       - uses: actions/upload-artifact@v4.6.2
         with:
-          name: nixos_cros_mt81-${{ steps.vars.outputs.sha_short }}.img.xz
-          path: nixos_cros-aarch54-linux-${{ steps.vars.outputs.sha_short }}.img.xz
-          compression-level: 0
+          name: nixos_cros_mt81-${{ steps.vars.outputs.sha_short }}.img
+          path: result/nixos_cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.img
   raw-sc7180:
     name: raw aarch64 sc7180
     runs-on: ubuntu-24.04-arm
@@ -42,15 +37,10 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - run: nix build -L .#nixosImages.raw-sc7180
-      - name: Copy and compress file
-        run: |
-          cp result/nixos_cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.img .
-          xz -z nixos_cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.img
       - uses: actions/upload-artifact@v4.6.2
         with:
-          name: nixos_cros_sc7180-${{ steps.vars.outputs.sha_short }}.img.xz
-          path: nixos_cros-aarch54-linux-${{ steps.vars.outputs.sha_short }}.img.xz
-          compression-level: 0
+          name: nixos_cros_sc7180-${{ steps.vars.outputs.sha_short }}.img
+          path: result/nixos_cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.img
   raw-x86:
     name: raw x86_64 cros
     runs-on: ubuntu-24.04
@@ -66,15 +56,10 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - run: nix build -L .#nixosImages.raw-x64cros
-      - name: Copy and compress file
-        run: |
-          cp result/nixos_cros-x86_64-linux-${{ steps.vars.outputs.sha_short }}.img .
-          xz -z nixos_cros-x86_64-linux-${{ steps.vars.outputs.sha_short }}.img
       - uses: actions/upload-artifact@v4.6.2
         with:
-          name: nixos_cros-x86_64-linux-${{ steps.vars.outputs.sha_short }}.img.xz
-          path: nixos_cros-x86_64-linux-${{ steps.vars.outputs.sha_short }}.img.xz
-          compression-level: 0
+          name: nixos_cros_x86_64-${{ steps.vars.outputs.sha_short }}.img
+          path: result/nixos_cros-x86_64-linux-${{ steps.vars.outputs.sha_short }}.img
   iso-x64:
     name: ISO 9660 x86_64
     runs-on: ubuntu-24.04
@@ -90,12 +75,7 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - run: nix build -L .#nixosImages.iso-x86_64
-      - name: Copy and compress file
-        run: |
-          cp result/iso/nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso .
-          xz -z nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso
       - uses: actions/upload-artifact@v4.6.2
         with:
-          name: nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso.xz
-          path: nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso.xz
-          compression-level: 0
+          name: nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso
+          path: result/iso/nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso
