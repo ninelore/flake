@@ -14,19 +14,6 @@
   zstd,
   ...
 }:
-let
-  pathPackages = [
-    bzip2
-    dtc
-    gzip
-    lz4
-    lzop
-    ubootTools
-    vboot_reference
-    xz
-    zstd
-  ];
-in
 with python3Packages;
 buildPythonApplication rec {
   name = "depthcharge-tools";
@@ -43,13 +30,17 @@ buildPythonApplication rec {
   ];
 
   propagatedBuildInputs = [
+    bzip2
+    dtc
+    gzip
+    lz4
+    lzop
     setuptools
+    ubootTools
+    vboot_reference
+    xz
+    zstd
   ];
-
-  postFixup = ''
-    wrapProgram $out/bin/depthchargectl --suffix PATH : ${lib.makeBinPath pathPackages}
-    wrapProgram $out/bin/mkdepthcharge --suffix PATH : ${lib.makeBinPath pathPackages}
-  '';
 
   meta = {
     description = "Tools to manage the Chrome OS bootloader ";
