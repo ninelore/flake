@@ -4,6 +4,7 @@ on:
 
 jobs:
   raw-mt81:
+    if: ! always()
     name: raw aarch64 mt81xx
     runs-on: ubuntu-24.04-arm
     steps:
@@ -13,9 +14,6 @@ jobs:
           name: 9lore
           skipPush: true
           useDaemon: false
-      - uses: nixbuild/nixbuild-action@v20
-        with:
-          nixbuild_token: ${{ secrets.NIXBUILD_TOKEN }}
       - uses: actions/checkout@v3
       - name: Save commit short hash 
         id: vars
@@ -26,6 +24,7 @@ jobs:
           name: nixos_cros_mt81-${{ steps.vars.outputs.sha_short }}.img
           path: result/nixos_cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.img
   raw-sc7180:
+    if: ! always()
     name: raw aarch64 sc7180
     runs-on: ubuntu-24.04-arm
     steps:
@@ -35,9 +34,6 @@ jobs:
           name: 9lore
           skipPush: true
           useDaemon: false
-      - uses: nixbuild/nixbuild-action@v20
-        with:
-          nixbuild_token: ${{ secrets.NIXBUILD_TOKEN }}
       - uses: actions/checkout@v3
       - name: Save commit short hash 
         id: vars
