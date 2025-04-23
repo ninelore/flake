@@ -59,7 +59,7 @@ let
       }
     )
   ];
-  customFormats = import ./imageFormats;
+  customFormats = import ./imageFormats { inherit inputs; };
   specialArgs = { inherit inputs; };
 in
 {

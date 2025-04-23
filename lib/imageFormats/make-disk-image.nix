@@ -113,7 +113,7 @@
   name ? "nixos-disk-image",
 
   # Disk image filename, without any extensions (e.g. `image_1`).
-  baseName ? "nixos-cros",
+  baseName ? "nixos_cros-${pkgs.system}",
 
   # Whether to fix:
   #   - GPT Disk Unique Identifier (diskGUID)

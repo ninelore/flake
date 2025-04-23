@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   "raw-cros" =
     {
@@ -37,7 +38,8 @@
 
       system.build.raw = import ./make-disk-image.nix {
         inherit lib config pkgs;
-        inherit (config.virtualisation) diskSize;
+        additionalSpace = "512M";
+        baseName = "nixos_cros-${pkgs.system}-${inputs.self.shortRev or "dirty"}";
       };
       formatAttr = "raw";
       fileExtension = ".img";
