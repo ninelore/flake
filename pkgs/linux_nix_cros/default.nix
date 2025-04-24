@@ -15,6 +15,45 @@ buildLinux rec {
     inherit hash;
   };
 
+  kernelPatches = [
+    {
+      name = "mt8183-fix-bluetooth";
+      patch = ../linuxPatches/mt8183-fix-bluetooth.patch;
+    }
+    {
+      name = "mt8183-kukui-add-it6505-and-enable-dpi";
+      patch = ../linuxPatches/mt8183-kukui-add-it6505-and-enable-dpi.patch;
+    }
+    {
+      name = "mt8183-kukui-jacuzzi-fennel14-rt1015p-sound";
+      patch = ../linuxPatches/mt8183-kukui-jacuzzi-fennel14-rt1015p-sound.patch;
+    }
+    {
+      name = "mt8183-kukui-jacuzzi-fix-display-resume";
+      patch = ../linuxPatches/mt8183-kukui-jacuzzi-fix-display-resume.patch;
+    }
+    {
+      name = "mt8183-kukui-jacuzzi-hack-dpms-resume";
+      patch = ../linuxPatches/mt8183-kukui-jacuzzi-hack-dpms-resume.patch;
+    }
+    {
+      name = "mt8195-adsp";
+      patch = ../linuxPatches/mt8195-adsp.patch;
+    }
+    {
+      name = "mt8195-cherry-tomato-nvme";
+      patch = ../linuxPatches/mt8195-cherry-tomato-nvme.patch;
+    }
+    {
+      name = "mt8195-dvfsrc";
+      patch = ../linuxPatches/mt8195-dvfsrc.patch;
+    }
+  ];
+
+  extraMeta = {
+    platforms = [ "aarch64-linux" ];
+  };
+
   structuredExtraConfig = with lib.kernel; {
     ARCH_MEDIATEK = yes;
     ARCH_QCOM = yes;
@@ -85,45 +124,24 @@ buildLinux rec {
     ARCH_VISCONTI = no;
     ARCH_XGENE = no;
     ARCH_ZYNQMP = no;
+
+    # Disable some more
+    XEN = lib.mkForce no;
+    ATM = no;
+    X25 = no;
+    LAPB = no;
+    PHONET = no;
+    ATALK = no;
+    TIPC = no;
+    ARCNET = no;
+    NET_DSA = no;
+    FDDI = no;
+    HIPPI = lib.mkForce no;
+    CAN = no;
+    LEGACY_PTYS = no;
+    FB_RADEON = no;
+    FB_NVIDIA = no;
+    PARPORT = no;
   };
   ignoreConfigErrors = true;
-
-  kernelPatches = [
-    {
-      name = "mt8183-fix-bluetooth";
-      patch = ../linuxPatches/mt8183-fix-bluetooth.patch;
-    }
-    {
-      name = "mt8183-kukui-add-it6505-and-enable-dpi";
-      patch = ../linuxPatches/mt8183-kukui-add-it6505-and-enable-dpi.patch;
-    }
-    {
-      name = "mt8183-kukui-jacuzzi-fennel14-rt1015p-sound";
-      patch = ../linuxPatches/mt8183-kukui-jacuzzi-fennel14-rt1015p-sound.patch;
-    }
-    {
-      name = "mt8183-kukui-jacuzzi-fix-display-resume";
-      patch = ../linuxPatches/mt8183-kukui-jacuzzi-fix-display-resume.patch;
-    }
-    {
-      name = "mt8183-kukui-jacuzzi-hack-dpms-resume";
-      patch = ../linuxPatches/mt8183-kukui-jacuzzi-hack-dpms-resume.patch;
-    }
-    {
-      name = "mt8195-adsp";
-      patch = ../linuxPatches/mt8195-adsp.patch;
-    }
-    {
-      name = "mt8195-cherry-tomato-nvme";
-      patch = ../linuxPatches/mt8195-cherry-tomato-nvme.patch;
-    }
-    {
-      name = "mt8195-dvfsrc";
-      patch = ../linuxPatches/mt8195-dvfsrc.patch;
-    }
-  ];
-
-  extraMeta = {
-    platforms = [ "aarch64-linux" ];
-  };
 }
