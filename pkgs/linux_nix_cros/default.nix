@@ -9,7 +9,7 @@ let
   hash = "sha256-ZDFCwbWZFWDdEvlQglzBnkSXuVuCZBkY7P8Rd/QTDB0=";
 in
 buildLinux rec {
-  version = ver + "-mt81";
+  version = ver;
   src = fetchurl {
     url = "mirror://kernel/linux/kernel/v${lib.versions.major ver}.x/linux-${ver}.tar.xz";
     inherit hash;
@@ -29,9 +29,9 @@ buildLinux rec {
     PHY_MTK_MIPI_DSI = yes;
     PHY_MTK_DP = yes;
     INTERCONNECT_MTK = yes;
-    DRM_MEDIATEK = yes;
-    DRM_MEDIATEK_DP = yes;
-    DRM_MEDIATEK_HDMI = yes;
+    #DRM_MEDIATEK = yes;
+    #DRM_MEDIATEK_DP = yes;
+    #DRM_MEDIATEK_HDMI = yes;
   };
 
   kernelPatches = [
