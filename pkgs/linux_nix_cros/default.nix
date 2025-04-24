@@ -32,7 +32,15 @@ buildLinux rec {
     #DRM_MEDIATEK = yes;
     #DRM_MEDIATEK_DP = yes;
     #DRM_MEDIATEK_HDMI = yes;
+
+    # Disable unnecessary big stuff
+    DRM_NOUVEAU = no;
+    DRM_TEGRA = no;
+    DRM_AMDGPU = no;
+    HSA_AMD = lib.mkForce no;
+    FIREWIRE = no;
   };
+  ignoreConfigErrors = true;
 
   kernelPatches = [
     {
