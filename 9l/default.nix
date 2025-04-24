@@ -17,6 +17,12 @@ let
         extras = true;
         keymap = "uk";
       }
+      {
+        username = "9l";
+        hostname = "9l-tomato";
+        architecture = "aarch64-linux";
+        keymap = "uk";
+      }
     ];
     hm = myLib.mkHm [
       {
