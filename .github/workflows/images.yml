@@ -3,29 +3,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  raw-mt81:
-    name: Raw aarch64 cros
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: docker/setup-qemu-action@v3
-      - uses: DeterminateSystems/nix-installer-action@v3
-        with:
-          extra-conf: |
-            extra-platforms = aarch64-linux
-      - uses: cachix/cachix-action@v14
-        with:
-          name: 9lore
-          skipPush: true
-          useDaemon: false
-      - uses: actions/checkout@v3
-      - name: Save commit short hash 
-        id: vars
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - run: nix build -L .#nixosImages.raw-a64cros
-      - uses: actions/upload-artifact@v4.6.2
-        with:
-          name: nixos_cros_mt81-${{ steps.vars.outputs.sha_short }}.img
-          path: result/nixos_cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.img
   raw-x86:
     name: Raw x86_64 cros
     runs-on: ubuntu-24.04
