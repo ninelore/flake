@@ -108,7 +108,7 @@
   postVM ? "",
 
   # Guest memory size
-  memSize ? 1024,
+  memSize ? 4096,
 
   name ? "nixos-disk-image",
 
