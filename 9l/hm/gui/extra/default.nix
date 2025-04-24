@@ -4,8 +4,8 @@
     discord-canary
     fractal
     prismlauncher
-    protonvpn-cli
-    protonvpn-gui
+    # protonvpn-cli
+    # protonvpn-gui
     tuba
     warcraftlogs
     (pkgs.ghidra.withExtensions (
