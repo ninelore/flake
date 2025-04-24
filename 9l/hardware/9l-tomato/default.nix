@@ -15,7 +15,7 @@
     ../common/cros
   ];
 
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_nix_cros;
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_mt81;
 
   boot.initrd.availableKernelModules = [ ];
   boot.initrd.kernelModules = [ ];
