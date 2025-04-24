@@ -22,7 +22,7 @@ in
       flyctl
       fzf
       picocom
-      pmbootstrap
+      #pmbootstrap
       tldr
       vboot_reference
       zip
