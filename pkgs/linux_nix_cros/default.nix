@@ -78,6 +78,8 @@ buildLinux rec {
     DRM_NOUVEAU = no;
     DRM_TEGRA = no;
     DRM_AMDGPU = no;
+    DRM_RADEON = no;
+    DRM_XE = no;
     HSA_AMD = lib.mkForce no;
     FIREWIRE = no;
 
@@ -141,6 +143,7 @@ buildLinux rec {
     LEGACY_PTYS = no;
     FB_RADEON = no;
     FB_NVIDIA = no;
+    FB_RIVA = no;
     PARPORT = no;
   };
   ignoreConfigErrors = true;
