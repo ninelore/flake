@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   imports = [
     ../cli
@@ -8,23 +8,27 @@
   ];
 
   home = {
-    packages = with pkgs; [
-      # GUI Apps
-      appimage-run
-      bottles
-      devtoolbox
-      gimp
-      hunspell
-      hunspellDicts.de_DE
-      hunspellDicts.en_GB-ise
-      kicad-small
-      libreoffice-fresh
-      pdfarranger
-      scrcpy
-      spotify
-      wineWowPackages.stagingFull
-      wl-clipboard
-    ];
+    packages =
+      with pkgs;
+      [
+        # GUI Apps
+        appimage-run
+        bottles
+        devtoolbox
+        gimp
+        hunspell
+        hunspellDicts.de_DE
+        hunspellDicts.en_GB-ise
+        kicad-small
+        libreoffice-fresh
+        pdfarranger
+        scrcpy
+        wl-clipboard
+      ]
+      ++ lib.optionals (pkgs.system == "x86_64-linux") [
+        spotify
+        wineWowPackages.stagingFull
+      ];
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       GDK_BACKEND = "wayland,x11";

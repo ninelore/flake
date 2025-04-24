@@ -62,12 +62,11 @@
       };
       desktopManager.gnome.enable = true;
     };
-    udev.packages = with pkgs; [
-      # https://github.com/NixOS/nixpkgs/pull/395654
-      # openocd
-      # platformio-core
-      via
-    ];
+    udev.packages =
+      with pkgs;
+      lib.optionals (system == "x86_64-linux") [
+        via
+      ];
     logind.extraConfig = ''
       HandlePowerKey=suspend
       HandleLidSwitch=suspend
