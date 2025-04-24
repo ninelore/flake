@@ -4,9 +4,8 @@ on:
   push:
     branches: [main]
     paths: 
-      - 'flake.*'
+      - 'flake.lock'
       - 'pkgs/**/*'
-      - 'modules/**/*'
 
 jobs:
   nix-matrix:
