@@ -31,10 +31,7 @@
         supportedFilesystems.zfs = lib.mkForce false;
       };
 
-      hardware = {
-        enableAllHardware = true;
-        enableRedistributableFirmware = true;
-      };
+      hardware.enableRedistributableFirmware = true;
 
       system.build.raw = import ./make-disk-image.nix {
         inherit lib config pkgs;

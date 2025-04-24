@@ -17,10 +17,17 @@
 
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_mt81;
 
-  boot.initrd.availableKernelModules = [ ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  # aarch64 kernel shenanigans
+  boot.initrd.includeDefaultModules = lib.mkForce false;
+  hardware.enableAllHardware = lib.mkForce false;
+  boot.initrd.availableKernelModules = lib.optionals (pkgs.system == "aarch64-linux") [
+    # Storage
+    "nvme"
+    "mmc_block"
+  ];
+  boot.initrd.kernelModules = lib.optionals (pkgs.system == "aarch64-linux") [
+    "dm_mod"
+  ];
 
   boot.initrd.luks.devices."root" = {
     device = "/dev/disk/by-uuid/05fba921-a014-489a-918d-6627c136ef5c";
