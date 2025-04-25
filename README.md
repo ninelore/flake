@@ -20,6 +20,8 @@ The following images are production ready and are [built by CI](https://github.c
   - Latest NixOS stable kernel (`pkgs.linuxPackages_latest`)
   - Layout: ISO 9660 image
 
+### Build Instructions
+
 Refer to [`./lib/images.nix`](lib/images.nix) for a list of all available images.
 
 <details>
