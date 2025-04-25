@@ -84,6 +84,7 @@
           };
           cros = import ./modules/cros;
           crosSetuid = import ./modules/cros/setuid;
+          crosAarch64 = import ./modules/cros/aarch64;
         };
       homeModules.default = {
         nixpkgs.overlays = [ self.overlays.default ];

@@ -2,32 +2,20 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 {
-  config,
+  inputs,
   lib,
   pkgs,
   modulesPath,
   ...
 }:
-
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.self.nixosModules.crosAarch64
     ../common/cros
   ];
 
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_mt81;
-
-  # aarch64 kernel shenanigans
-  boot.initrd.includeDefaultModules = lib.mkForce false;
-  hardware.enableAllHardware = lib.mkForce false;
-  boot.initrd.availableKernelModules = lib.optionals (pkgs.system == "aarch64-linux") [
-    # Storage
-    "nvme"
-    "mmc_block"
-  ];
-  boot.initrd.kernelModules = lib.optionals (pkgs.system == "aarch64-linux") [
-    "dm_mod"
-  ];
 
   boot.initrd.luks.devices."root" = {
     device = "/dev/disk/by-uuid/05fba921-a014-489a-918d-6627c136ef5c";

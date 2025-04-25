@@ -14,6 +14,7 @@ This flake harbors custom package derivations, image generation outputs as well 
   - Disables TPM.
   - Will **not** override your configuration.
 - **crosSetuid**: Installs `ectool` and `cbmem` with setuid permission to PATH
+- **crosAarch64**: Fixes and slims down NixOS initrd for aarch64 and custom kernels
 
 ## Images
 
