@@ -8,7 +8,6 @@ let
     brightness-control-using-ddcutil
     caffeine
     clipboard-history
-    dash-to-dock
     gsconnect
     hot-edge
     nightscout
@@ -129,27 +128,6 @@ in
       "org/gnome/shell/extensions/blur-my-shell/panel" = {
         override-background = true;
         override-background-dynamically = true;
-      };
-      "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
-        blur = true;
-        static-blur = false;
-        sigma = 0;
-        brightness = 0.0;
-        override-background = true;
-        style-dash-to-dock = 0;
-        unblur-in-overview = false;
-      };
-      "org/gnome/shell/extensions/dash-to-dock" = {
-        dock-position = "LEFT";
-        dock-fixed = false;
-        intellihide = true;
-        intellihide-mode = "ALL_WINDOWS";
-        dash-max-icon-size = 48;
-        show-trash = false;
-        show-mounts = true;
-        show-mounts-only-mounted = false;
-        show-mounts-network = true;
-        apply-custom-theme = true;
       };
     };
   };
