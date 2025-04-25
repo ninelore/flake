@@ -19,11 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v3
-      - uses: DeterminateSystems/nix-installer-action@v3
+      - uses: DeterminateSystems/nix-installer-action@v17
         with:
           extra-conf: |
             extra-platforms = aarch64-linux
       - uses: actions/checkout@v3
-      - uses: DeterminateSystems/nix-installer-action@v3
+      - uses: DeterminateSystems/nix-installer-action@v17
       - name: Run nix flake check
         run: nix flake check
