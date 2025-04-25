@@ -9,9 +9,6 @@
   boot.kernelParams = [ "iomem=relaxed" ];
   environment = {
     sessionVariables.ALSA_CONFIG_UCM2 = lib.mkDefault "${pkgs.alsa-ucm-conf-cros}/share/alsa/ucm2";
-    systemPackages = with pkgs; [
-      sof-firmware
-    ];
     etc = {
       "libinput/cros.quirks".text = lib.mkDefault ''
         [keyd virtual keyboard]
