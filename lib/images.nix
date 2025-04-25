@@ -2,6 +2,7 @@
 let
   commonModules = [
     inputs.self.nixosModules.default
+    inputs.nix-index-database.nixosModules.nix-index
     ../9l/nixcfg
     (
       {
@@ -24,6 +25,7 @@ let
           "iomem=relaxed"
         ];
         hardware.enableRedistributableFirmware = true;
+        programs.nix-index-database.comma.enable = true;
         programs.flashprog.enable = true;
         environment.systemPackages =
           with pkgs;
