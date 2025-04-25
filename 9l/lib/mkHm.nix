@@ -10,6 +10,7 @@ let
             system = hmConfig.arch;
             config.allowUnfree = true;
           };
+          extraSpecialArgs = { inherit inputs hmConfig; };
           modules = [
             ../nixcfg
             inputs.self.homeModules.default
