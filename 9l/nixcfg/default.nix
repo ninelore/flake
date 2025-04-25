@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   nixpkgs = {
     overlays = [
@@ -15,6 +15,9 @@
         "@wheel"
         "@sudo"
       ];
+    };
+    registry = {
+      "9l".flake = inputs.self;
     };
   };
 }
