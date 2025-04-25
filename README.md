@@ -2,6 +2,19 @@
 
 This flake harbors custom package derivations, image generation outputs as well as my personal configurations for Nix, NixOS as well as Home-Manager.
 
+## Modules
+
+- **default**: Simply adds the package overlay and the binary cache
+- **cros**: Provides some configuration for Chromebooks. 
+  - Installs Firmware via `hardware.enableRedistributableFirmware = true;`
+  - Installs [WeirdTreeThing's UCMs](https://github.com/WeirdTreeThing/alsa-ucm-conf-cros)
+    - Does not install modprobe configs that might be required!
+  - Installs keyd and libinput, but **no** configuration. Run [cros-keyboard-map]() to generate configuration.
+  - Enebles iio for screen rotation.
+  - Disables TPM.
+  - Will **not** override your configuration.
+- **crosSetuid**: Installs `ectool` and `cbmem` with setuid permission to PATH
+
 ## Images
 
 The images always include additional useful tool in addition to the NixOS ISO defaults and are preconfigured to run NetworkManager for Connectivity.
