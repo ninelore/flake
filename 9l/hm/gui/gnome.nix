@@ -133,7 +133,7 @@ in
       "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
         blur = true;
         static-blur = false;
-        sigma = 0.0;
+        sigma = 0;
         brightness = 0.0;
         override-background = true;
         style-dash-to-dock = 0;
@@ -185,8 +185,8 @@ in
     inherit cursorTheme;
     enable = true;
     iconTheme = {
-      name = "MoreWaita";
-      package = pkgs.morewaita-icon-theme;
+      name = "Tela-dracula";
+      package = pkgs.tela-icon-theme;
     };
     font = {
       name = "Adwaita Sans";
