@@ -48,6 +48,9 @@ let
             nil
             nixd
             nixfmt-rfc-style
+            # ChromeOS Utilities
+            vboot_reference
+            submarine
           ]
           ++ lib.optionals (system == "x86_64-linux") [
             # Distro install tools
