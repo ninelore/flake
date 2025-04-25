@@ -20,7 +20,7 @@ jobs:
       - run: nix build -L .#nixosImages.raw-x64cros
       - uses: actions/upload-artifact@v4.6.2
         with:
-          name: nixos_cros_x86_64-${{ steps.vars.outputs.sha_short }}.img
+          name: nixos-raw-x64cros-${{ steps.vars.outputs.sha_short }}.img
           path: result/nixos_cros-x86_64-linux-${{ steps.vars.outputs.sha_short }}.img
   iso-x64:
     name: ISO 9660 x86_64

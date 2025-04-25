@@ -4,8 +4,8 @@ on:
   pull_request:
   push:
     branches: [main]
-    paths-ignore: 
-      - '.github/**/*'
+    paths: 
+      - '**/*.nix'
 
 jobs:
   detsys:
