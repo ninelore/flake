@@ -12,7 +12,7 @@ jobs:
     name: DeterminateSystems Checks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: DeterminateSystems/flake-checker-action@v9
   nix:
     name: Nix Checks
@@ -23,7 +23,7 @@ jobs:
         with:
           extra-conf: |
             extra-platforms = aarch64-linux
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@v17
       - name: Run nix flake check
         run: nix flake check
