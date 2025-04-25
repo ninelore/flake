@@ -100,7 +100,6 @@
 
   programs = {
     adb.enable = true;
-    command-not-found.enable = false;
     dconf.enable = true;
     flashprog = {
       enable = true;
