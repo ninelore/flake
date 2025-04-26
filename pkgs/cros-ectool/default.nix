@@ -1,6 +1,6 @@
 {
   cmake,
-  fetchgit,
+  fetchFromGitHub,
   libftdi1,
   libusb1,
   pkg-config,
@@ -10,15 +10,15 @@
 }:
 stdenv.mkDerivation {
   name = "cros-ectool";
-  version = "0.1.0";
+  version = "0-unstable-2024-06-23";
 
-  src = fetchgit {
-    url = "https://gitlab.howett.net/DHowett/ectool.git";
+  src = fetchFromGitHub {
+    owner = "DHowett";
+    repo = "ectool";
     rev = "0ac6155abbb7d4622d3bcf2cdf026dde2f80dad7";
-    hash = "sha256-XfDE+P9BxTvTCeuZjnjCmS1CN7hz79WM5MaHq/Smpq0=";
+    hash = "sha256-EMOliuyWB0xyrYB+E9axZtJawnIVIAM5nx026tESi38=";
   };
 
-  # TODO
   nativeBuildInputs = [
     libftdi1
   ];
@@ -35,7 +35,6 @@ stdenv.mkDerivation {
     make
   '';
 
-  # Rename to crosectool due to conflict with coreboot-utils
   installPhase = ''
     runHook preInstall
 
@@ -51,8 +50,6 @@ stdenv.mkDerivation {
     platforms = [
       "x86_64-linux"
       "aarch64-linux"
-      # "x86_64-darwin"
-      # "aarch64-darwin"
     ];
   };
 }
