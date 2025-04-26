@@ -142,17 +142,8 @@ in
       # Theme stuff
       adw-gtk3
       # Fonts
-      adwaita-fonts
-      cantarell-fonts
-      dejavu_fonts
-      liberation_ttf
       nerd-fonts.jetbrains-mono
       nerd-fonts.iosevka
-      nerd-fonts.iosevka-term
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
-      open-sans
     ];
     pointerCursor = cursorTheme // {
       gtk.enable = true;

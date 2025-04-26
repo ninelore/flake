@@ -23,6 +23,7 @@
         libreoffice-fresh
         pdfarranger
         scrcpy
+        sly
         warp
         wl-clipboard
       ]
