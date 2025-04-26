@@ -55,7 +55,6 @@
     #   enable = true;
     #   wayland.enable = true;
     # };
-    desktopManager.cosmic.enable = true;
     xserver = {
       displayManager.gdm = {
         enable = true;
