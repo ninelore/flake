@@ -17,7 +17,7 @@
       ];
     };
     registry = {
-      "9l".flake = inputs.self;
+      ninelore.flake = inputs.self;
     };
   };
 }
