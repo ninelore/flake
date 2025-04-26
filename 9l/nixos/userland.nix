@@ -94,8 +94,7 @@
         };
       };
     };
-    # TODO: enable CONFIG_ANDROID_BINDERFS
-    waydroid.enable = pkgs.system != "aarch64-linux";
+    waydroid.enable = true;
   };
 
   programs = {
