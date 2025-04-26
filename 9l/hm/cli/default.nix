@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }:
 {
@@ -10,6 +11,8 @@
     ./nix-scripts.nix
     ./sh.nix
   ];
+
+  services.gpg-agent.pinentryPackage = pkgs.pinentry-all;
 
   programs = {
     home-manager.enable = true;

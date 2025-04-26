@@ -13,7 +13,6 @@
   };
 
   services = {
-    gpg-agent.pinentryPackage = pkgs.pinentry-all;
     kdeconnect = {
       enable = true;
       indicator = true;

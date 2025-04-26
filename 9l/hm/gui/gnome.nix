@@ -206,8 +206,6 @@ in
     };
   };
 
-  services.gpg-agent.pinentryPackage = pkgs.pinentry-gnome3;
-
   # systemd.user.sessionVariables = {
   #   # GNOME / Wayland bug https://forums.opensuse.org/t/gnome-wayland-session-getting-killed/177667
   #   MUTTER_DEBUG_KMS_THREAD_TYPE = "user";
