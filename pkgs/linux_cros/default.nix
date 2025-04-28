@@ -22,35 +22,35 @@ linuxManualConfig rec {
   kernelPatches = [
     {
       name = "mt8183-fix-bluetooth";
-      patch = ../linuxPatches/mt8183-fix-bluetooth.patch;
+      patch = ./mt8183-fix-bluetooth.patch;
     }
     {
       name = "mt8183-kukui-add-it6505-and-enable-dpi";
-      patch = ../linuxPatches/mt8183-kukui-add-it6505-and-enable-dpi.patch;
+      patch = ./mt8183-kukui-add-it6505-and-enable-dpi.patch;
     }
     {
       name = "mt8183-kukui-jacuzzi-fennel14-rt1015p-sound";
-      patch = ../linuxPatches/mt8183-kukui-jacuzzi-fennel14-rt1015p-sound.patch;
+      patch = ./mt8183-kukui-jacuzzi-fennel14-rt1015p-sound.patch;
     }
     {
       name = "mt8183-kukui-jacuzzi-fix-display-resume";
-      patch = ../linuxPatches/mt8183-kukui-jacuzzi-fix-display-resume.patch;
+      patch = ./mt8183-kukui-jacuzzi-fix-display-resume.patch;
     }
     {
       name = "mt8183-kukui-jacuzzi-hack-dpms-resume";
-      patch = ../linuxPatches/mt8183-kukui-jacuzzi-hack-dpms-resume.patch;
+      patch = ./mt8183-kukui-jacuzzi-hack-dpms-resume.patch;
     }
     {
       name = "mt8195-adsp";
-      patch = ../linuxPatches/mt8195-adsp.patch;
+      patch = ./mt8195-adsp.patch;
     }
     {
       name = "mt8195-cherry-tomato-nvme";
-      patch = ../linuxPatches/mt8195-cherry-tomato-nvme.patch;
+      patch = ./mt8195-cherry-tomato-nvme.patch;
     }
     {
       name = "mt8195-dvfsrc";
-      patch = ../linuxPatches/mt8195-dvfsrc.patch;
+      patch = ./mt8195-dvfsrc.patch;
     }
   ];
 

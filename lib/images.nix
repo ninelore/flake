@@ -77,7 +77,7 @@ let
 in
 {
   # Raw image for MTK-based Chromebooks with Depthcharge
-  raw-mt81 = inputs.nixos-generators.nixosGenerate {
+  raw-aarch64cros = inputs.nixos-generators.nixosGenerate {
     inherit customFormats specialArgs;
     system = "aarch64-linux";
     modules = commonModules ++ [
@@ -86,7 +86,7 @@ in
         { pkgs, ... }:
         {
           boot.kernelParams = [ "console=tty0" ];
-          boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_mt81;
+          boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros;
         }
       )
     ];
