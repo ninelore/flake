@@ -18,7 +18,7 @@ with import inputs.nixpkgs {
   #iosevka-9l = callPackage ./iosevka-9l { };
   linux_mt81 = callPackage ./linux_mt81 { };
   #linux_nix_cros = callPackage ./linux_nix_cros { };
-  linux_sc7180 = callPackage ./linux_sc7180 { };
+  linux_sc7180_legacy = callPackage ./linux_sc7180 { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
   submarine = callPackage ./submarine { };
   warcraftlogs = callPackage ./warcraftlogs-uploader { };

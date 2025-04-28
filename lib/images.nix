@@ -92,22 +92,6 @@ in
     ];
     format = "raw-cros";
   };
-  # Raw image for Qualcomm-based Chromebooks with Depthcharge
-  raw-sc7180 = inputs.nixos-generators.nixosGenerate {
-    inherit customFormats specialArgs;
-    system = "aarch64-linux";
-    modules = commonModules ++ [
-      inputs.self.nixosModules.crosAarch64
-      (
-        { pkgs, ... }:
-        {
-          boot.kernelParams = [ "console=tty0" ];
-          boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_sc7180;
-        }
-      )
-    ];
-    format = "raw-cros";
-  };
   # Raw image for Intel or AMD-based Chromebooks with Depthcharge
   raw-x64cros = inputs.nixos-generators.nixosGenerate {
     inherit customFormats specialArgs;
