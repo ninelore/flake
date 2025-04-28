@@ -16,6 +16,11 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros;
+  boot.kernelParams = [
+    "plymouth.enable=0"
+    "loglevel=15"
+  ];
+  boot.consoleLogLevel = lib.mkForce 15;
 
   boot.initrd.luks.devices."root" = {
     device = "/dev/disk/by-uuid/05fba921-a014-489a-918d-6627c136ef5c";
