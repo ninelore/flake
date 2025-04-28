@@ -15,7 +15,7 @@
     ../common/cros
   ];
 
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_mt81;
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros;
 
   boot.initrd.luks.devices."root" = {
     device = "/dev/disk/by-uuid/05fba921-a014-489a-918d-6627c136ef5c";
