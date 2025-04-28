@@ -10,7 +10,7 @@ let
   hash = "sha256-yK94D29hPKJGIhFuTFEqdkM1q2bnXGZDADwW5JqOO5A=";
 in
 linuxManualConfig rec {
-  version = ver + "-mt81";
+  version = ver + "-cros";
   src = fetchurl {
     url = "mirror://kernel/linux/kernel/v${lib.versions.major ver}.x/linux-${ver}.tar.xz";
     inherit hash;
