@@ -15,7 +15,7 @@
         appimage-run
         bottles
         devtoolbox
-        gimp
+        gimp3
         hunspell
         hunspellDicts.de_DE
         hunspellDicts.en_GB-ise

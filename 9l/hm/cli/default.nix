@@ -12,7 +12,7 @@
     ./sh.nix
   ];
 
-  services.gpg-agent.pinentryPackage = pkgs.pinentry-all;
+  services.gpg-agent.pinentry.package = pkgs.pinentry-all;
 
   programs = {
     home-manager.enable = true;
