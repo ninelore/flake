@@ -60,7 +60,7 @@ Refer to [`./lib/images.nix`](lib/images.nix) for a list of all available images
 
 ## License
 
-Nixpkgs is licensed under the [MIT License](LICENSE.md).
+This flake is licensed under the [MIT License](LICENSE.md).
 
 Note: MIT license does not apply to the packages built by this flake,
 merely to the files in this repository (the Nix expressions, build
