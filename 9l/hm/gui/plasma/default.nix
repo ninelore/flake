@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    adwaita-icon-theme
     bibata-cursors
     tela-icon-theme
   ];
@@ -27,7 +26,7 @@
         theme = "Bibata-Modern-Ice";
         size = 24;
       };
-      iconTheme = "MoreWaita";
+      iconTheme = "Tela-dracula";
       colorScheme = "MonokaiPro";
     };
 
