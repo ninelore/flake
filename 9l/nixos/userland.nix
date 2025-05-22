@@ -18,11 +18,13 @@
       mpv
       neovim
       pciutils
+      resources
       usbutils
     ];
     gnome.excludePackages = with pkgs; [
       atomix
       cheese
+      decibels
       evince
       geary
       gnome-calendar

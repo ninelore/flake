@@ -1,5 +1,6 @@
 { pkgs, ... }:
 let
+  # TODO: Standalone HM
   nxr = pkgs.writeShellScriptBin "nxr" ''
     _p=.
     if [[ -r $HOME/.nx-flakepath ]] && ! [[ -r ./flake.nix ]]; then
