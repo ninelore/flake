@@ -15,7 +15,6 @@ let
     quick-settings-audio-devices-renamer
     tiling-shell
     vitals
-    wiggle
   ];
 
   cursorTheme = {
