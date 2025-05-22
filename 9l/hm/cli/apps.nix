@@ -67,23 +67,24 @@ in
           fd
           gcc
           git
-          gnumake
           lua5_1
           luarocks
           ripgrep
           tree-sitter
           wget
           wl-clipboard
-          # Mason  TODO: Bad Practice
-          cargo
-          go
-          jdk21_headless
-          python3
-          rustc
-          # Stuff that doesnt work or isnt available via mason.nvim
+          # Always have these available
+          bash-language-server
+          lua-language-server
           nil
           nixd
           nixfmt-rfc-style
+          nushell
+          shellcheck
+          stylua
+          typescript-language-server
+          vscode-langservers-extracted
+          yaml-language-server
         ];
       };
     };
