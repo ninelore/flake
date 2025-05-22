@@ -14,6 +14,11 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v17
       - name: Update flake.lock
         id: update
-        uses: DeterminateSystems/update-flake-lock@v25
-        with:
-          token: ${{ secrets.GH_BOTACC_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_BOTACC_TOKEN }}
+        run: |
+          git config user.name "ninelore-bot"
+          git config user.email "ci-bot@9lo.re"
+          git pull origin main
+          nix flake update --commit-lock-file
+          git push origin main
