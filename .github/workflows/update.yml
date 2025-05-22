@@ -16,8 +16,4 @@ jobs:
         id: update
         uses: DeterminateSystems/update-flake-lock@v25
         with:
-          token: ${{ secrets.GH_UPDATE_TOKEN }}
-          git-author-name: ninelore[bot]
-          git-author-email: ci-bot@9lo.re
-          git-committer-name: ninelore[bot]
-          git-committer-email: ci-bot@9lo.re
+          token: ${{ secrets.GH_BOTACC_TOKEN }}
