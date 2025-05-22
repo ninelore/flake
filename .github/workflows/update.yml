@@ -16,9 +16,8 @@ jobs:
         id: update
         uses: DeterminateSystems/update-flake-lock@v25
         with:
-          token: ${{ secrets.GH_BOTACC_TOKEN }}
-      - name: Merge Pull Request
-        uses: juliangruber/merge-pull-request-action@v1.3.1
-        with:
-          github-token: ${{ secrets.GH_BOTACC_TOKEN }}
-          number: ${{ steps.update.outputs.pull-request-number }}
+          token: ${{ secrets.GH_UPDATE_TOKEN }}
+          git-author-name: ninelore[bot]
+          git-author-email: ci-bot@9lo.re
+          git-committer-name: ninelore[bot]
+          git-committer-email: ci-bot@9lo.re
