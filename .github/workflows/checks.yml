@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths: 
       - '**/*.nix'
+      - 'flake.lock'
 
 jobs:
   detsys:
