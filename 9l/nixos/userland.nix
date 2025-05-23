@@ -37,7 +37,6 @@
       gnome-text-editor
       gnome-tour
       gnome-user-docs
-      gnome-weather
       hitori
       iagno
       simple-scan
