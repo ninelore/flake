@@ -27,7 +27,7 @@ The following images are production ready and are [built by CI](https://github.c
   - Latest NixOS stable kernel (`pkgs.linuxPackages_latest`)
   - Layout:
     - 1: 64MiB [Submarine](https://github.com/fyralabs/submarine)
-    - 2: ~320MiB EFI Partition for BLS entries, but also featuring `systemd-boot`
+    - 2: ~700MiB EFI Partition for BLS entries, but also featuring `systemd-boot`
     - 3: ~8GiB expanding ext4 root partiton
 - **`iso-x86_64`**: Iso image for x86_64 UEFI. Basically like the NixOS minimal iso, but with extra tools, NetworkManager and the latest stable kernel.
   - Architecture: x86_64-linux
@@ -39,21 +39,11 @@ The following images are production ready and are [built by CI](https://github.c
 Refer to [`./lib/images.nix`](lib/images.nix) for a list of all available images.
 
 <details>
-<summary>Instructions for non-NixOS</summary>
+<summary>Quick and dirty instructions for non-NixOS</summary>
 
 1. Have nix installed and the experimental features `nix-command flakes` enabled
 2. ´nix run nixpkgs#cachix -- use 9lore`
-3. ´nix build github:ninelore/flake#nixosImages.<Image>´
-4. Image will be in `./result/` or `./result/iso/`
-
-</details>
-
-<details>
-<summary>Instructions for NixOS</summary>
-  
-1. Have the experimental features `nix-command flakes` enabled
-2. Add the default module of this flake to your configuration to add the binary cache and overlay. Alternatively [follow the instructions here](https://app.cachix.org/cache/9lore)
-3. ´nix build github:ninelore/flake#nixosImages.<Image>´
+3. ´nix build github:ninelore/flake#nixosImages.&lt;Image&gt;´
 4. Image will be in `./result/` or `./result/iso/`
 
 </details>

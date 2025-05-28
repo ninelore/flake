@@ -70,7 +70,7 @@
   # This will be undersized slightly, as this is actually the offset of
   # the end of the partition. Generally it will be 1MiB smaller.
   # It should be at least 300M (MiB) due to Submarine
-  bootSize ? "384M",
+  bootSize ? "768M",
 
   # The files and directories to be placed in the target file system.
   # This is a list of attribute sets {source, target, mode, user, group} where
