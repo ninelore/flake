@@ -13,7 +13,7 @@
       [
         # GUI Apps
         appimage-run
-        bottles
+        (pkgs.bottles.override { removeWarningPopup = true; })
         devtoolbox
         gimp3
         hunspell
