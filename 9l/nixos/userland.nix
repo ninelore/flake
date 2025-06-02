@@ -51,17 +51,19 @@
   };
 
   services = {
-    # desktopManager.plasma6.enable = true;
-    # displayManager.sddm = {
-    #   enable = true;
-    #   wayland.enable = true;
-    # };
-    xserver = {
-      displayManager.gdm = {
+    desktopManager = {
+      gnome.enable = true;
+      # plasma6.enable = true;
+    };
+    displayManager = {
+      gdm = {
         enable = true;
         wayland = true;
       };
-      desktopManager.gnome.enable = true;
+      # sddm = {
+      #   enable = true;
+      #   wayland.enable = true;
+      # };
     };
     udev.packages =
       with pkgs;
