@@ -10,22 +10,15 @@ on:
       - 'flake.lock'
 
 jobs:
-  detsys:
-    name: DeterminateSystems Checks
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/flake-checker-action@v9
   nix:
-    name: Nix Checks
+    name: Nix Flake Checks
     runs-on: ubuntu-latest
     steps:
       - uses: docker/setup-qemu-action@v3
       - uses: DeterminateSystems/nix-installer-action@v17
         with:
           extra-conf: |
-            extra-platforms = aarch64-linux
+            extra-platforms = aarch64-linux aarch64-darwin x86_64-darwin
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@v17
       - name: Run nix flake check
-        run: nix flake check
+        run: nix flake check --all-systems
