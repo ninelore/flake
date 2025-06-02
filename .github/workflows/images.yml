@@ -1,6 +1,8 @@
 name: Images
 on:
   workflow_dispatch:
+  schedule:
+  - cron: "0 7 * * 1"
 
 jobs:
   raw-x86:

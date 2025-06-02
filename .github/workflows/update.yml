@@ -22,3 +22,12 @@ jobs:
           git pull origin main
           nix flake update --commit-lock-file
           git push origin main
+  checks:
+    name: "Checks"
+    needs: lockfile
+    uses: ./.github/workflows/checks.yml
+  cache:
+    name: "Build and Cache"
+    needs: [lockfile, checks]
+    uses: ./.github/workflows/cache.yml
+
