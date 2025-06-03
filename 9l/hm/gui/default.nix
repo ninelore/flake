@@ -14,6 +14,7 @@
         # GUI Apps
         appimage-run
         (pkgs.bottles.override { removeWarningPopup = true; })
+        darktable
         devtoolbox
         gimp3
         hunspell
