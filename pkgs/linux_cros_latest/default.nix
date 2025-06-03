@@ -22,7 +22,7 @@ linuxManualConfig rec {
   kernelPatches = [
     {
       name = "mt8183-fix-bluetooth";
-      patch = .../linux_cros/linux_cros/mt8183-fix-bluetooth.patch;
+      patch = ../linux_cros/mt8183-fix-bluetooth.patch;
     }
     {
       name = "mt8183-kukui-add-it6505-and-enable-dpi";
