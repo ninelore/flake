@@ -15,7 +15,7 @@
     ../common/cros
   ];
 
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros;
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros_latest;
   boot.kernelParams = [
     "plymouth.enable=0"
     "loglevel=15"
