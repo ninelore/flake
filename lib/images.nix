@@ -86,7 +86,7 @@ in
         { pkgs, ... }:
         {
           boot.kernelParams = [ "console=tty0" ];
-          boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros;
+          boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros_latest;
         }
       )
     ];
