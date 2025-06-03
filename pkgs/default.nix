@@ -12,6 +12,7 @@ rec {
   depthcharge-tools = callPackage ./depthcharge-tools { };
   #iosevka-9l = callPackage ./iosevka-9l { };
   linux_cros = callPackage ./linux_cros { };
+  linux_cros_latest = callPackage ./linux_cros_latest { };
   #linux_nix_cros = callPackage ./linux_nix_cros { };
   linux_sc7180_legacy = callPackage ./linux_sc7180 { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
