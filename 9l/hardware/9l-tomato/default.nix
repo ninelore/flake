@@ -23,7 +23,7 @@
   boot.consoleLogLevel = lib.mkForce 15;
 
   boot.initrd.luks.devices."root" = {
-    device = "/dev/disk/by-uuid/05fba921-a014-489a-918d-6627c136ef5c";
+    device = "/dev/disk/by-uuid/8ceac963-e577-4c8f-a1e3-2dc63a1e4d9a";
   };
 
   fileSystems."/" = {
@@ -36,7 +36,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/FA92-685C";
+    device = "/dev/disk/by-uuid/7B5D-A4F4";
     fsType = "vfat";
     options = [
       "fmask=0022"
