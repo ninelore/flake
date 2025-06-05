@@ -42,11 +42,10 @@ in
           "kitty.desktop"
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"
-          "discord-canary.desktop"
-          "spotify.desktop"
+          "Logseq.desktop"
           "org.gnome.Fractal.desktop"
-          "dev.geopjr.Tuba.desktop"
-          "startcenter.desktop"
+          "spotify.desktop"
+          "discord-canary.desktop"
         ];
       };
       "org/gnome/desktop/input-sources" = {
