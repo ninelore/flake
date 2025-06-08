@@ -9,7 +9,7 @@
   ...
 }:
 stdenv.mkDerivation {
-  name = "cros-ectool";
+  pname = "cros-ectool";
   version = "0-unstable-2024-06-23";
 
   src = fetchFromGitHub {

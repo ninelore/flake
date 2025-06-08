@@ -16,7 +16,7 @@
 }:
 with python3Packages;
 buildPythonApplication rec {
-  name = "depthcharge-tools";
+  pname = "depthcharge-tools";
   version = "0.6.2";
   src = fetchgit {
     url = "https://github.com/alpernebbi/depthcharge-tools";

@@ -6,7 +6,7 @@
   ...
 }:
 stdenv.mkDerivation (finalAttrs: {
-  name = "bgrtLuks";
+  pname = "bgrtLuks";
   src = writeText "bgrt-luks.plymouth" ''
     [Plymouth Theme]
     Name=BGRT-better-luks

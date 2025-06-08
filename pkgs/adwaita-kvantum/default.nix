@@ -4,7 +4,7 @@
   fetchFromGitHub,
 }:
 stdenvNoCC.mkDerivation {
-  name = "adwaita-kvantum";
+  pname = "adwaita-kvantum";
 
   src = fetchFromGitHub {
     owner = "GabePoel";

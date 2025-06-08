@@ -30,7 +30,7 @@ let
   depthcharge-tools = callPackage ../depthcharge-tools { };
 in
 stdenv.mkDerivation rec {
-  name = "submarine";
+  pname = "submarine";
   version = "0.3.0";
   src = fetchgit {
     url = "https://github.com/FyraLabs/submarine";

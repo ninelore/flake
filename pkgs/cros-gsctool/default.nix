@@ -9,7 +9,7 @@
   ...
 }:
 stdenv.mkDerivation {
-  name = "cros-gsctool";
+  pname = "cros-gsctool";
   version = "0.1.0";
 
   src = fetchgit {
