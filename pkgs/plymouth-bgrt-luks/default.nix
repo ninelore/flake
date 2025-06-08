@@ -6,7 +6,10 @@
   ...
 }:
 stdenv.mkDerivation (finalAttrs: {
-  pname = "bgrtLuks";
+  pname = "plymouth-bgrtLuks";
+  version = "1";
+
+  # SPDX-License-Identifier: GPL-3.0-only
   src = writeText "bgrt-luks.plymouth" ''
     [Plymouth Theme]
     Name=BGRT-better-luks

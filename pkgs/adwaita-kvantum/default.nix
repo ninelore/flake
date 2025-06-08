@@ -5,6 +5,7 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "adwaita-kvantum";
+  version = "0-unstable-2024-03-16";
 
   src = fetchFromGitHub {
     owner = "GabePoel";
