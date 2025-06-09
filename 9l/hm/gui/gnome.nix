@@ -11,6 +11,7 @@ let
     gsconnect
     hot-edge
     nightscout
+    #paperwm
     quick-settings-audio-devices-hider
     quick-settings-audio-devices-renamer
     tiling-shell
@@ -126,6 +127,18 @@ in
       "org/gnome/shell/extensions/blur-my-shell/panel" = {
         override-background = true;
         override-background-dynamically = true;
+      };
+      "org/gnome/shell/extensions/paperwm" = {
+        default-focus-mode = 0;
+        show-window-position-bar = false;
+        show-workspace-indicator = true;
+        selection-border-size = 2;
+        selection-border-radius-top = 4;
+        selection-border-radius-bottom = 4;
+        window-gap = 6;
+        horizontal-margin = 6;
+        vertical-margin = 6;
+        vertical-margin-bottom = 6;
       };
     };
   };
