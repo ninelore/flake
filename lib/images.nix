@@ -27,6 +27,7 @@ let
         hardware.enableRedistributableFirmware = true;
         programs.nix-index-database.comma.enable = true;
         programs.flashprog.enable = true;
+        programs.flashrom.enable = true;
         environment.systemPackages =
           with pkgs;
           [

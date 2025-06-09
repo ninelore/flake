@@ -103,9 +103,8 @@
   programs = {
     adb.enable = true;
     dconf.enable = true;
-    flashprog = {
-      enable = true;
-    };
+    flashprog.enable = true;
+    flashrom.enable = true;
     gamemode = {
       enable = true;
     };
