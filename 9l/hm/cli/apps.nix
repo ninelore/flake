@@ -12,7 +12,6 @@ in
 {
   home = {
     packages = with pkgs; [
-      # cli
       android-tools
       btop
       ddcutil
@@ -27,6 +26,7 @@ in
       vboot_reference
       zip
       unzip
+      weechat
     ];
   };
 
