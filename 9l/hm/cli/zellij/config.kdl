@@ -6,6 +6,14 @@ show_startup_tips false
 session_name "Main"
 attach_to_session true
 
+load_plugins {
+    "file:~/.config/zellij/zjframes.wasm" {
+        hide_frame_for_single_pane       "false"
+        hide_frame_except_for_search     "true"
+        hide_frame_except_for_fullscreen "true"
+    }
+}
+
 default_mode "locked"
 keybinds clear-defaults=true {
     locked {
@@ -103,7 +111,7 @@ keybinds clear-defaults=true {
         bind "c" { SearchToggleOption "CaseSensitivity"; }
         bind "n" { Search "down"; }
         bind "o" { SearchToggleOption "WholeWord"; }
-        bind "p" { Search "up"; }
+        bind "N" { Search "up"; }
         bind "w" { SearchToggleOption "Wrap"; }
     }
     shared_among "scroll" "search" {
