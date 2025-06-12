@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   shellAliases = {
     "c" = "clear";
@@ -26,9 +26,12 @@ in
     starship = {
       enable = true;
       settings = {
-        add_newline = false;
         scan_timeout = 2000;
         command_timeout = 2000;
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](bold red)";
+        };
       };
     };
 
@@ -44,6 +47,15 @@ in
       inherit shellAliases;
       enable = true;
       environmentVariables = {
+        TRANSIENT_PROMPT_COMMAND = lib.hm.nushell.mkNushellInline ''
+          {||
+            echo "\n" ((
+              ^${pkgs.starship}/bin/starship prompt
+                $"--status=($env.LAST_EXIT_CODE)"
+                --terminal-width (term size).columns
+            ) | lines | last) | str join
+          }
+        '';
         PROMPT_INDICATOR_VI_INSERT = "";
         PROMPT_INDICATOR_VI_NORMAL = "";
       };
