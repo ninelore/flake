@@ -4,6 +4,7 @@
   # Lets write our own defaults
   boot.initrd.includeDefaultModules = lib.mkForce false;
   hardware.enableAllHardware = lib.mkForce false;
+  hardware.enableRedistributableFirmware = true;
   boot.initrd.availableKernelModules = [
     # Storage
     "nvme"
