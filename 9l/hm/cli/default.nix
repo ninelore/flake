@@ -12,8 +12,6 @@
     ./sh.nix
   ];
 
-  services.gpg-agent.pinentry.package = pkgs.pinentry-all;
-
   programs = {
     home-manager.enable = true;
     kitty = {

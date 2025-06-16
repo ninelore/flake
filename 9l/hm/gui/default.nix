@@ -59,6 +59,7 @@
       enable = true;
       scripts = with pkgs.mpvScripts; [
         mpris
+        (quality-menu.override { oscSupport = true; })
         sponsorblock
         thumbfast
         uosc

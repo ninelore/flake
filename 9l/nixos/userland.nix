@@ -22,13 +22,14 @@
       usbutils
     ];
     gnome.excludePackages = with pkgs; [
-      atomix
       cheese
       decibels
+      epiphany
       evince
       geary
       gnome-calendar
       gnome-contacts
+      gnome-logs
       gnome-music
       gnome-shell-extensions
       gnome-software
@@ -37,10 +38,8 @@
       gnome-text-editor
       gnome-tour
       gnome-user-docs
-      hitori
-      iagno
+      gnome-weather
       simple-scan
-      tali
       totem
       yelp
     ];
@@ -106,6 +105,9 @@
     flashprog.enable = true;
     flashrom.enable = true;
     gamemode = {
+      enable = true;
+    };
+    gnupg.agent = {
       enable = true;
     };
     nautilus-open-any-terminal = {

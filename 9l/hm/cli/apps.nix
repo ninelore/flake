@@ -21,7 +21,6 @@ in
       flyctl
       fzf
       picocom
-      #pmbootstrap
       tldr
       vboot_reference
       zip
@@ -55,7 +54,6 @@ in
         gitCredentialHelper.enable = true;
         settings.editor = editor;
       };
-      gpg.enable = true;
       neovim = {
         enable = true;
         defaultEditor = true;
@@ -88,8 +86,4 @@ in
         ];
       };
     };
-
-  services = {
-    gpg-agent.enable = true;
-  };
 }
