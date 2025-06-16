@@ -152,9 +152,6 @@ in
       refine
       # Theme stuff
       adw-gtk3
-      # Fonts
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.iosevka
     ];
     pointerCursor = cursorTheme // {
       gtk.enable = true;
@@ -197,15 +194,6 @@ in
       [General]
       theme=KvLibadwaitaDark
     '';
-  };
-
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      sansSerif = [ "Adwaita Sans 11" ];
-      serif = [ "Adwaita Sans 11" ];
-      monospace = [ "JetBrainsMono Nerd Font 11" ];
-    };
   };
 
   # systemd.user.sessionVariables = {

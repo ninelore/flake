@@ -28,6 +28,9 @@
         sly
         warp
         wl-clipboard
+        # Fonts
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.iosevka
       ]
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
         spotify
@@ -72,6 +75,15 @@
           hwdec = true;
         };
       };
+    };
+  };
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      sansSerif = [ "Adwaita Sans 11" ];
+      serif = [ "Adwaita Sans 11" ];
+      monospace = [ "JetBrainsMono Nerd Font 11" ];
     };
   };
 }
