@@ -28,7 +28,7 @@ let
     if ping -c1 github.com > /dev/null 2>&1; then
       git pull --ff-only --autostash || exit 1
     fi
-    ${pkgs.home-manager}/bin/home-manager $_p $*
+    ${pkgs.home-manager}/bin/home-manager --flake $_p $*
   '';
 
   nx-flakepath-update = pkgs.writeShellScriptBin "nx-flakepath-update" ''
