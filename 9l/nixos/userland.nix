@@ -22,6 +22,7 @@
       usbutils
     ];
     gnome.excludePackages = with pkgs; [
+      baobab
       cheese
       decibels
       epiphany
