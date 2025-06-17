@@ -1,27 +1,12 @@
-{ lib, pkgs, ... }:
-let
-  withExtraPackages =
-    pkg: extraPackages:
-    pkgs.runCommand "${pkg.name}-wrapped" { nativeBuildInputs = [ pkgs.makeWrapper ]; } ''
-      for exe in ${lib.getBin pkg}/bin/*; do
-        makeWrapper $exe $out/bin/$(basename $exe) --prefix PATH : ${lib.makeBinPath extraPackages}
-      done
-    '';
-in
-
+{ pkgs, ... }:
 {
   home = {
     packages = with pkgs; [
       android-tools
-      btop
       ddcutil
       devenv
-      distrobox
-      fd
       flyctl
-      fzf
       picocom
-      tldr
       vboot_reference
       zip
       unzip
@@ -34,7 +19,20 @@ in
       editor = "nvim";
     in
     {
+      btop.enable = true;
+      distrobox = {
+        enable = true;
+        # TODO: Declare containers?
+      };
       direnv.enable = true;
+      fd = {
+        enable = true;
+        hidden = true;
+        ignores = [
+          ".git/"
+        ];
+      };
+      fzf.enable = true;
       git = {
         enable = true;
         extraConfig = {

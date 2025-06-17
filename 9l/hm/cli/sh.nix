@@ -141,6 +141,7 @@ in
             "ssh"
             "tar"
             "zellij"
+            "zoxide"
           ]}
         '';
     };
