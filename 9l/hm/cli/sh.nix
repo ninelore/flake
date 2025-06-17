@@ -66,13 +66,13 @@ in
           conf = builtins.toJSON {
             show_banner = false;
             edit_mode = "vi";
-
             ls.clickable_links = true;
-            rm.always_trash = true;
+            use_kitty_protocol = true;
 
-            table = {
-              index_mode = "always";
-              header_on_separator = false;
+            history = {
+              file_format = "sqlite";
+              max_size = 1000000;
+              isolation = true;
             };
 
             cursor_shape = {
@@ -80,13 +80,22 @@ in
               vi_normal = "block";
             };
 
+            datetime_format.normal = "%y-%m-%d %I:%M:%S%p";
+            filesize.precision = 2;
+
+            table = {
+              index_mode = "always";
+              header_on_separator = false;
+            };
+
             completions = {
               quick = true;
               partial = true;
               algorithm = "fuzzy";
+              use_ls_colors = true;
               external = {
                 enable = true;
-                max_results = 100;
+                max_results = 50;
               };
             };
 
