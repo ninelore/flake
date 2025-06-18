@@ -33,6 +33,7 @@ let
           [
             # Distro install tools
             apk-tools
+            debootstrap
             dnf5
             # Tools
             git
@@ -57,7 +58,6 @@ let
           ]
           ++ lib.optionals (system == "x86_64-linux") [
             # Distro install tools
-            apt
             arch-install-scripts
           ];
         services.getty.helpLine = lib.mkForce ''
