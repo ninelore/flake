@@ -117,7 +117,6 @@
     };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;
-    ssh.startAgent = true;
     virt-manager.enable = true;
     wireshark.enable = true;
     ydotool.enable = true;
