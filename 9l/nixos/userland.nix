@@ -21,6 +21,10 @@
       resources
       usbutils
     ];
+    cosmic.excludePackages = with pkgs; [
+      cosmic-player
+      cosmic-store
+    ];
     gnome.excludePackages = with pkgs; [
       baobab
       cheese
@@ -52,6 +56,10 @@
 
   services = {
     desktopManager = {
+      cosmic = {
+        enable = true;
+        xwayland.enable = true;
+      };
       gnome.enable = true;
       # plasma6.enable = true;
     };
