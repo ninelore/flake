@@ -6,6 +6,7 @@
     prismlauncher
     protonvpn-cli
     protonvpn-gui
+    tuba
     warcraftlogs
     (pkgs.ghidra.withExtensions (
       p: with p; [
