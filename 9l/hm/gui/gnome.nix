@@ -43,10 +43,11 @@ in
           "kitty.desktop"
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"
-          "Logseq.desktop"
           "org.gnome.Fractal.desktop"
           "spotify.desktop"
           "discord-canary.desktop"
+          "Logseq.desktop"
+          "dev.zed.Zed-Dev.desktop"
         ];
       };
       "org/gnome/desktop/input-sources" = {
