@@ -2,7 +2,14 @@
 {
   nixpkgs = {
     overlays = [
-      (final: prev: { })
+      (final: prev: {
+        waydroid = prev.waydroid.override {
+          python3Packages = pkgs.python312Packages;
+        };
+        devtoolbox = prev.devtoolbox.override {
+          python3Packages = pkgs.python312Packages;
+        };
+      })
     ];
   };
   nix = {
