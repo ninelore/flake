@@ -15,7 +15,7 @@
         appimage-run
         (pkgs.bottles.override { removeWarningPopup = true; })
         darktable
-        devtoolbox
+        #devtoolbox # https://github.com/NixOS/nixpkgs/issues/418879
         gimp3
         hunspell
         hunspellDicts.de_DE
