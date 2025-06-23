@@ -149,6 +149,7 @@ in
       # Apps
       eyedropper
       gnome-maps
+      gradia
       papers
       refine
       # Theme stuff
