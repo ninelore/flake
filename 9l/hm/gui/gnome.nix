@@ -47,7 +47,7 @@ in
           "spotify.desktop"
           "discord-canary.desktop"
           "Logseq.desktop"
-          "dev.zed.Zed-Dev.desktop"
+          "dev.zed.Zed.desktop"
         ];
       };
       "org/gnome/desktop/input-sources" = {

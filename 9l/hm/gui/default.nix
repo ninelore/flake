@@ -28,7 +28,7 @@
         sly
         warp
         wl-clipboard
-        zed-editor_git
+        zed-editor
         # Fonts
         nerd-fonts.jetbrains-mono
         nerd-fonts.iosevka
