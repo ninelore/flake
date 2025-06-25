@@ -6,7 +6,6 @@
         lib.mkDefault pkgs.linuxPackages_cachyos
       else
         lib.mkDefault pkgs.linuxPackages_latest;
-    consoleLogLevel = 0;
     initrd = {
       systemd.enable = true;
       verbose = false;
@@ -17,18 +16,7 @@
     ];
     kernelParams = [
       "boot.shell_on_fail"
-      # eye candy below
-      "quiet"
-      "splash"
-      "rd.systemd.show_status=error"
-      "rd.udev.log_level=0"
-      "udev.log_priority=0"
     ];
-    plymouth = {
-      enable = true;
-      theme = "bgrt-luks";
-      themePackages = [ pkgs.plymouth-bgrt-luks ];
-    };
     tmp.cleanOnBoot = true;
     loader = {
       timeout = 0;
