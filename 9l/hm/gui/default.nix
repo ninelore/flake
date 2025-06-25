@@ -3,7 +3,7 @@
   imports = [
     ../cli
     #./plasma
-    ./gnome.nix
+    #./gnome.nix
     ./noiseSupression.nix
   ];
 
@@ -15,8 +15,11 @@
         appimage-run
         (pkgs.bottles.override { removeWarningPopup = true; })
         darktable
-        #devtoolbox # https://github.com/NixOS/nixpkgs/issues/418879
+        devtoolbox
+        eyedropper
         gimp3
+        gnome-maps
+        gradia
         hunspell
         hunspellDicts.de_DE
         hunspellDicts.en_GB-ise
@@ -27,7 +30,6 @@
         scrcpy
         sly
         warp
-        wl-clipboard
         zed-editor
         # Fonts
         nerd-fonts.jetbrains-mono
@@ -76,6 +78,12 @@
           hwdec = true;
         };
       };
+    };
+  };
+
+  services = {
+    easyeffects = {
+      enable = true;
     };
   };
 

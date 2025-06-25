@@ -15,69 +15,29 @@
       kitty
       less
       lm_sensors
+      loupe
       mpv
       neovim
+      papers
       pciutils
       resources
       usbutils
+      wl-clipboard
     ];
     cosmic.excludePackages = with pkgs; [
       cosmic-player
       cosmic-store
     ];
-    gnome.excludePackages = with pkgs; [
-      baobab
-      cheese
-      decibels
-      epiphany
-      evince
-      geary
-      gnome-calendar
-      gnome-contacts
-      gnome-logs
-      gnome-music
-      gnome-shell-extensions
-      gnome-software
-      gnome-system-monitor
-      gnome-terminal
-      gnome-text-editor
-      gnome-tour
-      gnome-user-docs
-      gnome-weather
-      simple-scan
-      totem
-      yelp
-    ];
-    plasma6.excludePackages = with pkgs.kdePackages; [
-      elisa
-      khelpcenter
-    ];
   };
 
   services = {
-    desktopManager = {
-      cosmic = {
-        enable = true;
-        xwayland.enable = true;
-      };
-      gnome.enable = true;
-      # plasma6.enable = true;
+    desktopManager.cosmic = {
+      enable = true;
+      xwayland.enable = true;
     };
-    displayManager = {
-      gdm = {
-        enable = true;
-        wayland = true;
-      };
-      # sddm = {
-      #   enable = true;
-      #   wayland.enable = true;
-      # };
+    displayManager.cosmic-greeter = {
+      enable = true;
     };
-    udev.packages =
-      with pkgs;
-      lib.optionals (system == "x86_64-linux") [
-        via
-      ];
     logind.extraConfig = ''
       HandlePowerKey=suspend
       HandleLidSwitch=suspend
@@ -118,10 +78,10 @@
     };
     gnupg.agent = {
       enable = true;
+      pinentryPackage = pkgs.pinentry-gtk2;
     };
-    nautilus-open-any-terminal = {
+    kdeconnect = {
       enable = true;
-      terminal = "kitty";
     };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;

@@ -147,10 +147,6 @@ in
   home = {
     packages = with pkgs; [
       # Apps
-      eyedropper
-      gnome-maps
-      gradia
-      papers
       refine
       # Theme stuff
       adw-gtk3
