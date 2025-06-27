@@ -4,7 +4,6 @@
     packages = with pkgs; [
       android-tools
       ddcutil
-      devenv
       flyctl
       picocom
       vboot_reference
