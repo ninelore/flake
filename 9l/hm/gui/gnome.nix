@@ -46,8 +46,6 @@ in
           "org.gnome.Fractal.desktop"
           "spotify.desktop"
           "discord-canary.desktop"
-          "Logseq.desktop"
-          "dev.zed.Zed.desktop"
         ];
       };
       "org/gnome/desktop/input-sources" = {

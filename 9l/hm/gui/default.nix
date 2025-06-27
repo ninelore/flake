@@ -22,13 +22,11 @@
         hunspellDicts.en_GB-ise
         kicad-small
         libreoffice-fresh
-        logseq
         pdfarranger
         scrcpy
         sly
         warp
         wl-clipboard
-        zed-editor
         # Fonts
         nerd-fonts.jetbrains-mono
         nerd-fonts.iosevka
