@@ -11,6 +11,7 @@
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     (modulesPath + "/installer/scan/not-detected.nix")
     ../common/asus
+    ../common/vr
   ];
 
   # hardware.amdgpu.amdvlk = {
