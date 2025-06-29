@@ -34,6 +34,7 @@
       fzf.enable = true;
       git = {
         enable = true;
+        lfs.enable = true;
         extraConfig = {
           color.ui = true;
           commit.verbose = true;
