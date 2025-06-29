@@ -3,7 +3,7 @@
   boot = {
     kernelPackages =
       if pkgs.system == "x86_64-linux" then
-        lib.mkDefault pkgs.linuxPackages_cachyos
+        lib.mkDefault pkgs.linuxPackages_cachyos-lto
       else
         lib.mkDefault pkgs.linuxPackages_latest;
     initrd = {
