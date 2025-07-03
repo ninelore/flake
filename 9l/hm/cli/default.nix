@@ -14,23 +14,25 @@
 
   programs = {
     home-manager.enable = true;
-    kitty = {
+    ghostty = {
       enable = true;
-      font = {
-        name = "JetBrainsMono Nerd Font";
-        size = 11;
-      };
       settings = {
-        shell = "nu";
-        wayland_titlebar_color = "background";
-        remember_window_size = true;
-        enabled_layouts = "tall:bias=50;full_size=1;mirrored=false,fat:bias=50;full_size=1;mirrored=false,stack";
-        confirm_os_window_close = 0;
+        command = "nu";
+        font-family = "JetBrainsMono Nerd Font";
+        font-style = "Medium";
+        font-style-bold = "Bold";
+        font-style-italic = "Medium Italic";
+        font-style-bold-italic = "Bold Italic";
+        font-size = 11;
+        adjust-cell-height = 1;
+        window-padding-balance = true;
+        theme = "Monokai Remastered";
+        cursor-color = "#FFFFFF";
+        window-theme = "ghostty";
+        adw-toolbar-style = "flat";
+        gtk-titlebar-hide-when-maximized = true;
+        keybind = "ctrl+,=unbind";
       };
-      keybindings = {
-        "ctrl+shift+tab" = "layout_action mirror toggle";
-      };
-      themeFile = "Monokai_Soda";
     };
   };
 

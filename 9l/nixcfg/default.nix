@@ -7,6 +7,7 @@
           python3Packages = pkgs.python312Packages;
         };
       })
+      inputs.ghostty.overlays.default
     ];
   };
   nix = {

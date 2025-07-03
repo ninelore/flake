@@ -40,7 +40,7 @@ in
         disable-user-extensions = false;
         enabled-extensions = builtins.map (ext: ext.extensionUuid) extensionList;
         favorite-apps = [
-          "kitty.desktop"
+          "com.mitchellh.ghostty.desktop"
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"
           "org.gnome.Fractal.desktop"
