@@ -7,7 +7,6 @@
   ];
 
   users.users.${systemConfig.username} = {
-    shell = pkgs.zsh;
     isNormalUser = true;
     initialPassword = systemConfig.username;
     extraGroups = [

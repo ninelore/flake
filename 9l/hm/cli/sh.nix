@@ -39,10 +39,6 @@ in
       inherit shellAliases;
       enable = true;
     };
-    zsh = {
-      inherit shellAliases;
-      enable = true;
-    };
     nushell = {
       inherit shellAliases;
       enable = true;

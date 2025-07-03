@@ -128,7 +128,6 @@
     virt-manager.enable = true;
     wireshark.enable = true;
     ydotool.enable = true;
-    zsh.enable = true;
   };
 
   xdg.terminal-exec = {
