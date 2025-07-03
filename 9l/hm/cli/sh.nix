@@ -43,15 +43,6 @@ in
       inherit shellAliases;
       enable = true;
       environmentVariables = {
-        TRANSIENT_PROMPT_COMMAND = lib.hm.nushell.mkNushellInline ''
-          {||
-            echo "\n" ((
-              ^${pkgs.starship}/bin/starship prompt
-                $"--status=($env.LAST_EXIT_CODE)"
-                --terminal-width (term size).columns
-            ) | lines | last) | str join
-          }
-        '';
         PROMPT_INDICATOR_VI_INSERT = "";
         PROMPT_INDICATOR_VI_NORMAL = "";
       };

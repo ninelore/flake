@@ -17,7 +17,7 @@
     ghostty = {
       enable = true;
       settings = {
-        command = "nu";
+        command = "nu -i";
         font-family = "JetBrainsMono Nerd Font";
         font-style = "Medium";
         font-style-bold = "Bold";
@@ -31,6 +31,7 @@
         window-theme = "ghostty";
         adw-toolbar-style = "flat";
         gtk-titlebar-hide-when-maximized = true;
+        mouse-scroll-multiplier = 0.3;
         keybind = "ctrl+,=unbind";
       };
     };
