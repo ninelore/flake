@@ -1,52 +1,48 @@
 layout {
     default_tab_template {
+        children
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/zjstatus.wasm" {
                 color_fg     "#FFFFFF"
-                color_fg_dim "#A0A0A0"
+                color_fg_dim "#909090"
 
-                format_left   "{mode} #[fg=blue,bold]{session}"
-                format_center "{tabs}"
-                format_right  "{command_git_branch} {datetime}"
+                format_left   " #[fg=blue,bold][{session}]  {tabs}"
+                format_center ""
+                format_right  "{mode} {datetime}"
                 format_space  ""
-                mode_normal        "#[fg=$fg] NORMAL "
-                mode_locked        "#[fg=$fg_dim] LOCKED "
-                mode_pane          "#[fg=$fg] PANE "
-                mode_tab           "#[fg=$fg] TAB "
-                mode_scroll        "#[fg=$fg] SCROLL "
-                mode_enter_search  "#[fg=$fg] ENT-SEARCH "
-                mode_search        "#[fg=$fg] SEARCH "
-                mode_resize        "#[fg=$fg] RESIZE "
-                mode_rename_tab    "#[fg=$fg] RENAME TAB "
-                mode_rename_pane   "#[fg=$fg] RENAME PANE "
-                mode_move          "#[fg=$fg] MOVE "
-                mode_session       "#[fg=$fg] SESSION "
-                mode_prompt        "#[fg=$fg] PROMPT "
-                tab_normal              "#[fg=$fg_dim] {index} {name} {floating_indicator} "
-                tab_normal_fullscreen   "#[fg=$fg_dim] {index} {name} {fullscreen_indicator} "
-                tab_normal_sync         "#[fg=$fg_dim] {index} {name} {sync_indicator} "
-                tab_active              "#[fg=$fg,bold] {index} {name} {floating_indicator} "
-                tab_active_fullscreen   "#[fg=$fg,bold] {index} {name} {fullscreen_indicator} "
-                tab_active_sync         "#[fg=$fg,bold] {index} {name} {sync_indicator} "
-                tab_separator           " "
+                mode_normal        "#[fg=blue,bold]NORMAL"
+                mode_locked        "#[fg=$fg_dim]LOCKED"
+                mode_pane          "#[fg=$fg]PANE"
+                mode_tab           "#[fg=$fg]TAB"
+                mode_scroll        "#[fg=red,bold]SCROLL"
+                mode_enter_search  "#[fg=yellow,bold]ENT-SEARCH"
+                mode_search        "#[fg=red,bold]SEARCH"
+                mode_resize        "#[fg=$fg]RESIZE"
+                mode_rename_tab    "#[fg=yellow,bold]RENAME TAB"
+                mode_rename_pane   "#[fg=yellow,bold]RENAME PANE"
+                mode_move          "#[fg=$fg]MOVE"
+                mode_session       "#[fg=$fg]SESSION"
+                mode_prompt        "#[fg=$fg]PROMPT"
+                tab_normal              "#[fg=$fg_dim]{index}:{name} {floating_indicator}"
+                tab_normal_fullscreen   "#[fg=$fg_dim]{index}:{name} {fullscreen_indicator}"
+                tab_normal_sync         "#[fg=$fg_dim]{index}:{name} {sync_indicator}"
+                tab_active              "#[fg=$fg,bold]{index}:{name} {floating_indicator}"
+                tab_active_fullscreen   "#[fg=$fg,bold]{index}:{name} {fullscreen_indicator}"
+                tab_active_sync         "#[fg=$fg,bold]{index}:{name} {sync_indicator}"
+                tab_separator           "  "
                 tab_sync_indicator       ""
                 tab_fullscreen_indicator "󰊓"
                 tab_floating_indicator   "󰹙"
-                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
-                command_git_branch_format      "#[fg=red] {stdout} "
-                command_git_branch_interval    "10"
-                command_git_branch_rendermode  "static"
                 datetime        "#[fg=grey,bold] {format} "
-                datetime_format "%H:%M  |  %a %Y-%m-%d"
+                datetime_format "%a %Y-%m-%d %H:%M"
                 datetime_timezone "Europe/Berlin"
             }
         }
-        children
     }
 
     tab_template name="ui" {
-        pane size=1 borderless=true
         children
+        pane size=1 borderless=true
     }
 
     swap_tiled_layout name="vertical" {
