@@ -3,6 +3,12 @@ theme "dracula"
 pane_frames false
 show_startup_tips false
 
+default_layout "9lore"
+
+session_serialization true
+pane_viewport_serialization true
+scrollback_lines_to_serialize 0
+
 load_plugins {
     "file:~/.config/zellij/zjframes.wasm" {
         hide_frame_for_single_pane       "false"
@@ -62,6 +68,21 @@ keybinds clear-defaults=true {
         bind "-" { Resize "Decrease"; }
         bind "o" { MoveTab "right"; }
         bind "i" { MoveTab "left"; }
+        bind "w" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "locked"
+        }
+        bind "p" {
+            LaunchOrFocusPlugin "plugin-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "locked"
+        }
+        bind "Ctrl q" { Quit; }
     }
     shared_among "normal" "locked" {
         bind "Alt left" { MoveFocusOrTab "left"; }
@@ -81,22 +102,7 @@ keybinds clear-defaults=true {
         bind "Alt s" { SwitchToMode "scroll"; }
     }
     shared_among "normal" "scroll" "search" {
-        bind "Ctrl q" { Quit; }
         bind "Ctrl d" { Detach; }
-        bind "Ctrl w" {
-            LaunchOrFocusPlugin "session-manager" {
-                floating true
-                move_to_focused_tab true
-            }
-            SwitchToMode "locked"
-        }
-        bind "Ctrl p" {
-            LaunchOrFocusPlugin "plugin-manager" {
-                floating true
-                move_to_focused_tab true
-            }
-            SwitchToMode "locked"
-        }
     }
     scroll {
         bind "Alt left" { MoveFocusOrTab "left"; SwitchToMode "locked"; }

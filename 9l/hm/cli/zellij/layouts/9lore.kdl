@@ -6,9 +6,9 @@ layout {
                 color_fg     "#FFFFFF"
                 color_fg_dim "#909090"
 
-                format_left   " #[fg=blue,bold][{session}]  {tabs}"
+                format_left   "#[fg=blue,bold][{session}]  {tabs}"
                 format_center ""
-                format_right  "{mode} {datetime}"
+                format_right  "{mode}  {datetime}"
                 format_space  ""
                 mode_normal        "#[fg=blue,bold]NORMAL"
                 mode_locked        "#[fg=$fg_dim]LOCKED"
@@ -33,7 +33,7 @@ layout {
                 tab_sync_indicator       ""
                 tab_fullscreen_indicator "󰊓"
                 tab_floating_indicator   "󰹙"
-                datetime        "#[fg=grey,bold] {format} "
+                datetime        "#[fg=grey,bold]{format}"
                 datetime_format "%a %Y-%m-%d %H:%M"
                 datetime_timezone "Europe/Berlin"
             }
