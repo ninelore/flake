@@ -143,8 +143,6 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       adwaita-fonts
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.iosevka
       noto-fonts
       noto-fonts-cjk-sans
       open-sans
