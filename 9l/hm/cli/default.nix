@@ -31,7 +31,6 @@
         window-theme = "ghostty";
         adw-toolbar-style = "flat";
         gtk-titlebar-hide-when-maximized = true;
-        mouse-scroll-multiplier = 0.3;
         keybind = "ctrl+,=unbind";
       };
     };
