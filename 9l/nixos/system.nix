@@ -48,6 +48,8 @@
   };
 
   security = {
+    sudo.enable = false;
+    doas.enable = true;
     rtkit.enable = true;
     pam.services.systemd-run0 = { };
   };
