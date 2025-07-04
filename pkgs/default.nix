@@ -10,6 +10,7 @@ rec {
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   depthcharge-tools = callPackage ./depthcharge-tools { };
+  ghostty = inputs.ghostty.packages.${system}.ghostty; # For caching
   #iosevka-9l = callPackage ./iosevka-9l { };
   linux_cros = callPackage ./linux_cros { };
   linux_cros_latest = callPackage ./linux_cros_latest { };
