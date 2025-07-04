@@ -7,13 +7,14 @@ rec {
   adwaita-kvantum = callPackage ./adwaita-kvantum { };
   alsa-ucm-conf-cros = callPackage ./alsa-ucm-conf-cros { };
   chrultrabook-tools = inputs.chrultrabook-tools.packages.${system}.default;
+  cosmic-manager = inputs.cosmic-manager.packages.${system}.default; # For caching
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   depthcharge-tools = callPackage ./depthcharge-tools { };
-  #iosevka-9l = callPackage ./iosevka-9l { };
+  #iosevka-9l = callPackage ./iosevka-9l { }; # Broken
   linux_cros = callPackage ./linux_cros { };
   linux_cros_latest = callPackage ./linux_cros_latest { };
-  #linux_nix_cros = callPackage ./linux_nix_cros { };
+  #linux_nix_cros = callPackage ./linux_nix_cros { }; # Unfinished
   linux_sc7180_legacy = callPackage ./linux_sc7180 { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
   submarine = callPackage ./submarine { };

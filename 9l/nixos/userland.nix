@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   ...
 }:
@@ -12,67 +13,25 @@
       firefox
       git
       helvum
-      kitty
       less
       lm_sensors
       mpv
       neovim
       pciutils
-      resources
       usbutils
     ];
     cosmic.excludePackages = with pkgs; [
       cosmic-player
       cosmic-store
     ];
-    gnome.excludePackages = with pkgs; [
-      baobab
-      cheese
-      decibels
-      epiphany
-      evince
-      geary
-      gnome-calendar
-      gnome-contacts
-      gnome-logs
-      gnome-music
-      gnome-shell-extensions
-      gnome-software
-      gnome-system-monitor
-      gnome-terminal
-      gnome-text-editor
-      gnome-tour
-      gnome-user-docs
-      gnome-weather
-      simple-scan
-      totem
-      yelp
-    ];
-    plasma6.excludePackages = with pkgs.kdePackages; [
-      elisa
-      khelpcenter
-    ];
   };
 
   services = {
-    desktopManager = {
-      cosmic = {
-        enable = true;
-        xwayland.enable = true;
-      };
-      gnome.enable = true;
-      # plasma6.enable = true;
+    desktopManager.cosmic = {
+      enable = true;
+      xwayland.enable = true;
     };
-    displayManager = {
-      gdm = {
-        enable = true;
-        wayland = true;
-      };
-      # sddm = {
-      #   enable = true;
-      #   wayland.enable = true;
-      # };
-    };
+    displayManager.cosmic-greeter.enable = true;
     udev.packages =
       with pkgs;
       lib.optionals (system == "x86_64-linux") [
@@ -114,12 +73,14 @@
     gnupg.agent = {
       enable = true;
     };
-    nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "kitty";
-    };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [
+        inputs.chaotic.legacyPackages.${pkgs.system}.proton-ge-custom
+      ];
+    };
     virt-manager.enable = true;
     wireshark.enable = true;
     ydotool.enable = true;
@@ -130,7 +91,7 @@
     settings = {
       default = [
         "com.mitchellh.ghostty.desktop"
-        "org.gnome.Console.desktop"
+        "com.system76.CosmicTerm.desktop"
       ];
     };
   };
@@ -139,6 +100,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       adwaita-fonts
+      inter
       noto-fonts
       noto-fonts-cjk-sans
       open-sans
