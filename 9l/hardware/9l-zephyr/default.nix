@@ -14,6 +14,10 @@
     ../common/vr
   ];
 
+  services.udev.extraRules = ''
+    ENV{DEVNAME}=="/dev/dri/card1", TAG+="mutter-device-preferred-primary"
+  '';
+
   hardware.amdgpu.amdvlk = {
     enable = true;
     support32Bit.enable = true;

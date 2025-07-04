@@ -78,11 +78,6 @@
       lib.optionals (system == "x86_64-linux") [
         via
       ];
-    logind.extraConfig = ''
-      HandlePowerKey=suspend
-      HandleLidSwitch=suspend
-      HandleLidSwitchDocked=ignore
-    '';
     flatpak.enable = false;
   };
 
