@@ -47,15 +47,7 @@
     inputs.flake-utils.lib.eachDefaultSystem (system: {
       formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
       legacyPackages = import ./pkgs { inherit inputs system; };
-      devShells = with inputs.nixpkgs.legacyPackages.${system}; {
-        default = mkShellNoCC {
-          packages = [
-            nil
-            nixd
-            nixfmt-rfc-style
-          ];
-        };
-      };
+      devShells = import ./lib/devShells.nix { pkgs = inputs.nixpkgs.legacyPackages.${system}; };
     })
     // {
       lib = import ./lib;
