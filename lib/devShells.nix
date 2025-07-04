@@ -8,7 +8,7 @@ with pkgs;
     ];
   };
 }
-// lib.optionalAttrs stdenv.isLinux {
+// lib.optionalAttrs (system == "x86_64-linux") {
   coreboot = mkShell {
     name = "coreboot-dev";
     packages = [
@@ -35,14 +35,12 @@ with pkgs;
       # edk2
       libuuid
       imagemagick
-      gnat
+      gnat14
     ];
     shellHook = ''
       		unset STRIP
       	'';
   };
-}
-// lib.optionalAttrs (system == "x86_64-linux") {
   crossArm64 = mkShell {
     name = "generic-cross-arm64";
     nativeBuildInputs = [
