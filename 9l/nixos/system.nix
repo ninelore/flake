@@ -49,7 +49,15 @@
 
   security = {
     sudo.enable = false;
-    doas.enable = true;
+    doas = {
+      enable = true;
+      extraRules = [
+        {
+          keepEnv = true;
+          persist = true;
+        }
+      ];
+    };
     rtkit.enable = true;
     pam.services.systemd-run0 = { };
   };
