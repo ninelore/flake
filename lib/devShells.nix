@@ -7,7 +7,8 @@ with pkgs;
       nixfmt-rfc-style
     ];
   };
-
+}
+// lib.optionalAttrs stdenv.isLinux {
   coreboot = mkShell {
     name = "coreboot-dev";
     packages = [
