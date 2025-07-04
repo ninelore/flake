@@ -42,9 +42,14 @@
   outputs =
     inputs@{ self, ... }:
     let
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
       configs = import ./9l { inherit inputs; };
     in
-    inputs.flake-utils.lib.eachDefaultSystem (system: {
+    inputs.flake-utils.lib.eachSystem supportedSystems (system: {
       formatter = inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
       legacyPackages = import ./pkgs { inherit inputs system; };
       devShells = import ./lib/devShells.nix { pkgs = inputs.nixpkgs.legacyPackages.${system}; };
