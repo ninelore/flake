@@ -20,10 +20,6 @@
       resources
       usbutils
     ];
-    cosmic.excludePackages = with pkgs; [
-      cosmic-player
-      cosmic-store
-    ];
     gnome.excludePackages = with pkgs; [
       baobab
       cheese
@@ -47,30 +43,13 @@
       totem
       yelp
     ];
-    plasma6.excludePackages = with pkgs.kdePackages; [
-      elisa
-      khelpcenter
-    ];
   };
 
   services = {
-    desktopManager = {
-      cosmic = {
-        enable = true;
-        xwayland.enable = true;
-      };
-      gnome.enable = true;
-      # plasma6.enable = true;
-    };
-    displayManager = {
-      gdm = {
-        enable = true;
-        wayland = true;
-      };
-      # sddm = {
-      #   enable = true;
-      #   wayland.enable = true;
-      # };
+    desktopManager.gnome.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
     };
     udev.packages =
       with pkgs;

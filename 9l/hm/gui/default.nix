@@ -2,10 +2,11 @@
 {
   imports = [
     ../cli
-    #./plasma
     ./gnome.nix
     ./noiseSupression.nix
   ];
+
+  xdg.dataFile."color-schemes/MonokaiPro.colors".source = ./MonokaiPro.colors;
 
   home = {
     packages =
