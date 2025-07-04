@@ -12,7 +12,6 @@
       firefox
       git
       helvum
-      kitty
       less
       lm_sensors
       mpv
@@ -113,10 +112,6 @@
     };
     gnupg.agent = {
       enable = true;
-    };
-    nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "kitty";
     };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;
