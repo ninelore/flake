@@ -23,6 +23,10 @@ in
       # TODO: Declare containers?
     };
     direnv.enable = true;
+    fastfetch = {
+      enable = true;
+      settings = builtins.fromJSON (builtins.readFile ./fastfetch.jsonc);
+    };
     fd = {
       enable = true;
       hidden = true;
