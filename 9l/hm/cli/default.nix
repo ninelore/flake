@@ -5,7 +5,7 @@
   imports = [
     ./9l.nix
     ./apps.nix
-    ./nix-scripts.nix
+    ./scripts
     ./sh.nix
   ];
 
@@ -29,8 +29,8 @@
         adw-toolbar-style = "flat";
         gtk-titlebar-hide-when-maximized = true;
         keybind = [
-          "performable:ctrl+shift+c=copy_to_clipboard"
-          "performable:ctrl+shift+v=paste_from_clipboard"
+          "ctrl+shift+c=copy_to_clipboard"
+          "ctrl+shift+v=paste_from_clipboard"
           "ctrl+shift+,=reload_config"
           "ctrl+shift+enter=new_split:right"
           "ctrl+shift+o=new_split:down"
