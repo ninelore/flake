@@ -104,6 +104,7 @@
     settings = {
       default = [
         "com.mitchellh.ghostty.desktop"
+        "kitty.desktop"
         "org.gnome.Console.desktop"
       ];
     };
