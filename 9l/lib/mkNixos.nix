@@ -7,7 +7,6 @@ let
         systemConfig:
         let
           sys = if (systemConfig ? channel) then systemConfig.channel else inputs.nixpkgs;
-          extras = systemConfig ? extras && systemConfig.extras;
           pkgs = import sys {
             system = systemConfig.architecture;
             config.allowUnfree = true;
@@ -30,34 +29,25 @@ let
               inputs.nix-index-database.nixosModules.nix-index
               inputs.home-manager.nixosModules.home-manager
               {
+                console.keyMap = if (systemConfig ? keymap) then systemConfig.keymap else "us";
                 home-manager = {
                   backupFileExtension = "hmbak";
                   useGlobalPkgs = true;
                   useUserPackages = true;
+                  sharedModules = [ inputs.cosmic-manager.homeManagerModules.cosmic-manager ];
                   extraSpecialArgs = {
                     inherit inputs systemConfig;
                   };
                   users.${systemConfig.username} = {
-                    imports =
-                      [
-                        ../hm/gui
-                        {
-                          nix.channels = {
-                            nixpkgs = sys.lib.mkDefault sys;
-                          };
-                        }
-                      ]
-                      ++ sys.lib.optionals extras [
-                        ../hm/gui/extra
-                      ];
+                    imports = [
+                      ../hm/gui
+                      {
+                        nix.channels = {
+                          nixpkgs = sys.lib.mkDefault sys;
+                        };
+                      }
+                    ];
                   };
-                };
-                console.keyMap = if (systemConfig ? keymap) then systemConfig.keymap else "us";
-                programs.steam = {
-                  enable = extras;
-                  extraCompatPackages = sys.lib.optionals extras [
-                    inputs.chaotic.legacyPackages.${pkgs.system}.proton-ge-custom
-                  ];
                 };
               }
             ];

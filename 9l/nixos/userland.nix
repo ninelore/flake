@@ -1,4 +1,6 @@
 {
+  inputs,
+  lib,
   pkgs,
   ...
 }:
@@ -6,6 +8,7 @@
   environment = {
     localBinInPath = true;
     systemPackages = with pkgs; [
+      cosmic-clipboard-manager
       curl
       dmidecode
       docker-compose
@@ -17,40 +20,23 @@
       mpv
       neovim
       pciutils
-      resources
       usbutils
     ];
-    gnome.excludePackages = with pkgs; [
-      baobab
-      cheese
-      decibels
-      epiphany
-      evince
-      geary
-      gnome-calendar
-      gnome-contacts
-      gnome-logs
-      gnome-music
-      gnome-shell-extensions
-      gnome-software
-      gnome-system-monitor
-      gnome-terminal
-      gnome-text-editor
-      gnome-tour
-      gnome-user-docs
-      gnome-weather
-      simple-scan
-      totem
-      yelp
+    cosmic.excludePackages = with pkgs; [
+      cosmic-player
+      cosmic-store
     ];
+    variables = {
+      COSMIC_DATA_CONTROL_ENABLED = 1;
+    };
   };
 
   services = {
-    desktopManager.gnome.enable = true;
-    displayManager.gdm = {
+    desktopManager.cosmic = {
       enable = true;
-      wayland = true;
+      xwayland.enable = true;
     };
+    displayManager.cosmic-greeter.enable = true;
     udev.packages =
       with pkgs;
       lib.optionals (system == "x86_64-linux") [
@@ -94,6 +80,12 @@
     };
     nix-index-database.comma.enable = true;
     nix-ld.enable = true;
+    steam = {
+      enable = pkgs.system == "x86_64-linux";
+      extraCompatPackages = [
+        inputs.chaotic.legacyPackages.${pkgs.system}.proton-ge-custom
+      ];
+    };
     virt-manager.enable = true;
     wireshark.enable = true;
     ydotool.enable = true;
@@ -105,7 +97,7 @@
       default = [
         "kitty.desktop"
         "com.mitchellh.ghostty.desktop"
-        "org.gnome.Console.desktop"
+        "com.system76.CosmicTerm.desktop"
       ];
     };
   };
@@ -114,6 +106,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       adwaita-fonts
+      inter
       noto-fonts
       noto-fonts-cjk-sans
       open-sans

@@ -2,7 +2,7 @@
 {
   imports = [
     ../cli
-    ./gnome.nix
+    ./cosmic.nix
     ./noiseSupression.nix
   ];
 
@@ -17,22 +17,52 @@
         (pkgs.bottles.override { removeWarningPopup = true; })
         darktable
         #devtoolbox # https://github.com/NixOS/nixpkgs/issues/418879
+        fractal
         gimp3
+        gnome-maps
+        gradia
         hunspell
         hunspellDicts.de_DE
         hunspellDicts.en_GB-ise
         kicad-small
         libreoffice-fresh
+        loupe
+        papers
         pdfarranger
+        prismlauncher
+        protonvpn-cli
+        protonvpn-gui
         scrcpy
-        sly
+        tuba
         warp
         wl-clipboard
         # Fonts
+        inter-nerdfont
         nerd-fonts.jetbrains-mono
         nerd-fonts.iosevka
+        (pkgs.ghidra.withExtensions (
+          p: with p; [
+            ghidraninja-ghidra-scripts
+            ret-sync
+            wasm
+          ]
+        ))
+        (pkgs.retroarch.withCores (
+          cores:
+          with cores;
+          [
+            melonds
+            desmume
+            vba-m
+          ]
+          ++ lib.optionals (pkgs.system == "x86_64-linux") [
+            pcsx2
+            ppsspp
+          ]
+        ))
       ]
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
+        discord-canary
         spotify
         wineWowPackages.stagingFull
       ];
@@ -75,6 +105,15 @@
           hwdec = true;
         };
       };
+    };
+    obs-studio = {
+      enable = true;
+      plugins =
+        with pkgs.obs-studio-plugins;
+        [ ]
+        ++ lib.optionals (pkgs.system == "x86_64-linux") [
+          obs-pipewire-audio-capture
+        ];
     };
   };
 
