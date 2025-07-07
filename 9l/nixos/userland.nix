@@ -103,8 +103,8 @@
     enable = true;
     settings = {
       default = [
-        "com.mitchellh.ghostty.desktop"
         "kitty.desktop"
+        "com.mitchellh.ghostty.desktop"
         "org.gnome.Console.desktop"
       ];
     };
