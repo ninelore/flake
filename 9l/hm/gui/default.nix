@@ -16,9 +16,11 @@
         appimage-run
         (pkgs.bottles.override { removeWarningPopup = true; })
         darktable
-        #devtoolbox # https://github.com/NixOS/nixpkgs/issues/418879
+        devtoolbox
+        file-roller
         fractal
         gimp3
+        gnome-clocks
         gnome-maps
         gradia
         hunspell
@@ -29,9 +31,7 @@
         loupe
         papers
         pdfarranger
-        prismlauncher
         protonvpn-cli
-        protonvpn-gui
         scrcpy
         tuba
         warp
