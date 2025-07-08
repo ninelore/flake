@@ -28,7 +28,7 @@ let
                 };
                 # Experiment: only config
                 programs = {
-                  ghostty.package = if hmConfig ? gui then pkgs.kitty else pkgs.emptyDirectory;
+                  kitty.package = if hmConfig ? gui then pkgs.kitty else pkgs.emptyDirectory;
                   nix-index-database.comma.enable = true;
                 };
               }

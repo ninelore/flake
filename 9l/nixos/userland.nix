@@ -96,7 +96,6 @@
     settings = {
       default = [
         "kitty.desktop"
-        "com.mitchellh.ghostty.desktop"
         "com.system76.CosmicTerm.desktop"
       ];
     };

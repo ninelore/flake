@@ -12,7 +12,6 @@ rec {
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   depthcharge-tools = callPackage ./depthcharge-tools { };
-  ghostty = inputs.ghostty.packages.${system}.ghostty; # For caching
   #iosevka-9l = callPackage ./iosevka-9l { }; # Broken
   kdeconnect-kde_git = callPackage ./kdeconnect-kde-git { };
   linux_cros = callPackage ./linux_cros { };
