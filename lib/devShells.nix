@@ -7,6 +7,14 @@ with pkgs;
       nixfmt-rfc-style
     ];
   };
+  kernelBuild = mkShell {
+    name = "kernel-build";
+    nativeBuildInputs = [
+      ncurses
+      pkg-config
+    ] ++ pkgs.linux.nativeBuildInputs;
+    PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
+  };
 }
 // lib.optionalAttrs (system == "x86_64-linux") {
   coreboot = mkShell {
