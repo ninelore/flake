@@ -7,6 +7,8 @@ with pkgs;
       nixfmt-rfc-style
     ];
   };
+}
+// lib.optionalAttrs (stdenv.isLinux) {
   kernelBuild = mkShell {
     name = "kernel-build";
     nativeBuildInputs = [
