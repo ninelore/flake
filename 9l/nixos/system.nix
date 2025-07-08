@@ -38,14 +38,18 @@
     }
   ];
 
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
+  hardware =
+    {
+      bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+      };
+      i2c.enable = true;
+      keyboard.qmk.enable = true;
+    }
+    // lib.optionalAttrs (pkgs.system != "x86_64-linux") {
+      graphics.enable32Bit = lib.mkForce false;
     };
-    i2c.enable = true;
-    keyboard.qmk.enable = true;
-  };
 
   security = {
     sudo.enable = false;
