@@ -66,7 +66,14 @@
     rtkit.enable = true;
     pam.services.systemd-run0 = { };
   };
+
   services = {
+    logind = {
+      powerKey = "suspend";
+      lidSwitch = "suspend";
+      lidSwitchExternalPower = "suspend";
+      lidSwitchDocked = "ignore";
+    };
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
