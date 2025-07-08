@@ -25,6 +25,7 @@ buildPythonApplication rec {
 
   nativeBuildInputs = [ makeWrapper ];
 
+  pyproject = true;
   build-system = [
     setuptools
   ];
