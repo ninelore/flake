@@ -23,6 +23,17 @@ in
       enableZshIntegration = false;
     };
 
+    tmux = {
+      enable = true;
+      baseIndex = 1;
+      clock24 = true;
+      keyMode = "vi";
+      newSession = true;
+      shell = "${pkgs.nushell}/bin/nu";
+      shortcut = "s";
+      # plugins = with pkgs.tmuxPlugins; [ ];
+    };
+
     starship = {
       enable = true;
       settings = {
