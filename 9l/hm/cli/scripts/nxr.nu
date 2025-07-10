@@ -5,7 +5,7 @@ def main [args?: string = ""] {
 	echo $"Entered flake directory (pwd)"
 	}
 	if (ping -c1 github.com | complete | get exit_code) == 0 {
-		git pull --ff-only --autostash
+		git pull --autostash
 	}
 	run0 nixos-rebuild --flake . $args
 }
