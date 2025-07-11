@@ -33,6 +33,11 @@
             "keyColor": "35"
         },
         {
+            "key": "󰏖  packages",
+            "type": "packages",
+            "keyColor": "32"
+        },
+        {
             "key": "󰇄  desktop",
             "type": "de",
             "keyColor": "36"
