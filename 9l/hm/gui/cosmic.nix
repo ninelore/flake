@@ -98,9 +98,6 @@
         opacity = 1.0;
         output = cosmicLib.cosmic.mkRON "enum" "All";
         size = cosmicLib.cosmic.mkRON "enum" "XS";
-        plugins_center = cosmicLib.cosmic.mkRON "optional" [
-          "com.system76.CosmicAppletTime"
-        ];
         plugins_wings = cosmicLib.cosmic.mkRON "optional" (
           cosmicLib.cosmic.mkRON "tuple" [
             [
@@ -109,8 +106,6 @@
             [
               "com.system76.CosmicAppletStatusArea"
               "com.system76.CosmicAppletInputSources"
-              "io.github.wiiznokes.cosmic-ext-applet-clipboard-manager"
-              "com.system76.CosmicAppletNotifications"
               "com.system76.CosmicAppletTiling"
               "com.system76.CosmicAppletBluetooth"
               "com.system76.CosmicAppletNetwork"
@@ -120,6 +115,10 @@
             ]
           ]
         );
+        plugins_center = cosmicLib.cosmic.mkRON "optional" [
+          "com.system76.CosmicAppletTime"
+          "com.system76.CosmicAppletNotifications"
+        ];
       }
       {
         anchor = cosmicLib.cosmic.mkRON "enum" "Bottom";
