@@ -19,7 +19,7 @@
   # Undocumented: `adw-gtk3` is the recommended way by upstream to apply theming to GTK3
   xdg.configFile."gtk-3.0/settings.ini".text = ''
     [Settings]
-    gtk-theme-name=adw-gtk3
+    gtk-theme-name="adw-gtk3"
   '';
 
   services.kdeconnect = {
