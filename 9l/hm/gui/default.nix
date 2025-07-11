@@ -16,11 +16,11 @@
         appimage-run
         (pkgs.bottles.override { removeWarningPopup = true; })
         darktable
-        devtoolbox
         file-roller
         fractal
         gimp3
         gnome-clocks
+        gnome-disk-utility
         gnome-maps
         gradia
         hunspell
@@ -29,6 +29,7 @@
         kicad-small
         libreoffice-fresh
         loupe
+        nwg-clipman
         papers
         pdfarranger
         protonvpn-cli

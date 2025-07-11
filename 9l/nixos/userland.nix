@@ -8,7 +8,7 @@
   environment = {
     localBinInPath = true;
     systemPackages = with pkgs; [
-      cosmic-clipboard-manager
+      cliphist
       curl
       dmidecode
       docker-compose
@@ -21,6 +21,7 @@
       neovim
       pciutils
       usbutils
+      wl-clipboard
     ];
     cosmic.excludePackages = with pkgs; [
       cosmic-player
@@ -110,6 +111,16 @@
       noto-fonts-cjk-sans
       open-sans
     ];
+  };
+
+  systemd.user.services.cliphist = {
+    enable = true;
+    wantedBy = [ "graphical-session.target" ];
+    description = "Cliphist";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.wl-clipboard}/bin/wl-paste --watch ${lib.getExe pkgs.cliphist} store'';
+    };
   };
 
   systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
