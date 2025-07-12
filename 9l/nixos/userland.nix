@@ -92,16 +92,13 @@
     ydotool.enable = true;
   };
 
-  xdg = {
-    portal.xdgOpenUsePortal = true;
-    terminal-exec = {
-      enable = true;
-      settings = {
-        default = [
-          "kitty.desktop"
-          "com.system76.CosmicTerm.desktop"
-        ];
-      };
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "kitty.desktop"
+        "com.system76.CosmicTerm.desktop"
+      ];
     };
   };
 
