@@ -26,6 +26,14 @@ let
                 nix.channels = {
                   nixpkgs = inputs.nixpkgs.lib.mkDefault inputs.nixpkgs;
                 };
+                nixGL = {
+                  packages = inputs.nixgl.packages;
+                  installScripts = [
+                    "mesa"
+                    "mesaPrime"
+                    "nvidiaPrime"
+                  ];
+                };
                 # Experiment: only config
                 programs = {
                   kitty.package = if hmConfig ? gui then pkgs.kitty else pkgs.emptyDirectory;

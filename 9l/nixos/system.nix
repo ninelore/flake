@@ -1,4 +1,23 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  usbDontAutosuspend = [
+    {
+      # HP USB-C G5 Essential Dock
+      vendor = "03f0";
+      product = "279d";
+    }
+    {
+      # HP USB-C G5 Essential Dock
+      vendor = "03f0";
+      product = "279d";
+    }
+  ];
+in
 {
   boot = {
     kernelPackages =
@@ -6,10 +25,7 @@
         lib.mkDefault pkgs.linuxPackages_cachyos-lto
       else
         lib.mkDefault pkgs.linuxPackages_latest;
-    initrd = {
-      systemd.enable = true;
-      verbose = false;
-    };
+    initrd.systemd.enable = true;
     blacklistedKernelModules = [
       "r8153_ecm"
       "r8152"
@@ -118,10 +134,25 @@
         };
       };
     };
+    udev.extraRules = lib.concatLines (
+      [ ]
+      ++ (builtins.map (
+        dev:
+        ''ACTION=="bind", SUBSYSTEM=="usb", ATTR{idVendor}=="${dev.vendor}", ATTR{idProduct}=="${dev.product}", TEST=="power/control", ATTR{power/control}="on"''
+      ) usbDontAutosuspend)
+    );
   };
 
   powerManagement = {
     enable = true;
-    powertop.enable = true;
+    powertop = {
+      enable = true;
+      postStart = lib.concatLines (
+        builtins.map (
+          dev:
+          ''${lib.getExe' config.systemd.package "udevadm"} trigger -c bind -s usb -a idVendor=${dev.vendor} -a idProduct=${dev.product}''
+        ) usbDontAutosuspend
+      );
+    };
   };
 }
