@@ -7,6 +7,7 @@ rec {
   adwaita-kvantum = callPackage ./adwaita-kvantum { };
   alsa-ucm-conf-cros = callPackage ./alsa-ucm-conf-cros { };
   chrultrabook-tools = callPackage "${inputs.chrultrabook-tools}" { };
+  cosmic-applets = callPackage ./cosmic-applets { };
   cosmic-clipboard-manager = callPackage ./cosmic-clipboard-manager { };
   cosmic-manager = callPackage "${inputs.cosmic-manager}/cosmic-manager" { }; # For caching
   cros-ectool = callPackage ./cros-ectool { };
