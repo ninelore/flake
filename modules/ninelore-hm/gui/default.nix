@@ -1,12 +1,9 @@
 { lib, pkgs, ... }:
 {
   imports = [
-    ../cli
     ./cosmic.nix
     ./noiseSupression.nix
   ];
-
-  xdg.dataFile."color-schemes/MonokaiPro.colors".source = ./MonokaiPro.colors;
 
   home = {
     packages =
@@ -14,7 +11,6 @@
       [
         # GUI Apps
         appimage-run
-        (pkgs.bottles.override { removeWarningPopup = true; })
         darktable
         file-roller
         fractal
@@ -32,9 +28,7 @@
         nwg-clipman
         papers
         pdfarranger
-        protonvpn-cli
         scrcpy
-        tuba
         warp
         wl-clipboard
         # Fonts
@@ -48,24 +42,9 @@
             wasm
           ]
         ))
-        (pkgs.retroarch.withCores (
-          cores:
-          with cores;
-          [
-            melonds
-            desmume
-            vba-m
-          ]
-          ++ lib.optionals (pkgs.system == "x86_64-linux") [
-            pcsx2
-            ppsspp
-          ]
-        ))
       ]
       ++ lib.optionals (pkgs.system == "x86_64-linux") [
-        discord-canary
         spotify
-        wineWowPackages.stagingFull
       ];
     sessionVariables = {
       ELECTRON_OZONE_PLATFORM_HINT = "wayland";

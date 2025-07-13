@@ -123,6 +123,10 @@ let
           );
         };
       };
+
+    mkSystem = import ./mkSystem.nix;
+
+    mkHm = import ./mkHm.nix;
   };
 
 in

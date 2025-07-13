@@ -5,7 +5,6 @@
   imports = [
     ./9l.nix
     ./apps.nix
-    ./scripts
     ./sh.nix
   ];
 

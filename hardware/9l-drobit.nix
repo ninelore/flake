@@ -1,7 +1,5 @@
 {
-  config,
   inputs,
-  lib,
   modulesPath,
   ...
 }:
@@ -10,7 +8,8 @@
   imports = [
     "${inputs.nixos-hardware}/common/cpu/intel/tiger-lake"
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../common/cros
+    inputs.self.nixosModules.cros
+    inputs.self.nixosModules.crosSetuid
   ];
 
   boot.kernelParams = [
@@ -49,9 +48,4 @@
       "dmask=0022"
     ];
   };
-
-  networking.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

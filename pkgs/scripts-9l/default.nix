@@ -1,8 +1,14 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  buildEnv,
+  home-manager,
+  writers,
+  writeShellScriptBin,
+  ...
+}:
 let
   # Helpers
-  inherit (pkgs) writeShellScriptBin;
-  inherit (pkgs.writers) writeNuBin;
+  inherit (writers) writeNuBin;
   withPkgs = pkgs: {
     makeWrapperArgs = [
       "--prefix"
@@ -14,14 +20,15 @@ let
 
   # Scripts
   flakepath-update = writeNuBin "flakepath-update" (builtins.readFile ./flakepath-update.nu);
-  hm = writeNuBin "hm" (withPkgs [ pkgs.home-manager ]) (builtins.readFile ./hm.nu);
+  hm = writeNuBin "hm" (withPkgs [ home-manager ]) (builtins.readFile ./hm.nu);
   nxr = writeNuBin "nxr" (builtins.readFile ./nxr.nu);
   spawnb = writeShellScriptBin "spawnb" ''
     nohup $* &
   '';
 in
-{
-  home.packages = [
+buildEnv {
+  name = "9l-scripts";
+  paths = [
     flakepath-update
     hm
     nxr

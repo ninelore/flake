@@ -1,7 +1,5 @@
 # Partially formerly /etc/nixos/hardware-configuration.nix from 9l-zephyr
 {
-  config,
-  lib,
   inputs,
   modulesPath,
   ...
@@ -10,13 +8,37 @@
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../common/asus
-    ../common/vr
   ];
 
-  services.udev.extraRules = ''
-    ENV{DEVNAME}=="/dev/dri/card1", TAG+="mutter-device-preferred-primary"
-  '';
+  services = {
+    asusd = {
+      enable = true;
+      enableUserService = true;
+      animeConfig.text = ''
+        (
+          model_override: None,
+          system: [],
+          boot: [],
+          wake: [],
+          shutdown: [],
+          display_enabled: false,
+          display_brightness: High,
+          builtin_anims_enabled: false,
+          off_when_unplugged: false,
+          off_when_suspended: false,
+          off_when_lid_closed: false,
+          brightness_on_battery: Low,
+          builtin_anims: (
+            boot: GlitchConstruction,
+            awake: RogLogoGlitch,
+            sleep: Starfield,
+            shutdown: GlitchOut,
+          ),
+        )
+      '';
+    };
+    supergfxd.enable = true;
+  };
 
   hardware.amdgpu.amdvlk = {
     enable = true;
@@ -30,7 +52,6 @@
     "sdhci_pci"
   ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
 
   boot.initrd.luks.devices."root" = {
     device = "/dev/disk/by-uuid/9c50dbd6-3a0b-4b6b-86b0-f326320a27dd";
@@ -55,9 +76,4 @@
       "dmask=0022"
     ];
   };
-
-  networking.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
