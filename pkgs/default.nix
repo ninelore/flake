@@ -20,6 +20,7 @@ rec {
   #linux_nix_cros = callPackage ./linux_nix_cros { }; # Unfinished
   linux_sc7180_legacy = callPackage ./linux_sc7180 { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
+  scripts-9l = callPackage ./scripts-9l { };
   submarine = callPackage ./submarine { };
   warcraftlogs = callPackage ./warcraftlogs-uploader { };
 
