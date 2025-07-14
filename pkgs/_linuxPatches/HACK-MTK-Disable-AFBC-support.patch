@@ -1,0 +1,44 @@
+From 8f40003af37e1567e53fdfcb6446ab4b90755bc0 Mon Sep 17 00:00:00 2001
+From: Sjoerd Simons <sjoerd@collabora.com>
+Date: Tue, 4 Mar 2025 21:03:25 +0100
+Subject: [PATCH] HACK: MTK:  Disable AFBC support
+
+Starting with Mesa 25 AFBC will get more eagerly used. Unfortunately it
+seems both primary and overlay planes on Genio 700 and Genio 1200 are
+broken in this regard. On 1200 it results in odd corrupted frames, while
+on 700 it results in vblank timeouts (for primary planes)
+
+Add a HACK to disable AFBC for now until this can be further diagnosed
+---
+ drivers/gpu/drm/mediatek/mtk_plane.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_plane.c b/drivers/gpu/drm/mediatek/mtk_plane.c
+index 655106bbb76d3..02162780adf4f 100644
+--- a/drivers/gpu/drm/mediatek/mtk_plane.c
++++ b/drivers/gpu/drm/mediatek/mtk_plane.c
+@@ -21,9 +21,11 @@
+ 
+ static const u64 modifiers[] = {
+ 	DRM_FORMAT_MOD_LINEAR,
++	/* HACK disable AFBC support for now
+ 	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
+ 				AFBC_FORMAT_MOD_SPLIT |
+ 				AFBC_FORMAT_MOD_SPARSE),
++				*/
+ 	DRM_FORMAT_MOD_INVALID,
+ };
+ 
+@@ -74,6 +76,9 @@ static bool mtk_plane_format_mod_supported(struct drm_plane *plane,
+ 	if (modifier == DRM_FORMAT_MOD_LINEAR)
+ 		return true;
+ 
++	/* HACK: Disable AFBC support for all planes */
++	return false;
++
+ 	if (modifier != DRM_FORMAT_MOD_ARM_AFBC(
+ 				AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
+ 				AFBC_FORMAT_MOD_SPLIT |
+-- 
+GitLab
+

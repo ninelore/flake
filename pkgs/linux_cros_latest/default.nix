@@ -8,6 +8,27 @@
 let
   ver = "6.15.6";
   hash = "sha256-K7WGyVQnfQcMj99tcnX6qTtIB9m/M1O0kdgUnMoCtPw=";
+  patchList = [
+    "arm64-dts-mt8183-Add-kukui-jacuzzi-cerise-board"
+    # "arm64-dts-mediatek-Add-dts-for-hayato-rev5-sku0" # FIXME: Conflict in arch/arm64/boot/dts/mediatek/Makefile
+    "mt8183-fix-bluetooth"
+    "mt8183-kukui-add-it6505-and-enable-dpi"
+    "mt8183-kukui-jacuzzi-fix-display-resume"
+    "mt8183-kukui-jacuzzi-hack-dpms-resume"
+    "mt8183-kukui-jacuzzi-fennel14-rt1015p-sound"
+    "wifi-rtw88-Fix-the-random-error-beacon-valid-message"
+    "HACK-MTK-Disable-AFBC-support"
+    "platform-chrome-cros_ec_typec-Purge-blocking-switch-devlinks"
+    # "drm-Display-Add-Type-C-switch-helpers" # TODO: Conflict, check if obsolete
+    "drm-bridge-anx7625-Register-Type-C-mode-switches"
+    "drm-bridge-anx7625-Check-for-Type-C-during-panel-registration"
+    "STOPSHIP-arm64-dts-mediatek-asurada-Add-DP"
+    "STOPSHIP-arm64-dts-mediatek-asurada-Enable-HDMI-audio"
+    "mt8186-enable-dpi"
+    # "mt8186-add-extcon-to-dp-bridge" # INFO: Likely upstreamed
+    "mt8195-adsp"
+    "mt8195-dvfsrc"
+  ];
 in
 linuxManualConfig rec {
   version = ver + "-cros";
@@ -19,40 +40,10 @@ linuxManualConfig rec {
   configfile = ./config.aarch64;
   allowImportFromDerivation = builtins.elem system extraMeta.platforms;
 
-  kernelPatches = [
-    {
-      name = "mt8183-fix-bluetooth";
-      patch = ../linux_cros/mt8183-fix-bluetooth.patch;
-    }
-    {
-      name = "mt8183-kukui-add-it6505-and-enable-dpi";
-      patch = ../linux_cros/mt8183-kukui-add-it6505-and-enable-dpi.patch;
-    }
-    {
-      name = "mt8183-kukui-jacuzzi-fennel14-rt1015p-sound";
-      patch = ../linux_cros/mt8183-kukui-jacuzzi-fennel14-rt1015p-sound.patch;
-    }
-    {
-      name = "mt8183-kukui-jacuzzi-fix-display-resume";
-      patch = ../linux_cros/mt8183-kukui-jacuzzi-fix-display-resume.patch;
-    }
-    {
-      name = "mt8183-kukui-jacuzzi-hack-dpms-resume";
-      patch = ../linux_cros/mt8183-kukui-jacuzzi-hack-dpms-resume.patch;
-    }
-    {
-      name = "mt8195-adsp";
-      patch = ../linux_cros/mt8195-adsp.patch;
-    }
-    {
-      name = "mt8195-cherry-tomato-nvme";
-      patch = ../linux_cros/mt8195-cherry-tomato-nvme.patch;
-    }
-    {
-      name = "mt8195-dvfsrc";
-      patch = ../linux_cros/mt8195-dvfsrc.patch;
-    }
-  ];
+  kernelPatches = builtins.map (patch: {
+    name = patch;
+    patch = ../_linuxPatches/${patch}.patch;
+  }) patchList;
 
   extraMeta = {
     platforms = [ "aarch64-linux" ];
