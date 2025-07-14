@@ -6,8 +6,8 @@
   ...
 }:
 let
-  ver = "6.12.35";
-  hash = "sha256-BfTgsB3eV4wzKOtTnTBczOx7hOk59t1fIf2vXzE9p0g=";
+  ver = "6.12.37";
+  hash = "sha256-k2/f0kBbXgrDjU4JSwd3JhDCLNR49LslfJv5Kedi/5U=";
 in
 linuxManualConfig rec {
   version = ver + "-cros";
