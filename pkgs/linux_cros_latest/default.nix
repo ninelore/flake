@@ -20,8 +20,8 @@ let
     "HACK-MTK-Disable-AFBC-support"
     "platform-chrome-cros_ec_typec-Purge-blocking-switch-devlinks"
     # "drm-Display-Add-Type-C-switch-helpers" # TODO: Conflict, check if obsolete
-    "drm-bridge-anx7625-Register-Type-C-mode-switches"
-    "drm-bridge-anx7625-Check-for-Type-C-during-panel-registration"
+    # "drm-bridge-anx7625-Register-Type-C-mode-switches" # FIXME: Breaks build
+    # "drm-bridge-anx7625-Check-for-Type-C-during-panel-registration" # FIXME: Breaks build
     "STOPSHIP-arm64-dts-mediatek-asurada-Add-DP"
     "STOPSHIP-arm64-dts-mediatek-asurada-Enable-HDMI-audio"
     "mt8186-enable-dpi"
