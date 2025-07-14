@@ -71,6 +71,7 @@ with pkgs;
       python312Packages.rfc3987
       yamllint
       pkgsCross.aarch64-multiplatform.stdenv.cc
+      pkgsCross.aarch64-multiplatform-musl.stdenv.cc
       (hiPrio gcc)
     ] ++ pkgs.linux.nativeBuildInputs;
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
