@@ -32,6 +32,10 @@
     cosmic-ext-ctl.enable = true;
     cosmic-manager.enable = true;
     cosmic-ext-tweaks.enable = true;
+    cosmic-applibrary = {
+      enable = true;
+      settings.groups = [ ];
+    };
   };
 
   wayland.desktopManager.cosmic = {
@@ -86,6 +90,13 @@
           "spotify"
           "discord-canary"
         ];
+      };
+      time.settings = {
+        first_day_of_week = 0;
+        military_time = true;
+        show_date_in_top_panel = true;
+        show_seconds = false;
+        show_weekday = true;
       };
     };
     panels = [
