@@ -19,6 +19,7 @@
   boot.kernelParams = [
     "plymouth.enable=0"
     "loglevel=15"
+    "no_console_suspend"
   ];
   boot.consoleLogLevel = lib.mkForce 15;
 
