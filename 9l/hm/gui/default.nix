@@ -15,7 +15,7 @@
         # GUI Apps
         appimage-run
         (pkgs.bottles.override { removeWarningPopup = true; })
-        darktable
+        # darktable # https://github.com/NixOS/nixpkgs/issues/425306
         file-roller
         fractal
         gimp3
