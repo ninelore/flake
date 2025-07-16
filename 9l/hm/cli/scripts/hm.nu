@@ -7,5 +7,5 @@ def main [args?: string = ""] {
 	if (ping -c1 github.com | complete | get exit_code) == 0 {
 		git pull --autostash
 	}
-	home-manager --flake . $args
+	home-manager --refresh --flake . $args
 }

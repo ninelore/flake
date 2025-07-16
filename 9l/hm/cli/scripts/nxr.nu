@@ -7,5 +7,5 @@ def main [args?: string = ""] {
 	if (ping -c1 github.com | complete | get exit_code) == 0 {
 		git pull --autostash
 	}
-	run0 nixos-rebuild --flake . $args
+	run0 nixos-rebuild --refresh --flake . $args
 }
