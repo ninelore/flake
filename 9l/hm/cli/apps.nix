@@ -12,7 +12,6 @@ in
       vboot_reference
       zip
       unzip
-      weechat
     ];
   };
 

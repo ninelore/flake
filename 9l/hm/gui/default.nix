@@ -33,6 +33,7 @@
         papers
         pdfarranger
         protonvpn-cli
+        quasselClient
         scrcpy
         tuba
         warp
