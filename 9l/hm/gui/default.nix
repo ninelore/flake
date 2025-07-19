@@ -35,6 +35,7 @@
         protonvpn-cli
         quasselClient
         scrcpy
+        signal-desktop-source
         tuba
         warp
         wl-clipboard
