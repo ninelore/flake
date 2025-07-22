@@ -190,5 +190,6 @@
   qt = {
     enable = true;
     platformTheme.name = "xdgdesktopportal";
+    style.name = "adwaita-dark";
   };
 }
