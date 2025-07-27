@@ -20,6 +20,7 @@
         fractal
         gimp3
         gnome-clocks
+        gnome-connections
         gnome-disk-utility
         gnome-maps
         gradia
