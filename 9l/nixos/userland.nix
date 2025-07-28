@@ -20,6 +20,7 @@
       mpv
       neovim
       pciutils
+      powertop
       usbutils
       wl-clipboard
     ];
