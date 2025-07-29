@@ -6,12 +6,18 @@ in
   home = {
     packages = with pkgs; [
       android-tools
+      binwalk
+      curl
       ddcutil
+      dmidecode
       flyctl
+      hexpatch
+      pciutils
       picocom
       vboot_reference
-      zip
       unzip
+      usbutils
+      zip
     ];
   };
 
@@ -19,7 +25,6 @@ in
     btop.enable = true;
     distrobox = {
       enable = true;
-      # TODO: Declare containers?
     };
     direnv.enable = true;
     fastfetch = {
