@@ -37,7 +37,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     chrultrabook-tools = {
-      url = "github:death7654/chrultrabook-tools/00d00d7d1c1cd68b291f30fdd1ffbbc4b6197848"; # v3.0.7+
+      url = "github:death7654/chrultrabook-tools/809280a493dc51ca23e247a6e562f2638173c25f"; # v3.0.7+
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
