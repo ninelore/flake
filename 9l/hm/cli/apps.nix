@@ -10,6 +10,7 @@ in
       curl
       ddcutil
       dmidecode
+      file
       flyctl
       hexpatch
       pciutils
