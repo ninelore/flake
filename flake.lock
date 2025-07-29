@@ -34,17 +34,17 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1747183856,
-        "narHash": "sha256-T/kQOmueDlntnG9gROgWufUovF9c4J8F+AoRAYSfnmk=",
+        "lastModified": 1753747431,
+        "narHash": "sha256-U1xbLxV17oZV50z7Tuh3d1aYaNy4MqouPlg42kbbdCI=",
         "owner": "death7654",
         "repo": "chrultrabook-tools",
-        "rev": "da45410da1d3fd77da5b024ecf7cde10e3f79ace",
+        "rev": "00d00d7d1c1cd68b291f30fdd1ffbbc4b6197848",
         "type": "github"
       },
       "original": {
         "owner": "death7654",
         "repo": "chrultrabook-tools",
-        "rev": "da45410da1d3fd77da5b024ecf7cde10e3f79ace",
+        "rev": "00d00d7d1c1cd68b291f30fdd1ffbbc4b6197848",
         "type": "github"
       }
     },
