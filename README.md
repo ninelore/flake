@@ -1,6 +1,6 @@
 # My Nix monoflake
 
-This flake harbors custom package derivations, image generation outputs as well as my personal configurations for Nix, NixOS as well as Home-Manager.
+This flake harbors various custom derivations and modules for Nix, NixOS and Home-Manager.
 
 ## Modules
 
@@ -58,7 +58,3 @@ scripts, NixOS modules, etc.). It also might not apply to patches
 included here, which may be derivative works of the packages to which
 they apply. The aforementioned artifacts are all covered by the
 licenses of the respective packages.
-
-## Acknowledgements
-
-- [Aylur](https://github.com/Aylur): [Dotfiles](https://github.com/Aylur/dotfiles) for inspiration and some formerly copied config snippets
