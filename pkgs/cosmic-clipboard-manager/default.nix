@@ -12,13 +12,13 @@
 
 rustPlatform.buildRustPackage (finalAttrs: rec {
   pname = "cosmic-clipboard-manager";
-  version = "0-unstable-2025-06-22";
+  version = "0-unstable-2025-07-25";
 
   src = fetchFromGitHub {
     owner = "cosmic-utils";
     repo = "clipboard-manager";
-    rev = "50ffc4e6bfcddc970628edfff6b2962f8e72971c";
-    hash = "sha256-pB37NxdGWcqDkQOWB3bPMObfadZXvubA/pG3A0SbIqA=";
+    rev = "87b08b0bde313099b996c5f1d0d0cc6e97eb40c7";
+    hash = "sha256-5dwq6WMEOJQvWzSLXNs7CgUrif//xUZhMv3RxK1Sq9w=";
   };
 
   cargoLock = {
