@@ -9,7 +9,7 @@ jobs:
     name: Raw x86_64 cros
     runs-on: ubuntu-24.04
     steps:
-      - uses: DeterminateSystems/nix-installer-action@v18
+      - uses: DeterminateSystems/nix-installer-action@v19
       - uses: cachix/cachix-action@v16
         with:
           name: 9lore
@@ -28,7 +28,7 @@ jobs:
     name: ISO 9660 x86_64
     runs-on: ubuntu-24.04
     steps:
-      - uses: DeterminateSystems/nix-installer-action@v18
+      - uses: DeterminateSystems/nix-installer-action@v19
       - uses: cachix/cachix-action@v16
         with:
           name: 9lore
