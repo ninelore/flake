@@ -17,7 +17,9 @@
           type = "indirect";
         };
         to = {
-          url = "github:ninelore/flake";
+          type = "github";
+          owner = "ninelore";
+          repo = "flake";
         };
       };
     };
