@@ -10,7 +10,7 @@
   udev,
 }:
 
-rustPlatform.buildRustPackage (finalAttrs: rec {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-clipboard-manager";
   version = "0-unstable-2025-08-05";
 
@@ -21,10 +21,7 @@ rustPlatform.buildRustPackage (finalAttrs: rec {
     hash = "sha256-pB37NxdGWcqDkQOWB3bPMObfadZXvubA/pG3A0SbIqA=";
   };
 
-  cargoLock = {
-    lockFile = "${src}/Cargo.lock";
-    allowBuiltinFetchGit = true;
-  };
+  cargoHash = "sha256-OabpLa0mkpSOXIiJnNbnbV2QU8aTC6ybdwLNBpjm0aQ=";
 
   nativeBuildInputs = [
     just
