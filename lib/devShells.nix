@@ -2,7 +2,9 @@
 with pkgs;
 {
   default = mkShellNoCC {
-    packages = [
+    name = "nix-dev-shell";
+    buildInputs = [
+      git
       nixd
       nixfmt-rfc-style
     ];
@@ -11,49 +13,48 @@ with pkgs;
 // lib.optionalAttrs (stdenv.isLinux) {
   kernelBuild = mkShell {
     name = "kernel-build";
-    nativeBuildInputs = [
-      ncurses
-      pkg-config
-    ] ++ pkgs.linux.nativeBuildInputs;
-    PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
-  };
-}
-// lib.optionalAttrs (system == "x86_64-linux") {
-  coreboot = mkShell {
-    name = "coreboot-dev";
-    packages = [
-      cacert
-      gdb
-      git
-      qemu
-      # edk2
-      python3
-    ];
     buildInputs = [
       ncurses
-      openssl
-    ];
-    nativeBuildInputs = [
+      pkg-config
+    ]
+    ++ linux.nativeBuildInputs;
+    PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
+  };
+  coreboot = mkShell {
+    name = "coreboot-dev";
+    buildInputs = [
+      cacert
       coreboot-toolchain.arm
       coreboot-toolchain.aarch64
       coreboot-toolchain.i386
-      pkg-config
+      coreboot-toolchain.x64
+      gdb
+      git
+      ncurses
       openssh
+      openssl
+      pkg-config
+      qemu
       # u-boot
       bison
       flex
       # edk2
-      libuuid
-      imagemagick
       gnat14
+      imagemagick
+      libuuid
+      python3
+      # linuxboot -> u-root initfs
+      go
     ];
     shellHook = ''
       		unset STRIP
       	'';
   };
+}
+// lib.optionalAttrs (system == "x86_64-linux") {
   crossArm64 = mkShell {
     name = "generic-cross-arm64";
-    nativeBuildInputs = [
+    buildInputs = [
       bison
       dtc
       dt-schema
@@ -73,7 +74,8 @@ with pkgs;
       pkgsCross.aarch64-multiplatform.stdenv.cc
       pkgsCross.aarch64-multiplatform-musl.stdenv.cc
       (hiPrio gcc)
-    ] ++ pkgs.linux.nativeBuildInputs;
+    ]
+    ++ pkgs.linux.nativeBuildInputs;
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
     # CROSS_COMPILE = "aarch64-unknown-linux-gnu-";
     CROSS_COMPILE = "aarch64-unknown-linux-musl-";
