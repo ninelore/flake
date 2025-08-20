@@ -16,6 +16,10 @@ with pkgs;
     buildInputs = [
       ncurses
       pkg-config
+      # For u-root initfs
+      go
+      mkuimage
+      u-root
     ]
     ++ linux.nativeBuildInputs;
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
@@ -47,8 +51,8 @@ with pkgs;
       go
     ];
     shellHook = ''
-      		unset STRIP
-      	'';
+      						unset STRIP
+      					'';
   };
 }
 // lib.optionalAttrs (system == "x86_64-linux") {
@@ -75,7 +79,7 @@ with pkgs;
       pkgsCross.aarch64-multiplatform-musl.stdenv.cc
       (hiPrio gcc)
     ]
-    ++ pkgs.linux.nativeBuildInputs;
+    ++ linux.nativeBuildInputs;
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
     # CROSS_COMPILE = "aarch64-unknown-linux-gnu-";
     CROSS_COMPILE = "aarch64-unknown-linux-musl-";
