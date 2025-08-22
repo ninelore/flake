@@ -24,6 +24,24 @@ with pkgs;
     ++ linux.nativeBuildInputs;
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
   };
+  kernelBuildClang = mkShell.override { stdenv = llvmPackages.stdenv; } {
+    name = "kernel-build";
+    buildInputs = [
+      ncurses
+      pkg-config
+      # For u-root initfs
+      go
+      mkuimage
+      u-root
+      # clangStdenv fixup
+      (hiPrio llvmPackages.bintools-unwrapped)
+      lld
+    ];
+    inputsFrom = [ (linux.override { stdenv = llvmPackages.stdenv; }) ];
+    PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
+    AR = "${llvmPackages.bintools-unwrapped}/bin/ar";
+    NM = "${llvmPackages.bintools-unwrapped}/bin/nm";
+  };
   coreboot = mkShell {
     name = "coreboot-dev";
     buildInputs = [
@@ -42,13 +60,12 @@ with pkgs;
       # u-boot
       bison
       flex
+      gnutls
       # edk2
       gnat14
       imagemagick
       libuuid
       python3
-      # linuxboot -> u-root initfs
-      go
     ];
     shellHook = ''
       						unset STRIP
