@@ -45,22 +45,22 @@ with pkgs;
   coreboot = mkShell {
     name = "coreboot-dev";
     buildInputs = [
+      # Utilities
+      coreboot-utils
+      dtc
+      gdb
+      git
+      ubootTools
+      # coreboot dependencies
       cacert
       coreboot-toolchain.arm
       coreboot-toolchain.aarch64
       coreboot-toolchain.i386
       coreboot-toolchain.x64
-      gdb
-      git
       ncurses
       openssh
       openssl
       pkg-config
-      qemu
-      # u-boot
-      bison
-      flex
-      gnutls
       # edk2
       gnat14
       imagemagick
