@@ -46,6 +46,7 @@ with pkgs;
     name = "coreboot-dev";
     buildInputs = [
       # Utilities
+      clang-tools
       coreboot-utils
       dtc
       gdb
