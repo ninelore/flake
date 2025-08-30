@@ -11,6 +11,7 @@ with import inputs.nixpkgs {
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   depthcharge-tools = callPackage ./depthcharge-tools { };
+  ghidra-server = callPackage ./ghidra-server { };
   #iosevka-9l = callPackage ./iosevka-9l { }; # Broken
   kdeconnect-kde_git = callPackage ./kdeconnect-kde-git { };
   linux_cros = callPackage ./linux_cros { };
