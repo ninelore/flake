@@ -7,7 +7,6 @@ with import inputs.nixpkgs {
   adwaita-kvantum = callPackage ./adwaita-kvantum { };
   alsa-ucm-conf-cros = callPackage ./alsa-ucm-conf-cros { };
   chrultrabook-tools = callPackage "${inputs.chrultrabook-tools}" { };
-  cosmic-manager = callPackage "${inputs.cosmic-manager}/cosmic-manager" { }; # For caching
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   depthcharge-tools = callPackage ./depthcharge-tools { };

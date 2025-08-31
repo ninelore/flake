@@ -12,12 +12,6 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cosmic-manager = {
-      url = "github:HeitorAugustoLN/cosmic-manager";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
     chrultrabook-tools = {
       url = "github:death7654/chrultrabook-tools/809280a493dc51ca23e247a6e562f2638173c25f"; # v3.0.7+
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +21,6 @@
   outputs =
     inputs@{ self, ... }:
     let
-      configs = import ./configs.nix { inherit inputs; };
       forSystems = inputs.nixpkgs.lib.genAttrs [
         "x86_64-linux"
         "aarch64-linux"
