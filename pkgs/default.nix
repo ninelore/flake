@@ -26,3 +26,6 @@ with import inputs.nixpkgs {
   linux_mt81 = throw "'linux_mt81' has been refactored to 'linux_cros'";
   linux_sc7180 = throw "'linux_sc7180' has been deprecated in favor of 'linux_cros'. It is available as 'linux_sc7180_legacy'";
 }
+// pkgs.lib.mkIf stdenv.isLinux {
+  niri-git = inputs.niri.packages.${pkgs.system}.default; # For caching
+}
