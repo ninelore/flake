@@ -1,10 +1,9 @@
 {
   alsa-ucm-conf,
   fetchFromGitHub,
-  lib,
   ...
 }:
-alsa-ucm-conf.overrideAttrs {
+alsa-ucm-conf.overrideAttrs (oldAttrs: {
   wttsrc = fetchFromGitHub {
     owner = "WeirdTreeThing";
     repo = "alsa-ucm-conf-cros";
@@ -16,9 +15,10 @@ alsa-ucm-conf.overrideAttrs {
     cp -rf $wttsrc/ucm2 $out/share/alsa/
   '';
 
-  meta.license = lib.licenses.bsd3;
-  meta.platforma = [
-    "aarch64-linux"
-    "x86_64-linux"
-  ];
-}
+  meta = oldAttrs.meta // {
+    platforms = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+  };
+})
