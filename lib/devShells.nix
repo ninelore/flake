@@ -14,12 +14,16 @@ with pkgs;
   kernelBuild = mkShell {
     name = "kernel-build";
     buildInputs = [
+      # Tools
+      clang-tools
+      coreboot-utils
+      dtc
+      ubootTools
+      # Linux deps
       ncurses
       pkg-config
-      # For u-root initfs
-      go
-      mkuimage
-      u-root
+      # musl?
+      lld
     ]
     ++ linux.nativeBuildInputs;
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
@@ -29,12 +33,7 @@ with pkgs;
     buildInputs = [
       ncurses
       pkg-config
-      # For u-root initfs
-      go
-      mkuimage
-      u-root
-      # clangStdenv fixup
-      (hiPrio llvmPackages.bintools-unwrapped)
+      # musl?
       lld
     ];
     inputsFrom = [ (linux.override { stdenv = llvmPackages.stdenv; }) ];
@@ -69,30 +68,27 @@ with pkgs;
       python3
     ];
     shellHook = ''
-      						unset STRIP
-      					'';
+      unset STRIP
+    '';
   };
 }
 // lib.optionalAttrs (system == "x86_64-linux") {
   crossArm64 = mkShell {
     name = "generic-cross-arm64";
     buildInputs = [
-      bison
+      # Tools
+      clang-tools
+      coreboot-utils
       dtc
-      dt-schema
-      flex
-      git
-      git-repo
-      gnutls
-      lld
+      ubootTools
+      # gs101 needs Image.lz4
       lz4
-      multipath-tools
+      # Linux deps
       ncurses
       pkg-config
-      python312
-      python312Packages.gnureadline
-      python312Packages.rfc3987
-      yamllint
+      # musl?
+      lld
+      # Compiler
       pkgsCross.aarch64-multiplatform.stdenv.cc
       pkgsCross.aarch64-multiplatform-musl.stdenv.cc
       (hiPrio gcc)
