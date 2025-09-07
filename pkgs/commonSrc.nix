@@ -12,12 +12,12 @@ let
 in
 {
   lts = makeVer {
-    ver = "6.12.42";
-    hash = "sha256-SARSiinNIDCaC0HDDlrv/DX6Ie4zWPSnBtRYbQA7wfs=";
+    ver = "6.12.45";
+    hash = "sha256-j5WoVJz737icEYGh9VqXHwTfzWKVCKLtcLd3q5L52z4=";
   };
   stable = makeVer {
-    ver = "6.16.1";
-    hash = "sha256-6kNJG8es4eQUs7LZV/jPlucEkVUSPwrM55isz42hrLo=";
+    ver = "6.16.5";
+    hash = "sha256-dr/7rn6rKh3h7QVpK+9wn0OwKlL+la5lXKzw+iUiE/M=";
   };
   # mainline = makeVer {
   #   version = "";
