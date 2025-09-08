@@ -16,8 +16,8 @@ in
     hash = "sha256-j5WoVJz737icEYGh9VqXHwTfzWKVCKLtcLd3q5L52z4=";
   };
   stable = makeVer {
-    ver = "6.16.5";
-    hash = "sha256-dr/7rn6rKh3h7QVpK+9wn0OwKlL+la5lXKzw+iUiE/M=";
+    ver = "6.16.4";
+    hash = "sha256-1qXjxxoQtTOnViUTh8yL9Iu9XHbYQrpelX2LHDFqtiI";
   };
   # mainline = makeVer {
   #   version = "";
