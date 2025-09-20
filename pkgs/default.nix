@@ -9,8 +9,8 @@ with import inputs.nixpkgs {
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   depthcharge-tools = callPackage ./depthcharge-tools { };
-  # fiedka = callPackage ./fiedka { }; # TODO: WIP
-  ghidra-server = callPackage ./ghidra-server { };
+  # fiedka = callPackage ./fiedka { }; # WIP
+  # ghidra-server = callPackage ./ghidra-server { }; # Broken
   #iosevka-9l = callPackage ./iosevka-9l { }; # Broken
   kdeconnect-kde_git = callPackage ./kdeconnect-kde-git { };
   linux_cros = callPackage ./linux_cros { };
