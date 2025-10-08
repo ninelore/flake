@@ -30,10 +30,7 @@ stdenv.mkDerivation {
     pkg-config
   ];
 
-  buildPhase = ''
-    cmake .
-    make
-  '';
+  cmakeFlags = [ "-DCMAKE_POLICY_VERSION_MINIMUM=3.10" ];
 
   installPhase = ''
     runHook preInstall
