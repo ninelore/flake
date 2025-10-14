@@ -12,7 +12,6 @@ with import inputs.nixpkgs {
   # fiedka = callPackage ./fiedka { }; # WIP
   # ghidra-server = callPackage ./ghidra-server { }; # Broken
   #iosevka-9l = callPackage ./iosevka-9l { }; # Broken
-  kdeconnect-kde_git = callPackage ./kdeconnect-kde-git { };
   linux_cros = callPackage ./linux_cros { };
   linux_cros_latest = callPackage ./linux_cros_latest { };
   #linux_nix_cros = callPackage ./linux_nix_cros { }; # Unfinished
