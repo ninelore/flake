@@ -53,10 +53,12 @@ with pkgs;
       ubootTools
       # coreboot dependencies
       cacert
+      cmocka
       coreboot-toolchain.arm
       coreboot-toolchain.aarch64
       coreboot-toolchain.i386
       coreboot-toolchain.x64
+      coreboot-toolchain.riscv
       ncurses
       openssh
       openssl
