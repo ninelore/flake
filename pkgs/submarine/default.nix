@@ -29,13 +29,13 @@ let
   };
   depthcharge-tools = callPackage ../depthcharge-tools { };
 in
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "submarine";
-  version = "0.3.0";
+  version = "0.4.1";
   src = fetchgit {
     url = "https://github.com/FyraLabs/submarine";
-    rev = "54253a16eeeafed91629544ee081140a4953cde9";
-    hash = "sha256-aUFcDQKSUcsIwoLx0qgX2hgUh7UNynhfPyH//su0cHs=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-TvPs0ekIDMX0Ip5a/atumtw/lBRKEd0DyE9v7QydqDs=";
     fetchSubmodules = true;
   };
 
@@ -52,7 +52,8 @@ stdenv.mkDerivation rec {
     u-root
     util-linux
     vboot_reference
-  ] ++ lib.optionals (system == "aarch64-linux") [ dtc ];
+  ]
+  ++ lib.optionals (system == "aarch64-linux") [ dtc ];
   buildInputs = [
     gmp
     libmpc
@@ -91,4 +92,4 @@ stdenv.mkDerivation rec {
       "aarch64-linux"
     ];
   };
-}
+})
