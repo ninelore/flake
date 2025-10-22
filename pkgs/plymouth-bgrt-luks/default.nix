@@ -73,6 +73,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   dontUnpack = true;
   installPhase = ''
+    exit 1
     install -Dm444 $src $out/share/plymouth/themes/bgrt-luks/bgrt-luks.plymouth
   '';
 
