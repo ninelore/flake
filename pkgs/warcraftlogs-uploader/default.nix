@@ -5,11 +5,11 @@
 }:
 let
   pname = "warcraftlogs";
-  version = "8.17.71";
+  version = "8.17.83";
 
   src = fetchurl {
     url = "https://github.com/RPGLogs/Uploaders-warcraftlogs/releases/download/v${version}/warcraftlogs-v${version}.AppImage";
-    hash = "sha256-T0ma8Hx9FUL8qwiH9tC7VYSgJnWXXaAv1m/cIADt3gs=";
+    hash = "sha256-w94/7Kg8l2BvMLj2Hm2S92ufobneu2tDwHZ40PNCTwg=";
   };
 
   appimageContents = appimageTools.extract {
