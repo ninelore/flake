@@ -93,7 +93,7 @@ with pkgs;
       # Compiler
       pkgsCross.aarch64-multiplatform.stdenv.cc
       pkgsCross.aarch64-multiplatform-musl.stdenv.cc
-      (hiPrio gcc)
+      (lib.hiPrio gcc)
     ]
     ++ linux.nativeBuildInputs;
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
