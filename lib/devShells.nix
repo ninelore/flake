@@ -74,7 +74,7 @@ with pkgs;
     '';
   };
 }
-// lib.optionalAttrs (system == "x86_64-linux") {
+// lib.optionalAttrs (stdenv.hostPlatform.system == "x86_64-linux") {
   crossArm64 = mkShell {
     name = "generic-cross-arm64";
     buildInputs = [

@@ -77,7 +77,7 @@ let
           vboot_reference
           submarine
         ]
-        ++ lib.optionals (system == "x86_64-linux") [
+        ++ lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
           # Distro install tools
           arch-install-scripts
         ];
@@ -138,7 +138,9 @@ in
         { lib, pkgs, ... }:
         {
           boot.kernelPackages = pkgs.linuxPackages_latest;
-          image.baseName = lib.mkForce "nixos-${pkgs.system}-${inputs.self.shortRev or "dirty"}";
+          image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
+            inputs.self.shortRev or "dirty"
+          }";
         }
       )
     ];

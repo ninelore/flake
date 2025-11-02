@@ -16,7 +16,6 @@
   perl,
   python3,
   stdenv,
-  system,
   u-root,
   util-linux,
   vboot_reference,
@@ -53,7 +52,7 @@ stdenv.mkDerivation (finalAttrs: {
     util-linux
     vboot_reference
   ]
-  ++ lib.optionals (system == "aarch64-linux") [ dtc ];
+  ++ lib.optionals (stdenv.hostPlatform.system == "aarch64-linux") [ dtc ];
   buildInputs = [
     gmp
     libmpc
@@ -76,7 +75,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildPhase = ''
     runHook preBuild
-    make -j$NIX_BUILD_CORES ${arch.${system}}
+    make -j$NIX_BUILD_CORES ${arch.${stdenv.hostPlatform.system}}
   '';
 
   installPhase = ''

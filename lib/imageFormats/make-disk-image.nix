@@ -113,7 +113,7 @@
   name ? "nixos-disk-image",
 
   # Disk image filename, without any extensions (e.g. `image_1`).
-  baseName ? "nixos_cros-${pkgs.system}",
+  baseName ? "nixos_cros-${pkgs.stdenv.hostPlatform.system}",
 
   # Whether to fix:
   #   - GPT Disk Unique Identifier (diskGUID)
@@ -158,7 +158,7 @@ let
       "aarch64-linux" = "a64";
       "x86_64-linux" = "x86";
     }
-    .${pkgs.system};
+    .${pkgs.stdenv.hostPlatform.system};
 
   filename = "${baseName}.img";
 

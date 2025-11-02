@@ -36,7 +36,7 @@
       system.build.raw = import ./make-disk-image.nix {
         inherit lib config pkgs;
         additionalSpace = "512M";
-        baseName = "nixos_cros-${pkgs.system}-${inputs.self.shortRev or "dirty"}";
+        baseName = "nixos_cros-${pkgs.stdenv.hostPlatform.system}-${inputs.self.shortRev or "dirty"}";
       };
       formatAttr = "raw";
       fileExtension = ".img";
