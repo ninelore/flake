@@ -40,6 +40,13 @@ let
         "${toString modulesPath}/profiles/base.nix"
       ];
       networking.networkmanager.enable = true;
+      services.openssh = {
+        enable = true;
+        settings = {
+          PasswordAuthentication = true;
+          PermitRootLogin = "yes";
+        };
+      };
       networking.wireless.enable = lib.mkImageMediaOverride false;
       boot.supportedFilesystems.zfs = lib.mkForce false;
       boot.kernelParams = [
@@ -57,7 +64,9 @@ let
           debootstrap
           dnf5
           # Tools
+          coreboot-utils
           git
+          lm_sensors
           neovim
           ranger
           # Neovim deps
@@ -75,7 +84,6 @@ let
           nixfmt-rfc-style
           # ChromeOS Utilities
           vboot_reference
-          submarine
         ]
         ++ lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
           # Distro install tools
@@ -141,6 +149,32 @@ in
           image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
             inputs.self.shortRev or "dirty"
           }";
+        }
+      )
+    ];
+    format = "install-iso";
+  };
+  # Same as above, but with the COSMIC desktop
+  iso_gui-x86_64 = inputs.nixos-generators.nixosGenerate {
+    inherit customFormats specialArgs;
+    system = "x86_64-linux";
+    modules = [
+      common
+      (
+        { lib, pkgs, ... }:
+        {
+          boot.kernelPackages = pkgs.linuxPackages_latest;
+          image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
+            inputs.self.shortRev or "dirty"
+          }";
+          services.displayManager.cosmic-greeter.enable = true;
+          services.desktopManager.cosmic.enable = true;
+          security.rtkit.enable = true;
+          services.pipewire = {
+            enable = true;
+            alsa.enable = true;
+            pulse.enable = true;
+          };
         }
       )
     ];
