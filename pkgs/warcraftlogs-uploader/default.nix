@@ -5,11 +5,11 @@
 }:
 let
   pname = "warcraftlogs";
-  version = "8.17.85";
+  version = "8.17.101";
 
   src = fetchurl {
     url = "https://github.com/RPGLogs/Uploaders-warcraftlogs/releases/download/v${version}/warcraftlogs-v${version}.AppImage";
-    hash = "sha256-Cq8M0SAiUe9+YysUSiQiQVqkomgFmBjptCQDBOJWJQ4=";
+    hash = "sha256-0Xc6brI9O9J0VHOj2T9cyFDgch/5EPVluljkdYZH8X4=";
   };
 
   appimageContents = appimageTools.extract {
@@ -25,9 +25,9 @@ appimageTools.wrapType2 {
     ;
 
   extraInstallCommands = ''
-    install -m 444 -D ${appimageContents}/warcraftlogs.desktop $out/share/applications/warcraftlogs.desktop
-    install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/512x512/apps/warcraftlogs.png \
-      $out/share/icons/hicolor/512x512/apps/warcraftlogs.png
+    install -m 444 -D "${appimageContents}/Warcraft Logs Uploader.desktop" $out/share/applications/warcraftlogs.desktop
+    install -m 444 -D "${appimageContents}/usr/share/icons/hicolor/512x512/apps/Warcraft Logs Uploader.png" \
+      "$out/share/icons/hicolor/512x512/apps/Warcraft Logs Uploader.png"
     substituteInPlace $out/share/applications/warcraftlogs.desktop \
       --replace-fail 'Exec=AppRun' 'Exec=${pname}'
   '';
