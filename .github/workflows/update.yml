@@ -1,4 +1,4 @@
-name: Update lockfile
+name: Updates
 on:
   workflow_dispatch:
   schedule:
@@ -12,6 +12,25 @@ jobs:
       - uses: actions/checkout@v6
       - name: Install Nix
         uses: cachix/install-nix-action@v31
-      - name: Update flake.lock
-        id: update
-        uses: DeterminateSystems/update-flake-lock@v27
+      - name: Updates
+        run: |
+          set -Eeu
+          toUpdate=()
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          nix profile add nixpkgs#nix-update
+          nix flake update --commit-lock-file
+          for i in "${toUpdate[@]}"; do
+            nix-update $i -q --flake --commit --version=branch
+            nix-collect-garbage --quiet
+          done
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: ci/update
+          delete-branch: true
+          title: "Updates"
+          body: |
+            Update everything
+
+            See commit messages for details
