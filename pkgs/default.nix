@@ -21,6 +21,15 @@ with import inputs.nixpkgs {
   submarine = callPackage ./submarine { };
   warcraftlogs = callPackage ./warcraftlogs-uploader { };
 
+  # External packages to be built
+  linux-cachyos-latest-lto =
+    inputs.nix-cachyos-kernel.packages.${system}.linux-cachyos-latest-lto.overrideAttrs
+      (oldAttrs: {
+        meta = oldAttrs.meta // {
+          platforms = [ "x86_64-linux" ];
+        };
+      });
+
   # Aliases
   chrultrabook-tools = throw "chrultrabook-tools has been removed in favor of the upstream flake";
   linux_mt81 = throw "'linux_mt81' has been refactored to 'linux_cros'";
