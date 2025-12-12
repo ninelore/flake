@@ -41,14 +41,13 @@ with pkgs;
     AR = "${llvmPackages.bintools-unwrapped}/bin/ar";
     NM = "${llvmPackages.bintools-unwrapped}/bin/nm";
   };
-  coreboot = mkShell {
+  coreboot = mkShellNoCC {
     name = "coreboot-dev";
     buildInputs = [
       # Utilities
       clang-tools
       coreboot-utils
       dtc
-      gdb
       git
       ubootTools
       # coreboot dependencies
@@ -64,7 +63,7 @@ with pkgs;
       openssl
       pkg-config
       # edk2
-      gnat14
+      gcc14
       imagemagick
       libuuid
       python3
