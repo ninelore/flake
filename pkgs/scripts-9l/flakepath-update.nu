@@ -1,3 +1,4 @@
+#!/usr/bin/env nu
 def main [] {
 	print "checking flake validity..."
 	let flakepath = try { (nix flake metadata --quiet --quiet --json | from json | get resolvedUrl | url parse | get path) } catch { null }

@@ -1,7 +1,7 @@
 {
   lib,
   buildEnv,
-  home-manager,
+  nh,
   writers,
   writeShellScriptBin,
   ...
@@ -20,17 +20,19 @@ let
 
   # Scripts
   flakepath-update = writeNuBin "flakepath-update" (builtins.readFile ./flakepath-update.nu);
-  hm = writeNuBin "hm" (withPkgs [ home-manager ]) (builtins.readFile ./hm.nu);
-  nxr = writeNuBin "nxr" (builtins.readFile ./nxr.nu);
   spawnb = writeShellScriptBin "spawnb" ''
     nohup $* &
   '';
+  nx = writeNuBin "nx" (withPkgs [ nh ]) (builtins.readFile ./nx.nu);
+
+  # Deprecated!
+  nxr = writeNuBin "nxr" (builtins.readFile ./nxr.nu);
 in
 buildEnv {
   name = "9l-scripts";
   paths = [
     flakepath-update
-    hm
+    nx
     nxr
     spawnb
   ];
