@@ -178,4 +178,48 @@ in
     ];
     format = "install-iso";
   };
+  # ISO 9660 image for reqular aarch64 computers
+  iso-aarch64 = inputs.nixos-generators.nixosGenerate {
+    inherit customFormats specialArgs;
+    system = "aarch64-linux";
+    modules = [
+      common
+      (
+        { lib, pkgs, ... }:
+        {
+          boot.kernelPackages = pkgs.linuxPackages_latest;
+          image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
+            inputs.self.shortRev or "dirty"
+          }";
+        }
+      )
+    ];
+    format = "install-iso";
+  };
+  # Same as above, but with the COSMIC desktop
+  iso_gui-aarch64 = inputs.nixos-generators.nixosGenerate {
+    inherit customFormats specialArgs;
+    system = "aarch64-linux";
+    modules = [
+      common
+      (
+        { lib, pkgs, ... }:
+        {
+          boot.kernelPackages = pkgs.linuxPackages_latest;
+          image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
+            inputs.self.shortRev or "dirty"
+          }";
+          services.displayManager.cosmic-greeter.enable = true;
+          services.desktopManager.cosmic.enable = true;
+          security.rtkit.enable = true;
+          services.pipewire = {
+            enable = true;
+            alsa.enable = true;
+            pulse.enable = true;
+          };
+        }
+      )
+    ];
+    format = "install-iso";
+  };
 }

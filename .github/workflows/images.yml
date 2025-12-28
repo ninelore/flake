@@ -5,25 +5,6 @@ on:
   - cron: "0 7 * * 1"
 
 jobs:
-  raw-x86:
-    name: Raw x86_64 cros
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: cachix/install-nix-action@v31
-      - uses: cachix/cachix-action@v16
-        with:
-          name: 9lore
-          skipPush: true
-          useDaemon: false
-      - uses: actions/checkout@v6
-      - name: Save commit short hash 
-        id: vars
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - run: nix build -L .#nixosImages.raw-x64cros
-      - uses: actions/upload-artifact@v6.0.0
-        with:
-          name: nixos-raw-x64cros-${{ steps.vars.outputs.sha_short }}.img
-          path: result/nixos_cros-x86_64-linux-${{ steps.vars.outputs.sha_short }}.img
   iso-x64:
     name: ISO 9660 x86_64
     runs-on: ubuntu-24.04
@@ -43,3 +24,60 @@ jobs:
         with:
           name: nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso
           path: result/iso/nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso
+  iso-x64-gui:
+    name: ISO 9660 x86_64 with GUI
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v16
+        with:
+          name: 9lore
+          skipPush: true
+          useDaemon: false
+      - uses: actions/checkout@v6
+      - name: Save commit short hash 
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      - run: nix build -L .#nixosImages.iso_gui-x86_64
+      - uses: actions/upload-artifact@v6.0.0
+        with:
+          name: nixos-x86_64-linux-gui-${{ steps.vars.outputs.sha_short }}.iso
+          path: result/iso/nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso
+  iso-aarch64:
+    name: ISO 9660 aarch64
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v16
+        with:
+          name: 9lore
+          skipPush: true
+          useDaemon: false
+      - uses: actions/checkout@v6
+      - name: Save commit short hash 
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      - run: nix build -L .#nixosImages.iso-aarch64
+      - uses: actions/upload-artifact@v6.0.0
+        with:
+          name: nixos-aarch64-linux-${{ steps.vars.outputs.sha_short }}.iso
+          path: result/iso/nixos-aarch64-linux-${{ steps.vars.outputs.sha_short }}.iso
+  iso-aarch64-gui:
+    name: ISO 9660 aarch64 with GUI
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v16
+        with:
+          name: 9lore
+          skipPush: true
+          useDaemon: false
+      - uses: actions/checkout@v6
+      - name: Save commit short hash 
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      - run: nix build -L .#nixosImages.iso_gui-aarch64
+      - uses: actions/upload-artifact@v6.0.0
+        with:
+          name: nixos-aarch64-linux-gui-${{ steps.vars.outputs.sha_short }}.iso
+          path: result/iso/nixos-aarch64-linux-${{ steps.vars.outputs.sha_short }}.iso
