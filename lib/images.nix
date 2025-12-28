@@ -62,7 +62,6 @@ let
           debootstrap
           dnf5
           # Tools
-          coreboot-utils
           git
           lm_sensors
           neovim
@@ -84,6 +83,8 @@ let
           vboot_reference
         ]
         ++ lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
+          # FIXME: broken on aarch64 as of 2025-12-29
+          coreboot-utils
           # Distro install tools
           arch-install-scripts
         ];
