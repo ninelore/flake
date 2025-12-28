@@ -12,7 +12,6 @@ with import inputs.nixpkgs {
   # fiedka = callPackage ./fiedka { }; # WIP
   # ghidra-server = callPackage ./ghidra-server { }; # Broken
   #iosevka-9l = callPackage ./iosevka-9l { }; # Broken
-  linux_cros = callPackage ./linux_cros { };
   linux_cros_latest = callPackage ./linux_cros_latest { };
   #linux_nix_cros = callPackage ./linux_nix_cros { }; # Unfinished
   linux_sc7180_legacy = callPackage ./linux_sc7180 { };
@@ -23,6 +22,7 @@ with import inputs.nixpkgs {
 
   # Aliases
   chrultrabook-tools = throw "chrultrabook-tools has been removed in favor of the upstream flake";
-  linux_mt81 = throw "'linux_mt81' has been refactored to 'linux_cros'";
+  linux_mt81 = throw "'linux_mt81' has been removed in favor of 'linux_cros_latest'";
+  linux_cros = throw "'linux_cros' has been removed in favor of 'linux_cros_latest'";
   linux_sc7180 = throw "'linux_sc7180' has been deprecated in favor of 'linux_cros'. It is available as 'linux_sc7180_legacy'";
 }
