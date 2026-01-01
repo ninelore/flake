@@ -12,7 +12,6 @@ with import inputs.nixpkgs {
   # fiedka = callPackage ./fiedka { }; # WIP
   # ghidra-server = callPackage ./ghidra-server { }; # Broken
   #iosevka-9l = callPackage ./iosevka-9l { }; # Broken
-  linux_9l_testing = callPackage ./linux_9l_test { };
   linux_cros_latest = callPackage ./linux_cros_latest { };
   #linux_nix_cros = callPackage ./linux_nix_cros { }; # Unfinished
   linux_sc7180_legacy = callPackage ./linux_sc7180 { };
