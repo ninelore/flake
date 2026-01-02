@@ -1,12 +1,12 @@
 {
   linuxManualConfig,
-  linux_6_17,
+  linux_latest,
   system,
   ...
 }:
 let
   # inherit ((import ../commonSrc.nix { inherit lib fetchurl; }).stable) ver src;
-  ver = linux_6_17.version;
+  ver = linux_latest.version;
   patchList = [
     "mt8183-fix-bluetooth"
     "mt8186-ASoC-hdmi-codec-Add-event-handler-for-hdmi-TX"
@@ -18,7 +18,7 @@ let
 in
 linuxManualConfig rec {
   version = ver + "-cros";
-  inherit (linux_6_17) src;
+  inherit (linux_latest) src;
 
   configfile = ./config.aarch64;
   allowImportFromDerivation = builtins.elem system extraMeta.platforms;
