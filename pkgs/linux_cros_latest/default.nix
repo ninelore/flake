@@ -14,6 +14,7 @@ let
     "mt8186-SoC-mediatek-mt8186-correct-the-HDMI-widgets"
     "mt8186-drm-bridge-it6505-Add-audio-support"
     "mt8186-enable-dpi"
+    "mtk-pmdomain"
   ];
 in
 linuxManualConfig rec {
