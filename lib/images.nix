@@ -67,15 +67,12 @@ let
           neovim
           ranger
           # Neovim deps
-          fd
+          curl
           gcc
           git
-          gnumake
-          lua5_1
-          luarocks
+          gnutar
           ripgrep
           tree-sitter
-          wget
           nil
           nixd
           nixfmt-rfc-style
@@ -99,6 +96,22 @@ let
       '';
     };
 
+  commonGui =
+    { pkgs, ... }:
+    {
+      services.displayManager.cosmic-greeter.enable = true;
+      services.desktopManager.cosmic.enable = true;
+      security.rtkit.enable = true;
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        pulse.enable = true;
+      };
+      environment.systemPackages = with pkgs; [
+        ungoogled-chromium
+      ];
+    };
+
   customFormats = import ./imageFormats { inherit inputs; };
   specialArgs = { inherit inputs; };
 in
@@ -120,6 +133,7 @@ in
     ];
     format = "raw-cros";
   };
+
   # Raw image for Intel or AMD-based Chromebooks with Depthcharge
   raw-x64cros = inputs.nixos-generators.nixosGenerate {
     inherit customFormats specialArgs;
@@ -135,56 +149,14 @@ in
     ];
     format = "raw-cros";
   };
-  # ISO 9660 image for reqular x86_64 computers
-  iso-x86_64 = inputs.nixos-generators.nixosGenerate {
-    inherit customFormats specialArgs;
-    system = "x86_64-linux";
-    modules = [
-      common
-      (
-        { lib, pkgs, ... }:
-        {
-          boot.kernelPackages = pkgs.linuxPackages_latest;
-          image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
-            inputs.self.shortRev or "dirty"
-          }";
-        }
-      )
-    ];
-    format = "install-iso";
-  };
-  # Same as above, but with the COSMIC desktop
+
+  # Generic x86_64-linux ISO 9660 Image
   iso_gui-x86_64 = inputs.nixos-generators.nixosGenerate {
     inherit customFormats specialArgs;
     system = "x86_64-linux";
     modules = [
       common
-      (
-        { lib, pkgs, ... }:
-        {
-          boot.kernelPackages = pkgs.linuxPackages_latest;
-          image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
-            inputs.self.shortRev or "dirty"
-          }";
-          services.displayManager.cosmic-greeter.enable = true;
-          services.desktopManager.cosmic.enable = true;
-          security.rtkit.enable = true;
-          services.pipewire = {
-            enable = true;
-            alsa.enable = true;
-            pulse.enable = true;
-          };
-        }
-      )
-    ];
-    format = "install-iso";
-  };
-  # ISO 9660 image for reqular aarch64 computers
-  iso-aarch64 = inputs.nixos-generators.nixosGenerate {
-    inherit customFormats specialArgs;
-    system = "aarch64-linux";
-    modules = [
-      common
+      commonGui
       (
         { lib, pkgs, ... }:
         {
@@ -197,12 +169,14 @@ in
     ];
     format = "install-iso";
   };
-  # Same as above, but with the COSMIC desktop
+
+  # Generic aarch64-linux ISO 9660 Image
   iso_gui-aarch64 = inputs.nixos-generators.nixosGenerate {
     inherit customFormats specialArgs;
     system = "aarch64-linux";
     modules = [
       common
+      commonGui
       (
         { lib, pkgs, ... }:
         {
@@ -210,14 +184,26 @@ in
           image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
             inputs.self.shortRev or "dirty"
           }";
-          services.displayManager.cosmic-greeter.enable = true;
-          services.desktopManager.cosmic.enable = true;
-          security.rtkit.enable = true;
-          services.pipewire = {
-            enable = true;
-            alsa.enable = true;
-            pulse.enable = true;
-          };
+        }
+      )
+    ];
+    format = "install-iso";
+  };
+
+  # aarch64-linux ISO 9660 Image with linux_cros kernel
+  iso_gui_cros-aarch64 = inputs.nixos-generators.nixosGenerate {
+    inherit customFormats specialArgs;
+    system = "aarch64-linux";
+    modules = [
+      common
+      commonGui
+      (
+        { lib, pkgs, ... }:
+        {
+          boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros_latest;
+          image.baseName = lib.mkForce "nixos-cros-${pkgs.stdenv.hostPlatform.system}-${
+            inputs.self.shortRev or "dirty"
+          }";
         }
       )
     ];
