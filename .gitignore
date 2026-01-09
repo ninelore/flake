@@ -1,4 +1,5 @@
 .direnv/
 result*
 *.out
+*.*.old
 *.qcow2
