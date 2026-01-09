@@ -204,6 +204,7 @@ in
           image.baseName = lib.mkForce "nixos-cros-${pkgs.stdenv.hostPlatform.system}-${
             inputs.self.shortRev or "dirty"
           }";
+          hardware.enableAllHardware = lib.mkForce false;
         }
       )
     ];
