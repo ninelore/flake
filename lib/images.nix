@@ -75,7 +75,7 @@ let
           tree-sitter
           nil
           nixd
-          nixfmt-rfc-style
+          nixfmt
           # ChromeOS Utilities
           vboot_reference
         ]

@@ -6,7 +6,7 @@ with pkgs;
     buildInputs = [
       git
       nixd
-      nixfmt-rfc-style
+      nixfmt
     ];
   };
 }
