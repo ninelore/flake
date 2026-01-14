@@ -12,34 +12,26 @@ with pkgs;
 }
 // lib.optionalAttrs (stdenv.isLinux) {
   kernelBuild = mkShell {
-    name = "kernel-build";
+    name = "kernel-dev";
     buildInputs = [
       # Tools
       clang-tools
-      coreboot-utils
       dtc
-      ubootTools
       # Linux deps
       ncurses
       pkg-config
-      # musl?
-      lld
     ]
     ++ linux.nativeBuildInputs;
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
   };
-  kernelBuildClang = mkShell.override { stdenv = llvmPackages.stdenv; } {
-    name = "kernel-build";
+  kernelBuildClang = mkShell.override { stdenv = clangStdenv; } {
+    name = "kernel-dev-clang";
     buildInputs = [
       ncurses
       pkg-config
-      # musl?
-      lld
     ];
-    inputsFrom = [ (linux.override { stdenv = llvmPackages.stdenv; }) ];
+    inputsFrom = [ (linux.override { stdenv = clangStdenv; }) ];
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
-    AR = "${llvmPackages.bintools-unwrapped}/bin/ar";
-    NM = "${llvmPackages.bintools-unwrapped}/bin/nm";
   };
   coreboot = mkShellNoCC {
     name = "coreboot-dev";
@@ -79,16 +71,12 @@ with pkgs;
     buildInputs = [
       # Tools
       clang-tools
-      coreboot-utils
       dtc
       ubootTools
-      # gs101 needs Image.lz4
       lz4
       # Linux deps
       ncurses
       pkg-config
-      # musl?
-      lld
       # Compiler
       pkgsCross.aarch64-multiplatform.stdenv.cc
       pkgsCross.aarch64-multiplatform-musl.stdenv.cc
