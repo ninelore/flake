@@ -49,7 +49,7 @@ with pkgs;
       coreboot-toolchain.aarch64
       coreboot-toolchain.i386
       coreboot-toolchain.x64
-      coreboot-toolchain.riscv
+      # coreboot-toolchain.riscv
       ncurses
       openssh
       openssl
