@@ -19,24 +19,19 @@ with pkgs;
       dtc
       ubootTools
       lz4
-      # Linux deps
-      ncurses
+      # Additional Linux dev dependencies
       pkg-config
+      ncurses
+      # Additional barebox dependencies
+      libftdi1
+      python3Packages.libfdt
       # Cross compilers
       pkgsCross.aarch64-multiplatform.stdenv.cc
       pkgsCross.gnu64.stdenv.cc
+      # HOSTCC
       (lib.hiPrio gcc)
     ]
     ++ linux.nativeBuildInputs;
-    PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
-  };
-  kernelDevClang = mkShell.override { stdenv = clangStdenv; } {
-    name = "kernel-dev-clang";
-    buildInputs = [
-      ncurses
-      pkg-config
-    ];
-    inputsFrom = [ (linux.override { stdenv = clangStdenv; }) ];
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
   };
   coreboot = mkShellNoCC {
