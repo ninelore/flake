@@ -112,47 +112,14 @@ let
       ];
     };
 
-  customFormats = import ./imageFormats { inherit inputs; };
   specialArgs = { inherit inputs; };
+
+  mkIso = nixosClosure: (inputs.nixpkgs.lib.nixosSystem nixosClosure).config.system.build.images.iso;
 in
 {
-  # Raw image for MTK-based Chromebooks with Depthcharge
-  raw-aarch64cros = inputs.nixos-generators.nixosGenerate {
-    inherit customFormats specialArgs;
-    system = "aarch64-linux";
-    modules = [
-      common
-      inputs.self.nixosModules.crosAarch64
-      (
-        { pkgs, ... }:
-        {
-          boot.kernelParams = [ "console=tty0" ];
-          boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros_latest;
-        }
-      )
-    ];
-    format = "raw-cros";
-  };
-
-  # Raw image for Intel or AMD-based Chromebooks with Depthcharge
-  raw-x64cros = inputs.nixos-generators.nixosGenerate {
-    inherit customFormats specialArgs;
-    system = "x86_64-linux";
-    modules = [
-      common
-      (
-        { pkgs, ... }:
-        {
-          boot.kernelPackages = pkgs.linuxPackages_latest;
-        }
-      )
-    ];
-    format = "raw-cros";
-  };
-
   # Generic x86_64-linux ISO 9660 Image
-  iso_gui-x86_64 = inputs.nixos-generators.nixosGenerate {
-    inherit customFormats specialArgs;
+  iso_gui-x86_64 = mkIso {
+    inherit specialArgs;
     system = "x86_64-linux";
     modules = [
       common
@@ -161,18 +128,14 @@ in
         { lib, pkgs, ... }:
         {
           boot.kernelPackages = pkgs.linuxPackages_latest;
-          image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
-            inputs.self.shortRev or "dirty"
-          }";
         }
       )
     ];
-    format = "install-iso";
   };
 
   # Generic aarch64-linux ISO 9660 Image
-  iso_gui-aarch64 = inputs.nixos-generators.nixosGenerate {
-    inherit customFormats specialArgs;
+  iso_gui-aarch64 = mkIso {
+    inherit specialArgs;
     system = "aarch64-linux";
     modules = [
       common
@@ -181,33 +144,26 @@ in
         { lib, pkgs, ... }:
         {
           boot.kernelPackages = pkgs.linuxPackages_latest;
-          image.baseName = lib.mkForce "nixos-${pkgs.stdenv.hostPlatform.system}-${
-            inputs.self.shortRev or "dirty"
-          }";
         }
       )
     ];
-    format = "install-iso";
   };
 
   # aarch64-linux ISO 9660 Image with linux_cros kernel
-  iso_gui_cros-aarch64 = inputs.nixos-generators.nixosGenerate {
-    inherit customFormats specialArgs;
+  iso_gui_cros-aarch64 = mkIso {
+    inherit specialArgs;
     system = "aarch64-linux";
     modules = [
       common
       commonGui
+      inputs.self.nixosModules.crosAarch64
       (
         { lib, pkgs, ... }:
         {
           boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros_latest;
-          image.baseName = lib.mkForce "nixos-cros-${pkgs.stdenv.hostPlatform.system}-${
-            inputs.self.shortRev or "dirty"
-          }";
           hardware.enableAllHardware = lib.mkForce false;
         }
       )
     ];
-    format = "install-iso";
   };
 }

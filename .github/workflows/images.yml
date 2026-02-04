@@ -16,14 +16,14 @@ jobs:
           skipPush: true
           useDaemon: false
       - uses: actions/checkout@v6
-      - name: Save commit short hash 
+      - name: Save commit short hash
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - run: nix build -L .#nixosImages.iso_gui-x86_64
       - uses: actions/upload-artifact@v6.0.0
         with:
           name: nixos-x86_64-${{ steps.vars.outputs.sha_short }}.iso
-          path: result/iso/nixos-x86_64-linux-${{ steps.vars.outputs.sha_short }}.iso
+          path: result/iso/*.iso
   iso-aarch64:
     name: ISO 9660 aarch64
     runs-on: ubuntu-24.04-arm
@@ -35,14 +35,14 @@ jobs:
           skipPush: true
           useDaemon: false
       - uses: actions/checkout@v6
-      - name: Save commit short hash 
+      - name: Save commit short hash
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - run: nix build -L .#nixosImages.iso_gui-aarch64
       - uses: actions/upload-artifact@v6.0.0
         with:
           name: nixos-aarch64-${{ steps.vars.outputs.sha_short }}.iso
-          path: result/iso/nixos-aarch64-linux-${{ steps.vars.outputs.sha_short }}.iso
+          path: result/iso/*.iso
   iso-aarch64-cros:
     name: ISO 9660 aarch64 for CrOS
     runs-on: ubuntu-24.04-arm
@@ -54,11 +54,11 @@ jobs:
           skipPush: true
           useDaemon: false
       - uses: actions/checkout@v6
-      - name: Save commit short hash 
+      - name: Save commit short hash
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - run: nix build -L .#nixosImages.iso_gui_cros-aarch64
       - uses: actions/upload-artifact@v6.0.0
         with:
           name: nixos-aarch64-cros-${{ steps.vars.outputs.sha_short }}.iso
-          path: result/iso/nixos-cros-aarch64-linux-${{ steps.vars.outputs.sha_short }}.iso
+          path: result/iso/*.iso
