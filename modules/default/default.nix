@@ -5,7 +5,7 @@
       final: prev:
       import ./../../pkgs {
         inherit inputs;
-        system = prev.system;
+        system = prev.stdenv.hostPlatform.system;
       }
     )
   ];

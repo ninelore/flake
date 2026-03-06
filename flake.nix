@@ -28,7 +28,7 @@
         system: import ./lib/devShells.nix { pkgs = import inputs.nixpkgs { inherit system; }; }
       );
 
-      formatter = forSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt);
 
       githubActions = self.lib.mkGithubMatrix {
         sourceAttrSet = self.legacyPackages;
@@ -57,7 +57,7 @@
         final: prev:
         import ./pkgs {
           inherit inputs;
-          system = prev.system;
+          system = prev.stdenv.hostPlatform.system;
         };
     };
 }
