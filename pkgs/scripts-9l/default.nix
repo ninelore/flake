@@ -24,6 +24,9 @@ let
     nohup $* &
   '';
   nx = writeNuBin "nx" (withPkgs [ nh ]) (builtins.readFile ./nx.nu);
+  fucking-realtek = writeShellScriptBin "fucking_realtek" ''
+    run0 rmmod r8153_ecm r8152 && run0 modprobe r8152 r8153_ecm
+  '';
 
   # Deprecated!
   nxr = writeNuBin "nxr" (builtins.readFile ./nxr.nu);
@@ -35,5 +38,6 @@ buildEnv {
     nx
     nxr
     spawnb
+    fucking-realtek
   ];
 }
