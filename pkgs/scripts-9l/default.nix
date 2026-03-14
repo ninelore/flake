@@ -25,7 +25,9 @@ let
   '';
   nx = writeNuBin "nx" (withPkgs [ nh ]) (builtins.readFile ./nx.nu);
   fucking-realtek = writeShellScriptBin "fucking_realtek" ''
-    sudo rmmod r8153_ecm r8152; sudo modprobe r8152 r8153_ecm
+    sudo rmmod r8153_ecm r8152
+    sudo modprobe r8152
+    sudo modprobe r8153_ecm
   '';
 
   # Deprecated!
