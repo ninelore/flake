@@ -40,11 +40,11 @@
         default = import ./modules/default;
       };
 
-      legacyPackages = forSystems (system: import ./pkgs { inherit inputs system; });
+      legacyPackages = forSystems (
+        system: (import ./pkgs { inherit inputs system; }) // (import ./lib/images.nix { inherit inputs; })
+      );
 
       lib = import ./lib;
-
-      nixosImages = import ./lib/images.nix { inherit inputs; };
 
       nixosModules = {
         default = import ./modules/default;

@@ -19,7 +19,7 @@ jobs:
       - name: Save commit short hash
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - run: nix build -L .#nixosImages.iso_gui-x86_64
+      - run: nix build -L .#iso_gui-x86_64
       - uses: actions/upload-artifact@v7.0.0
         with:
           name: nixos-x86_64-${{ steps.vars.outputs.sha_short }}.iso
@@ -38,7 +38,7 @@ jobs:
       - name: Save commit short hash
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - run: nix build -L .#nixosImages.iso_gui-aarch64
+      - run: nix build -L .#iso_gui-aarch64
       - uses: actions/upload-artifact@v7.0.0
         with:
           name: nixos-aarch64-${{ steps.vars.outputs.sha_short }}.iso
