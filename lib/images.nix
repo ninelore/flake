@@ -148,22 +148,4 @@ in
       )
     ];
   };
-
-  # aarch64-linux ISO 9660 Image with linux_cros kernel
-  iso_gui_cros-aarch64 = mkIso {
-    inherit specialArgs;
-    system = "aarch64-linux";
-    modules = [
-      common
-      commonGui
-      inputs.self.nixosModules.crosAarch64
-      (
-        { lib, pkgs, ... }:
-        {
-          boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_cros_latest;
-          hardware.enableAllHardware = lib.mkForce false;
-        }
-      )
-    ];
-  };
 }
