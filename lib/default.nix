@@ -32,6 +32,7 @@ let
             let
               meta = metaEval.value or { };
               drvPlatforms = meta.platforms or (builtins.attrNames platforms);
+              drvHydraPlatforms = meta.hydraPlatforms or (builtins.attrNames platforms);
               noLicenseDefault = false;
               checkLicenseSet =
                 licenseSet:
@@ -49,7 +50,7 @@ let
                   (builtins.tryEval (licenseSet.redistributable or noLicenseDefault)).value or noLicenseDefault;
               redist = checkLicenseSet (meta.license or null);
             in
-            lib.elem system drvPlatforms && redist;
+            lib.elem system drvPlatforms && lib.elem system drvHydraPlatforms && redist && (!meta.broken);
         processDerivationEntry =
           system: path: drv:
           if shouldInclude system drv then
