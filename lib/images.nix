@@ -94,7 +94,6 @@ let
             debootstrap
             dnf5
             # Tools
-            coreboot-utils
             curl
             gcc
             git
@@ -107,6 +106,8 @@ let
             vboot_reference
           ]
           ++ lib.optionals (stdenv.hostPlatform.system == "x86_64-linux") [
+            # Still broken on aarch64
+            coreboot-utils
             # Distro install tools
             arch-install-scripts
           ];
