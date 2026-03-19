@@ -28,7 +28,7 @@
         system: import ./lib/devShells.nix { pkgs = import inputs.nixpkgs { inherit system; }; }
       );
 
-      formatter = forSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt);
+      formatter = forSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-tree);
 
       githubActions = self.lib.mkGithubMatrix {
         sourceAttrSet = self.legacyPackages;
