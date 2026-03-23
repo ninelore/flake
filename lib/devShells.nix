@@ -10,28 +10,40 @@ with pkgs;
     ];
   };
 }
-// lib.optionalAttrs (stdenv.isLinux) {
+// lib.optionalAttrs (stdenv.isLinux) rec {
   kernelDev = mkShell {
-    name = "kernel-dev";
+    name = "embedded-dev";
     buildInputs = [
       # Tools
       clang-tools
       dtc
       ubootTools
       lz4
-      # Additional Linux dev dependencies
+      # menuconfig/nconfig
       pkg-config
       ncurses
-      # Additional barebox dependencies
+      # Additional dependencies
+      libusb1
       libftdi1
       python3Packages.libfdt
       # Cross compilers
-      pkgsCross.aarch64-multiplatform.stdenv.cc
-      pkgsCross.gnu64.stdenv.cc
+      coreboot-toolchain.arm
+      coreboot-toolchain.aarch64
+      coreboot-toolchain.i386
+      coreboot-toolchain.x64
+      coreboot-toolchain.riscv
       # HOSTCC
       (lib.hiPrio gcc)
     ]
     ++ linux.nativeBuildInputs;
+    shellHook = ''
+      echo "# Available cross toolchains:"
+      echo "  - 'arm-eabi-'"
+      echo "  - 'aarch64-elf-'"
+      echo "  - 'riscv64-elf-'"
+      echo "  - 'i386-elf-'"
+      echo "  - 'x86_64-elf-'"
+    '';
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
   };
   coreboot = mkShellNoCC {
@@ -55,7 +67,7 @@ with pkgs;
       openssl
       pkg-config
       # edk2
-      gcc14 # Required by OpensslLib
+      gcc
       imagemagick
       libuuid
       python3
@@ -64,4 +76,6 @@ with pkgs;
       unset STRIP
     '';
   };
+  # Alias
+  embedded = kernelDev;
 }
