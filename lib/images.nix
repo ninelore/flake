@@ -69,7 +69,6 @@ let
             ];
           };
         };
-        networking.networkmanager.enable = true;
         services.openssh = {
           enable = true;
           settings = {
@@ -77,7 +76,8 @@ let
             PermitRootLogin = "yes";
           };
         };
-        networking.wireless.enable = lib.mkImageMediaOverride false;
+        users.users.root.initialPassword = "";
+        boot.supportedFilesystems.bcachefs = lib.mkForce false;
         boot.supportedFilesystems.zfs = lib.mkForce false;
         boot.kernelParams = [
           "iomem=relaxed"
