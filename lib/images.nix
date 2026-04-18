@@ -78,7 +78,7 @@ let
         };
         users.users.root.initialPassword = "";
         boot.supportedFilesystems.bcachefs = lib.mkForce false;
-        boot.supportedFilesystems.zfs = lib.mkForce false;
+        # boot.supportedFilesystems.zfs = lib.mkForce false;
         boot.kernelParams = [
           "iomem=relaxed"
         ];
@@ -110,6 +110,7 @@ let
             coreboot-utils
             # Distro install tools
             arch-install-scripts
+            pacman
           ];
         services.getty.helpLine = lib.mkForce ''
           The "nixos" and "root" accounts have empty passwords.
