@@ -9,6 +9,23 @@ with pkgs;
       nixfmt
     ];
   };
+  qtDev = mkShell {
+    name = "qt-dev";
+    buildInputs = [
+      cmake
+      clang-tools
+      gdb
+      (
+        with qt6;
+        env "qt-custom-${qtbase.version}" [
+          qmake
+          qtdeclarative
+          qttools
+        ]
+      )
+      libglvnd
+    ];
+  };
 }
 // lib.optionalAttrs (stdenv.isLinux) rec {
   kernelDev = mkShell {
