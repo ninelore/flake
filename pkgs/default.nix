@@ -17,6 +17,19 @@ with import inputs.nixpkgs {
   scripts-9l = callPackage ./scripts-9l { };
   submarine = callPackage ./submarine { };
 
+  quassel_git = kdePackages.callPackage ./quassel-git { };
+  quasselClient_git = quassel.override {
+    monolithic = false;
+    client = true;
+    tag = "-client-kf6";
+  };
+  quasselDaemon_git = quassel.override {
+    monolithic = false;
+    enableDaemon = true;
+    withKDE = false;
+    tag = "-daemon-qt6";
+  };
+
   # Aliases
   chrultrabook-tools = throw "chrultrabook-tools has been removed in favor of the upstream flake";
   linux_mt81 = throw "'linux_mt81' has been removed in favor of 'linux_cros_latest'";
