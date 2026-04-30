@@ -130,6 +130,7 @@ stdenv.mkDerivation {
         "quasselclient"
       else
         "quasselcore";
-    inherit (qtbase.meta) platforms;
+    # inherit (qtbase.meta) platforms;
+    platforms = lib.platforms.linux;
   };
 }
