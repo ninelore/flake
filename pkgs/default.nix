@@ -3,6 +3,9 @@ with import inputs.nixpkgs {
   inherit system;
   config.allowUnfree = true;
 };
+let
+  quassel_git = kdePackages.callPackage ./quassel-git { };
+in
 {
   adwaita-kvantum = callPackage ./adwaita-kvantum { };
   alsa-ucm-conf-cros = callPackage ./alsa-ucm-conf-cros { };
@@ -17,13 +20,13 @@ with import inputs.nixpkgs {
   scripts-9l = callPackage ./scripts-9l { };
   submarine = callPackage ./submarine { };
 
-  quassel_git = kdePackages.callPackage ./quassel-git { };
-  quasselClient_git = quassel.override {
+  inherit quassel_git;
+  quasselClient_git = quassel_git.override {
     monolithic = false;
     client = true;
     tag = "-client-kf6";
   };
-  quasselDaemon_git = quassel.override {
+  quasselDaemon_git = quassel_git.override {
     monolithic = false;
     enableDaemon = true;
     withKDE = false;

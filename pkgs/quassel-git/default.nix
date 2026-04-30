@@ -53,7 +53,7 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "quassel";
     repo = "quassel";
-    rev = "31d0daa4301ee2af74bfc7fa0955ea0a8b3c31d6";
+    rev = "31d0daa4301ee2af74bfc7fa0955ea0a8b3c31d6"; # currently a PR for Qt6
     sha256 = "sha256-m3lMRzNA5B8gwUcao5T9xwPH1AhZTSrtG2NuGd5DyGc=";
   };
 
