@@ -24,12 +24,11 @@ in
   quasselClient_git = quassel_git.override {
     monolithic = false;
     client = true;
-    tag = "-client-kf6";
+    tag = "-client-qt6";
   };
   quasselDaemon_git = quassel_git.override {
     monolithic = false;
     enableDaemon = true;
-    withKDE = false;
     tag = "-daemon-qt6";
   };
 

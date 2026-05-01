@@ -2,7 +2,7 @@
   monolithic ? true, # build monolithic Quassel
   enableDaemon ? false, # build Quassel daemon
   client ? false, # build Quassel client
-  tag ? "-kf6", # tag added to the package name
+  tag ? "-qt6", # tag added to the package name
   static ? false, # link statically
 
   lib,
@@ -17,20 +17,9 @@
   zlib,
   qt5compat,
   qtwebengine,
-  phonon,
   libdbusmenu,
   qca,
   openldap,
-
-  withKDE ? true, # enable KDE integration
-  extra-cmake-modules,
-  kconfigwidgets,
-  kcoreaddons,
-  knotifications,
-  knotifyconfig,
-  ktextwidgets,
-  kwidgetsaddons,
-  kxmlgui,
 }:
 
 let
@@ -40,7 +29,6 @@ in
 
 assert monolithic -> !client && !enableDaemon;
 assert client || enableDaemon -> !monolithic;
-assert !buildClient -> !withKDE; # KDE is used by the client only
 
 let
   edf = flag: feature: [ ("-D" + feature + (if flag then "=ON" else "=OFF")) ];
@@ -78,17 +66,6 @@ stdenv.mkDerivation {
   ++ lib.optionals buildClient [
     qtwebengine
     libdbusmenu
-    phonon
-  ]
-  ++ lib.optionals (buildClient && withKDE) [
-    extra-cmake-modules
-    kconfigwidgets
-    kcoreaddons
-    knotifications
-    knotifyconfig
-    ktextwidgets
-    kwidgetsaddons
-    kxmlgui
   ];
 
   cmakeFlags = [
@@ -98,14 +75,13 @@ stdenv.mkDerivation {
   ++ edf monolithic "WANT_MONO"
   ++ edf enableDaemon "WANT_CORE"
   ++ edf enableDaemon "WITH_LDAP"
-  ++ edf client "WANT_QTCLIENT"
-  ++ edf withKDE "WITH_KDE";
+  ++ edf client "WANT_QTCLIENT";
 
   dontWrapQtApps = true;
 
   postFixup =
     lib.optionalString enableDaemon ''
-      wrapProgram "$out/bin/quasselcore" --suffix PATH : "${qtbase.bin}/bin"
+      wrapProgram "$out/bin/quasselcore" --suffix PATH : "${qtbase}/bin"
     ''
     + lib.optionalString buildClient ''
       wrapQtApp "$out/bin/quassel${lib.optionalString client "client"}" \
