@@ -52,6 +52,9 @@ with pkgs;
       coreboot-toolchain.i386
       coreboot-toolchain.x64
       coreboot-toolchain.riscv
+      pkgsCross.aarch64-multiplatform.stdenv.cc
+      pkgsCross.riscv64.stdenv.cc
+      pkgsCross.gnu64.stdenv.cc
       # HOSTCC
       (lib.hiPrio gcc)
     ]
@@ -63,6 +66,9 @@ with pkgs;
       echo "  - 'riscv64-elf-'"
       echo "  - 'i386-elf-'"
       echo "  - 'x86_64-elf-'"
+      echo "  - 'aarch64-unknown-linux-gnu-'"
+      echo "  - 'riscv64-unknown-linux-gnu-'"
+      echo "  - 'x86_64-unknown-linux-gnu-'"
     '';
     PKG_CONFIG_PATH = "${ncurses}/lib/pkgconfig";
   };
