@@ -25,7 +25,13 @@
     in
     {
       devShells = forSystems (
-        system: import ./lib/devShells.nix { pkgs = import inputs.nixpkgs { inherit system; }; }
+        system:
+        import ./lib/devShells.nix {
+          pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [ inputs.self.overlays.default ];
+          };
+        }
       );
 
       formatter = forSystems (system: inputs.nixpkgs.legacyPackages.${system}.nixfmt-tree);

@@ -33,6 +33,7 @@ with pkgs;
     buildInputs = [
       # Tools
       clang-tools
+      depthcharge-tools
       dtc
       ubootTools
       lz4
