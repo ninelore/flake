@@ -16,37 +16,15 @@ This flake harbors various custom derivations and modules for Nix, NixOS and Hom
 - **crosSetuid**: Installs `ectool` and `cbmem` with setuid permission to PATH
 - **crosAarch64**: Fixes and slims down NixOS initrd for aarch64 and custom kernels
 
-## Images
+## Packages
 
-The images always include additional useful tool in addition to the NixOS ISO defaults and are preconfigured to run NetworkManager for Connectivity.
+tbd
+
+### Images
+
+The images include additional useful tools in addition to the NixOS ISO defaults.
 
 The following images are production ready and are [built by CI](https://github.com/ninelore/flake/actions/workflows/images.yml)
-
-- **`raw-x64cros`**: Raw disk image for Chromebooks. While these are intended for stock (Depthcharge) firmware, they can be used for UEFI Firmware aswell.
-  - Architecture: x86_64-linux
-  - Latest NixOS stable kernel (`pkgs.linuxPackages_latest`)
-  - Layout:
-    - 1: 64MiB [Submarine](https://github.com/fyralabs/submarine)
-    - 2: ~700MiB EFI Partition for BLS entries, but also featuring `systemd-boot`
-    - 3: ~8GiB expanding ext4 root partiton
-- **`iso-x86_64`**: Iso image for x86_64 UEFI. Basically like the NixOS minimal iso, but with extra tools, NetworkManager and the latest stable kernel.
-  - Architecture: x86_64-linux
-  - Latest NixOS stable kernel (`pkgs.linuxPackages_latest`)
-  - Layout: ISO 9660 image
-
-### Build Instructions
-
-Refer to [`./lib/images.nix`](lib/images.nix) for a list of all available images.
-
-<details>
-<summary>Quick and dirty instructions for non-NixOS</summary>
-
-1. Have nix installed and the experimental features `nix-command flakes` enabled
-2. ´nix run nixpkgs#cachix -- use 9lore`
-3. ´nix build github:ninelore/flake#nixosImages.&lt;Image&gt;´
-4. Image will be in `./result/` or `./result/iso/`
-
-</details>
 
 ## License
 
