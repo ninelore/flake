@@ -35,8 +35,10 @@ with pkgs;
       clang-tools
       depthcharge-tools
       dtc
-      ubootTools
+      go
       lz4
+      ubootTools
+      u-root
       # menuconfig/nconfig
       pkg-config
       ncurses
