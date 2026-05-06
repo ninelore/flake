@@ -15,11 +15,11 @@
   ...
 }:
 with python3Packages;
-buildPythonApplication rec {
+buildPythonApplication {
   pname = "depthcharge-tools";
   version = "0.6.2";
   src = fetchgit {
-    url = "https://github.com/alpernebbi/depthcharge-tools";
+    url = "https://codeberg.org/cabochon/depthcharge-tools";
     hash = "sha256-3xPRNDUXLOwYy8quMfYSiBfzQl4peauTloqtZBGbvlw=";
   };
 
