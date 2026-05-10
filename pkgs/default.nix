@@ -9,7 +9,6 @@ in
 {
   adwaita-kvantum = callPackage ./adwaita-kvantum { };
   alsa-ucm-conf-cros = callPackage ./alsa-ucm-conf-cros { };
-  archon-app = callPackage ./archon-app { };
   cros-ectool = callPackage ./cros-ectool { };
   #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   depthcharge-tools = callPackage ./depthcharge-tools { };
@@ -38,5 +37,6 @@ in
   linux_cros = throw "'linux_cros' has been removed in favor of 'linux_cros_latest'";
   linux_sc7180 = throw "'linux_sc7180' has been removed in favor of 'linux_latest'";
   linux_sc7180_legacy = throw "'linux_sc7180_legacy' has been removed in favor of 'linux_latest'";
-  warcraftlogs = throw "'warcraftlogs' has been removed in favor of 'archon-app'";
+  warcraftlogs = throw "'warcraftlogs' has been removed";
+  archon-app = throw "'archon-app' has been removed";
 }
