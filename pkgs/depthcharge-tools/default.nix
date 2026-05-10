@@ -9,7 +9,7 @@
   makeWrapper,
   python3Packages,
   ubootTools,
-  vboot_reference,
+  vboot-utils,
   xz,
   zstd,
   ...
@@ -42,7 +42,7 @@ python3Packages.buildPythonApplication (finalAttrs: {
     lz4
     lzop
     ubootTools
-    vboot_reference
+    vboot-utils
     xz
     zstd
   ];
