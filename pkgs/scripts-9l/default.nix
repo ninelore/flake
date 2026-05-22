@@ -20,9 +20,8 @@ let
 
   # Scripts
   flakepath-update = writeNuBin "flakepath-update" (builtins.readFile ./flakepath-update.nu);
-  spawnb = writeShellScriptBin "spawnb" ''
-    nohup $* &
-  '';
+  spawnb = writeShellScriptBin "spawnb" "nohup $* &";
+  sp = writeShellScriptBin "sp" "nohup $* > /dev/null &";
   nx = writeNuBin "nx" (withPkgs [ nh ]) (builtins.readFile ./nx.nu);
   fucking-realtek = writeShellScriptBin "fucking_realtek" ''
     sudo rmmod r8153_ecm r8152
@@ -40,6 +39,7 @@ buildEnv {
     nx
     nxr
     spawnb
+    sp
     fucking-realtek
   ];
 }
