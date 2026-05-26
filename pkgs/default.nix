@@ -16,7 +16,6 @@ in
   linux_cros_latest = callPackage ./linux_cros_latest { };
   plymouth-bgrt-luks = callPackage ./plymouth-bgrt-luks { };
   scripts-9l = callPackage ./scripts-9l { };
-  submarine = callPackage ./submarine { };
 
   inherit quassel_git;
   quasselClient_git = quassel_git.override {
@@ -38,4 +37,5 @@ in
   linux_sc7180_legacy = throw "'linux_sc7180_legacy' has been removed in favor of 'linux_latest'";
   warcraftlogs = throw "'warcraftlogs' has been removed";
   archon-app = throw "'archon-app' has been removed";
+  submarine = throw "'submarine' has been removed in favor of https://codeberg.org/cabochon/fw-build";
 }
