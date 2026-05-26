@@ -10,8 +10,7 @@ in
   adwaita-kvantum = callPackage ./adwaita-kvantum { };
   alsa-ucm-conf-cros = callPackage ./alsa-ucm-conf-cros { };
   cros-ectool = callPackage ./cros-ectool { };
-  #cros-gsctool = callPackage ./cros-gsctool { }; # Broken
-  depthcharge-tools = callPackage ./depthcharge-tools { };
+  # cros-gsctool = callPackage ./cros-gsctool { }; # Broken
   # fiedka = callPackage ./fiedka { }; # WIP
   # ghidra-server = callPackage ./ghidra-server { }; # Broken
   linux_cros_latest = callPackage ./linux_cros_latest { };
