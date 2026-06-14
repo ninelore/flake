@@ -43,6 +43,7 @@ with pkgs;
       pkg-config
       ncurses
       # Additional dependencies
+      gnutls
       libusb1
       libftdi1
       python3Packages.libfdt
