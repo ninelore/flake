@@ -1,0 +1,8 @@
+#!/usr/bin/env -S nu --stdin
+def main [arg?: string] {
+  let input = if $arg != null {$arg} else {$in}
+  $input |
+  str replace --all "\n" '' |
+  decode base64 |
+  decode
+}

@@ -19,6 +19,7 @@ let
   };
 
   # Scripts
+  based = writeNuBin "based" (builtins.readFile ./based.nu);
   flakepath-update = writeNuBin "flakepath-update" (builtins.readFile ./flakepath-update.nu);
   spawnb = writeShellScriptBin "spawnb" "nohup $* &";
   sp = writeShellScriptBin "sp" "nohup $* > /dev/null &";
@@ -35,6 +36,7 @@ in
 buildEnv {
   name = "9l-scripts";
   paths = [
+    based
     flakepath-update
     nx
     nxr
