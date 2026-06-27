@@ -27,6 +27,9 @@ linuxManualConfig rec {
     patch = ../_linuxPatches/${patch}.patch;
   }) patchList;
 
+  # Workaround for unintended breaking change https://github.com/NixOS/nixpkgs/pull/535309
+  features.efiBootStub = true;
+
   extraMeta = {
     platforms = [ "aarch64-linux" ];
   };
