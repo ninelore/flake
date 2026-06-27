@@ -36,13 +36,13 @@ let
 in
 stdenv.mkDerivation {
   pname = "quassel${tag}";
-  version = "0.14.0-unstable-2026-05-18";
+  version = "0.14.0-unstable-2026-05-26";
 
   src = fetchFromGitHub {
     owner = "quassel";
     repo = "quassel";
-    rev = "99f9ac7cfb6da6ac3c2096cdf29642379b698e43"; # currently a PR for Qt6
-    sha256 = "sha256-k8Ul/3uPLKvzVMZUA4Dll+NwBQtL1/HzPmCUBKcb130=";
+    rev = "6b8343eeffa291be941fd18d637210f048495318"; # currently a PR for Qt6
+    sha256 = "sha256-TiAAIvzazFKxbh+rG9I09EZU6fhIv1anakVuFLY3t5c=";
   };
 
   # Prevent ``undefined reference to `qt_version_tag''' in SSL check
