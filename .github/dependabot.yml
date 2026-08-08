@@ -9,8 +9,9 @@ updates:
   - package-ecosystem: "nix"
     directory: "/"
     schedule:
-      interval: "cron"
-      cronjob: "0 2 * * *"
+      interval: "daily"
+      # interval: "cron"
+      # cronjob: "0 2 * * *"
     groups:
       batch:
         patterns:
