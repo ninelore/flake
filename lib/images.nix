@@ -86,6 +86,8 @@ let
         programs.nix-index-database.comma.enable = true;
         programs.flashprog.enable = true;
         programs.flashrom.enable = true;
+        # Large
+        services.orca.enable = lib.mkForce false;
         environment.systemPackages =
           with pkgs;
           [
