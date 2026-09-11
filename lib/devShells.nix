@@ -27,7 +27,7 @@ with pkgs;
     ];
   };
 }
-// lib.optionalAttrs (stdenv.isLinux) rec {
+// lib.optionalAttrs (stdenv.hostPlatform.isLinux) rec {
   kernelDev = mkShell {
     name = "embedded-dev";
     buildInputs = [
